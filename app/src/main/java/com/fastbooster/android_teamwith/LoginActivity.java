@@ -15,11 +15,5 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-
-        EditText editText = findViewById(R.id.editText);
-        TextView textView = findViewById(R.id.textView11);
-        Typeface typeface = ResourcesCompat.getFont(this, R.font.font_bmjua);
-        editText.setTypeface(typeface);
-        textView.setTypeface(typeface);
     }
 }
