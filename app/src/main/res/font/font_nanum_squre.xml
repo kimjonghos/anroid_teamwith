@@ -4,9 +4,9 @@
 
     <font android:fontStyle="normal"
         app:fontStyle="normal"
-        android:fontWeight="900"
-        app:fontWeight="900"
-        android:font="@font/bmjua"
-        app:font="@font/bmjua" />
+        android:fontWeight="600"
+        app:fontWeight="600"
+        android:font="@font/nanumsquareroundb"
+        app:font="@font/nanumsquareroundb" />
 
 </font-family>
