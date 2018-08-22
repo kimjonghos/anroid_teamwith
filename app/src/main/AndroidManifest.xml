@@ -9,8 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity android:name=".MainActivity" />
         <activity
             android:name=".TeamActivity"
@@ -19,13 +17,19 @@
             android:name=".ProfileEditActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".LoadingActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name=".LoginActivity" android:theme="@android:style/Theme.NoTitleBar">
+        <activity
+            android:name=".LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MyHistoryActivity"></activity>
     </application>
 
 </manifest>
