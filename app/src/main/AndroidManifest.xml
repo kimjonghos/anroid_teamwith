@@ -26,8 +26,6 @@
         <activity
             android:name=".TeamLeaderActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
-        <activity android:name=".MyTeamActivity" />
-
 
         <activity
             android:name=".LoadingActivity"
@@ -44,13 +42,17 @@
         <activity
             android:name=".MyHistoryActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
+
+        </activity>
+
+        <activity
+            android:name=".MyTeamActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-
 </manifest>
