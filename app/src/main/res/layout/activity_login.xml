@@ -34,12 +34,14 @@
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="#ffffff"
+            android:background="@drawable/border"
             android:ems="10"
+            android:fontFamily="@font/font_bmjua"
             android:hint="아이디를 입력하세요"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            android:textSize="14sp" />
+            android:textSize="16sp"
+            android:textStyle="normal" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,12 +55,13 @@
             android:layout_width="320dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="#ffffff"
+            android:background="@drawable/border"
             android:ems="10"
+            android:fontFamily="@font/font_bmjua"
             android:hint="비밀번호를 입력하세요"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -77,7 +80,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="CheckBox" />
+                android:fontFamily="@font/font_bmjua"
+                android:text="  자동 로그인" />
 
             <Button
                 android:id="@+id/button"
@@ -86,6 +90,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="#00ffffff"
+                android:fontFamily="@font/font_bmjua"
                 android:gravity="right"
                 android:text="아이디/비밀번호 찾기"
                 android:textColor="#ffffff"
@@ -105,6 +110,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@color/colorAccent"
+            android:fontFamily="@font/font_bmjua"
             android:text="로그인"
             android:textColor="#ffffff"
             android:textSize="20sp" />
@@ -122,6 +128,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="#ffffff"
+            android:fontFamily="@font/font_bmjua"
             android:gravity="center"
             android:text="회원가입"
             android:textColor="@color/colorPrimaryDark"
@@ -141,6 +148,7 @@
             android:layout_gravity="right"
             android:layout_marginRight="20dp"
             android:background="#00ffffff"
+            android:fontFamily="@font/font_bmjua"
             android:gravity="right"
             android:text="둘러보기"
             android:textColor="#ffffff"
