@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fastbooster.android_teamwith">
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,43 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity android:name=".MainActivity" />
         <activity
-
             android:name=".TeamActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
             android:name=".ProfileEditActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-
-        <activity android:name=".TeamActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".LoadingActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name=".LoginActivity" android:theme="@android:style/Theme.NoTitleBar">
-
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-        <activity android:name=".ProfileEditActivity" />
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity android:name=".HomeActivity" />
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@android:style/Theme.NoTitleBar">
-
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".MemberIntroActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity android:name=".SearchActivity">
 
         </activity>
-        <activity android:name=".MemberIntroActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:name=".util.PologActivity" />
+        <activity android:name=".PortfolioActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
