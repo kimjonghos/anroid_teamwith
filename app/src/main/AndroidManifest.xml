@@ -18,14 +18,11 @@
             android:theme="@android:style/Theme.Light.NoTitleBar">
 
             android:name=".ProfileEditActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity android:name=".TeamActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoadingActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".LoginActivity" android:theme="@android:style/Theme.NoTitleBar">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
