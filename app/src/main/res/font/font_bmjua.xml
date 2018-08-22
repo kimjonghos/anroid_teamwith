@@ -6,7 +6,7 @@
         app:fontStyle="normal"
         android:fontWeight="900"
         app:fontWeight="900"
-        android:font="@font/bmjua_ttf"
-        app:font="@font/bmjua_ttf" />
+        android:font="@font/bmjua"
+        app:font="@font/bmjua" />
 
 </font-family>
