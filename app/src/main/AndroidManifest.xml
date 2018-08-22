@@ -23,8 +23,16 @@
 
         <activity
             android:name=".ProfileEditActivity"
+     android:theme="@android:style/Theme.Light.NoTitleBar">
+        </activity>
+          
+
+        <activity
+            android:name=".TeamLeaderActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>
+        <activity android:name=".MyTeamActivity"/>
+       
 
         <activity
             android:name=".LoadingActivity"
