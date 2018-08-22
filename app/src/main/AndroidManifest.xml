@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".MainActivity" />
         <activity
 
@@ -32,6 +33,7 @@
             </intent-filter>
         </activity>
 
+
         <activity android:name=".ProfileEditActivity" />
         <activity android:name=".HomeActivity" />
         <activity
@@ -40,6 +42,7 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@android:style/Theme.NoTitleBar">
+
 
         </activity>
         <activity android:name=".MemberIntroActivity" android:theme="@android:style/Theme.Light.NoTitleBar"/>
