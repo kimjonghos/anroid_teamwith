@@ -9,31 +9,56 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+
+        <activity android:name=".HomeActivity">
+        </activity>
+
+        <activity android:name=".MainActivity">
+        </activity>
+
         <activity
             android:name=".TeamActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+        </activity>
+
         <activity
             android:name=".ProfileEditActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-        <activity android:name=".HomeActivity" />
-        <activity
-            android:name=".LoadingActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@android:style/Theme.NoTitleBar"></activity>
+     android:theme="@android:style/Theme.Light.NoTitleBar">
+        </activity>
+          
+
         <activity
             android:name=".TeamLeaderActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>
-        <activity android:name=".MyTeamActivity">
+        <activity android:name=".MyTeamActivity"/>
+       
+
+        <activity
+            android:name=".LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name=".MemberIntroActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name=".MyHistoryActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
