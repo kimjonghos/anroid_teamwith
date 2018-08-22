@@ -11,31 +11,40 @@
         android:id="@+id/imageView"
         android:layout_width="111dp"
         android:layout_height="105dp"
-        app:srcCompat="@drawable/member"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="34dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/member" />
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="356dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="147dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memberName">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:outlineProvider="background">
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:paddingLeft="20dp"
+                android:text="역할"
+                android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/memberRoleTb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -44,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -52,7 +61,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:paddingLeft="20dp"
+                android:text="지역"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -63,8 +74,10 @@
         </LinearLayout>
 
         <LinearLayout
+            style=""
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
             android:orientation="horizontal">
 
             <TextView
@@ -72,7 +85,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:paddingLeft="20dp"
+                android:text="자기소개"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -82,5 +97,20 @@
                 android:text="TextView" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/memberName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="121dp"
+        android:text="황규진"
+        android:textFontWeight="2"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
