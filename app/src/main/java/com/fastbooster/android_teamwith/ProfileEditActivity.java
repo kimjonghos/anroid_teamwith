@@ -97,13 +97,13 @@ public class ProfileEditActivity extends Activity {
                             if (checked[j]) {
                                 cnt++;
                                 if (cnt == 2) {
-                                    regionStr.append(", " + regionList[j] ); //체크된 지역
+                                    regionStr.append(", " + regionList[j]); //체크된 지역
                                     break;
                                 }
                                 regionStr.append(regionList[j]); //체크된 지역
                             }
                         }
-                        region.setText(regionStr+ "  >");
+                        region.setText(regionStr + "  >");
                     }
                 });
                 dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
