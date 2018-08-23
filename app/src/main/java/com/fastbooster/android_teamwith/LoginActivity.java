@@ -60,7 +60,7 @@ public class LoginActivity extends Activity {
 
     public void register(View view) {
         Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), WebActivity.class);
+       // intent.setClass(getApplicationContext(), WebActivity.class);
         startActivity(intent);
     }
 
