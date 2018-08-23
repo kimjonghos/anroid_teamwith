@@ -45,24 +45,15 @@
 
         <activity android:name=".SearchActivity" android:theme="@android:style/Theme.Light.NoTitleBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+        <activity
+            android:name=".MyTeamActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>
         <activity android:name=".TeamSearchActivity" android:theme="@android:style/Theme.Light.NoTitleBar">
 
         </activity>
-
-
-        <activity
-            android:name=".MyTeamActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity android:name=".ApplicationActivity"></activity>
         <activity android:name=".util.PologActivity">
-
         </activity>
         <activity android:name=".PortfolioActivity">
 
