@@ -9,38 +9,35 @@ package="com.fastbooster.android_teamwith">
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".MainActivity" />
+    <activity android:name=".MainActivity" >
+    </activity>
     <activity
         android:name=".TeamActivity"
-        android:theme="@android:style/Theme.Light.NoTitleBar" />
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+    </activity>
     <activity
         android:name=".ProfileEditActivity"
-        android:theme="@android:style/Theme.Light.NoTitleBar" />
-    <activity android:name=".HomeActivity" />
-
-
-
-
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+    </activity>
+    <activity android:name=".HomeActivity" >
+    </activity>
 
     <activity
         android:name=".TeamLeaderActivity"
         android:theme="@android:style/Theme.Light.NoTitleBar">
-
     </activity>
-    <activity android:name=".MyTeamActivity" />
 
-
+    <activity android:name=".MyTeamActivity" >
+    </activity>
 
     <activity
         android:name=".LoadingActivity"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-
     </activity>
 
     <activity android:name=".LoginActivity"
-
-
-        android:theme="@android:style/Theme.NoTitleBar" />
+        android:theme="@android:style/Theme.NoTitleBar" >
+    </activity>
 
     <activity
         android:name=".MemberIntroActivity"
@@ -56,13 +53,7 @@ package="com.fastbooster.android_teamwith">
         </intent-filter>
     </activity>
     <activity android:name=".PortfolioActivity">
-
     </activity>
-
-
-
-
-
 <activity
     android:name=".MyHistoryActivity"
     android:theme="@android:style/Theme.Light.NoTitleBar">
