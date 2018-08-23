@@ -32,10 +32,9 @@
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".MyHistoryActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-
-        </activity>
-        <activity android:name=".ApplicationActivity"></activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name=".ApplicationActivity" />
+        <activity android:name=".TeamSearchActivity"></activity>
     </application>
 
 </manifest>
