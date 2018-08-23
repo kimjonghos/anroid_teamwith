@@ -58,10 +58,4 @@ public class LoginActivity extends Activity {
         btnEnter = this.findViewById(R.id.y_btn_enter);
     }
 
-    public void register(View view) {
-        Intent intent = new Intent();
-        intent.setClass(getApplicationContext(), WebActivity.class);
-        startActivity(intent);
-    }
-
 }
