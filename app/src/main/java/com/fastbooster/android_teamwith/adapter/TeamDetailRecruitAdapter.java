@@ -45,21 +45,21 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
         if(itemLayout==null){
             itemLayout=layoutInflater.inflate(R.layout.recruit_layout,null);
             viewHolder=new RecruitViewHolder();
-            viewHolder.htvRecruitRole=(TextView)itemLayout.findViewById(R.id.htvRecruitRole);
-            viewHolder.htvRecruitPeopleNum=(TextView)itemLayout.findViewById(R.id.htvRecruitPeopleNum);
-            viewHolder.htvRecruitExplain=(TextView)itemLayout.findViewById(R.id.htvRecruitExplain);
-            viewHolder.htvRecruitPreference=(TextView)itemLayout.findViewById(R.id.htvRecruitPreference);
-            viewHolder.htvRecruitSkill=(TextView)itemLayout.findViewById(R.id.htvRecruitSkill);
+            viewHolder.hktvRecruitRole=(TextView)itemLayout.findViewById(R.id.hktvRecruitRole);
+            viewHolder.hktvRecruitPeopleNum=(TextView)itemLayout.findViewById(R.id.hktvRecruitPeopleNum);
+            viewHolder.hktvRecruitExplain=(TextView)itemLayout.findViewById(R.id.hktvRecruitExplain);
+            viewHolder.hktvRecruitPreference=(TextView)itemLayout.findViewById(R.id.hktvRecruitPreference);
+            viewHolder.hktvRecruitSkill=(TextView)itemLayout.findViewById(R.id.hktvRequireSkill);
             itemLayout.setTag(viewHolder);
         }
         else{
             viewHolder=(RecruitViewHolder)itemLayout.getTag();
         }
-        viewHolder.htvRecruitRole.setText(data.get(i).getRoleId());
-        viewHolder.htvRecruitPeopleNum.setText(data.get(i).getRecruitPeopleNum());
-        viewHolder.htvRecruitExplain.setText(data.get(i).getRecruitExplain());
-        viewHolder.htvRecruitPreference.setText(data.get(i).getRecruitPreference());
-        viewHolder.htvRecruitSkill.setText("gg");
+        viewHolder.hktvRecruitRole.setText(data.get(i).getRoleId());
+        viewHolder.hktvRecruitPeopleNum.setText(data.get(i).getRecruitPeopleNum());
+        viewHolder.hktvRecruitExplain.setText(data.get(i).getRecruitExplain());
+        viewHolder.hktvRecruitPreference.setText(data.get(i).getRecruitPreference());
+        viewHolder.hktvRecruitSkill.setText("gg");
 
         return itemLayout;
     }
