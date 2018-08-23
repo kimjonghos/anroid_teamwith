@@ -32,24 +32,23 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@android:style/Theme.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name=".MemberIntroActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar" />
 
-        <activity android:name=".PologActivity"></activity>
+        <activity android:name=".PologActivity">
 
-
-        <activity android:name=".PortfolioSearchActivity"></activity>
-
+        </activity>
+      
+       
+      
+        <activity android:name=".PortfolioSearchActivity" >
+          
+      </activity>
         <activity android:name=".MyPologActivity"></activity>
-
 
         <activity
             android:name=".MyHistoryActivity"
@@ -58,6 +57,7 @@
         <activity
             android:name=".SearchActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+
         <activity
             android:name=".MyTeamActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
@@ -74,7 +74,11 @@
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
 
         <activity android:name=".PortfolioActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
