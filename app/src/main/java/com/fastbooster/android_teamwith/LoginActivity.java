@@ -1,6 +1,7 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,11 @@ public class LoginActivity extends Activity {
                 LoginTask loginTask = new LoginTask(getApplicationContext());
                 String[] accountInfos = new String[]{editTextId.getText().toString(), editTextPwd.getText().toString()};
                 loginTask.execute(accountInfos);
+
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+
             }
         });
     }

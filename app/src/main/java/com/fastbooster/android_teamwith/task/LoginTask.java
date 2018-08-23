@@ -1,10 +1,12 @@
 package com.fastbooster.android_teamwith.task;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fastbooster.android_teamwith.HomeActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.api.LoginApi;
@@ -25,13 +27,13 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         String result = null;
-        try{
+        try {
             result = jsonObject.getString("result");
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(result.equals("true")) {
+        if (result.equals("true")) {
             try {
                 JSONObject member = jsonObject.getJSONObject("memberSimpleVO");
                 MemberSimpleVO memberSimpleVO = new MemberSimpleVO(member);
@@ -39,8 +41,7 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             Toast.makeText(context, "로그인 정보가 올바르지 않습니다", Toast.LENGTH_SHORT).show();
         }
     }
@@ -50,7 +51,7 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
         JSONObject json = null;
         try {
             json = LoginApi.login(accountInfos);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return json;
