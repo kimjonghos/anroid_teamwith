@@ -4,33 +4,321 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView41"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Information" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="email-dfsf" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="intor 안녕" />
 
-    <TextView
-        android:id="@+id/textView48"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Interest" />
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Information"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="빅데이터\r\n보안" />
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="email-dfsf"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="intor 안녕"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Interest"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="빅데이터\n보안"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Abilities"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Praise"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView60"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Tendencies"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="업무중심"
+                    android:textSize="16sp" />
+
+                <SeekBar
+                    android:id="@+id/jtendency1"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/textView65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="관계중심"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/확실성"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="확실성"
+                    android:textSize="16sp" />
+
+                <SeekBar
+                    android:id="@+id/jtendency2"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/textView68"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모험추구"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/textView69"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="주도적"
+                    android:textSize="16sp" />
+
+                <SeekBar
+                    android:id="@+id/jtendency3"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/textView70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="수동적"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="수직적"
+                    android:textSize="16sp" />
+
+                <SeekBar
+                    android:id="@+id/jtendency4"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/textView65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="수평적"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp">
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="독립적"
+                    android:textSize="16sp" />
+
+                <SeekBar
+                    android:id="@+id/jtendency5"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/textView65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="상호의존적"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

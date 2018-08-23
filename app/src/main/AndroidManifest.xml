@@ -20,7 +20,13 @@
 
         <activity
             android:name=".ProfileEditActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity
@@ -44,11 +50,7 @@
         <activity
             android:name=".MyHistoryActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
     </application>

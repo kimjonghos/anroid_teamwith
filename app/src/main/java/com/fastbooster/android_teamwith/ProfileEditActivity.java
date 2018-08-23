@@ -18,9 +18,13 @@ public class ProfileEditActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_edit);
+        setContentView(R.layout.profile_layout);
+
+/*
         final TextView role = findViewById(R.id.memberRoleTv);
         final TextView region = findViewById(R.id.memberRegionTv);
+
+
 
         //역할
         LinearLayout roleLayout = findViewById(R.id.roleLayout);
@@ -124,10 +128,11 @@ public class ProfileEditActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileEditActivity.this, MemberIntroActivity.class);
+
                 startActivity(intent);
             }
         });
-
+*/
     }
 }
 
