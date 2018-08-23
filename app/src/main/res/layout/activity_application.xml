@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView35"
+            android:id="@+id/ytv_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -23,7 +23,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/ytv_page_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -34,7 +34,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/ytv_blank"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,7 +43,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/k_list_view"
+        android:id="@+id/klv_my_history"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
