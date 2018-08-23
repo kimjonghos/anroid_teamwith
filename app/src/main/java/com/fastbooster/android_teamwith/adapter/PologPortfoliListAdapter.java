@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class PologPortfoliListAdapter extends BaseAdapter {
@@ -43,8 +41,8 @@ public class PologPortfoliListAdapter extends BaseAdapter {
         View itemLayout=view;
         if(itemLayout==null){
             itemLayout=inflater.inflate(R.layout.portfolioinfo_layout,null);
-            TextView tv1=(TextView)itemLayout.findViewById(R.id.ktvPortfolioTitle1);
-            TextView tv2=(TextView)itemLayout.findViewById(R.id.ktvPortfolioTitle2);
+            TextView tv1=(TextView)itemLayout.findViewById(R.id.hktvRequireSkill);
+            TextView tv2=(TextView)itemLayout.findViewById(R.id.hktvFaqQuestion);
 
             tv1.setText(data.get(i));
             tv2.setText(data.get(i));

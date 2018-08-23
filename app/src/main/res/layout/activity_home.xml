@@ -408,7 +408,7 @@
                         android:text="게시판 프로젝트" />
 
                     <TextView
-                        android:id="@+id/textView27"
+                        android:id="@+id/hktvRecruitExplain"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="라이프 스타일"
@@ -447,7 +447,7 @@
                         android:src="@drawable/portfolio" />
 
                     <TextView
-                        android:id="@+id/ktvPortfolioTitle1"
+                        android:id="@+id/hktvRequireSkill"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="게시판 프로젝트" />
@@ -485,7 +485,7 @@
                         android:src="@drawable/portfolio" />
 
                     <TextView
-                        android:id="@+id/ktvPortfolioTitle2"
+                        android:id="@+id/hktvFaqQuestion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="게시판 프로젝트" />
