@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="81dp">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/hivLeaderPic"
         android:layout_width="295dp"
         android:layout_height="73dp"
         android:layout_marginEnd="8dp"

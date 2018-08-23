@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fastbooster.android_teamwith">
+package="com.fastbooster.android_teamwith">
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+<application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <activity android:name=".MainActivity" />
+    <activity
+        android:name=".TeamActivity"
+        android:theme="@android:style/Theme.Light.NoTitleBar" />
+    <activity
+        android:name=".ProfileEditActivity"
+        android:theme="@android:style/Theme.Light.NoTitleBar" />
+    <activity android:name=".HomeActivity" />
+
 
     <application
         android:allowBackup="true"
@@ -19,8 +36,8 @@
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".TeamLeaderActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-        <activity android:name=".MyTeamActivity" />
+
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -32,9 +49,25 @@
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".MyHistoryActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
-        <activity android:name=".ApplicationActivity" />
-        <activity android:name=".TeamSearchActivity"></activity>
-    </application>
 
+        <activity android:name=".TeamSearchActivity"></activity>
+
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+        </activity>
+        <activity
+            android:name=".MyTeamActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+        </activity>
+        <activity android:name=".ApplicationActivity"></activity>
+       <activity android:name=".util.PologActivity" >
+
+        </activity>
+        <activity android:name=".PortfolioActivity">
+
+        </activity>
+
+
+
+    </application>
 </manifest>
+
