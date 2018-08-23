@@ -19,9 +19,9 @@ public class ProfileEditActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.profile_layout);
+        setContentView(R.layout.activity_profile_edit);
 
-/*
+
         final TextView role = findViewById(R.id.memberRoleTv);
         final TextView region = findViewById(R.id.memberRegionTv);
 
@@ -135,7 +135,7 @@ public class ProfileEditActivity extends Activity {
                 startActivity(intent);
             }
         });
-*/
+
 
     }
 }
