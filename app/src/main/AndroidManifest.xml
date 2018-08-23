@@ -49,6 +49,9 @@ package="com.fastbooster.android_teamwith">
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".MyHistoryActivity"
+
+        <activity android:name=".TeamSearchActivity"></activity>
+
             android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>
         <activity
@@ -62,6 +65,7 @@ package="com.fastbooster.android_teamwith">
         <activity android:name=".PortfolioActivity">
 
         </activity>
+
 
 
     </application>
