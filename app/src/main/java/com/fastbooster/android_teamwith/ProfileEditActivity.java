@@ -18,9 +18,13 @@ public class ProfileEditActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_edit);
+        setContentView(R.layout.profile_layout);
+
+/*
         final TextView role = findViewById(R.id.memberRoleTv);
         final TextView region = findViewById(R.id.memberRegionTv);
+
+
 
         //역할
         LinearLayout roleLayout = findViewById(R.id.roleLayout);
@@ -97,13 +101,13 @@ public class ProfileEditActivity extends Activity {
                             if (checked[j]) {
                                 cnt++;
                                 if (cnt == 2) {
-                                    regionStr.append(", " + regionList[j] ); //체크된 지역
+                                    regionStr.append(", " + regionList[j]); //체크된 지역
                                     break;
                                 }
                                 regionStr.append(regionList[j]); //체크된 지역
                             }
                         }
-                        region.setText(regionStr+ "  >");
+                        region.setText(regionStr + "  >");
                     }
                 });
                 dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -124,10 +128,11 @@ public class ProfileEditActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileEditActivity.this, MemberIntroActivity.class);
+
                 startActivity(intent);
             }
         });
-
+*/
     }
 }
 
