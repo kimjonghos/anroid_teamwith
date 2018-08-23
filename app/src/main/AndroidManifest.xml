@@ -33,11 +33,7 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@android:style/Theme.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MemberIntroActivity"
@@ -45,11 +41,7 @@
             android:theme="@android:style/Theme.Light.NoTitleBar" />
       
         <activity android:name=".PologActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
       
        
@@ -59,7 +51,6 @@
       </activity>
         <activity android:name=".MyPologActivity"></activity>
 
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name=".MyHistoryActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
@@ -83,7 +74,11 @@
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
 
         <activity android:name=".PortfolioActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
