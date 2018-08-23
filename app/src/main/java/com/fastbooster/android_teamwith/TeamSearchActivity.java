@@ -51,8 +51,6 @@ public class TeamSearchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_search);
 
-
-
         back = findViewById(R.id.jbackToSearchbtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
