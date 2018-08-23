@@ -46,12 +46,14 @@
         <activity android:name=".PologActivity">
 
         </activity>
+
       
        
       
         <activity android:name=".PortfolioSearchActivity" >
           
       </activity>
+
         <activity android:name=".MyPologActivity"></activity>
 
         <activity
@@ -78,6 +80,7 @@
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
 
         <activity android:name=".PortfolioActivity">
+
         </activity>
 
 

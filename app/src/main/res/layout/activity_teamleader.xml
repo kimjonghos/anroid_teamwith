@@ -64,11 +64,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/htvRegion"
+                    app:layout_constraintTop_toBottomOf="@+id/hktvRegion"
                     app:srcCompat="@drawable/img7" />
 
                 <TextView
-                    android:id="@+id/htvTeamProjectName"
+                    android:id="@+id/hktvProjectName"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,21 +86,21 @@
                     android:layout_marginTop="16dp"
                     android:text="(팀 분야)"
 
-                    app:layout_constraintStart_toEndOf="@+id/htvTeamProjectName"
+                    app:layout_constraintStart_toEndOf="@+id/hktvProjectName"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/htvTeanName"
+                    android:id="@+id/hTeamDetailTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     android:text="팀명"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/htvTeamProjectName" />
+                    app:layout_constraintTop_toBottomOf="@+id/hktvProjectName" />
 
                 <TextView
-                    android:id="@+id/htvTeamEndDate"
+                    android:id="@+id/hktvTeamEndDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -109,21 +109,21 @@
                     android:text="모집 마감 일자(D-day)"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/htvTeanName"
+                    app:layout_constraintStart_toEndOf="@+id/hTeamDetailTitle"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/htvRegion"
+                    android:id="@+id/hktvRegion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
                     android:text="지역"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/htvTeanName" />
+                    app:layout_constraintTop_toBottomOf="@+id/hTeamDetailTitle" />
 
                 <TextView
-                    android:id="@+id/htvLeaderName"
+                    android:id="@+id/hktvLeaderName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -140,7 +140,7 @@
                     android:layout_marginTop="16dp"
                     android:text="팀장 역할"
                     app:layout_constraintStart_toEndOf="@+id/y_image_view_logo"
-                    app:layout_constraintTop_toBottomOf="@+id/htvLeaderName" />
+                    app:layout_constraintTop_toBottomOf="@+id/hktvLeaderName" />
 
                 <LinearLayout
                     android:layout_width="183dp"
@@ -151,8 +151,8 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.272"
-                    app:layout_constraintStart_toEndOf="@+id/htvRegion"
-                    app:layout_constraintTop_toBottomOf="@+id/htvTeamEndDate">
+                    app:layout_constraintStart_toEndOf="@+id/hktvRegion"
+                    app:layout_constraintTop_toBottomOf="@+id/hktvTeamEndDate">
 
 
                     <ImageView
@@ -215,7 +215,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/htvTeamSummary"
+                    android:id="@+id/hktvTeamSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="22dp"
                     android:layout_marginStart="32dp"
@@ -233,10 +233,10 @@
                     android:text="상세 설명"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/htvTeamSummary" />
+                    app:layout_constraintTop_toBottomOf="@+id/hktvTeamSummary" />
 
                 <TextView
-                    android:id="@+id/htvTeamContent"
+                    android:id="@+id/hktvTeamContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -254,10 +254,10 @@
                     android:text="참여 공모전 정보"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/htvTeamContent" />
+                    app:layout_constraintTop_toBottomOf="@+id/hktvTeamContent" />
 
                 <TextView
-                    android:id="@+id/htvTeamContest"
+                    android:id="@+id/hktvTeamContest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -275,7 +275,7 @@
                     android:text="모집 정보"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/htvTeamContest" />
+                    app:layout_constraintTop_toBottomOf="@+id/hktvTeamContest" />
 
             </android.support.constraint.ConstraintLayout>
 

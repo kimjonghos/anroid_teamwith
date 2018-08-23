@@ -50,4 +50,6 @@ public class LoginActivity extends Activity {
         btnEnter = this.findViewById(R.id.y_btn_enter);
     }
 
+
 }
+
