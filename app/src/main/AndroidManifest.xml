@@ -36,8 +36,7 @@ package="com.fastbooster.android_teamwith">
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".TeamLeaderActivity"
-
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -49,11 +48,8 @@ package="com.fastbooster.android_teamwith">
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".MyHistoryActivity"
-
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity android:name=".TeamSearchActivity"></activity>
-
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-        </activity>
         <activity
             android:name=".MyTeamActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
@@ -70,4 +66,3 @@ package="com.fastbooster.android_teamwith">
 
     </application>
 </manifest>
-
