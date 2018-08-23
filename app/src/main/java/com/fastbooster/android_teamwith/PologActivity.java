@@ -2,10 +2,11 @@ package com.fastbooster.android_teamwith;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.DrawableRes;
-import android.support.v4.app.FragmentTransaction;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class PologActivity extends AppCompatActivity {
 
@@ -56,10 +58,12 @@ public class PologActivity extends AppCompatActivity {
                 //포트폴리오 레이아웃줄것
                 FragmentManager fm=getFragmentManager();
                 Fragment fragment=fm.findFragmentById(R.id.kframe);
-                if(fragment==null){
 
-
-                }
+                    FragmentTransaction tr=fm.beginTransaction();
+                    PortfolioFragment pf=new PortfolioFragment();
+                    tr.add(R.id.kframe,pf,"portfolio");
+                    tr.commit();
+                Toast.makeText(getApplicationContext(),"프래그먼트",Toast.LENGTH_SHORT).show();
                 break;
 
         }

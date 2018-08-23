@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.R;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -36,11 +39,17 @@ public class PologPortfoliListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         View itemLayout=view;
         if(itemLayout==null){
             itemLayout=inflater.inflate(R.layout.portfolioinfo_layout,null);
+            TextView tv1=(TextView)itemLayout.findViewById(R.id.ktvPortfolioTitle1);
+            TextView tv2=(TextView)itemLayout.findViewById(R.id.ktvPortfolioTitle2);
+
+            tv1.setText(data.get(i));
+            tv2.setText(data.get(i));
         }
 
-        return null;
+        return itemLayout;
     }
 }
