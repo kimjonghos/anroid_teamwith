@@ -1,13 +1,14 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import java.io.IOException;
+import com.fastbooster.android_teamwith.task.LoginTask;
 
 public class LoginActivity extends Activity {
     private EditText editTextId;
@@ -23,14 +24,18 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    //login(view);
-                } catch(Exception e) {
-                    e.printStackTrace();
-                }
+                LoginTask loginTask = new LoginTask(getApplicationContext());
+                String[] accountInfos = new String[]{editTextId.getText().toString(), editTextPwd.getText().toString()};
+                loginTask.execute(accountInfos);
+
+                Intent intent = new Intent();
+                intent.setClass(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+
             }
         });
     }
@@ -44,4 +49,5 @@ public class LoginActivity extends Activity {
         btnRegister = this.findViewById(R.id.y_btn_register);
         btnEnter = this.findViewById(R.id.y_btn_enter);
     }
+
 }
