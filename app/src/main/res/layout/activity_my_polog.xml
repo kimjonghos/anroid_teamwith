@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PologActivity">
+    tools:context=".MyPologActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         <TextView
             android:id="@+id/textView72"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:text="조란"
             android:textAlignment="center"
@@ -37,12 +37,16 @@
             android:textSize="25dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView76"
-            android:layout_width="13dp"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:textSize="25dp" />
+            android:background="@android:color/transparent"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            app:srcCompat="@drawable/setting" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -108,25 +112,23 @@
                 android:layout_marginBottom="50dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/button"
-                android:text="칭찬하기"
+                android:text="수정하기"
                 android:textColor="@color/colorAccent"
                 android:textSize="17dp" />
         </LinearLayout>
     </LinearLayout>
 
     <TabHost
-        android:id="@+id/ktabHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/contentLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView85"
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="0.1dp"
                 android:layout_weight="0"
@@ -136,10 +138,10 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" >
 
                 <Button
-                    android:id="@+id/kbtnProfile"
+                    android:id="@+id/kbtnProfile2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -147,7 +149,7 @@
                     android:text="프로필" />
 
                 <TextView
-                    android:id="@+id/textView84"
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
@@ -156,7 +158,7 @@
                     android:textSize="1dp" />
 
                 <Button
-                    android:id="@+id/kbtnPortfolio"
+                    android:id="@+id/kbtnPortfolio2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -165,7 +167,7 @@
             </TabWidget>
 
             <TextView
-                android:id="@+id/textView86"
+                android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="0.1dp"
                 android:layout_weight="0"
@@ -173,11 +175,9 @@
                 android:text=" " />
 
             <FrameLayout
-                android:id="@+id/kframe"
+                android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                >
+                android:layout_height="match_parent">
 
             </FrameLayout>
         </LinearLayout>
