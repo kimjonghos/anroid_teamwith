@@ -26,7 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/htvLeaderName">
+            app:layout_constraintTop_toBottomOf="@+id/hktvLeaderName">
 
             <TextView
                 android:id="@+id/textView12"
@@ -57,19 +57,19 @@
                         android:src="@drawable/team11" />
 
                     <TextView
-                        android:id="@+id/htvTeanName"
+                        android:id="@+id/hTeamDetailTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="프로젝트 명" />
 
                     <TextView
-                        android:id="@+id/htvTeamEndDate"
+                        android:id="@+id/hktvTeamEndDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="팀명" />
 
                     <TextView
-                        android:id="@+id/htvRegion"
+                        android:id="@+id/hktvRegion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="프로젝트 분야" />
@@ -173,7 +173,7 @@
                         android:text="TextView" />
 
                     <TextView
-                        android:id="@+id/htvTeamContent"
+                        android:id="@+id/hktvTeamContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="팀명" />
@@ -225,7 +225,7 @@
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/htvTeamSummary"
+                        android:id="@+id/hktvTeamSummary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="13회 칭찬"
@@ -287,14 +287,14 @@
                         android:src="@drawable/img7" />
 
                     <TextView
-                        android:id="@+id/htvTeanName"
+                        android:id="@+id/hTeamDetailTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="임경준님"
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/htvTeamEndDate"
+                        android:id="@+id/hktvTeamEndDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="13회 칭찬"
@@ -337,7 +337,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/htvTeamContest"
+                android:id="@+id/hktvTeamContest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -365,13 +365,13 @@
                         android:src="@drawable/portfolio" />
 
                     <TextView
-                        android:id="@+id/htvTeanName"
+                        android:id="@+id/hTeamDetailTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="게시판 프로젝트" />
 
                     <TextView
-                        android:id="@+id/htvTeamEndDate"
+                        android:id="@+id/hktvTeamEndDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="라이프 스타일"
@@ -409,7 +409,7 @@
                         android:text="게시판 프로젝트" />
 
                     <TextView
-                        android:id="@+id/textView27"
+                        android:id="@+id/htvRecruitExplain"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="라이프 스타일"
@@ -448,7 +448,7 @@
                         android:src="@drawable/portfolio" />
 
                     <TextView
-                        android:id="@+id/textView29"
+                        android:id="@+id/htvRecruitSkill"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="게시판 프로젝트" />
@@ -486,7 +486,7 @@
                         android:src="@drawable/portfolio" />
 
                     <TextView
-                        android:id="@+id/textView32"
+                        android:id="@+id/hktvFaqQuestion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="게시판 프로젝트" />
