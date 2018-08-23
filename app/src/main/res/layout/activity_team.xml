@@ -53,7 +53,7 @@
                 android:layout_height="222dp">
 
                 <ImageView
-                    android:id="@+id/hivLeaderPic"
+                    android:id="@+id/y_image_view_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -125,8 +125,8 @@
                     android:layout_marginStart="40dp"
                     android:text="팀장 이름"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@+id/hivLeaderPic"
-                    app:layout_constraintTop_toTopOf="@+id/hivLeaderPic" />
+                    app:layout_constraintStart_toEndOf="@+id/y_image_view_logo"
+                    app:layout_constraintTop_toTopOf="@+id/y_image_view_logo" />
 
                 <TextView
                     android:id="@+id/htvLeaderRole"
@@ -135,7 +135,7 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="16dp"
                     android:text="팀장 역할"
-                    app:layout_constraintStart_toEndOf="@+id/hivLeaderPic"
+                    app:layout_constraintStart_toEndOf="@+id/y_image_view_logo"
                     app:layout_constraintTop_toBottomOf="@+id/htvLeaderName" />
 
                 <LinearLayout
