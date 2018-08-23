@@ -1,9 +1,13 @@
 package com.fastbooster.android_teamwith;
 
+import android.app.Activity;
+import android.content.Context;
+import android.database.DataSetObserver;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ApplicationActivity extends AppCompatActivity {
+public class ApplicationActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
