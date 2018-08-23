@@ -10,7 +10,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            app:layout_constraintHorizontal_weight="1"
+
             android:layout_width="160dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
@@ -47,7 +47,7 @@
         </LinearLayout>
 
         <LinearLayout
-            app:layout_constraintHorizontal_weight="1"
+
 
             android:layout_width="160dp"
             android:layout_height="match_parent"

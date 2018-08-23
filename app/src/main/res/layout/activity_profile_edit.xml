@@ -16,9 +16,10 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingLeft="20dp"
             android:text="&lt;"
             android:textSize="24sp" />
 
@@ -39,15 +40,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="24sp" />
+
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/member" />
+        android:src="@drawable/member" />
 
     <TextView
         android:id="@+id/memberName"
@@ -69,6 +70,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/roleLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -88,7 +90,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/memberRoleTb"
+                android:id="@+id/memberRoleTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -99,6 +101,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/regionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -114,7 +117,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/memberRegionTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -154,5 +157,10 @@
                 android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 
 </LinearLayout>
