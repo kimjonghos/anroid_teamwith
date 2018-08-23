@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="179dp"
-            android:text="개설 팀 조회"
+            android:text="합류 팀 조회"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <ListView
-        android:id="@+id/myTeamListView"
+        android:id="@+id/joinedTeamListView"
         android:layout_width="match_parent"
         android:layout_height="807dp"
         android:layout_marginTop="20dp"
