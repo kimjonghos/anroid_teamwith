@@ -44,26 +44,4 @@ public class LoginActivity extends Activity {
         btnRegister = this.findViewById(R.id.y_btn_register);
         btnEnter = this.findViewById(R.id.y_btn_enter);
     }
-
-    public void login(View view) throws Exception {
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://www.사이트주소.com/script.php");
-
-        try {
-            // 아래처럼 적절히 응용해서 데이터형식을 넣으시고
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-            nameValuePairs.add(new BasicNameValuePair("id", "12345"));
-            nameValuePairs.add(new BasicNameValuePair("stringdata", "Hi"));
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-            //HTTP Post 요청 실행
-            HttpResponse response = httpclient.execute(httppost);
-
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-        }
-    }
-
 }
