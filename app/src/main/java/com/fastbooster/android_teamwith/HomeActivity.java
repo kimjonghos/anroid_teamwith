@@ -24,6 +24,5 @@ public class HomeActivity extends Activity {
                 startActivity(intent);
             }
         });
-
     }
 }
