@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/kmSearchBtn"
+        android:id="@+id/y_btn_application"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_marginTop="40dp"
