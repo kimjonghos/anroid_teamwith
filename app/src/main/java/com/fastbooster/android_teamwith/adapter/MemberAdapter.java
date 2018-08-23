@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.List;
 
 public class MemberAdapter extends BaseAdapter {
+    static final String TAG = "member data...";
 
     Context context;
     List<MemberSearchVO> data;
@@ -28,6 +29,7 @@ public class MemberAdapter extends BaseAdapter {
         this.context = context;
         this.data = data;
         this.layoutInflater = LayoutInflater.from(context);
+
 
     }
 
@@ -63,9 +65,13 @@ public class MemberAdapter extends BaseAdapter {
             view.setTag(vh);
         }
 
+
         vh.memberName.setText(data.get(i).getMemberName());
         vh.memberRole.setText(data.get(i).getRoleId());
+        vh.memberPic.setTag(data.get(i).getMemberPic());
 
+        ImageViewTask imgTask = new ImageViewTask(context);
+        imgTask.execute(vh.memberPic);
 
         return view;
     }
@@ -77,12 +83,13 @@ public class MemberAdapter extends BaseAdapter {
 
         public ImageViewTask(Context context) {
             this.context = context;
+
         }
 
         @Override
         protected Bitmap doInBackground(ImageView... imageViews) {
             image = imageViews[0];
-            String urlStr = "http://localhost:8089/" + (String) image.getTag();
+            String urlStr = "http://192.168.30.64:8089" + (String) image.getTag();
             try {
                 URL url = new URL(urlStr);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
