@@ -1,4 +1,4 @@
-package com.fastbooster.android_teamwith.share;
+package com.fastbooster.android_teamwith.model;
 
 import java.sql.Date;
 
