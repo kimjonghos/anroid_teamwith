@@ -14,7 +14,7 @@ public class SearchActivity extends Activity {
         setContentView(R.layout.activity_search);
 
         Button tsearch = findViewById(R.id.ktSearchBtn);
-        Button msearch = findViewById(R.id.kmSearchBtn);
+        Button msearch = findViewById(R.id.y_btn_application);
 
         Button psearch = findViewById(R.id.kpSearchBtn);
 

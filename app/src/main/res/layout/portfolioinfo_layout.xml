@@ -24,7 +24,7 @@
                 android:src="@drawable/portfolio" />
 
             <TextView
-                android:id="@+id/textView29"
+                android:id="@+id/hktvRequireSkill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="게시판 프로젝트" />
@@ -62,7 +62,7 @@
                 android:src="@drawable/portfolio" />
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/hktvFaqQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="게시판 프로젝트" />
