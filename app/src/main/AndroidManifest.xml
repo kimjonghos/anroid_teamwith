@@ -58,6 +58,7 @@
         <activity
             android:name=".SearchActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+
         <activity
             android:name=".MyTeamActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">

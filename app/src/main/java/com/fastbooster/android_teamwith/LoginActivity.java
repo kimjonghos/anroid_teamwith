@@ -49,4 +49,5 @@ public class LoginActivity extends Activity {
         btnRegister = this.findViewById(R.id.y_btn_register);
         btnEnter = this.findViewById(R.id.y_btn_enter);
     }
+
 }

@@ -5,8 +5,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -14,10 +16,13 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.adapter.MemberAdapter;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
+import com.fastbooster.android_teamwith.task.MemberSearchTask;
 
 import java.util.ArrayList;
 
 public class TeamSearchActivity extends Activity {
+    static final String TAG="member data...";
+
     final String[] roleList = {"개발자", "기획자", "디자이너", "기타"};
     final String[] regionList = {"서울", "경기", "부산", "제주"};
     final String[] skillList = {"C", "C#", "C++", "Java"};
@@ -39,19 +44,20 @@ public class TeamSearchActivity extends Activity {
 
     HorizontalScrollView selectedView;
 
-    ListView resultView;
+    GridView resultView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_search);
 
+
+
         back = findViewById(R.id.jbackToSearchbtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TeamSearchActivity.this,SearchActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         keyword = findViewById(R.id.jkeyword);
@@ -97,7 +103,10 @@ public class TeamSearchActivity extends Activity {
         if (kind.equals("team")) {
             // resultView.setAdapter(teamAdapter);
         } else if (kind.equals("member")) {
-            resultView.setAdapter(memberAdapter);
+            //resultView.setAdapter(memberAdapter);
+            MemberSearchTask mtask = new MemberSearchTask(this);
+            Log.v(TAG,"team search Activity.. excute 전");
+            mtask.execute();
         }
 
 
