@@ -1,6 +1,8 @@
 package com.fastbooster.android_teamwith;
 
+
 import android.app.Activity;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +10,9 @@ import android.widget.ListView;
 
 import java.util.zip.Inflater;
 
+
 public class MyTeamActivity extends Activity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +20,7 @@ public class MyTeamActivity extends Activity {
         setContentView(R.layout.activity_my_team);
 
         //ListView myTeamListView=(ListView)findViewById(R.id.myTeamListView);
+
 
 
         //어씽크 태스크 생성 및 호출
