@@ -30,7 +30,6 @@
         android:text="팀이름"
         android:textAlignment="center"
         android:textSize="18sp" />
-
     <TextView
         android:id="@+id/hktvTeamLayoutProejctCategory"
         android:layout_width="match_parent"
@@ -38,5 +37,4 @@
         android:layout_weight="1"
         android:text="분야"
         android:textAlignment="center" />
-
 </LinearLayout>

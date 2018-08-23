@@ -11,27 +11,28 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.adapter.MemberAdapter;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
 
 import java.util.ArrayList;
 
 public class TeamSearchActivity extends Activity {
-    static final String TAG="member data...";
+    static final String TAG = "member data...";
+    ApplicationShare as = new ApplicationShare();
 
     final String[] roleList = {"개발자", "기획자", "디자이너", "기타"};
     final String[] regionList = {"서울", "경기", "부산", "제주"};
     final String[] skillList = {"C", "C#", "C++", "Java"};
-    final String[] categoryList = {"보안", "빅데이터", "IOT", "패션"};
+    String[] categoryList = {"C", "C#", "C++", "Java"};
 
     final boolean[] roleChecked = new boolean[roleList.length];
     final boolean[] regionChecked = new boolean[regionList.length];
     final boolean[] skillChecked = new boolean[skillList.length];
-    final boolean[] categoryChecked = new boolean[categoryList.length];
+    boolean[] categoryChecked = new boolean[skillList.length];
 
     TextView back;
     EditText keyword;
@@ -51,6 +52,15 @@ public class TeamSearchActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_search);
 
+
+        categoryList = new String[as.projectList.size()];
+        categoryChecked = new boolean[categoryList.length];
+        int i = 0;
+         for (Object s : as.projectList.values()) {
+
+         categoryList[i++] = (String)s;
+          }
+
         back = findViewById(R.id.jbackToSearchbtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +73,10 @@ public class TeamSearchActivity extends Activity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               String key = keyword.getText().toString();
+                String key = keyword.getText().toString();
             }
         });
+
 
         regionSelected = findViewById(R.id.jregionSelected);
         roleSelected = findViewById(R.id.jroleSelected);
@@ -103,7 +114,7 @@ public class TeamSearchActivity extends Activity {
         } else if (kind.equals("member")) {
             //resultView.setAdapter(memberAdapter);
             MemberSearchTask mtask = new MemberSearchTask(this);
-            Log.v(TAG,"team search Activity.. excute 전");
+            Log.v(TAG, "team search Activity.. excute 전");
             mtask.execute();
         }
 
