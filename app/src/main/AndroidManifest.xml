@@ -43,14 +43,12 @@
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name=".MyHistoryActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-        </activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
 
         <activity
             android:name=".SearchActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-      </activity>
-<activity
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity
             android:name=".MyTeamActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
 
@@ -65,8 +63,7 @@
             android:name=".ApplicationActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
 
-        <activity android:name=".util.PologActivity">
-        </activity>
+        <activity android:name=".util.PologActivity"></activity>
         <activity android:name=".PortfolioActivity">
 
         </activity>
