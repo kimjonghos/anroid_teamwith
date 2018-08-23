@@ -19,8 +19,8 @@
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".TeamLeaderActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-        <activity android:name=".MyTeamActivity" />
+
+            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
@@ -33,9 +33,11 @@
         <activity
             android:name=".MyHistoryActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
-
+        </activity>
+        <activity
+            android:name=".MyTeamActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>
         <activity android:name=".ApplicationActivity"></activity>
     </application>
-
 </manifest>
