@@ -46,9 +46,14 @@
         </activity>
 
         <activity
+
             android:name=".SearchActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
+      </activity>
 
+<activity
+            android:name=".MyTeamActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
 
         </activity>
         <activity
@@ -57,15 +62,11 @@
 
         </activity>
 
-
-        <activity
-            android:name=".MyTeamActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity
             android:name=".ApplicationActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
-        <activity android:name=".util.PologActivity">
 
+        <activity android:name=".util.PologActivity">
         </activity>
         <activity android:name=".PortfolioActivity">
 

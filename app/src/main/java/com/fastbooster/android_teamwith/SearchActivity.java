@@ -18,14 +18,22 @@ public class SearchActivity extends Activity {
 
         Button psearch = findViewById(R.id.kpSearchBtn);
 
+        final Intent intent = new Intent(SearchActivity.this,
+                TeamSearchActivity.class);
+
         tsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SearchActivity.this,
-                        TeamSearchActivity.class);
+intent.putExtra("kind","team");
                 startActivity(intent);
             }
         });
-
+        msearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("kind","member");
+                startActivity(intent);
+            }
+        });
     }
 }
