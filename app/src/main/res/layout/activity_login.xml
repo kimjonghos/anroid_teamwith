@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/y_image_view_login_logo"
+            android:id="@+id/yiv_login_logo"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -30,7 +30,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/y_edit_text_id"
+            android:id="@+id/yet_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -54,7 +54,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/y_edit_text_pwd"
+            android:id="@+id/yet_pwd"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -83,7 +83,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/y_check_box_auto_login"
+                android:id="@+id/ycb_auto_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
@@ -92,7 +92,7 @@
                 android:text="  자동 로그인" />
 
             <Button
-                android:id="@+id/y_btn_find_account"
+                android:id="@+id/yb_find_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
@@ -113,7 +113,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/y_btn_login"
+            android:id="@+id/yb_login"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -133,7 +133,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/y_btn_register"
+            android:id="@+id/yb_register"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -154,7 +154,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/y_btn_enter"
+            android:id="@+id/yb_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

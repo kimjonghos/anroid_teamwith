@@ -24,7 +24,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView35"
+                    android:id="@+id/ytv_back"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -33,7 +33,7 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView36"
+                    android:id="@+id/ytv_page_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -44,7 +44,7 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView37"
+                    android:id="@+id/ytv_blank"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -71,7 +71,7 @@
                     android:paddingTop="10dp">
 
                     <TextView
-                        android:id="@+id/textView57"
+                        android:id="@+id/ytv_title_my_team"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
@@ -82,7 +82,7 @@
                         android:textSize="20sp" />
 
                     <Button
-                        android:id="@+id/button22"
+                        android:id="@+id/yb_my_team_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
