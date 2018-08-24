@@ -17,6 +17,7 @@ import com.fastbooster.android_teamwith.api.PortfolioApi;
 import com.fastbooster.android_teamwith.dummy.DummyContent;
 import com.fastbooster.android_teamwith.dummy.DummyContent.DummyItem;
 import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
+import com.fastbooster.android_teamwith.task.PortfolioSearchTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,10 +62,11 @@ public class PortfolioFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_portfolio,container,false);
         try {
-            List<PortfolioSimpleVO> data = PortfolioApi.getPortfolioList();
-            ListView listview=(ListView)view.findViewById(R.id.k_lv_polport);
-            PologPortfoliListAdapter ppl = new PologPortfoliListAdapter(getActivity(), data);
-            listview.setAdapter(ppl);
+//            PortfolioSearchTask pst=new PortfolioSearchTask(getActivity());
+//            List<PortfolioSimpleVO> data = PortfolioApi.getPortfolioList();
+//            ListView listview=(ListView)view.findViewById(R.id.k_lv_polport);
+//            PologPortfoliListAdapter ppl = new PologPortfoliListAdapter(getActivity(), data);
+//            listview.setAdapter(ppl);
             // Set the adapter
             return view;
         }
