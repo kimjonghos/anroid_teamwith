@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="857dp">
+        android:layout_height="750dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,8 +110,7 @@
                             android:id="@+id/yiv_team_pic_1"
                             android:layout_width="190dp"
                             android:layout_height="190dp"
-                            android:layout_marginBottom="15dp"
-                            android:src="@drawable/team6" />
+                            android:layout_marginBottom="15dp" />
 
                         <TextView
                             android:id="@+id/ytv_my_team_project_name_1"
@@ -120,7 +119,6 @@
                             android:layout_marginBottom="5dp"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 명"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -132,7 +130,6 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="팀 명"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
@@ -144,7 +141,6 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 분야"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -161,8 +157,7 @@
                             android:id="@+id/yiv_team_pic_2"
                             android:layout_width="190dp"
                             android:layout_height="190dp"
-                            android:layout_marginBottom="15dp"
-                            android:src="@drawable/team7" />
+                            android:layout_marginBottom="15dp" />
 
                         <TextView
                             android:id="@+id/ytv_my_team_project_name_2"
@@ -172,7 +167,6 @@
                             android:layout_marginLeft="0dp"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 명"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -185,7 +179,6 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="팀 명"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
@@ -198,7 +191,6 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 분야"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -264,26 +256,24 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView11"
+                            android:id="@+id/yiv_joined_team_pic_1"
                             android:layout_width="190dp"
                             android:layout_height="190dp"
-                            android:layout_marginBottom="15dp"
-                            android:src="@drawable/team10" />
+                            android:layout_marginBottom="15dp" />
 
                         <TextView
-                            android:id="@+id/textView45"
+                            android:id="@+id/ytv_joined_team_project_name_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 명"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView46"
+                            android:id="@+id/ytv_joined_team_name_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -291,12 +281,11 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="팀 명"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView47"
+                            android:id="@+id/ytv_joined_team_project_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -304,7 +293,6 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 분야"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -318,26 +306,24 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView13"
+                            android:id="@+id/yiv_joined_team_pic_2"
                             android:layout_width="190dp"
                             android:layout_height="190dp"
-                            android:layout_marginBottom="15dp"
-                            android:src="@drawable/team11" />
+                            android:layout_marginBottom="15dp" />
 
                         <TextView
-                            android:id="@+id/textView53"
+                            android:id="@+id/ytv_joined_team_project_name_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 명"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView54"
+                            android:id="@+id/ytv_joined_team_name_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -345,12 +331,11 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="팀 명"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView55"
+                            android:id="@+id/ytv_joined_team_project_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -358,7 +343,6 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
-                            android:text="프로젝트 분야"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -423,35 +407,32 @@
                     android:paddingTop="5dp">
 
                     <TextView
-                        android:id="@+id/textView41"
+                        android:id="@+id/ytv_my_application_team_name_1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
-                        android:text="팀 명"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView43"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:fontFamily="@font/font_nanum_squre"
-                        android:gravity="center"
-                        android:text="모집 분야"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/textView48"
+                        android:id="@+id/ytv_my_application_role_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/ytv_my_application_status_1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
-                        android:text="지원 완료"
                         android:textColor="@color/colorAccent" />
                 </LinearLayout>
 
@@ -467,35 +448,32 @@
                     android:paddingTop="5dp">
 
                     <TextView
-                        android:id="@+id/textView49"
+                        android:id="@+id/ytv_my_application_team_name_2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
-                        android:text="팀 명"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView52"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:fontFamily="@font/font_nanum_squre"
-                        android:gravity="center"
-                        android:text="모집 분야"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/textView59"
+                        android:id="@+id/ytv_my_application_role_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/ytv_my_application_status_2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
-                        android:text="합류"
                         android:textColor="@color/colorAccent" />
                 </LinearLayout>
 
