@@ -39,7 +39,7 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
         }
 
         LoginActivity loginContext = (LoginActivity) context;
-        SharedPreferences memberPref = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences memberPref = context.getSharedPreferences("memberPref", Context.MODE_PRIVATE);
 
         if (result.equals("true")) {
             try {
