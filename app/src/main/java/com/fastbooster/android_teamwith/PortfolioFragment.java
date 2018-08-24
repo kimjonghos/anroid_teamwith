@@ -3,6 +3,7 @@ package com.fastbooster.android_teamwith;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,13 +30,14 @@ public class PortfolioFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-
-
+    PortfolioSearchTask ps;
+    View view;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public PortfolioFragment() {
+        //멤버 아이디 받기
     }
 
     // TODO: Customize parameter initialization
@@ -60,22 +62,25 @@ public class PortfolioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_portfolio,container,false);
+        view=inflater.inflate(R.layout.fragment_portfolio,container,false);
         try {
-//            PortfolioSearchTask pst=new PortfolioSearchTask(getActivity());
-//            List<PortfolioSimpleVO> data = PortfolioApi.getPortfolioList();
-//            ListView listview=(ListView)view.findViewById(R.id.k_lv_polport);
-//            PologPortfoliListAdapter ppl = new PologPortfoliListAdapter(getActivity(), data);
-//            listview.setAdapter(ppl);
-            // Set the adapter
+
             return view;
         }
         catch(Exception e){
             e.printStackTrace();
         }
+
         return view;
     }
 
-
-
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        ListView lv=(ListView)view.findViewById(R.id.k_lv_polport);
+//        PologPortfoliListAdapter ppl=new PologPortfoliListAdapter(getActivity(),ps.getPoerfolioSimpleList());
+        ps=new PortfolioSearchTask(view.getContext(),lv);
+        ps.execute("jo");//생성자로 아이디받기
+//        lv.setAdapter(ppl);
+        super.onActivityCreated(savedInstanceState);
+    }
 }

@@ -8,54 +8,53 @@ import android.widget.GridView;
 
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.SearchActivity;
-import com.fastbooster.android_teamwith.adapter.MemberAdapter;
-import com.fastbooster.android_teamwith.model.MemberSearchVO;
-import com.fastbooster.android_teamwith.api.MemberSearchApi;
+import com.fastbooster.android_teamwith.adapter.TeamAdapter;
+import com.fastbooster.android_teamwith.api.TeamSearchApi;
+import com.fastbooster.android_teamwith.model.TeamSimpleVO;
 import com.fastbooster.android_teamwith.util.Criteria;
 
 import java.util.List;
 
-public class MemberSearchTask extends AsyncTask<Object, Void, List<MemberSearchVO>> {
+public class TeamSearchTask extends AsyncTask<Object, Void, List<TeamSimpleVO>> {
 
-    static final String TAG="member data...";
+    static final String TAG="team data...";
     private final Context context;
     private ProgressDialog loading;
 
-    public MemberSearchTask(Context context) {
+    public TeamSearchTask(Context context) {
         this.context = context;
         loading = new ProgressDialog(context);
-
     }
 
     @Override
     protected void onPreExecute() {
         loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        loading.setMessage("회원 정보를 불러오는 중입니다...");
+        loading.setMessage("팀 정보를 불러오는 중입니다...");
         loading.show();
         super.onPreExecute();
     }
 
     @Override
-    protected List<MemberSearchVO> doInBackground(Object... condition) {
+    protected List<TeamSimpleVO> doInBackground(Object... condition) {
 
         //http url connection
         try {
             Log.v("cnt",condition.length+"");
-            return MemberSearchApi.getMember(context, (Criteria)condition[0], (List<String>)condition[1],
+            return TeamSearchApi.getTeam(context, (Criteria)condition[0], (List<String>)condition[1],
                     (List<String>)condition[2],(List<String>)condition[3],(List<String>)condition[4],
                     (String)condition[5]);
         } catch (Exception e) {
             e.printStackTrace();
-            Log.v(TAG,"멤버 서치 태스크 43라인 api getMem 오류");
+            Log.v(TAG,"팀 서치 태스크 getteam 오류");
             return null;
         }
     }
 
     @Override
-    protected void onPostExecute(List<MemberSearchVO> memberData) {
+    protected void onPostExecute(List<TeamSimpleVO> teamData) {
         loading.dismiss();
 
-        MemberAdapter adapter = new MemberAdapter(context, memberData);
+        TeamAdapter adapter = new TeamAdapter(context, teamData);
      //   Log.v(TAG,"member search task 53라인 어댑터 설정 후 데이터 사이즈"+","+memberData.size());
         if (context instanceof SearchActivity) {
             SearchActivity view = (SearchActivity) context;
@@ -68,6 +67,5 @@ public class MemberSearchTask extends AsyncTask<Object, Void, List<MemberSearchV
     @Override
     protected void onCancelled() {
         super.onCancelled();
-        Log.v("city", "canceled");
     }
 }

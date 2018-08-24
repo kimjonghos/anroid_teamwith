@@ -2,6 +2,7 @@ package com.fastbooster.android_teamwith.share;
 
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -32,6 +33,7 @@ public class ApplicationShare extends Application {
     public static Map<String, Object> etcSkillList = new HashMap<>();
     public static Map<String, Object> skillList = new HashMap<>();
     public static Map<String, Object> tendencyList = new HashMap<>();
+    public static Map<String, Object> applicationStatus = new HashMap<>();
 
     static {
         FileReadThread fileReadThread = new FileReadThread();
@@ -105,6 +107,12 @@ public class ApplicationShare extends Application {
                 skillList = sortByComparator(skillList);
                 tendencyList = sortByComparator(tendencyList);
 
+                applicationStatus.put("0", "지원 완료");
+                applicationStatus.put("1", "합류");
+                applicationStatus.put("2", "탈락");
+                applicationStatus.put("3", "취소");
+
+
             } catch (Exception e) {
                 Log.d("Weather app error", e.getMessage());
                 e.printStackTrace();
@@ -118,8 +126,6 @@ public class ApplicationShare extends Application {
                 Iterator<String> pKey = list.keys();
                 while (pKey.hasNext()) {
                     String key = pKey.next();
-                    Log.v("file", listName + "하나씩 읽고잇음 " + key + ":" + list.getString(key));
-
                     target.put(key, list.getString(key));
                 }
             } catch (Exception e) {

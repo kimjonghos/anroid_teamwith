@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
+import com.fastbooster.android_teamwith.task.TeamSearchTask;
 import com.fastbooster.android_teamwith.util.Criteria;
 
 import java.util.ArrayList;
@@ -73,14 +74,16 @@ public class SearchActivity extends Activity {
 
         keyword = findViewById(R.id.jkeyword);
         searchBtn = findViewById(R.id.jsearchBtn);
-        // final MemberSearchTask mtask = new MemberSearchTask(this);
+
+        Intent intent = getIntent();
+        final String kind = intent.getStringExtra("kind");
+
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String key = keyword.getText().toString();
 
                 Log.v(TAG, "team search Activity.. excute 전");
-                MemberSearchTask mtask = new MemberSearchTask(SearchActivity.this);
 
                 //사용자가 선택한 조건들
                 List<String> regionSelectedList = new ArrayList<>();
@@ -107,12 +110,17 @@ public class SearchActivity extends Activity {
                         categorySelectedList.add(categoryKeyList[i]);
                     }
                 }
-
-                mtask.execute(new Criteria(1, 10), regionSelectedList,
-                        categorySelectedList, roleSelectedList, skillSelectedList, key);
+                if (kind.equals("team")) {
+                    TeamSearchTask ttask = new TeamSearchTask(SearchActivity.this);
+                    ttask.execute(new Criteria(1, 10), regionSelectedList,
+                            categorySelectedList, roleSelectedList, skillSelectedList, key);
+                } else if (kind.equals("member")) {
+                    MemberSearchTask mtask = new MemberSearchTask(SearchActivity.this);
+                    mtask.execute(new Criteria(1, 10), regionSelectedList,
+                            categorySelectedList, roleSelectedList, skillSelectedList, key);
+                }
             }
         });
-
 
         regionSelected = findViewById(R.id.jregionSelected);
         roleSelected = findViewById(R.id.jroleSelected);
@@ -123,14 +131,12 @@ public class SearchActivity extends Activity {
 
         resultView = findViewById(R.id.jresultView);
 
-        Intent intent = getIntent();
-        String kind = intent.getStringExtra("kind");
         if (kind.equals("team")) {
-            // resultView.setAdapter(teamAdapter);
+            TeamSearchTask ttask = new TeamSearchTask(this);
+            ttask.execute(new Criteria(1, 10), null, null, null, null, null);
         } else if (kind.equals("member")) {
-            //resultView.setAdapter(memberAdapter);
             MemberSearchTask mtask = new MemberSearchTask(this);
-            mtask.execute(new Criteria(1, 10),null,null,null,null,null);
+            mtask.execute(new Criteria(1, 10), null, null, null, null, null);
         }
 
 
