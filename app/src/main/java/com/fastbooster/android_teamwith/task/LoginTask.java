@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.HomeActivity;
+import com.fastbooster.android_teamwith.LoginActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.api.LoginApi;
@@ -35,20 +38,37 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
             e.printStackTrace();
         }
 
+        LoginActivity loginContext = (LoginActivity) context;
+        SharedPreferences memberPref = PreferenceManager.getDefaultSharedPreferences(context);
+
         if (result.equals("true")) {
             try {
                 JSONObject member = jsonObject.getJSONObject("memberSimpleVO");
                 MemberSimpleVO memberSimpleVO = new MemberSimpleVO(member);
                 Toast.makeText(context, memberSimpleVO.getMemberName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
-                ApplicationShare applicationShare = new ApplicationShare();
-                applicationShare.setLogin(true);
+
+                SharedPreferences.Editor editor = memberPref.edit();
+                editor.putString("isLogin", "true");
+                editor.putString("memberId", memberSimpleVO.getMemberId());
+                editor.putString("memberName", memberSimpleVO.getMemberName());
+                editor.putString("memberPic", memberSimpleVO.getMemberPic());
+                editor.putString("memberAuth", memberSimpleVO.getMemberAuth());
+                editor.commit();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            ApplicationShare applicationShare = new ApplicationShare();
-            applicationShare.setLogin(true);
+            SharedPreferences.Editor editor = memberPref.edit();
+            editor.putString("isLogin", "false");
+            editor.commit();
             Toast.makeText(context, "로그인 정보가 올바르지 않습니다", Toast.LENGTH_SHORT).show();
+        }
+
+        if(memberPref.getString("isLogin", "").equals("true")) {
+            Intent intent = new Intent();
+            intent.setClass(loginContext, HomeActivity.class);
+            loginContext.startActivity(intent);
         }
     }
 
