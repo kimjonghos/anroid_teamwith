@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,21 +18,19 @@ import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
 import com.fastbooster.android_teamwith.util.Criteria;
 
-import java.util.Map;
-
 public class SearchActivity extends Activity {
     static final String TAG = "member data...";
-    ApplicationShare as = new ApplicationShare();
+    ApplicationShare as;
 
-    String[] roleList = {"개발자", "기획자", "디자이너", "기타"};
-    String[] regionList = {"서울", "경기", "부산", "제주"};
-    String[] skillList = {"C", "C#", "C++", "Java"};
-    String[] categoryList = {"C", "C#", "C++", "Java"};
+    String[] roleList;
+    String[] regionList;
+    String[] skillList;
+    String[] categoryList;
 
-    boolean[] roleChecked = new boolean[roleList.length];
-    boolean[] regionChecked = new boolean[regionList.length];
-    boolean[] skillChecked = new boolean[skillList.length];
-    boolean[] categoryChecked = new boolean[categoryList.length];
+    boolean[] roleChecked;
+    boolean[] regionChecked;
+    boolean[] skillChecked;
+    boolean[] categoryChecked;
 
     TextView back;
     EditText keyword;
@@ -47,16 +46,14 @@ public class SearchActivity extends Activity {
     GridView resultView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        initList(roleList,as.roleList,roleChecked);
-        initList(regionList,as.regionList,regionChecked);
-        initList(skillList,as.skillList,skillChecked);
-        initList(categoryList,as.projectList,categoryChecked);
+        //다이얼로그에 나올 선택 목록 리스트 초기화
+        InitTask initTask = new InitTask();
+        initTask.execute();
 
         back = findViewById(R.id.jbackToSearchbtn);
         back.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +62,7 @@ public class SearchActivity extends Activity {
                 finish();
             }
         });
+
         keyword = findViewById(R.id.jkeyword);
         searchBtn = findViewById(R.id.jsearchBtn);
         final MemberSearchTask mtask = new MemberSearchTask(this);
@@ -74,7 +72,7 @@ public class SearchActivity extends Activity {
                 String key = keyword.getText().toString();
 
                 Log.v(TAG, "team search Activity.. excute 전");
-                mtask.execute(new Criteria(1,10));
+                mtask.execute(new Criteria(1, 10));
             }
         });
 
@@ -96,20 +94,12 @@ public class SearchActivity extends Activity {
             //resultView.setAdapter(memberAdapter);
             //MemberSearchTask mtask = new MemberSearchTask(this);
             Log.v(TAG, "team search Activity.. excute 전");
-            mtask.execute();
+            mtask.execute(new Criteria(1, 10));
         }
 
 
     }
 
-    protected void initList(String[] list, Map<String, Object> map, boolean[] checked) {
-        list = new String[map.size()];
-        checked = new boolean[list.length];
-        int i = 0;
-        for (Object s : map.values()) {
-            list[i++] = (String) s;
-        }
-    }
 
     public void selectDialog(View v) {
         switch (v.getId()) {
@@ -125,6 +115,7 @@ public class SearchActivity extends Activity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                             }
+
                         });
 
 
@@ -251,6 +242,46 @@ public class SearchActivity extends Activity {
                 });
                 categoryDialog.show();
                 break;
+        }
+
+    }
+
+    class InitTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            as = (ApplicationShare) getApplication();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Log.v("role list", ApplicationShare.roleList.size() + "");
+            roleList = new String[ApplicationShare.roleList.size()];
+            roleChecked = new boolean[roleList.length];
+            int i = 0;
+            for (Object s : ApplicationShare.roleList.values()) {
+                roleList[i++] = (String) s;
+            }
+            regionList = new String[ApplicationShare.regionList.size()];
+            regionChecked = new boolean[regionList.length];
+            i = 0;
+            for (Object s : ApplicationShare.regionList.values()) {
+                regionList[i++] = (String) s;
+            }
+            skillList = new String[ApplicationShare.skillList.size()];
+            skillChecked = new boolean[skillList.length];
+            i = 0;
+            for (Object s : ApplicationShare.skillList.values()) {
+                skillList[i++] = (String) s;
+            }
+            categoryList = new String[ApplicationShare.categoryList.size()];
+            categoryChecked = new boolean[categoryList.length];
+            i = 0;
+            for (Object s : ApplicationShare.categoryList.values()) {
+                categoryList[i++] = (String) s;
+            }
         }
 
     }

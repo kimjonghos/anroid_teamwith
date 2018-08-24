@@ -24,6 +24,7 @@ public class MemberSearchTask extends AsyncTask<Object, Void, List<MemberSearchV
     public MemberSearchTask(Context context) {
         this.context = context;
         loading = new ProgressDialog(context);
+
     }
 
     @Override
@@ -39,7 +40,7 @@ public class MemberSearchTask extends AsyncTask<Object, Void, List<MemberSearchV
 
         //http url connection
         try {
-            return MemberSearchApi.getMember(context, (Criteria)condition[0],new String[]{"region-2","region-3"},
+            return MemberSearchApi.getMember(context, (Criteria)condition[0], new String[]{"region-2","region-3"},
                     null,null,null,null);
         } catch (Exception e) {
             e.printStackTrace();
