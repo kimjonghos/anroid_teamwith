@@ -6,14 +6,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ProfileEditActivity extends Activity {
-    final String[] roleList = {"개발자", "기획자", "디자이너", "기타"};
-    final String[] regionList = {"서울", "경기", "부산", "제주"};
-    final boolean[] checked = {true, false, true, false};
+    String[] roleKeyList;
+    String[] regionKeyList;
+
+    String[] roleList;
+    String[] regionList;
+
+    boolean[] roleChecked;
+    boolean[] regionChecked;
+
+    TextView regionSelected;
+    TextView roleSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +31,8 @@ public class ProfileEditActivity extends Activity {
 
         setContentView(R.layout.activity_profile_edit);
 
-
-        final TextView role = findViewById(R.id.memberRoleTv);
-        final TextView region = findViewById(R.id.memberRegionTv);
-
-
-
+        final TextView roleSelected = findViewById(R.id.memberRoleTv);
+        final TextView regionSelected = findViewById(R.id.memberRegionTv);
 
         //역할
         LinearLayout roleLayout = findViewById(R.id.roleLayout);
@@ -40,7 +46,7 @@ public class ProfileEditActivity extends Activity {
                 dialog.setItems(roleList, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        role.setText(roleList[i] + "  >");
+                        roleSelected.setText(roleList[i] + "  >");
                     }
                 });
                 dialog.setIcon(R.mipmap.ic_launcher_round);
@@ -71,17 +77,17 @@ public class ProfileEditActivity extends Activity {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(ProfileEditActivity.this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 dialog.setTitle("지역은 2개까지 선택할 수 있습니다.");
-                dialog.setMultiChoiceItems(regionList, checked,
+                dialog.setMultiChoiceItems(regionList, regionChecked,
                         new DialogInterface.OnMultiChoiceClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                                 int cnt = 0;
-                                for (int j = 0; j < checked.length; j++) {
-                                    if (checked[j]) {
+                                for (int j = 0; j < regionChecked.length; j++) {
+                                    if (regionChecked[j]) {
                                         cnt++;
 
                                         if (cnt > 2) {
-                                            checked[i] = false;
+                                            regionChecked[i] = false;
                                             Toast.makeText(getApplicationContext(),
                                                     "2개까지 선택할 수 있습니다.",
                                                     Toast.LENGTH_SHORT).show();
@@ -99,8 +105,8 @@ public class ProfileEditActivity extends Activity {
                         int cnt = 0;
                         StringBuffer regionStr = new StringBuffer();
 
-                        for (int j = 0; j < checked.length; j++) {
-                            if (checked[j]) {
+                        for (int j = 0; j < regionChecked.length; j++) {
+                            if (regionChecked[j]) {
                                 cnt++;
                                 if (cnt == 2) {
                                     regionStr.append(", " + regionList[j]); //체크된 지역
@@ -109,7 +115,7 @@ public class ProfileEditActivity extends Activity {
                                 regionStr.append(regionList[j]); //체크된 지역
                             }
                         }
-                        region.setText(regionStr + "  >");
+                        regionSelected.setText(regionStr + "  >");
                     }
                 });
                 dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
