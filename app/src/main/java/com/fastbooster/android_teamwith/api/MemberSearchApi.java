@@ -65,12 +65,12 @@ public class MemberSearchApi {
         //  app.regionList.get("region-1");
 
         String query = makeQuery(cri, region, project, role, skill, keyword);
-
+        HttpURLConnection conn = null;
 
         try {
             URL url = new URL(URL_STR + query);
             Log.v(TAG, url.toString());
-            HttpURLConnection conn = null;
+
             StringBuilder sb = new StringBuilder();
 
             conn = (HttpURLConnection) url.openConnection();
@@ -96,7 +96,7 @@ public class MemberSearchApi {
             //return
             List<MemberSearchVO> result = new ArrayList<>();
 
-            Log.v("len",""+array.length());
+            Log.v("len", "" + array.length());
             for (int i = 0; i < array.length(); i++) {
                 JSONObject obj = array.getJSONObject(i);
                 result.add(new MemberSearchVO(obj));
@@ -107,6 +107,10 @@ public class MemberSearchApi {
             Log.d("Teamwith app error", e.getMessage());
             e.printStackTrace();
             return null;
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
 
     }

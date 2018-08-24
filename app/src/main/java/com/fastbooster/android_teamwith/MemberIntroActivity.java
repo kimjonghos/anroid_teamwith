@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MemberIntroActivity extends Activity {
+    EditText intro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +15,8 @@ public class MemberIntroActivity extends Activity {
         setContentView(R.layout.activity_member_intro);
 
         TextView back = findViewById(R.id.backTv);
-        final EditText intro = findViewById(R.id.jmemberInrtroEt);
+        intro = findViewById(R.id.jmemberInrtroEt);
+        intro.setText(getIntent().getStringExtra("memberIntro"));
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,5 +26,12 @@ public class MemberIntroActivity extends Activity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        getIntent().putExtra("memberIntro", intro.getText().toString());
+        setResult(RESULT_OK, getIntent());
+        super.onBackPressed();
     }
 }
