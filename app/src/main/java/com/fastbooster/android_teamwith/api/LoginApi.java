@@ -15,10 +15,10 @@ import java.util.List;
 public class LoginApi {
     public static String[] login(String[] accountInfos) throws JSONException {
         InputStream is = null;
-        String[] result = new String[3];
+        String[] result = new String[4];
         HttpURLConnection httpCon = null;
         try {
-            URL urlCon = new URL("http://192.168.30.7:8089/api/login");
+            URL urlCon = new URL("http://192.168.30.64:8089/api/login");
             httpCon = (HttpURLConnection) urlCon.openConnection();
 
             String json = "";
@@ -61,6 +61,9 @@ public class LoginApi {
                             //result = result.split("=")[1];
                         }
                     }
+                    result[1] = accountInfos[0];
+                    result[2] = accountInfos[1];
+                    result[3] = accountInfos[2];
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -72,9 +75,6 @@ public class LoginApi {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        result[1] = accountInfos[0];
-        result[2] = accountInfos[1];
 
         return result;
     }

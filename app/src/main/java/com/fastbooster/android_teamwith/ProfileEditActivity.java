@@ -66,7 +66,6 @@ public class ProfileEditActivity extends Activity {
 
                 class ProfileEditThread extends Thread {
                     static final String TAG = "file data...";
-
                     private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo/";
                     Uri.Builder params = new Uri.Builder();
 
