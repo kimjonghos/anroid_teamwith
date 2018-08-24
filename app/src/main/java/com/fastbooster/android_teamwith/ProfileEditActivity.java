@@ -11,7 +11,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 import com.fastbooster.android_teamwith.api.MyProfileApi;
 import com.fastbooster.android_teamwith.model.MemberVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
+import com.fastbooster.android_teamwith.task.ImageTask;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -36,6 +40,9 @@ public class ProfileEditActivity extends Activity {
     boolean[] roleChecked; //사용자가 선택시 체크할 배열
     boolean[] regionChecked; //사용자가 선택시 체크할 배열
 
+    ImageView memberPic;
+    TextView memberName1;
+    TextView memberName2;
     TextView roleSelected; //사용자가 선택한 역할 화면에 보여줌
     TextView regionSelected;//사용자가 선택한 지역 화면에 보여줌
     TextView profileEdit; //사용자가 입력한 정보를 저장
@@ -50,7 +57,9 @@ public class ProfileEditActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_profile_edit);
-
+        memberPic = findViewById(R.id.jmemberPic);
+        memberName1 = findViewById(R.id.jmemberName);
+        memberName2 = findViewById(R.id.jmemberNameTop);
         roleSelected = findViewById(R.id.memberRoleTv);
         regionSelected = findViewById(R.id.memberRegionTv);
         profileEdit = findViewById(R.id.jprofileEditBtn);
@@ -59,10 +68,29 @@ public class ProfileEditActivity extends Activity {
 
         mptask.execute();
 
+
         //저장하기 버튼 눌렀을 때
         profileEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //사용자가 선택한 지역
+                regionSelectedKey = new String[2];
+                for (int j = 0; j < regionChecked.length; j++) {
+                    if (regionChecked[j]) {
+                        if (regionSelectedKey[0] == null) {
+                            regionSelectedKey[0] = regionKeyList[j];
+                        } else {
+                            regionSelectedKey[1] = regionKeyList[j];
+                        }
+                    }
+                }
+
+                //사용자가 선택한 역할
+                for (int j = 0; j < roleChecked.length; j++) {
+                    if (roleChecked[j]) {
+                        roleSelectedKey = roleKeyList[j];
+                    }
+                }
 
                 class ProfileEditThread extends Thread {
                     static final String TAG = "file data...";
@@ -113,6 +141,7 @@ public class ProfileEditActivity extends Activity {
 
                 ProfileEditThread pet = new ProfileEditThread();
                 pet.start();
+                Toast.makeText(getApplicationContext(), "정보가 저장되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
         int i = 0;
@@ -152,7 +181,10 @@ public class ProfileEditActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         roleSelected.setText(roleList[i] + "  >");
-                        roleSelectedKey = roleKeyList[i];
+                        for (int j = 0; j < roleChecked.length; j++) {
+                            roleChecked[j] = false;
+                        }
+                        roleChecked[i] = true;
                     }
                 });
                 dialog.setIcon(R.mipmap.ic_launcher_round);
@@ -224,17 +256,7 @@ public class ProfileEditActivity extends Activity {
                             }
                         }
                         regionSelected.setText(regionStr + "  >");
-                        //사용자가 선택한 지역
-                        regionSelectedKey = new String[2];
-                        for (int j = 0; j < regionChecked.length; j++) {
-                            if (regionChecked[j]) {
-                                if (regionSelectedKey[0] == null) {
-                                    regionSelectedKey[0] = regionKeyList[j];
-                                } else {
-                                    regionSelectedKey[1] = regionKeyList[j];
-                                }
-                            }
-                        }
+
                     }
                 });
                 dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -308,13 +330,42 @@ public class ProfileEditActivity extends Activity {
         @Override
         protected void onPostExecute(MemberVO memberData) {
             loading.dismiss();
-
+            LayoutInflater layoutInflater = LayoutInflater.from(context);
+            View memberIntroView = layoutInflater.inflate(R.layout.activity_member_intro, null);
+            EditText introEt = memberIntroView.findViewById(R.id.jmemberInrtroEt);
+            Log.v("intro",memberData.getMemberIntro());
+            introEt.setText(memberData.getMemberIntro());
             if (context instanceof ProfileEditActivity) {
                 ProfileEditActivity view = (ProfileEditActivity) context;
+
+                //화면에 보여줄 정보
+                ImageTask imgTask = new ImageTask(context);
+                memberPic.setTag(memberData.getMemberPic());
+                imgTask.execute(memberPic);
+
+                memberName1.setText(memberData.getMemberName());
+                memberName2.setText(memberData.getMemberName());
+
                 roleSelected.setText((String) ApplicationShare.roleList.get(memberData.getRoleId()) + "  >");
                 regionSelected.setText((String) ApplicationShare.regionList.
                         get(memberData.getRegionId1()) + ", " + (String) ApplicationShare.regionList.
                         get(memberData.getRegionId2()) + "  >");
+
+
+                //다이얼로그에 체크되어 있게 하기
+
+                for (int i = 0; i < regionKeyList.length; i++) {
+                    if (regionKeyList[i].equals(memberData.getRegionId1()) ||
+                            regionKeyList[i].equals(memberData.getRegionId2())) {
+                        regionChecked[i] = true;
+                    }
+                }
+                for (int i = 0; i < roleKeyList.length; i++) {
+                    if (roleKeyList[i].equals(memberData.getRoleId())) {
+                        roleChecked[i] = true;
+                    }
+                }
+
             }
 
         }
