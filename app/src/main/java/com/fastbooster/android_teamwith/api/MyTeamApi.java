@@ -9,7 +9,7 @@ import java.net.URL;
 public class MyTeamApi {
     public static JSONObject getMyTeam() throws Exception{
         JSONObject json=null;
-        URL url = new URL("http://192.168.30.27:8089/api/team/myTeam");
+        URL url = new URL("http://192.168.30.64:8089/api/team/myTeam");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setReadTimeout(10000);
