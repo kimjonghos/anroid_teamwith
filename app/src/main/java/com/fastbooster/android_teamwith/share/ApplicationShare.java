@@ -15,31 +15,27 @@ import java.util.Map;
 
 //모든 액티비티가 다 공유할 수 있게됨.
 public class ApplicationShare extends Application {
-    private String apiKey = null;
-    public Map<String, Object> praiseList = new HashMap<>();
-    public Map<String, Object> projectList = new HashMap<>();
-    public Map<String, Object> regionList = new HashMap<>();
-    public Map<String, Object> roleList = new HashMap<>();
-    public Map<String, Object> developerSkillList = new HashMap<>();
-    public Map<String, Object> plannerSkillList = new HashMap<>();
-    public Map<String, Object> designerSkillList = new HashMap<>();
-    public Map<String, Object> etcSkillList = new HashMap<>();
-    public Map<String, Object> skillList = new HashMap<>();
-    public Map<String, Object> tendencyList = new HashMap<>();
+    public static Map<String, Object> praiseList = new HashMap<>();
+    public static Map<String, Object> categoryList = new HashMap<>();
+    public static Map<String, Object> regionList = new HashMap<>();
+    public static Map<String, Object> roleList = new HashMap<>();
+    public static Map<String, Object> developerSkillList = new HashMap<>();
+    public static Map<String, Object> plannerSkillList = new HashMap<>();
+    public static Map<String, Object> designerSkillList = new HashMap<>();
+    public static Map<String, Object> etcSkillList = new HashMap<>();
+    public static Map<String, Object> skillList = new HashMap<>();
+    public static Map<String, Object> tendencyList = new HashMap<>();
 
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
+    static {
+        FileReadThread fileReadThread = new FileReadThread();
+        fileReadThread.start();
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        FileReadThread fileReadThread = new FileReadThread();
-        fileReadThread.start();
+        //  FileReadThread fileReadThread = new FileReadThread();
+        //  fileReadThread.start();
     }
 
     @Override
@@ -48,7 +44,7 @@ public class ApplicationShare extends Application {
     }
 
 
-    class FileReadThread extends Thread {
+    static class FileReadThread extends Thread {
         static final String TAG = "file data...";
         private static final String URL_STR = "http://192.168.30.64:8089/api/file";
 
@@ -80,11 +76,10 @@ public class ApplicationShare extends Application {
                 JSONObject object = new JSONObject(sb.toString());
                 //return WeatherForecast
 
-
-                toMap(object, "praiseList", praiseList);
-                toMap(object, "projectList", projectList);
-                toMap(object, "regionList", regionList);
                 toMap(object, "roleList", roleList);
+                toMap(object, "praiseList", praiseList);
+                toMap(object, "projectList", categoryList);
+                toMap(object, "regionList", regionList);
                 toMap(object, "developerSkillList", developerSkillList);
                 toMap(object, "plannerSkillList", plannerSkillList);
                 toMap(object, "designerSkillList", designerSkillList);
@@ -105,7 +100,8 @@ public class ApplicationShare extends Application {
                 Iterator<String> pKey = list.keys();
                 while (pKey.hasNext()) {
                     String key = pKey.next();
-                    Log.v("file", listName + "하나씩 읽고잇음 " + key);
+                    Log.v("file", listName + "하나씩 읽고잇음 " + key + ":" + list.getString(key));
+
                     target.put(key, list.getString(key));
                 }
             } catch (Exception e) {
