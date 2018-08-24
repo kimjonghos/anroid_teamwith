@@ -66,8 +66,10 @@ public class ProfileEditActivity extends Activity {
 
                 class ProfileEditThread extends Thread {
                     static final String TAG = "file data...";
+
                     private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo/";
                     Uri.Builder params = new Uri.Builder();
+
                     SharedPreferences sp = getSharedPreferences("memberPref", MODE_PRIVATE);
 
                     public void run() {
@@ -79,11 +81,14 @@ public class ProfileEditActivity extends Activity {
 
                             //shared preference에서 내 아이디 빼서 요청 주소 뒤에 붙임
                             URL url = new URL(URL_STR + sp.getString("memberId", "jo") + params.toString());
+
+
                             Log.v(TAG, url.toString());
                             HttpURLConnection conn = null;
                             StringBuilder sb = new StringBuilder();
 
                             conn = (HttpURLConnection) url.openConnection();
+                            conn.setRequestProperty("Cookie", sp.getString("sessionId", ""));
 //connection.
                             conn.setRequestMethod("GET");
                             conn.setDoInput(true);
