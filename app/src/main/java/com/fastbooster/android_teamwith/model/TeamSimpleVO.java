@@ -1,7 +1,6 @@
 //�ۼ��� : Ȳ����
 package com.fastbooster.android_teamwith.model;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class TeamSimpleVO {
