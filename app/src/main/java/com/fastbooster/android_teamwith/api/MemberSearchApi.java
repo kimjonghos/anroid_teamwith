@@ -1,4 +1,4 @@
-package com.fastbooster.android_teamwith.service;
+package com.fastbooster.android_teamwith.api;
 
 import android.content.Context;
 import android.net.Uri;
