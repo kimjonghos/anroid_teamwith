@@ -1,6 +1,7 @@
 package com.fastbooster.android_teamwith.share;
 
 import android.app.Application;
+import android.content.Intent;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -9,9 +10,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 //모든 액티비티가 다 공유할 수 있게됨.
 public class ApplicationShare extends Application {
@@ -87,6 +94,17 @@ public class ApplicationShare extends Application {
                 toMap(object, "skillList", skillList);
                 toMap(object, "tendencyList", tendencyList);
 
+                roleList = sortByComparator(roleList);
+                praiseList = sortByComparator(praiseList);
+                categoryList = sortByComparator(categoryList);
+                regionList = sortByComparator(regionList);
+                developerSkillList = sortByComparator(developerSkillList);
+                plannerSkillList = sortByComparator(plannerSkillList);
+                designerSkillList = sortByComparator(designerSkillList);
+                etcSkillList = sortByComparator(etcSkillList);
+                skillList = sortByComparator(skillList);
+                tendencyList = sortByComparator(tendencyList);
+
             } catch (Exception e) {
                 Log.d("Weather app error", e.getMessage());
                 e.printStackTrace();
@@ -107,6 +125,27 @@ public class ApplicationShare extends Application {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        private Map<String, Object> sortByComparator(Map<String, Object> unsortMap) {
+            List<Entry<String, Object>> list = new LinkedList<Entry<String, Object>>(unsortMap.entrySet());
+
+            Collections.sort(list, new Comparator<Entry<String, Object>>() {
+                @Override
+                public int compare(Entry<String, Object> o1, Entry<String, Object> o2) {
+                    Integer v1 = Integer.parseInt(o1.getKey().split("-")[1]);
+                    Integer v2 = Integer.parseInt(o2.getKey().split("-")[1]);
+
+                    return v1.compareTo(v2);
+                }
+            });
+
+            Map<String, Object> sortedMap = new LinkedHashMap<String, Object>();
+            for (Entry<String, Object> entry : list) {
+                sortedMap.put(entry.getKey(), entry.getValue());
+            }
+
+            return sortedMap;
         }
     }
 }
