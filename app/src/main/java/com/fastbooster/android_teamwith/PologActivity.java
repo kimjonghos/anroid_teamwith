@@ -17,11 +17,15 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.fastbooster.android_teamwith.api.PologApi;
+import com.fastbooster.android_teamwith.task.PologTask;
 import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
 import com.fastbooster.android_teamwith.task.PortfolioSearchTask;
 //멤버아이디 받아서 fragment로 전달,폴로그로 전달
 public class PologActivity extends Activity {
     FrameLayout frame;
+    LayoutInflater inflater;
+    View profileView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,14 @@ public class PologActivity extends Activity {
         final Button kbtnProfile =(Button)findViewById(R.id.k_btn_Profile);
         final Button kbtnPortfolio =(Button)findViewById(R.id.k_btn_Portfolio);
         frame=(FrameLayout)findViewById(R.id.k_fl_portfolioList);
+        inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        profileView=inflater.inflate(R.layout.profile_layout,frame,false);
+
+        PologTask pt=new PologTask(PologActivity.this,profileView);
+        pt.execute("kim");//멤버아이디 전달 받아서 넣기
+
+
         kbtnProfile.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -48,16 +60,23 @@ public class PologActivity extends Activity {
     }
 
     private void changeView(int index){
-        LayoutInflater inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
 
 
         if(frame.getChildCount()>0){
             frame.removeViewAt(0);
         }
-        View view=null;
+//        View view=null;
         switch(index){
             case 0:
-                view=inflater.inflate(R.layout.profile_layout,frame,false);
+//                view=inflater.inflate(R.layout.profile_layout,frame,false);
+                if(profileView!=null){
+                    frame.addView(profileView);
+                }else{
+                    profileView=inflater.inflate(R.layout.profile_layout,frame,false);
+
+                    frame.addView(profileView);
+                }
                 break;
             case 1:
                 //포트폴리오 레이아웃줄것
@@ -73,8 +92,6 @@ public class PologActivity extends Activity {
                 break;
 
         }
-        if(view!=null){
-            frame.addView(view);
-        }
+
     }
 }

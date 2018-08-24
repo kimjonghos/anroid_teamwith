@@ -10,7 +10,7 @@ import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.SearchActivity;
 import com.fastbooster.android_teamwith.adapter.MemberAdapter;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
-import com.fastbooster.android_teamwith.service.MemberSearchApi;
+import com.fastbooster.android_teamwith.api.MemberSearchApi;
 import com.fastbooster.android_teamwith.util.Criteria;
 
 import java.util.List;

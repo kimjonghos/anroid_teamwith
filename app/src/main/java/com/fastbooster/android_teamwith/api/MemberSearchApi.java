@@ -1,4 +1,4 @@
-package com.fastbooster.android_teamwith.service;
+package com.fastbooster.android_teamwith.api;
 
 import android.content.Context;
 import android.net.Uri;
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MemberSearchApi {
     static final String TAG = "member data...";
-    public static String URL_STR = "http://192.168.30.64:8089/api/member";
+    public static String URL_STR = "http://192.168.30.16:8089/api/member";
 
     public static String makeQuery(Criteria cri, String[] region,
                                    String[] project, String[] role, String[] skill,
