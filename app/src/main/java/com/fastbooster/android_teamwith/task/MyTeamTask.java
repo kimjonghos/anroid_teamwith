@@ -11,6 +11,7 @@ import com.fastbooster.android_teamwith.adapter.MyTeamAdapter;
 import com.fastbooster.android_teamwith.api.MyTeamApi;
 import com.fastbooster.android_teamwith.api.TeamDetailApi;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
+import com.fastbooster.android_teamwith.util.Criteria;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -55,7 +56,7 @@ public class MyTeamTask extends AsyncTask<Void,Void,JSONObject> {
     protected JSONObject doInBackground(Void... voids) {
         JSONObject json=null;
         try {
-            json = MyTeamApi.getMyTeam();
+            json = MyTeamApi.getMyTeam(new Criteria(1, 100));
         }catch(Exception e){
             e.printStackTrace();
         }

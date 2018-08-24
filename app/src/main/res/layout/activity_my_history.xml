@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="857dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,14 +107,14 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView11"
+                            android:id="@+id/yiv_team_pic_1"
                             android:layout_width="190dp"
                             android:layout_height="190dp"
                             android:layout_marginBottom="15dp"
                             android:src="@drawable/team6" />
 
                         <TextView
-                            android:id="@+id/textView45"
+                            android:id="@+id/ytv_my_team_project_name_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -125,7 +125,7 @@
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView46"
+                            android:id="@+id/ytv_my_team_name_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -137,7 +137,7 @@
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView47"
+                            android:id="@+id/ytv_my_team_project_1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -158,14 +158,14 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView13"
+                            android:id="@+id/yiv_team_pic_1"
                             android:layout_width="190dp"
                             android:layout_height="190dp"
                             android:layout_marginBottom="15dp"
                             android:src="@drawable/team7" />
 
                         <TextView
-                            android:id="@+id/textView53"
+                            android:id="@+id/ytv_my_team_project_name_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -177,7 +177,7 @@
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView54"
+                            android:id="@+id/ytv_my_team_name_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -190,7 +190,7 @@
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/textView55"
+                            android:id="@+id/ytv_my_team_project_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -503,5 +503,53 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_home_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_search_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_assignment_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_perm_identity_black_18dp" />
+    </LinearLayout>
 
 </LinearLayout>
