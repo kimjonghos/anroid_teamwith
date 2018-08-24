@@ -3,15 +3,12 @@ package com.fastbooster.android_teamwith;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.LoginTask;
 
 public class LoginActivity extends Activity {
@@ -29,6 +26,18 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
+
+        /* -----------개발 중 화면 이동을 위한 임시 코드-----------*/
+        Button editProfile = findViewById(R.id.button4);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(context, ProfileEditActivity.class);
+                context.startActivity(intent);
+            }
+        });
+        /*-----------------------------------------------------------------*/
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
