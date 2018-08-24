@@ -76,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/hktvRecruitPreference" />
 
     <TextView
+
         android:id="@+id/hktvRequireSkill"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
@@ -117,5 +118,6 @@
         android:text="ㅎㅎ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
 
 </android.support.constraint.ConstraintLayout>

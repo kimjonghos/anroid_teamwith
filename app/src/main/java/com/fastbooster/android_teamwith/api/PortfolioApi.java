@@ -13,78 +13,96 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.net.ssl.HttpsURLConnection;
-
 public class PortfolioApi {
 
     public static final String URL_STR="http://192.168.30.16:8089/api/portfolioSearch/";
     public static JSONObject getPortfolioDetail(String portfolioId) throws Exception{
         JSONObject json=null;
+        HttpURLConnection conn=null;
+
         URL url = new URL(URL_STR+portfolioId);
+        try {
+            conn = (HttpURLConnection) url.openConnection();
 
-        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setReadTimeout(1000);
-        conn.setDoInput(true);
+            conn.setRequestMethod("GET");
+            conn.setReadTimeout(1000);
+            conn.setDoInput(true);
 
-        conn.setDoOutput(true);
-        int responseCode = conn.getResponseCode();
-        StringBuilder sb = new StringBuilder();
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
+
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("Content-type", "application/json");
+            int responseCode = conn.getResponseCode();
+
+            StringBuilder sb = new StringBuilder();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+                //JSON object 받아오기
+                br.close();
+                json = new JSONObject(sb.toString());
+                conn.disconnect();
+                return json;
             }
-            //JSON object 받아오기
-            br.close();
-            json = new JSONObject(sb.toString());
             conn.disconnect();
-            return json;
         }
-        conn.disconnect();
+        catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            conn.disconnect();
+
+        }
+
         return null;
     }
     public static List<PortfolioSimpleVO> getPortfolioList() throws Exception{
         URL url = new URL(URL_STR);
-        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setReadTimeout(1000);
-        conn.setDoInput(true);
-        conn.setDoOutput(true);
-        int responseCode = conn.getResponseCode();
-        StringBuilder sb = new StringBuilder();
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
-            List<PortfolioSimpleVO> list=new ArrayList<>();
-            JSONObject json=new JSONObject(sb.toString());
+        HttpURLConnection conn = null;
+        try {
+            conn=(HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setReadTimeout(1000);
+            conn.setDoInput(true);
 
-            JSONArray jarray=json.getJSONArray("portfolioList");
-            PortfolioSimpleVO portfolioSimpleVO=null;
-            for(int i=0;i<jarray.length();i++){
-                JSONObject jo=jarray.getJSONObject(i);
-                String portfolioId=jo.getString("portfolioId");
-                String portfolioPic=jo.getString("portfolioPic");
-                String memberId=jo.getString("memberId");
-                String memberName=jo.getString("memberName");
-                String portfolioTitle=jo.getString("portfolioTitle");
-                String portfolioBest=jo.getString("portfolioBest");
-                String projectCategory=jo.getString("projectCategoryId");
-                String portfolioIntro=jo.getString("portfolioIntro");
-                String portfolioUpdateDate=jo.getString("portfolioUpdateDate");
-                portfolioSimpleVO=new PortfolioSimpleVO(portfolioId,portfolioPic,memberId,memberName,portfolioTitle,portfolioBest,projectCategory,
-                        portfolioIntro, Date.valueOf(portfolioUpdateDate));
-                list.add(portfolioSimpleVO);
+            int responseCode = conn.getResponseCode();
+            StringBuilder sb = new StringBuilder();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+                List<PortfolioSimpleVO> list = new ArrayList<>();
+                JSONObject json = new JSONObject(sb.toString());
+
+                JSONArray jarray = json.getJSONArray("portfolioList");
+                PortfolioSimpleVO portfolioSimpleVO = null;
+                for (int i = 0; i < jarray.length(); i++) {
+                    JSONObject jo = jarray.getJSONObject(i);
+                    String portfolioId = jo.getString("portfolioId");
+                    String portfolioPic = jo.getString("portfolioPic");
+                    String memberId = jo.getString("memberId");
+                    String memberName = jo.getString("memberName");
+                    String portfolioTitle = jo.getString("portfolioTitle");
+                    String portfolioBest = jo.getString("portfolioBest");
+                    String projectCategory = jo.getString("projectCategoryId");
+                    String portfolioIntro = jo.getString("portfolioIntro");
+                    String portfolioUpdateDate = jo.getString("portfolioUpdateDate");
+                    portfolioSimpleVO = new PortfolioSimpleVO(portfolioId, portfolioPic, memberId, memberName, portfolioTitle, portfolioBest, projectCategory,
+                            portfolioIntro, Date.valueOf(portfolioUpdateDate));
+                    list.add(portfolioSimpleVO);
+                }
+                br.close();
+                return list;
             }
-            br.close();
-            conn.disconnect();
-            return list;
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        conn.disconnect();
+        finally {
+            conn.disconnect();
+        }
         return null;
     }
 }

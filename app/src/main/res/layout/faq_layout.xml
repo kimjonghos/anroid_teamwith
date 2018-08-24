@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/k_tv_info_memberId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -23,7 +23,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:text="faq질문이 무엇인가요?"
-        app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintStart_toEndOf="@+id/k_tv_info_memberId"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
