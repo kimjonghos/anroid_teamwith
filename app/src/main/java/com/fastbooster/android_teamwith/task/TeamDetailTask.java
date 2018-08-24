@@ -99,7 +99,7 @@ public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
                 TextView tvTeamContest=view.findViewById(R.id.hktvTeamContest);
                 tvTeamContest.setText(teamInfo.getTeamContestName());
                 ListView recruitListView=view.findViewById(R.id.hkRecruitListView);
-                TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,recruitList);
+                TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,recruitList,interviewList,requireSkillList);
                 recruitListView.setAdapter(recruitAdapter);
                 setListViewHeightBasedOnChildren(recruitListView);
                 ListView faqListView=view.findViewById(R.id.hkFaqListView);

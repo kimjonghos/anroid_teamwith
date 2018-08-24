@@ -1,12 +1,5 @@
 package com.fastbooster.android_teamwith.api;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 public class JoinedTeamApi {
     public static JSONObject getJoinedTeam() throws Exception{
         JSONObject json=null;

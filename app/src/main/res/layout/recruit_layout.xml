@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/hktvRecruitRoleConst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -22,18 +22,18 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:text="개발자"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/hktvRecruitRoleConst"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/hktvRecruitPeopleNumConst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="모집 인원 : "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitRoleConst" />
 
     <TextView
         android:id="@+id/hktvRecruitPeopleNum"
@@ -42,18 +42,18 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:text="2 명"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintStart_toEndOf="@+id/hktvRecruitPeopleNumConst"
         app:layout_constraintTop_toBottomOf="@+id/hktvRecruitRole" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/hktvRecruitExplainConst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:text="역할 설명 : "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitPeopleNumConst" />
 
     <TextView
         android:id="@+id/hktvRecruitExplain"
@@ -63,10 +63,10 @@
         android:layout_marginTop="16dp"
         android:text="우리에게 식량을 주실분이 필요합니다!"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitExplainConst" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/hktvRequireSkillConst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -84,10 +84,10 @@
         android:layout_marginTop="16dp"
         android:text="c  c++  c#"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/hktvRequireSkillConst" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/applyBtn"
         android:layout_width="103dp"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/hktvRequireSkill" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/hktvRecruitPreferenceConst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -117,7 +117,7 @@
         android:layout_marginTop="16dp"
         android:text="ㅎㅎ"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitPreferenceConst" />
 
 
 </android.support.constraint.ConstraintLayout>
