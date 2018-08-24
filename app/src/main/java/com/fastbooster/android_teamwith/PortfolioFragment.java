@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import com.fastbooster.android_teamwith.adapter.PologPortfoliListAdapter;
@@ -76,7 +77,7 @@ public class PortfolioFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        ListView lv=(ListView)view.findViewById(R.id.k_lv_polport);
+        GridView lv=(GridView)view.findViewById(R.id.k_lv_polport);
 //        PologPortfoliListAdapter ppl=new PologPortfoliListAdapter(getActivity(),ps.getPoerfolioSimpleList());
         ps=new PortfolioSearchTask(view.getContext(),lv);
         ps.execute("jo");//생성자로 아이디받기

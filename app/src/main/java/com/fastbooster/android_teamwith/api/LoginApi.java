@@ -15,7 +15,7 @@ import java.util.List;
 public class LoginApi {
     public static String[] login(String[] accountInfos) throws JSONException {
         InputStream is = null;
-        String[] result = new String[3];
+        String[] result = new String[4];
         HttpURLConnection httpCon = null;
         try {
             URL urlCon = new URL("http://192.168.30.64:8089/api/login");
@@ -58,9 +58,11 @@ public class LoginApi {
                     if (cookies != null) {
                         for (String cookie : cookies) {
                             result[0] = cookie.split(";\\s*")[0];
-                            //result = result.split("=")[1];
                         }
                     }
+                    result[1] = accountInfos[0];
+                    result[2] = accountInfos[1];
+                    result[3] = accountInfos[2];
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -72,9 +74,6 @@ public class LoginApi {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        result[1] = accountInfos[0];
-        result[2] = accountInfos[1];
 
         return result;
     }

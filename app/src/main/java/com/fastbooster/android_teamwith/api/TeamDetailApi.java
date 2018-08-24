@@ -10,7 +10,7 @@ import java.net.URL;
 public class TeamDetailApi {
     public static JSONObject getTeamDetail(String teamId) throws Exception{
         JSONObject json=null;
-        URL url = new URL("http://192.168.30.7:8089/api/teamSearch/1");
+        URL url = new URL("http://192.168.30.64:8089/api/teamSearch/1");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setReadTimeout(10000);
@@ -23,7 +23,6 @@ public class TeamDetailApi {
             while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
-            //JSON object 받아오기
             json = new JSONObject(sb.toString());
             conn.disconnect();
             return json;

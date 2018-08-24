@@ -21,6 +21,7 @@ public class LoginTask extends AsyncTask<String, Void, String[]> {
     @Override
     protected void onPostExecute(String[] result) {
         LoginActivity loginContext = (LoginActivity) context;
+
         SharedPreferences memberPref = context.getSharedPreferences("memberPref", Context.MODE_PRIVATE);
 
         if (result != null) {
@@ -30,6 +31,7 @@ public class LoginTask extends AsyncTask<String, Void, String[]> {
                 editor.putString("sessionId", result[0]);
                 editor.putString("memberId", result[1]);
                 editor.putString("memberPassword", result[2]);
+                editor.putString("isAutoLogin", result[3]);
                 editor.commit();
             } catch (Exception e) {
                 e.printStackTrace();

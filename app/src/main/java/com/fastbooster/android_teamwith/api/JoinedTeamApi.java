@@ -1,16 +1,9 @@
 package com.fastbooster.android_teamwith.api;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 public class JoinedTeamApi {
     public static JSONObject getJoinedTeam() throws Exception{
         JSONObject json=null;
-        URL url = new URL("http://192.168.30.7:8089/api/teamInfo/joinedTeam");
+        URL url = new URL("http://192.168.30.64:8089/api/teamInfo/joinedTeam");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setReadTimeout(10000);

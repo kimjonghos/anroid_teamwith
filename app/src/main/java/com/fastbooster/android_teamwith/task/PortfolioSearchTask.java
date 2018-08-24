@@ -8,6 +8,7 @@ import android.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,10 +28,10 @@ import java.util.List;
 
 public class PortfolioSearchTask extends AsyncTask<String,Void,List<PortfolioSimpleVO>> {
 private final Context context;
-private final ListView lv;
+private final GridView lv;
 private List<PortfolioSimpleVO> list;
 //private final FragmentManager fm;
-public PortfolioSearchTask(Context context,ListView lv) {
+public PortfolioSearchTask(Context context,GridView lv) {
         super();
         this.context=context;
             this.lv=lv;

@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="269dp">
 
         <LinearLayout
 
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageView
@@ -39,13 +40,14 @@
                 android:id="@+id/k_tv_info_memberId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
                 android:text="조란"
-                android:textAlignment="viewEnd"
+                android:textAlignment="center"
                 android:textColor="@android:color/darker_gray" />
 
         </LinearLayout>
 
 
-    </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.viewholder.PortfolioViewHolder;
 
 
@@ -61,7 +62,7 @@ public class PologPortfoliListAdapter extends BaseAdapter {
         viewHolder.portfolioMemberId.setText(data.get(i).getMemberId());
         viewHolder.portfolioPic.setTag(data.get(i).getPortfolioPic());
         viewHolder.portfolioTitle.setText(data.get(i).getPortfolioTitle());
-        viewHolder.projectCategoryId.setText(data.get(i).getProjectCategoryId());
+        viewHolder.projectCategoryId.setText((String) ApplicationShare.categoryList.get(data.get(i).getProjectCategoryId()));
 
         ImageTask imageViewTask= new ImageTask(context);
         imageViewTask.execute(viewHolder.portfolioPic);
