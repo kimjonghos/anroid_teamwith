@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchActivity">
+
+    <Button
+        android:id="@+id/ktSearchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="60dp"
+
+        android:background="@drawable/teamsearch"
+        android:text="팀 검색"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/y_btn_application"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/membersearch"
+        android:text="회원 검색"
+        android:textColor="@color/sky"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/kpSearchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/portfoliosearch"
+
+        android:text="포트폴리오 검색"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
