@@ -58,7 +58,6 @@ public class LoginApi {
                     if (cookies != null) {
                         for (String cookie : cookies) {
                             result[0] = cookie.split(";\\s*")[0];
-                            //result = result.split("=")[1];
                         }
                     }
                     result[1] = accountInfos[0];
