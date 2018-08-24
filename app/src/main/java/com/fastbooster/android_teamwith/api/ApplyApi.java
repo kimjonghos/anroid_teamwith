@@ -1,4 +1,4 @@
 package com.fastbooster.android_teamwith.api;
 
-public class JoinedTeamApi {
+public class ApplyApi {
 }

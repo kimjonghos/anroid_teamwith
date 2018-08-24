@@ -23,7 +23,6 @@ public class TeamDetailApi {
             while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
-            //JSON object 받아오기
             json = new JSONObject(sb.toString());
             conn.disconnect();
             return json;
