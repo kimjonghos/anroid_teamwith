@@ -30,8 +30,10 @@ public class MyProfileApi {
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
-            conn.setRequestProperty("Cookie", sp.getString("sessionId", ""));
             conn.setConnectTimeout(1000);
+
+            conn.setRequestProperty("Cookie", sp.getString("sessionId", ""));
+
             int responseCode = conn.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
