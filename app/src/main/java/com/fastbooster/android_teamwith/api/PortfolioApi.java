@@ -15,7 +15,7 @@ import java.util.List;
 
 public class PortfolioApi {
 
-    public static final String URL_STR = "http://192.168.30.16:8089/api/portfolioSearch/";
+    public static final String URL_STR = "http://192.168.30.7:8089/api/portfolioSearch/";
 
     public static JSONObject getPortfolioDetail(String portfolioId) throws Exception {
         JSONObject json = null;
