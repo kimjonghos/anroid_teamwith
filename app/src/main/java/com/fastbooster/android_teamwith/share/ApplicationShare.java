@@ -15,6 +15,7 @@ import java.util.Map;
 
 //모든 액티비티가 다 공유할 수 있게됨.
 public class ApplicationShare extends Application {
+    private boolean isLogin;
     private String apiKey = null;
     public Map<String, Object> praiseList = new HashMap<>();
     public Map<String, Object> projectList = new HashMap<>();
@@ -26,6 +27,14 @@ public class ApplicationShare extends Application {
     public Map<String, Object> etcSkillList = new HashMap<>();
     public Map<String, Object> skillList = new HashMap<>();
     public Map<String, Object> tendencyList = new HashMap<>();
+
+    public boolean isLogin() {
+        return isLogin;
+    }
+
+    public void setLogin(boolean isLogin) {
+        this.isLogin = isLogin;
+    }
 
     public String getApiKey() {
         return apiKey;
