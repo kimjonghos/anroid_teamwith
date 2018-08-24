@@ -2,14 +2,12 @@ package com.fastbooster.android_teamwith.task;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.GridLayout;
 import android.widget.GridView;
 
 import com.fastbooster.android_teamwith.MyTeamActivity;
 import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.adapter.MyTeamAdapter;
+import com.fastbooster.android_teamwith.adapter.TeamGridViewAdapter;
 import com.fastbooster.android_teamwith.api.MyTeamApi;
-import com.fastbooster.android_teamwith.api.TeamDetailApi;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
 
 import org.json.JSONArray;
@@ -39,9 +37,8 @@ public class MyTeamTask extends AsyncTask<Void,Void,JSONObject> {
                 MyTeamActivity myTeamActivity=(MyTeamActivity) context;
                 GridView myTeamGridView=(GridView) myTeamActivity.findViewById(R.id.myTeamGridView);
 
-                MyTeamAdapter adapter=new MyTeamAdapter(context,data);
+                TeamGridViewAdapter adapter=new TeamGridViewAdapter(context,data);
                 myTeamGridView.setAdapter(adapter);
-
             }
 
         }catch(Exception e){

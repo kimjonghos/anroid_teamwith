@@ -14,12 +14,12 @@ import com.fastbooster.android_teamwith.viewholder.TeamLayoutViewHolder;
 
 import java.util.List;
 
-public class MyTeamAdapter extends BaseAdapter {
+public class TeamGridViewAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private List<TeamSimpleVO> data;
 
-    public MyTeamAdapter(Context context, List<TeamSimpleVO> data){
+    public TeamGridViewAdapter(Context context, List<TeamSimpleVO> data){
         this.context=context;
         this.data=data;
         layoutInflater=LayoutInflater.from(context);
