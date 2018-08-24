@@ -22,15 +22,15 @@
             android:textSize="24dp" />
 
         <TextView
-            android:id="@+id/hTeamDetailTitle"
+            android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="자기소개"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/textView6"
@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/jmemberInrtroEt"
         android:layout_width="380dp"
         android:layout_height="510dp"
         android:layout_marginLeft="10dp"
