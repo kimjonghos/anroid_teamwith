@@ -32,6 +32,7 @@ public class ApplicationShare extends Application {
     public static Map<String, Object> etcSkillList = new HashMap<>();
     public static Map<String, Object> skillList = new HashMap<>();
     public static Map<String, Object> tendencyList = new HashMap<>();
+    public static Map<String, Object> applicationStatus = new HashMap<>();
 
     static {
         FileReadThread fileReadThread = new FileReadThread();
@@ -104,6 +105,12 @@ public class ApplicationShare extends Application {
                 etcSkillList = sortByComparator(etcSkillList);
                 skillList = sortByComparator(skillList);
                 tendencyList = sortByComparator(tendencyList);
+
+                applicationStatus.put("0", "지원 완료");
+                applicationStatus.put("1", "합류");
+                applicationStatus.put("2", "탈락");
+                applicationStatus.put("3", "취소");
+
 
             } catch (Exception e) {
                 Log.d("Weather app error", e.getMessage());
