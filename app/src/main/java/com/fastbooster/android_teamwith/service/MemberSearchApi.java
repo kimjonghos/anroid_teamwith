@@ -69,7 +69,7 @@ public class MemberSearchApi {
 
         try {
             URL url = new URL(URL_STR + query);
-            Log.v(TAG,url.toString());
+            Log.v(TAG, url.toString());
             HttpURLConnection conn = null;
             StringBuilder sb = new StringBuilder();
 
@@ -93,20 +93,18 @@ public class MemberSearchApi {
 
             JSONArray array = new JSONArray(sb.toString());
 
-            //return WeatherForecast
+            //return
             List<MemberSearchVO> result = new ArrayList<>();
 
-
+            Log.v("len",""+array.length());
             for (int i = 0; i < array.length(); i++) {
-                JSONObject f = array.getJSONObject(i);
-                boolean bb = f.isNull("roleId");
-                Log.v(TAG, bb + "null");
-                result.add(new MemberSearchVO(f));
+                JSONObject obj = array.getJSONObject(i);
+                result.add(new MemberSearchVO(obj));
             }
             return result;
 
         } catch (Exception e) {
-            Log.d("Weather app error", e.getMessage());
+            Log.d("Teamwith app error", e.getMessage());
             e.printStackTrace();
             return null;
         }
