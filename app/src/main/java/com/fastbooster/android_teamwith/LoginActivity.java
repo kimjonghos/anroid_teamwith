@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ActionMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.LoginTask;
 
 public class LoginActivity extends Activity {
@@ -34,11 +34,37 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View view) {
                 LoginTask loginTask = new LoginTask(context);
-                String[] accountInfos = new String[]{editTextId.getText().toString(), editTextPwd.getText().toString()};
+                String[] accountInfos = null;
+                if(checkBoxAutoLogin.isChecked()) {
+                    accountInfos = new String[]{editTextId.getText().toString(), editTextPwd.getText().toString(), "true"};
+                }
+                else {
+                    accountInfos = new String[]{editTextId.getText().toString(), editTextPwd.getText().toString(), "false"};
+                }
                 loginTask.execute(accountInfos);
             }
         });
 
+        btnEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(context, HomeActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        Intent intent = getIntent();
+        intent.getIntExtra("status", -1);
+        Log.d("@@@@@@@@@@@@@", "" + intent.getIntExtra("status", -1));
+
+        if(intent.getIntExtra("status", -1) == 0) {
+            SharedPreferences sharedPreferences = getSharedPreferences("memberPref", MODE_PRIVATE);
+            editTextId.setText(sharedPreferences.getString("memberId", "-1"));
+            editTextPwd.setText(sharedPreferences.getString("memberPassword", "-1"));
+            checkBoxAutoLogin.setChecked(true);
+            btnLogin.performClick();
+        }
     }
 
     private void init() {

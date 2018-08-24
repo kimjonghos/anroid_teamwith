@@ -24,14 +24,14 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/hktvProjectName"
+            android:id="@+id/jmemberNameTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal|center"
+            android:gravity="center"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="황규진"
+            android:text="TextView"
             android:textSize="24sp" />
 
         <TextView
@@ -44,14 +44,14 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/jmemberPic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:src="@drawable/member" />
 
     <TextView
-        android:id="@+id/memberName"
+        android:id="@+id/jmemberName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -129,7 +129,6 @@
 
         <LinearLayout
             android:id="@+id/memberIntroLayout"
-            style=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -162,5 +161,19 @@
         android:id="@+id/spinner"
         android:layout_width="0dp"
         android:layout_height="0dp" />
+
+    <TextView
+        android:id="@+id/jprofileEditBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="저장하기"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

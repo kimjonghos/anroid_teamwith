@@ -7,12 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.fastbooster.android_teamwith.task.MyHistoryTask;
+
 public class MyHistoryActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_history);
+
+        loadMyTeam();
 
         Button btnApplication = findViewById(R.id.y_btn_application);
 
@@ -25,5 +29,10 @@ public class MyHistoryActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void loadMyTeam() {
+        MyHistoryTask myHistoryTask = new MyHistoryTask(this);
+        myHistoryTask.execute();
     }
 }
