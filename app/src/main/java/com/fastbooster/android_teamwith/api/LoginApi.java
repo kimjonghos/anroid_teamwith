@@ -18,7 +18,7 @@ public class LoginApi {
         InputStream is = null;
         String result = "";
         try {
-            URL urlCon = new URL("http://192.168.30.7:8089/api/login");
+            URL urlCon = new URL("http://192.168.30.64:8089/api/login");
             HttpURLConnection httpCon = (HttpURLConnection)urlCon.openConnection();
 
             String json = "";

@@ -41,11 +41,13 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
                 MemberSimpleVO memberSimpleVO = new MemberSimpleVO(member);
                 Toast.makeText(context, memberSimpleVO.getMemberName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
                 ApplicationShare applicationShare = new ApplicationShare();
-
+                applicationShare.setLogin(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
+            ApplicationShare applicationShare = new ApplicationShare();
+            applicationShare.setLogin(true);
             Toast.makeText(context, "로그인 정보가 올바르지 않습니다", Toast.LENGTH_SHORT).show();
         }
     }
