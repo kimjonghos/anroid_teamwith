@@ -1,7 +1,9 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.LoginTask;
 
 public class LoginActivity extends Activity {
+    private Context context = this;
     private EditText editTextId;
     private EditText editTextPwd;
     private CheckBox checkBoxAutoLogin;
@@ -30,23 +33,12 @@ public class LoginActivity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginTask loginTask = new LoginTask(getApplicationContext());
+                LoginTask loginTask = new LoginTask(context);
                 String[] accountInfos = new String[]{editTextId.getText().toString(), editTextPwd.getText().toString()};
                 loginTask.execute(accountInfos);
-
-                ApplicationShare applicationShare = new ApplicationShare();
-                if(applicationShare.isLogin()) {
-                    Intent intent = new Intent();
-                    intent.setClass(getApplicationContext(), HomeActivity.class);
-                    startActivity(intent);    
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
-                }
-                
-
             }
         });
+
     }
 
     private void init() {
