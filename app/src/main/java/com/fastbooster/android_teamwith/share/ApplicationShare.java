@@ -126,8 +126,6 @@ public class ApplicationShare extends Application {
                 Iterator<String> pKey = list.keys();
                 while (pKey.hasNext()) {
                     String key = pKey.next();
-                    Log.v("file", listName + "하나씩 읽고잇음 " + key + ":" + list.getString(key));
-
                     target.put(key, list.getString(key));
                 }
             } catch (Exception e) {
