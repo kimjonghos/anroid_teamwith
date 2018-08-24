@@ -13,10 +13,11 @@ public class PortfolioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_portfolio);
-        setContentView(R.layout.portfoliotestlayout);
+        setContentView(R.layout.activity_portfolio);
+//        setContentView(R.layout.portfoliotestlayout);
         PortfolioDetailTask pd=new PortfolioDetailTask(PortfolioActivity.this);
         TextView te=(TextView)findViewById(R.id.te);
-        pd.execute("48");
+        pd.execute("68");
+
     }
 }

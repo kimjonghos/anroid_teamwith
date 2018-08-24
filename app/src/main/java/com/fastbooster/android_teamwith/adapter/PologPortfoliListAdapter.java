@@ -5,19 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.R;
-
-import org.w3c.dom.Text;
+import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
+import com.fastbooster.android_teamwith.viewholder.PortfolioViewHolder;
 
 import java.util.List;
 
 public class PologPortfoliListAdapter extends BaseAdapter {
     Context context;
-    List<String> data; //나중에 String 대신 model로
+    List<PortfolioSimpleVO> data; //나중에 String 대신 model로
     LayoutInflater inflater;
-    public PologPortfoliListAdapter(Context context, List<String> data){
+    public PologPortfoliListAdapter(Context context, List<PortfolioSimpleVO> data){
         this.context=context;
         this.data=data;
         inflater=LayoutInflater.from(context);
@@ -39,17 +40,30 @@ public class PologPortfoliListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-
+        PortfolioViewHolder viewHolder;
         View itemLayout=view;
-        if(itemLayout==null){
-            itemLayout=inflater.inflate(R.layout.portfolioinfo_layout,null);
-            TextView tv1=(TextView)itemLayout.findViewById(R.id.ktvPortfolioTitle1);
-            TextView tv2=(TextView)itemLayout.findViewById(R.id.ktvPortfolioTitle2);
 
-            tv1.setText(data.get(i));
-            tv2.setText(data.get(i));
+        if(itemLayout!=null){
+            viewHolder=(PortfolioViewHolder)view.getTag();
+        }else{
+            view=inflater.inflate(R.layout.portfolioinfo_layout,null);
+
+            viewHolder=new PortfolioViewHolder();
+            viewHolder.portfolioMemberId=view.findViewById(R.id.k_tv_info_memberId);
+            viewHolder.portfolioPic=view.findViewById(R.id.k_iv_info_portfolioPic);
+            viewHolder.portfolioTitle=view.findViewById(R.id.k_tv_info_portfolioTitle);
+            viewHolder.projectCategoryId=view.findViewById(R.id.k_tv_info_projectCategory);
+
+            view.setTag(viewHolder);
         }
+        viewHolder.portfolioMemberId.setText(data.get(i).getMemberId());
+        viewHolder.portfolioPic.setTag(data.get(i).getPortfolioPic());
+        viewHolder.portfolioTitle.setText(data.get(i).getPortfolioTitle());
+        viewHolder.projectCategoryId.setText(data.get(i).getProjectCategoryId());
 
-        return itemLayout;
+        MemberAdapter.ImageViewTask imageViewTask= new MemberAdapter.ImageViewTask(context);
+        imageViewTask.execute(viewHolder.portfolioPic);
+
+        return view;
     }
 }

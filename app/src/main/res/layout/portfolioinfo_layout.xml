@@ -4,40 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="269dp"
-        android:orientation="horizontal">
+        android:layout_height="269dp">
 
         <LinearLayout
 
             android:layout_width="160dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="10dp"
+            android:layout_gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView59"
+                android:id="@+id/k_iv_info_portfolioPic"
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
                 android:src="@drawable/portfolio" />
 
             <TextView
-                android:id="@+id/ktvPortfolioTitle1"
+                android:id="@+id/k_tv_info_portfolioTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="게시판 프로젝트" />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/k_tv_info_projectCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="라이프 스타일"
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/k_tv_info_memberId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="조란"
@@ -46,42 +44,5 @@
 
         </LinearLayout>
 
-        <LinearLayout
-
-
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:src="@drawable/portfolio" />
-
-            <TextView
-                android:id="@+id/ktvPortfolioTitle2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="게시판 프로젝트" />
-
-            <TextView
-                android:id="@+id/textView33"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="라이프 스타일"
-                android:textColor="@android:color/darker_gray" />
-
-            <TextView
-                android:id="@+id/textView34"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="조란"
-                android:textAlignment="viewEnd"
-                android:textColor="@android:color/darker_gray" />
-
-        </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 </LinearLayout>

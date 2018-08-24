@@ -173,7 +173,7 @@
                 android:text=" " />
 
             <FrameLayout
-                android:id="@+id/kframe"
+                android:id="@+id/k_fl_portfolioList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 

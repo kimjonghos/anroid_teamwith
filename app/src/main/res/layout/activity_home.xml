@@ -448,7 +448,7 @@
                         android:src="@drawable/portfolio" />
 
                     <TextView
-                        android:id="@+id/ktvPortfolioTitle1"
+                        android:id="@+id/k_tv_info_portfolioTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="게시판 프로젝트" />
@@ -461,7 +461,7 @@
                         android:textColor="@android:color/darker_gray" />
 
                     <TextView
-                        android:id="@+id/textView31"
+                        android:id="@+id/k_tv_info_memberId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="조란"

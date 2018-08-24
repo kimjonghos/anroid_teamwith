@@ -13,8 +13,10 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.fastbooster.android_teamwith.adapter.PologPortfoliListAdapter;
+import com.fastbooster.android_teamwith.api.PortfolioApi;
 import com.fastbooster.android_teamwith.dummy.DummyContent;
 import com.fastbooster.android_teamwith.dummy.DummyContent.DummyItem;
+import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,17 +59,18 @@ public class PortfolioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        FrameLayout fl=(FrameLayout)inflater.inflate(R.layout.fragment_portfolio,container,false);
-        View view = inflater.inflate(R.layout.fragment_portfolio, container, false);
-        List<String> data=new ArrayList<String>();
-        for(int i=0;i<100;i++){
-            data.add(Integer.toString(i));
+        View view=inflater.inflate(R.layout.fragment_portfolio,container,false);
+        try {
+            List<PortfolioSimpleVO> data = PortfolioApi.getPortfolioList();
+            ListView listview=(ListView)view.findViewById(R.id.k_lv_polport);
+            PologPortfoliListAdapter ppl = new PologPortfoliListAdapter(getActivity(), data);
+            listview.setAdapter(ppl);
+            // Set the adapter
+            return view;
         }
-     ListView listView=(ListView)view.findViewById(R.id.klvfragment);
-        PologPortfoliListAdapter ppl=new PologPortfoliListAdapter(getActivity(),data);
-        listView.setAdapter(ppl);
-        // Set the adapter
-
+        catch(Exception e){
+            e.printStackTrace();
+        }
         return view;
     }
 

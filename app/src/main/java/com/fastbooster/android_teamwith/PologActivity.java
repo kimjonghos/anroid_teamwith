@@ -17,13 +17,14 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class PologActivity extends AppCompatActivity {
-
+    FrameLayout frame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_polog);
         final Button kbtnProfile =(Button)findViewById(R.id.kbtnProfile);
         final Button kbtnPortfolio =(Button)findViewById(R.id.kbtnPortfolio);
+        frame=(FrameLayout)findViewById(R.id.k_fl_portfolioList);
         kbtnProfile.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -45,7 +46,7 @@ public class PologActivity extends AppCompatActivity {
     private void changeView(int index){
         LayoutInflater inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        FrameLayout frame=(FrameLayout)findViewById(R.id.kframe);
+
         if(frame.getChildCount()>0){
             frame.removeViewAt(0);
         }
@@ -57,11 +58,13 @@ public class PologActivity extends AppCompatActivity {
             case 1:
                 //포트폴리오 레이아웃줄것
                 FragmentManager fm=getFragmentManager();
-                Fragment fragment=fm.findFragmentById(R.id.kframe);
+//                Fragment fragment=fm.findFragmentById(R.id.kframe);
 
                     FragmentTransaction tr=fm.beginTransaction();
                     PortfolioFragment pf=new PortfolioFragment();
-                    tr.add(R.id.kframe,pf,"portfolio");
+                    tr.replace(R.id.k_fl_portfolioList,pf);
+                    //앞 요소에 뒤에걸
+//                    tr.add(R.id.kframe,pf,"portfolio");
                     tr.commit();
                 Toast.makeText(getApplicationContext(),"프래그먼트",Toast.LENGTH_SHORT).show();
                 break;

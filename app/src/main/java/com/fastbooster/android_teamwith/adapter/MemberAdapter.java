@@ -76,7 +76,7 @@ public class MemberAdapter extends BaseAdapter {
         return view;
     }
 
-    class ImageViewTask extends AsyncTask<ImageView, Void, Bitmap> {
+    static class ImageViewTask extends AsyncTask<ImageView, Void, Bitmap> {
 
         private final Context context;
         private ImageView image;
