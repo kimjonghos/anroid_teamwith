@@ -2,6 +2,7 @@ package com.fastbooster.android_teamwith.share;
 
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONObject;
