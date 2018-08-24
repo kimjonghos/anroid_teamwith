@@ -1,5 +1,6 @@
 package com.fastbooster.android_teamwith;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -18,15 +19,15 @@ import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
 import com.fastbooster.android_teamwith.task.PortfolioSearchTask;
-
-public class PologActivity extends AppCompatActivity {
+//멤버아이디 받아서 fragment로 전달,폴로그로 전달
+public class PologActivity extends Activity {
     FrameLayout frame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_polog);
-        final Button kbtnProfile =(Button)findViewById(R.id.kbtnProfile);
-        final Button kbtnPortfolio =(Button)findViewById(R.id.kbtnPortfolio);
+        final Button kbtnProfile =(Button)findViewById(R.id.k_btn_Profile);
+        final Button kbtnPortfolio =(Button)findViewById(R.id.k_btn_Portfolio);
         frame=(FrameLayout)findViewById(R.id.k_fl_portfolioList);
         kbtnProfile.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -61,14 +62,13 @@ public class PologActivity extends AppCompatActivity {
             case 1:
                 //포트폴리오 레이아웃줄것
                 FragmentManager fm=getFragmentManager();
-//                Fragment fragment=fm.findFragmentById(R.id.kframe);
-             PortfolioSearchTask pd=new PortfolioSearchTask(PologActivity.this,fm);
-                    FragmentTransaction tr=fm.beginTransaction();
-                    PortfolioFragment pf=new PortfolioFragment();
-                    tr.replace(R.id.k_fl_portfolioList,pf);
-                    //앞 요소에 뒤에걸
-//                    tr.add(R.id.kframe,pf,"portfolio");
-                    tr.commit();
+
+                PortfolioFragment pf=new PortfolioFragment();
+             FragmentTransaction tr=fm.beginTransaction();
+             tr.add(R.id.k_fl_portfolioList,pf);
+
+                tr.commit();
+
                 Toast.makeText(getApplicationContext(),"프래그먼트",Toast.LENGTH_SHORT).show();
                 break;
 

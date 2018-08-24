@@ -52,15 +52,15 @@
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_weight="1"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/member" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -84,14 +84,14 @@
                 android:id="@+id/textView79"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2.5"
+                android:layout_weight="2"
                 android:text="서울,개발자"
                 android:textSize="23dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_weight="1.3"
             android:orientation="vertical">
 
@@ -114,74 +114,59 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TabHost
-        android:id="@+id/ktabHost"
+    <TextView
+        android:id="@+id/textView21"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:text=" " />
 
-        <LinearLayout
-            android:id="@+id/contentLayout"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/k_btn_Profile"
             android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="프로필" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@android:color/black"
+            android:text=" "
+            android:textSize="1dp" />
 
-            <TextView
-                android:id="@+id/textView85"
-                android:layout_width="match_parent"
-                android:layout_height="0.1dp"
-                android:layout_weight="0"
-                android:background="@android:color/black"
-                android:text=" " />
+        <Button
+            android:id="@+id/k_btn_Portfolio"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="포트폴리오" />
+    </LinearLayout>
 
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/kbtnProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:text="프로필" />
-
-                <TextView
-                    android:id="@+id/textView84"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:background="@android:color/black"
-                    android:text=" "
-                    android:textSize="1dp" />
-
-                <Button
-                    android:id="@+id/kbtnPortfolio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:text="포트폴리오" />
-            </TabWidget>
-
-            <TextView
-                android:id="@+id/textView86"
-                android:layout_width="match_parent"
-                android:layout_height="0.1dp"
-                android:layout_weight="0"
-                android:background="@android:color/black"
-                android:text=" " />
-
-            <FrameLayout
-                android:id="@+id/k_fl_portfolioList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <FrameLayout
+        android:id="@+id/k_fl_portfolioList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
 
-                >
+        android:layout_weight="1">
 
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
+    </FrameLayout>
+
+
+
 
 </LinearLayout>

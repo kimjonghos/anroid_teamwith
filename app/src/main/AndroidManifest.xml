@@ -30,8 +30,6 @@
         <activity
             android:name=".HomeActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
-
-
         </activity>
 
         <activity
@@ -52,7 +50,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <activity
@@ -62,9 +59,9 @@
 
         <activity
             android:name=".PologActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
 
-        </activity>
+
 
 
         <activity
@@ -72,7 +69,6 @@
             android:theme="@android:style/Theme.Light.NoTitleBar">
 
         </activity>
-
 
         <activity
             android:name=".MyPologActivity"
@@ -107,8 +103,8 @@
 
         </activity>
 
-        <activity
-            android:name=".PortfolioActivity"
+
+        <activity android:name=".PortfolioActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
 
         </activity>
