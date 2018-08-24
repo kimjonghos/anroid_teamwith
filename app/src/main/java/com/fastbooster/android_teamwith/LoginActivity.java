@@ -41,13 +41,15 @@ public class LoginActivity extends Activity {
     }
 
     private void init() {
-        editTextId = this.findViewById(R.id.y_edit_text_id);
-        editTextPwd = this.findViewById(R.id.y_edit_text_pwd);
-        checkBoxAutoLogin = this.findViewById(R.id.y_check_box_auto_login);
-        btnFindAccount = this.findViewById(R.id.y_btn_find_account);
-        btnLogin = this.findViewById(R.id.y_btn_login);
-        btnRegister = this.findViewById(R.id.y_btn_register);
-        btnEnter = this.findViewById(R.id.y_btn_enter);
+        editTextId = this.findViewById(R.id.yet_id);
+        editTextPwd = this.findViewById(R.id.yet_pwd);
+        checkBoxAutoLogin = this.findViewById(R.id.ycb_auto_login);
+        btnFindAccount = this.findViewById(R.id.yb_find_account);
+        btnLogin = this.findViewById(R.id.yb_login);
+        btnRegister = this.findViewById(R.id.yb_login);
+        btnEnter = this.findViewById(R.id.yb_enter);
     }
 
+
 }
+

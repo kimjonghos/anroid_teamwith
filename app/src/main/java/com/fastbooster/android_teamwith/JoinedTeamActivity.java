@@ -11,7 +11,6 @@ public class JoinedTeamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joined_team);
 
-        ListView joinedTeamListView=(ListView)findViewById(R.id.joinedTeamListView);
 
 
 

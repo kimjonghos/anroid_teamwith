@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
 import com.fastbooster.android_teamwith.viewholder.PortfolioViewHolder;
+
 
 import java.util.List;
 
@@ -42,6 +42,7 @@ public class PologPortfoliListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         PortfolioViewHolder viewHolder;
         View itemLayout=view;
+
 
         if(itemLayout!=null){
             viewHolder=(PortfolioViewHolder)view.getTag();

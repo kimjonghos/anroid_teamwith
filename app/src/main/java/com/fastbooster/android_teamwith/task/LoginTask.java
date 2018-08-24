@@ -2,6 +2,7 @@ package com.fastbooster.android_teamwith.task;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ import com.fastbooster.android_teamwith.api.LoginApi;
 import com.fastbooster.android_teamwith.api.TeamDetailApi;
 import com.fastbooster.android_teamwith.model.MemberSimpleVO;
 import com.fastbooster.android_teamwith.model.TeamDetailVO;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +40,8 @@ public class LoginTask extends AsyncTask<String, Void, JSONObject> {
                 JSONObject member = jsonObject.getJSONObject("memberSimpleVO");
                 MemberSimpleVO memberSimpleVO = new MemberSimpleVO(member);
                 Toast.makeText(context, memberSimpleVO.getMemberName() + "님 환영합니다!", Toast.LENGTH_SHORT).show();
+                ApplicationShare applicationShare = new ApplicationShare();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

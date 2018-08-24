@@ -1,87 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/k_ivPortfolioPic"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img7" />
+        android:id="@+id/hkivTeamLayoutTeamPic"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/team10" />
+
 
     <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
+        android:id="@+id/hkTeamLayoutProjectName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="10dp"
+        android:layout_weight="1"
         android:text="프로젝트 명"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/k_ivPortfolioPic" />
+        android:textAlignment="center"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/hktvTeamLayoutTeamName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:text="팀이름"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView36"
-        android:layout_width="wrap_content"
+        android:id="@+id/hktvTeamLayoutProejctCategory"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="10dp"
-        android:text="팀 명"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="프로젝트 분야"
-        app:layout_constraintStart_toEndOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+        android:layout_weight="1"
+        android:text="분야"
+        android:textAlignment="center" />
+</LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/team11" />
-
-    <TextView
-        android:id="@+id/k_tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="프로젝트 명"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="팀 명"
-        app:layout_constraintStart_toStartOf="@+id/k_tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/k_tv_title" />
-
-    <TextView
-        android:id="@+id/textView40"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="프로젝트 분야"
-        app:layout_constraintStart_toEndOf="@+id/textView39"
-        app:layout_constraintTop_toBottomOf="@+id/k_tv_title" />
-
-</android.support.constraint.ConstraintLayout>

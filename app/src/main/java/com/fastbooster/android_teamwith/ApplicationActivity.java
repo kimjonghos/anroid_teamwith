@@ -15,12 +15,4 @@ public class ApplicationActivity extends Activity {
         setContentView(R.layout.activity_application);
     }
 
-    public static class PologActivity extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_polog);
-        }
-    }
 }

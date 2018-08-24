@@ -2,7 +2,6 @@ package com.fastbooster.android_teamwith.model;
 
 import java.sql.Date;
 
-
 public class PortfolioSimpleVO {
 	private String portfolioId;
 	private String portfolioPic;

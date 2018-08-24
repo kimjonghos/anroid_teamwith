@@ -23,6 +23,7 @@
 
             <TextView
                 android:id="@+id/k_tv_info_portfolioTitle"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="게시판 프로젝트" />
@@ -44,5 +45,7 @@
 
         </LinearLayout>
 
+
     </FrameLayout>
+
 </LinearLayout>
