@@ -11,22 +11,22 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.model.MemberSearchVO;
+import com.fastbooster.android_teamwith.model.TeamSimpleVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
-import com.fastbooster.android_teamwith.viewholder.MemberViewHolder;
+import com.fastbooster.android_teamwith.viewholder.TeamLayoutViewHolder;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-public class MemberAdapter extends BaseAdapter {
+public class TeamAdapter extends BaseAdapter {
     static final String TAG = "member data...";
 
     Context context;
-    List<MemberSearchVO> data;
+    List<TeamSimpleVO> data;
     LayoutInflater layoutInflater;
 
-    public MemberAdapter(Context context, List<MemberSearchVO> data) {
+    public TeamAdapter(Context context, List<TeamSimpleVO> data) {
         this.context = context;
         this.data = data;
         this.layoutInflater = LayoutInflater.from(context);
@@ -51,28 +51,31 @@ public class MemberAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        MemberViewHolder vh;
+        TeamLayoutViewHolder vh;
 
         if (view != null) {
-            vh = (MemberViewHolder) view.getTag();
+            vh = (TeamLayoutViewHolder) view.getTag();
         } else {
-            view = layoutInflater.inflate(R.layout.member_info_layout, null);
+            view = layoutInflater.inflate(R.layout.team_info_layout, null);
 
-            vh = new MemberViewHolder();
-            vh.memberName = view.findViewById(R.id.jmemberName1);
-            vh.memberRole = view.findViewById(R.id.jmemberRole1);
-            vh.memberPic = view.findViewById(R.id.jmemberPic1);
+            vh = new TeamLayoutViewHolder();
+            vh.hkTeamLayoutProjectName = view.findViewById(R.id.hkTeamLayoutProjectName);
+            vh.hktvTeamLayoutTeamName = view.findViewById(R.id.hktvTeamLayoutTeamName);
+            vh.hktvTeamLayoutProejctCategory = view.findViewById(R.id.hktvTeamLayoutProejctCategory);
+            vh.hkivTeamLayoutTeamPic = view.findViewById(R.id.hkivTeamLayoutTeamPic);
 
             view.setTag(vh);
         }
 
 
-        vh.memberName.setText(data.get(i).getMemberName());
-        vh.memberRole.setText((String)ApplicationShare.roleList.get(data.get(i).getRoleId()));
-        vh.memberPic.setTag(data.get(i).getMemberPic());
+        vh.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
+        vh.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
+        vh.hktvTeamLayoutProejctCategory.setText((String) ApplicationShare.categoryList.
+                get(data.get(i).getProjectCategoryId()));
+        vh.hkivTeamLayoutTeamPic.setTag(data.get(i).getTeamPic());
 
         ImageViewTask imgTask = new ImageViewTask(context);
-        imgTask.execute(vh.memberPic);
+        imgTask.execute(vh.hkivTeamLayoutTeamPic);
 
         return view;
     }

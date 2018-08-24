@@ -1,4 +1,4 @@
-package com.fastbooster.android_teamwith.service;
+package com.fastbooster.android_teamwith.api;
 
 import android.content.Context;
 import android.net.Uri;
@@ -21,8 +21,8 @@ public class MemberSearchApi {
     static final String TAG = "member data...";
     public static String URL_STR = "http://192.168.30.64:8089/api/member";
 
-    public static String makeQuery(Criteria cri, String[] region,
-                                   String[] project, String[] role, String[] skill,
+    public static String makeQuery(Criteria cri, List<String> region,
+                                   List<String> project, List<String> role, List<String> skill,
                                    String keyword) {
 
         Uri.Builder params = new Uri.Builder();
@@ -58,8 +58,8 @@ public class MemberSearchApi {
 
     }
 
-    public static List<MemberSearchVO> getMember(Context context, Criteria cri, String[] region,
-                                                 String[] project, String[] role, String[] skill,
+    public static List<MemberSearchVO> getMember(Context context, Criteria cri, List<String> region,
+                                                 List<String> project, List<String> role, List<String> skill,
                                                  String keyword) {
         //  ApplicationShare app = (ApplicationShare) context.getApplicationContext();
         //  app.regionList.get("region-1");
@@ -69,7 +69,7 @@ public class MemberSearchApi {
 
         try {
             URL url = new URL(URL_STR + query);
-            Log.v(TAG,url.toString());
+            Log.v(TAG, url.toString());
             HttpURLConnection conn = null;
             StringBuilder sb = new StringBuilder();
 
@@ -93,20 +93,18 @@ public class MemberSearchApi {
 
             JSONArray array = new JSONArray(sb.toString());
 
-            //return WeatherForecast
+            //return
             List<MemberSearchVO> result = new ArrayList<>();
 
-
+            Log.v("len",""+array.length());
             for (int i = 0; i < array.length(); i++) {
-                JSONObject f = array.getJSONObject(i);
-                boolean bb = f.isNull("roleId");
-                Log.v(TAG, bb + "null");
-                result.add(new MemberSearchVO(f));
+                JSONObject obj = array.getJSONObject(i);
+                result.add(new MemberSearchVO(obj));
             }
             return result;
 
         } catch (Exception e) {
-            Log.d("Weather app error", e.getMessage());
+            Log.d("Teamwith app error", e.getMessage());
             e.printStackTrace();
             return null;
         }
