@@ -39,6 +39,15 @@ public class LoginActivity extends Activity {
             }
         });
 
+        btnEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(context, HomeActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     private void init() {
