@@ -27,7 +27,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView43"
+                android:id="@+id/k_polog_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -36,7 +36,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView44"
+                android:id="@+id/k_polog_Intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -45,7 +45,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView48"
+                android:id="@+id/asdasd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -57,7 +57,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView49"
+                android:id="@+id/k_polog_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -76,6 +76,15 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/k_polog_skill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:text="java"
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,7 +106,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView59"
+                android:id="@+id/k_polog_praise1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -106,7 +115,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView60"
+                android:id="@+id/k_polog_praise2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -115,7 +124,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView61"
+                android:id="@+id/k_polog_praise3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -124,7 +133,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView62"
+                android:id="@+id/k_polog_praise4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -133,7 +142,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView63"
+                android:id="@+id/k_polog_praise5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
@@ -169,13 +178,13 @@
                     android:textSize="16sp" />
 
                 <SeekBar
-                    android:id="@+id/jtendency1"
+                    android:id="@+id/k_polog_tendency1"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="10"
-                    android:progress="3" />
+                    android:progress="4" />
 
                 <TextView
                     android:id="@+id/textView65"
@@ -202,7 +211,7 @@
                     android:textSize="16sp" />
 
                 <SeekBar
-                    android:id="@+id/jtendency2"
+                    android:id="@+id/k_polog_tendency2"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -236,7 +245,7 @@
                     android:textSize="16sp" />
 
                 <SeekBar
-                    android:id="@+id/jtendency3"
+                    android:id="@+id/k_polog_tendency3"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -269,7 +278,7 @@
                     android:textSize="16sp" />
 
                 <SeekBar
-                    android:id="@+id/jtendency4"
+                    android:id="@+id/k_polog_tendency4"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -302,7 +311,7 @@
                     android:textSize="16sp" />
 
                 <SeekBar
-                    android:id="@+id/jtendency5"
+                    android:id="@+id/k_polog_tendency5"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

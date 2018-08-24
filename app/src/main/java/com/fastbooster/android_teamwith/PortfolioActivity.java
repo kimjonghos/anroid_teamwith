@@ -1,5 +1,6 @@
 package com.fastbooster.android_teamwith;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -8,7 +9,7 @@ import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
 
 import org.json.JSONObject;
 
-public class PortfolioActivity extends AppCompatActivity {
+public class PortfolioActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
