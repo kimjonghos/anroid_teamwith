@@ -13,26 +13,25 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.fastbooster.android_teamwith.adapter.MemberAdapter;
-import com.fastbooster.android_teamwith.model.MemberSearchVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
+import com.fastbooster.android_teamwith.util.Criteria;
 
-import java.util.ArrayList;
+import java.util.Map;
 
-public class TeamSearchActivity extends Activity {
+public class SearchActivity extends Activity {
     static final String TAG = "member data...";
     ApplicationShare as = new ApplicationShare();
 
-    final String[] roleList = {"개발자", "기획자", "디자이너", "기타"};
-    final String[] regionList = {"서울", "경기", "부산", "제주"};
-    final String[] skillList = {"C", "C#", "C++", "Java"};
+    String[] roleList = {"개발자", "기획자", "디자이너", "기타"};
+    String[] regionList = {"서울", "경기", "부산", "제주"};
+    String[] skillList = {"C", "C#", "C++", "Java"};
     String[] categoryList = {"C", "C#", "C++", "Java"};
 
-    final boolean[] roleChecked = new boolean[roleList.length];
-    final boolean[] regionChecked = new boolean[regionList.length];
-    final boolean[] skillChecked = new boolean[skillList.length];
-    boolean[] categoryChecked = new boolean[skillList.length];
+    boolean[] roleChecked = new boolean[roleList.length];
+    boolean[] regionChecked = new boolean[regionList.length];
+    boolean[] skillChecked = new boolean[skillList.length];
+    boolean[] categoryChecked = new boolean[categoryList.length];
 
     TextView back;
     EditText keyword;
@@ -47,19 +46,17 @@ public class TeamSearchActivity extends Activity {
 
     GridView resultView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team_search);
+        setContentView(R.layout.activity_search);
 
-
-        categoryList = new String[as.projectList.size()];
-        categoryChecked = new boolean[categoryList.length];
-        int i = 0;
-         for (Object s : as.projectList.values()) {
-
-         categoryList[i++] = (String)s;
-          }
+        initList(roleList,as.roleList,roleChecked);
+        initList(regionList,as.regionList,regionChecked);
+        initList(skillList,as.skillList,skillChecked);
+        initList(categoryList,as.projectList,categoryChecked);
 
         back = findViewById(R.id.jbackToSearchbtn);
         back.setOnClickListener(new View.OnClickListener() {
@@ -70,10 +67,14 @@ public class TeamSearchActivity extends Activity {
         });
         keyword = findViewById(R.id.jkeyword);
         searchBtn = findViewById(R.id.jsearchBtn);
+        final MemberSearchTask mtask = new MemberSearchTask(this);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String key = keyword.getText().toString();
+
+                Log.v(TAG, "team search Activity.. excute 전");
+                mtask.execute(new Criteria(1,10));
             }
         });
 
@@ -84,26 +85,6 @@ public class TeamSearchActivity extends Activity {
         categorySelected = findViewById(R.id.jcategorySelected);
 
         selectedView = findViewById(R.id.jselectedView);
-        ArrayList<MemberSearchVO> data = new ArrayList<MemberSearchVO>();
-        MemberSearchVO m1 = new MemberSearchVO();
-        m1.setMemberName("황규진");
-        m1.setRoleId("개발자");
-        MemberSearchVO m2 = new MemberSearchVO();
-        m2.setMemberName("김종승");
-        m2.setRoleId("기타");
-        MemberSearchVO m3 = new MemberSearchVO();
-        m3.setMemberName("조란");
-        m3.setRoleId("기획자");
-        MemberSearchVO m4 = new MemberSearchVO();
-        m4.setMemberName("임경준");
-        m4.setRoleId("디자이너");
-
-        data.add(m1);
-        data.add(m2);
-        data.add(m3);
-        data.add(m4);
-
-        MemberAdapter memberAdapter = new MemberAdapter(this, data);
 
         resultView = findViewById(R.id.jresultView);
 
@@ -113,12 +94,21 @@ public class TeamSearchActivity extends Activity {
             // resultView.setAdapter(teamAdapter);
         } else if (kind.equals("member")) {
             //resultView.setAdapter(memberAdapter);
-            MemberSearchTask mtask = new MemberSearchTask(this);
+            //MemberSearchTask mtask = new MemberSearchTask(this);
             Log.v(TAG, "team search Activity.. excute 전");
             mtask.execute();
         }
 
 
+    }
+
+    protected void initList(String[] list, Map<String, Object> map, boolean[] checked) {
+        list = new String[map.size()];
+        checked = new boolean[list.length];
+        int i = 0;
+        for (Object s : map.values()) {
+            list[i++] = (String) s;
+        }
     }
 
     public void selectDialog(View v) {
@@ -127,7 +117,7 @@ public class TeamSearchActivity extends Activity {
             //지역
             case R.id.jregionSelectBtn:
 
-                AlertDialog.Builder regionDialog = new AlertDialog.Builder(TeamSearchActivity.this,
+                AlertDialog.Builder regionDialog = new AlertDialog.Builder(SearchActivity.this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 regionDialog.setTitle("지역을 선택하세요.");
                 regionDialog.setMultiChoiceItems(regionList, regionChecked,
@@ -163,7 +153,7 @@ public class TeamSearchActivity extends Activity {
 
 //역할
             case R.id.jroleSelectBtn:
-                AlertDialog.Builder roleDialog = new AlertDialog.Builder(TeamSearchActivity.this,
+                AlertDialog.Builder roleDialog = new AlertDialog.Builder(SearchActivity.this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 roleDialog.setTitle("역할을 선택하세요.");
                 roleDialog.setMultiChoiceItems(roleList, roleChecked,
@@ -199,7 +189,7 @@ public class TeamSearchActivity extends Activity {
 
             //기술
             case R.id.jskillSelectBtn:
-                AlertDialog.Builder skillDialog = new AlertDialog.Builder(TeamSearchActivity.this,
+                AlertDialog.Builder skillDialog = new AlertDialog.Builder(SearchActivity.this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 skillDialog.setTitle("기술을 선택하세요.");
                 skillDialog.setMultiChoiceItems(skillList, skillChecked, new DialogInterface.OnMultiChoiceClickListener() {
@@ -230,7 +220,7 @@ public class TeamSearchActivity extends Activity {
 
             //분야
             case R.id.jcategorySelectBtn:
-                AlertDialog.Builder categoryDialog = new AlertDialog.Builder(TeamSearchActivity.this,
+                AlertDialog.Builder categoryDialog = new AlertDialog.Builder(SearchActivity.this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 categoryDialog.setTitle("분야를 선택하세요.");
                 categoryDialog.setMultiChoiceItems(categoryList, categoryChecked,

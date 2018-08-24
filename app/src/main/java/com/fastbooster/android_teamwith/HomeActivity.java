@@ -2,10 +2,8 @@ package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class HomeActivity extends Activity {
@@ -20,7 +18,7 @@ public class HomeActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), SearchActivity.class);
+                intent.setClass(getApplicationContext(), SearchSelectActivity.class);
                 startActivity(intent);
             }
         });
