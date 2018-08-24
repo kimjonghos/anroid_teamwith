@@ -80,7 +80,6 @@ public class ApplicationShare extends Application {
                 JSONObject object = new JSONObject(sb.toString());
                 //return WeatherForecast
 
-
                 toMap(object, "praiseList", praiseList);
                 toMap(object, "projectList", projectList);
                 toMap(object, "regionList", regionList);
