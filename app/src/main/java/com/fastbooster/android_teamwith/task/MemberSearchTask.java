@@ -30,7 +30,7 @@ public class MemberSearchTask extends AsyncTask<Object, Void, List<MemberSearchV
     @Override
     protected void onPreExecute() {
         loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        loading.setMessage("멤버 데이터를 불러오는 중입니다...");
+        loading.setMessage("회원 정보를 불러오는 중입니다...");
         loading.show();
         super.onPreExecute();
     }
@@ -40,8 +40,10 @@ public class MemberSearchTask extends AsyncTask<Object, Void, List<MemberSearchV
 
         //http url connection
         try {
-            return MemberSearchApi.getMember(context, (Criteria)condition[0], new String[]{"region-2","region-3"},
-                    null,null,null,null);
+            Log.v("cnt",condition.length+"");
+            return MemberSearchApi.getMember(context, (Criteria)condition[0], (List<String>)condition[1],
+                    (List<String>)condition[2],(List<String>)condition[3],(List<String>)condition[4],
+                    (String)condition[5]);
         } catch (Exception e) {
             e.printStackTrace();
             Log.v(TAG,"멤버 서치 태스크 43라인 api getMem 오류");

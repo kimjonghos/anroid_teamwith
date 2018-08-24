@@ -18,9 +18,17 @@ import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
 import com.fastbooster.android_teamwith.util.Criteria;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SearchActivity extends Activity {
     static final String TAG = "member data...";
     ApplicationShare as;
+
+    String[] roleKeyList;
+    String[] regionKeyList;
+    String[] skillKeyList;
+    String[] categoryKeyList;
 
     String[] roleList;
     String[] regionList;
@@ -65,14 +73,43 @@ public class SearchActivity extends Activity {
 
         keyword = findViewById(R.id.jkeyword);
         searchBtn = findViewById(R.id.jsearchBtn);
-        final MemberSearchTask mtask = new MemberSearchTask(this);
+        // final MemberSearchTask mtask = new MemberSearchTask(this);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String key = keyword.getText().toString();
 
                 Log.v(TAG, "team search Activity.. excute 전");
-                mtask.execute(new Criteria(1, 10));
+                MemberSearchTask mtask = new MemberSearchTask(SearchActivity.this);
+
+                //사용자가 선택한 조건들
+                List<String> regionSelectedList = new ArrayList<>();
+                for (int i = 0; i < regionChecked.length; i++) {
+                    if (regionChecked[i]) {
+                        regionSelectedList.add(regionKeyList[i]);
+                    }
+                }
+                List<String> roleSelectedList = new ArrayList<>();
+                for (int i = 0; i < roleChecked.length; i++) {
+                    if (roleChecked[i]) {
+                        roleSelectedList.add(roleKeyList[i]);
+                    }
+                }
+                List<String> skillSelectedList = new ArrayList<>();
+                for (int i = 0; i < skillChecked.length; i++) {
+                    if (skillChecked[i]) {
+                        skillSelectedList.add(skillKeyList[i]);
+                    }
+                }
+                List<String> categorySelectedList = new ArrayList<>();
+                for (int i = 0; i < categoryChecked.length; i++) {
+                    if (categoryChecked[i]) {
+                        categorySelectedList.add(categoryKeyList[i]);
+                    }
+                }
+
+                mtask.execute(new Criteria(1, 10), regionSelectedList,
+                        categorySelectedList, roleSelectedList, skillSelectedList, key);
             }
         });
 
@@ -92,9 +129,8 @@ public class SearchActivity extends Activity {
             // resultView.setAdapter(teamAdapter);
         } else if (kind.equals("member")) {
             //resultView.setAdapter(memberAdapter);
-            //MemberSearchTask mtask = new MemberSearchTask(this);
-            Log.v(TAG, "team search Activity.. excute 전");
-            mtask.execute(new Criteria(1, 10));
+            MemberSearchTask mtask = new MemberSearchTask(this);
+            mtask.execute(new Criteria(1, 10),null,null,null,null,null);
         }
 
 
@@ -128,6 +164,7 @@ public class SearchActivity extends Activity {
                             if (regionChecked[j]) {
 
                                 sb.append(regionList[j] + ", "); //체크된 지역
+                                // ApplicationShare.regionList.
                             }
                         }
                         regionSelected.setText(sb);
@@ -257,30 +294,46 @@ public class SearchActivity extends Activity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Log.v("role list", ApplicationShare.roleList.size() + "");
-            roleList = new String[ApplicationShare.roleList.size()];
-            roleChecked = new boolean[roleList.length];
             int i = 0;
-            for (Object s : ApplicationShare.roleList.values()) {
-                roleList[i++] = (String) s;
-            }
+
             regionList = new String[ApplicationShare.regionList.size()];
+            regionKeyList = new String[ApplicationShare.regionList.size()];
+
             regionChecked = new boolean[regionList.length];
-            i = 0;
-            for (Object s : ApplicationShare.regionList.values()) {
-                regionList[i++] = (String) s;
+            for (Object s : ApplicationShare.regionList.keySet()) {
+                String k = (String) s;
+                regionList[i] = (String) ApplicationShare.regionList.get(k);
+                regionKeyList[i++] = k;
             }
-            skillList = new String[ApplicationShare.skillList.size()];
-            skillChecked = new boolean[skillList.length];
+
+            roleList = new String[ApplicationShare.roleList.size()];
+            roleKeyList = new String[ApplicationShare.roleList.size()];
+            roleChecked = new boolean[roleList.length];
             i = 0;
-            for (Object s : ApplicationShare.skillList.values()) {
-                skillList[i++] = (String) s;
+            for (Object s : ApplicationShare.roleList.keySet()) {
+                String k = (String) s;
+                roleList[i] = (String) ApplicationShare.roleList.get(k);
+                roleKeyList[i++] = k;
             }
+
             categoryList = new String[ApplicationShare.categoryList.size()];
+            categoryKeyList = new String[ApplicationShare.categoryList.size()];
             categoryChecked = new boolean[categoryList.length];
             i = 0;
-            for (Object s : ApplicationShare.categoryList.values()) {
-                categoryList[i++] = (String) s;
+            for (Object s : ApplicationShare.categoryList.keySet()) {
+                String k = (String) s;
+                categoryList[i] = (String) ApplicationShare.categoryList.get(k);
+                categoryKeyList[i++] = k;
+            }
+
+            skillList = new String[ApplicationShare.skillList.size()];
+            skillKeyList = new String[ApplicationShare.skillList.size()];
+            skillChecked = new boolean[skillList.length];
+            i = 0;
+            for (Object s : ApplicationShare.skillList.keySet()) {
+                String k = (String) s;
+                skillList[i] = (String) ApplicationShare.skillList.get(k);
+                skillKeyList[i++] = k;
             }
         }
 

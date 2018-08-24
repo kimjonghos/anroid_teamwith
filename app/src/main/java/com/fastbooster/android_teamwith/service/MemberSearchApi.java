@@ -21,8 +21,8 @@ public class MemberSearchApi {
     static final String TAG = "member data...";
     public static String URL_STR = "http://192.168.30.64:8089/api/member";
 
-    public static String makeQuery(Criteria cri, String[] region,
-                                   String[] project, String[] role, String[] skill,
+    public static String makeQuery(Criteria cri, List<String> region,
+                                   List<String> project, List<String> role, List<String> skill,
                                    String keyword) {
 
         Uri.Builder params = new Uri.Builder();
@@ -58,8 +58,8 @@ public class MemberSearchApi {
 
     }
 
-    public static List<MemberSearchVO> getMember(Context context, Criteria cri, String[] region,
-                                                 String[] project, String[] role, String[] skill,
+    public static List<MemberSearchVO> getMember(Context context, Criteria cri, List<String> region,
+                                                 List<String> project, List<String> role, List<String> skill,
                                                  String keyword) {
         //  ApplicationShare app = (ApplicationShare) context.getApplicationContext();
         //  app.regionList.get("region-1");

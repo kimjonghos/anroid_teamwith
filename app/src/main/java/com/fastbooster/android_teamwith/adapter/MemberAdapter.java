@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.viewholder.MemberViewHolder;
 
 import java.net.HttpURLConnection;
@@ -67,7 +68,7 @@ public class MemberAdapter extends BaseAdapter {
 
 
         vh.memberName.setText(data.get(i).getMemberName());
-        vh.memberRole.setText(data.get(i).getRoleId());
+        vh.memberRole.setText((String)ApplicationShare.roleList.get(data.get(i).getRoleId()));
         vh.memberPic.setTag(data.get(i).getMemberPic());
 
         ImageViewTask imgTask = new ImageViewTask(context);

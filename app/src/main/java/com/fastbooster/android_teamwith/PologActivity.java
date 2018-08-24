@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
+import com.fastbooster.android_teamwith.task.PortfolioSearchTask;
+
 public class PologActivity extends AppCompatActivity {
     FrameLayout frame;
     @Override
@@ -59,7 +62,7 @@ public class PologActivity extends AppCompatActivity {
                 //포트폴리오 레이아웃줄것
                 FragmentManager fm=getFragmentManager();
 //                Fragment fragment=fm.findFragmentById(R.id.kframe);
-
+             PortfolioSearchTask pd=new PortfolioSearchTask(PologActivity.this,fm);
                     FragmentTransaction tr=fm.beginTransaction();
                     PortfolioFragment pf=new PortfolioFragment();
                     tr.replace(R.id.k_fl_portfolioList,pf);
