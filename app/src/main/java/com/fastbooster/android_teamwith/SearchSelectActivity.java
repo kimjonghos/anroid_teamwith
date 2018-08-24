@@ -6,20 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SearchActivity extends Activity {
+public class SearchSelectActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search_select);
 
         Button tsearch = findViewById(R.id.ktSearchBtn);
         Button msearch = findViewById(R.id.y_btn_application);
 
         Button psearch = findViewById(R.id.kpSearchBtn);
 
-        final Intent intent = new Intent(SearchActivity.this,
-                TeamSearchActivity.class);
+        final Intent intent = new Intent(SearchSelectActivity.this,
+                SearchActivity.class);
 
         tsearch.setOnClickListener(new View.OnClickListener() {
             @Override
