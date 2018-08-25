@@ -4,9 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.fastbooster.android_teamwith.api.ApplyApi;
-import com.fastbooster.android_teamwith.api.JoinedTeamApi;
 
-import org.json.JSONObject;
 
 import java.util.List;
 
