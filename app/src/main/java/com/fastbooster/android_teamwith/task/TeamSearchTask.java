@@ -58,7 +58,7 @@ public class TeamSearchTask extends AsyncTask<Object, Void, List<TeamSimpleVO>> 
      //   Log.v(TAG,"member search task 53라인 어댑터 설정 후 데이터 사이즈"+","+memberData.size());
         if (context instanceof SearchActivity) {
             SearchActivity view = (SearchActivity) context;
-            GridView result = view.findViewById(R.id.jresultView);
+            GridView result = view.findViewById(R.id.resultView);
             result.setAdapter(adapter);
         }
 

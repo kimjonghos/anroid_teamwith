@@ -67,7 +67,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/jcategorySelectBtn"
+            android:id="@+id/categorySelectBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -132,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:text="sdfgsfdg"
                 android:textColor="#006"
                 android:textSize="16sp" />
 
@@ -156,9 +157,9 @@
     </HorizontalScrollView>
 
     <GridView
-        android:id="@+id/jresultView"
+        android:id="@+id/resultView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2"/>
+        android:numColumns="2" />
 
 </LinearLayout>
