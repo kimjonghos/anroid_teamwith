@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class PologApi {
 
-    public static final String URL_STR = "http://192.168.30.64:8089/api/polog/";
+    public static final String URL_STR = "http://192.168.30.16:8089/api/polog/";
 
     public static JSONObject getPologInfo(String memberId) throws Exception {
         JSONObject json = null;
