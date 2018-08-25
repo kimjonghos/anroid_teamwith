@@ -14,9 +14,11 @@ import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
+import com.fastbooster.android_teamwith.task.PortfolioSearchTask;
 import com.fastbooster.android_teamwith.task.TeamSearchTask;
 import com.fastbooster.android_teamwith.util.Criteria;
 
@@ -66,10 +68,10 @@ public class SearchActivity extends Activity {
 
         if(kind.equals("portfolio")){
             setContentView(R.layout.activity_portfolio_search);
-            LayoutInflater layoutInflater = LayoutInflater.from(getApplicationContext());
-            View pfSearchView = layoutInflater.inflate(R.layout.activity_portfolio_search, null);
+            //LayoutInflater layoutInflater = LayoutInflater.from(getApplicationContext());
+            //View pfSearchView = layoutInflater.inflate(R.layout.activity_portfolio_search, null);
 
-            back = pfSearchView.findViewById(R.id.jbackToSearch);
+           /* back = pfSearchView.findViewById(R.id.jbackToSearch);
             keyword = pfSearchView.findViewById(R.id.jKeyword);
             searchBtn = pfSearchView.findViewById(R.id.jpSearchBtn);
 
@@ -78,8 +80,19 @@ public class SearchActivity extends Activity {
             selectedView = pfSearchView.findViewById(R.id.jselectedView);
 
             resultView = pfSearchView.findViewById(R.id.resultView);
-            TeamSearchTask ttask = new TeamSearchTask(this);
-            ttask.execute(new Criteria(1, 10), null, null, null, null, null);
+            */
+            back = findViewById(R.id.jbackToSearch);
+            keyword = findViewById(R.id.jKeyword);
+            searchBtn = findViewById(R.id.jpSearchBtn);
+
+            categorySelected = findViewById(R.id.categorySelected);
+
+            selectedView = findViewById(R.id.jselectedView);
+
+            resultView = findViewById(R.id.resultView);
+            PortfolioSearchTask ptask = new PortfolioSearchTask(this);
+            ptask.execute(new Criteria(1, 10), null, null);
+
         }else{
             setContentView(R.layout.activity_search);
 
@@ -113,6 +126,7 @@ public class SearchActivity extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"back",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -162,6 +176,9 @@ public class SearchActivity extends Activity {
                     MemberSearchTask mtask = new MemberSearchTask(SearchActivity.this);
                     mtask.execute(new Criteria(1, 10), regionSelectedList,
                             categorySelectedList, roleSelectedList, skillSelectedList, key);
+                } else if(kind.equals("portfolio")){
+                    PortfolioSearchTask ptask = new PortfolioSearchTask(SearchActivity.this);
+                    ptask.execute(new Criteria(1, 10), categorySelectedList, key);
                 }
             }
         });
