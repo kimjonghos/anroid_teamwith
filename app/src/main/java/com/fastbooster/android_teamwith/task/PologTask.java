@@ -80,7 +80,7 @@ public class PologTask extends AsyncTask<String,Void,JSONObject> {
                 pologRegion1.setText((String)ApplicationShare.regionList.get(member.getRegionId1()));
                 pologRegion2.setText((String)ApplicationShare.regionList.get(member.getRegionId2()));
                 memberPic.setTag(member.getMemberPic());
-                ImageViewTask imgTask=new ImageViewTask(context);
+                ImageTask imgTask=new ImageTask(context);
                 imgTask.execute(memberPic);
 
 

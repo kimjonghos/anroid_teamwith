@@ -17,12 +17,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void bottomOnClick(View view){
-//        View v= LayoutInflater.
-        switch (view.getId()){
-            case R.id.main_btn_home:
 
-                break;
-        }
-//        view.getId()
     }
 }
