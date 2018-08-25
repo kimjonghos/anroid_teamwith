@@ -78,4 +78,5 @@ public class MemberAdapter extends BaseAdapter {
         return view;
     }
 
+
 }

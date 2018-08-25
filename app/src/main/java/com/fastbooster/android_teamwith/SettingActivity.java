@@ -1,29 +1,35 @@
 package com.fastbooster.android_teamwith;
 
+import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SettingActivity extends AppCompatActivity {
+import com.fastbooster.android_teamwith.task.LogoutTask;
+
+public class SettingActivity extends Activity {
 
     TextView back;
 
     Button csBtn;
     Button verBtn;
     Button serviceBtn;
-
     Button logout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
+        back = findViewById(R.id.jsettingBack);
+        csBtn = findViewById(R.id.jcsBtn);
+        verBtn = findViewById(R.id.jverBtn);
+        serviceBtn = findViewById(R.id.jServiceBtn);
+        logout = findViewById(R.id.logoutBtn);
 
         //뒤로가기 버튼
         back.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +70,8 @@ public class SettingActivity extends AppCompatActivity {
         verBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(SettingActivity.this,
-                        android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
-                dialog.setMessage("현재 버전은 1.0.0 입니다.");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(SettingActivity.this, R.style.Theme_AppCompat_Light_Dialog_Alert);
+                dialog.setMessage("현재 버전은 1.0.1.2 입니다.");
                 dialog.show();
 
             }
@@ -76,7 +81,8 @@ public class SettingActivity extends AppCompatActivity {
         serviceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), ServiceActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -84,9 +90,8 @@ public class SettingActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
-                //로그아웃 처리
-                startActivity(intent);
+                LogoutTask logoutTask = new LogoutTask(getApplicationContext());
+                logoutTask.execute();
             }
         });
 

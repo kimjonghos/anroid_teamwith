@@ -26,12 +26,12 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class PortfolioSearchTask extends AsyncTask<String,Void,List<PortfolioSimpleVO>> {
+public class MyPortfolioTask extends AsyncTask<String,Void,List<PortfolioSimpleVO>> {
 private final Context context;
 private final GridView lv;
 private List<PortfolioSimpleVO> list;
 //private final FragmentManager fm;
-public PortfolioSearchTask(Context context,GridView lv) {
+public MyPortfolioTask(Context context, GridView lv) {
         super();
         this.context=context;
             this.lv=lv;
@@ -50,25 +50,6 @@ protected void onPostExecute(List<PortfolioSimpleVO> portfolioSimpleVOS) {
 
         PologPortfoliListAdapter ppl = new PologPortfoliListAdapter(context, portfolioSimpleVOS);
         lv.setAdapter(ppl);
-//        this.list=portfolioSimpleVOS;
-
-//        PortfolioFragment pff=(PortfolioFragment)context;
-//        this.lv.setAdapter(ppl);
-//        ListView listview=(ListView)view.findViewById(R.id.k_lv_polport);
-
-
-//                Fragment fragment=fm.findFragmentById(R.id.kframe);
-
-//        FragmentTransaction tr=fm.beginTransaction();
-
-//        tr.replace(R.id.k_fl_portfolioList,d);
-        //앞 요소에 뒤에걸
-//                    tr.add(R.id.kframe,pf,"portfolio");
-//        tr.commit();
-
-//        ImageViewTask imgTask=new ImageViewTask(context);
-//        imgTask.execute(ivPortfolioPic);
-
 
     }
     catch(Exception e){

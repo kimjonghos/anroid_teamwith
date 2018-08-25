@@ -20,7 +20,7 @@ public class PortfolioApi {
     public static JSONObject getPortfolioDetail(String portfolioId) throws Exception {
         JSONObject json = null;
         HttpURLConnection conn = null;
-
+        portfolioId=portfolioId.split("-")[1];
         URL url = new URL(URL_STR + portfolioId);
         try {
             conn = (HttpURLConnection) url.openConnection();
