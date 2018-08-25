@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
+import com.fastbooster.android_teamwith.task.ImageTask;
 import com.fastbooster.android_teamwith.viewholder.MemberViewHolder;
 
 import java.net.HttpURLConnection;
@@ -71,50 +72,11 @@ public class MemberAdapter extends BaseAdapter {
         vh.memberRole.setText((String)ApplicationShare.roleList.get(data.get(i).getRoleId()));
         vh.memberPic.setTag(data.get(i).getMemberPic());
 
-        ImageViewTask imgTask = new ImageViewTask(context);
+        ImageTask imgTask = new ImageTask(context);
         imgTask.execute(vh.memberPic);
 
         return view;
     }
 
-    static class ImageViewTask extends AsyncTask<ImageView, Void, Bitmap> {
-
-        private final Context context;
-        private ImageView image;
-
-        public ImageViewTask(Context context) {
-            this.context = context;
-
-        }
-
-        @Override
-        protected Bitmap doInBackground(ImageView... imageViews) {
-            image = imageViews[0];
-            String urlStr = "http://192.168.30.16:8089" + (String) image.getTag();
-            try {
-                URL url = new URL(urlStr);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
-                conn.setConnectTimeout(10000);
-                conn.setDoInput(true);
-                conn.connect();
-
-                return BitmapFactory.decodeStream(conn.getInputStream());
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            super.onPostExecute(bitmap);
-            if (bitmap != null) {
-                image.setImageBitmap(bitmap);
-            }
-
-        }
-    }
 
 }

@@ -1,6 +1,10 @@
 package com.fastbooster.android_teamwith.api;
 
+import android.net.Uri;
+import android.util.Log;
+
 import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
+import com.fastbooster.android_teamwith.util.Criteria;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,12 +19,16 @@ import java.util.List;
 
 public class PortfolioApi {
 
+<<<<<<< HEAD
     public static final String URL_STR = "http://192.168.30.16:8089/api/portfolioSearch/";
+=======
+    public static final String URL_STR = "http://192.168.30.64:8089/api/portfolioSearch";
+>>>>>>> dae2aa3345729cbb5ace364aef007bb5becc7e5a
 
     public static JSONObject getPortfolioDetail(String portfolioId) throws Exception {
         JSONObject json = null;
         HttpURLConnection conn = null;
-        portfolioId=portfolioId.split("-")[1];
+        portfolioId = portfolioId.split("-")[1];
         URL url = new URL(URL_STR + portfolioId);
         try {
             conn = (HttpURLConnection) url.openConnection();
@@ -58,8 +66,28 @@ public class PortfolioApi {
         return null;
     }
 
-    public static List<PortfolioSimpleVO> getPortfolioList() throws Exception {
-        URL url = new URL(URL_STR);
+    public static List<PortfolioSimpleVO> getPortfolioList(Criteria cri, List<String> project, String keyword) throws Exception {
+
+        Uri.Builder params = new Uri.Builder();
+
+        if ((keyword == null || keyword.trim().equals("")) && project == null) {
+            params.appendPath("recent");
+        } else {
+            if (keyword != null) {
+                params.appendQueryParameter("keyword", keyword);
+            }
+            if (project != null) {
+                for (String p : project) {
+                    params.appendQueryParameter("project", p);
+                }
+            }
+        }
+        if (cri != null) {
+            params.appendQueryParameter("page", cri.getPage() + "");
+            params.appendQueryParameter("perPageNum", cri.getPerPageNum() + "");
+        }
+        URL url = new URL(URL_STR + params.toString());
+        Log.v("url", url.toString());
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) url.openConnection();
@@ -107,7 +135,7 @@ public class PortfolioApi {
     }
 
     public static List<PortfolioSimpleVO> getMemberPortfolioList(String pmemberId) throws Exception {
-        URL url = new URL(URL_STR+"member/"+pmemberId);
+        URL url = new URL(URL_STR + "/member/" + pmemberId);
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) url.openConnection();

@@ -71,11 +71,11 @@ public class TeamSearchApi {
 
         String query = makeQuery(cri, region, project, role, skill, keyword);
 
-
+        HttpURLConnection conn = null;
         try {
             URL url = new URL(URL_STR + query);
             Log.v(TAG, url.toString());
-            HttpURLConnection conn = null;
+
             StringBuilder sb = new StringBuilder();
 
             conn = (HttpURLConnection) url.openConnection();
@@ -111,6 +111,10 @@ public class TeamSearchApi {
             Log.d("Teamwith app error", e.getMessage());
             e.printStackTrace();
             return null;
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
 
     }
