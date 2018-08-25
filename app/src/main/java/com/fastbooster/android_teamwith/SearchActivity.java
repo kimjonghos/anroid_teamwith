@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -58,13 +59,57 @@ public class SearchActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+
+        //팀 검색인지 회원 검색인지 포트폴리오 검색인지 체크
+        Intent intent = getIntent();
+        final String kind = intent.getStringExtra("kind");
+
+        if(kind.equals("portfolio")){
+            setContentView(R.layout.activity_portfolio_search);
+            LayoutInflater layoutInflater = LayoutInflater.from(getApplicationContext());
+            View pfSearchView = layoutInflater.inflate(R.layout.activity_portfolio_search, null);
+
+            back = pfSearchView.findViewById(R.id.jbackToSearch);
+            keyword = pfSearchView.findViewById(R.id.jKeyword);
+            searchBtn = pfSearchView.findViewById(R.id.jpSearchBtn);
+
+            categorySelected = pfSearchView.findViewById(R.id.categorySelected);
+
+            selectedView = pfSearchView.findViewById(R.id.jselectedView);
+
+            resultView = pfSearchView.findViewById(R.id.resultView);
+            TeamSearchTask ttask = new TeamSearchTask(this);
+            ttask.execute(new Criteria(1, 10), null, null, null, null, null);
+        }else{
+            setContentView(R.layout.activity_search);
+
+            back = findViewById(R.id.jbackToSearchbtn);
+            keyword = findViewById(R.id.jkeyword);
+            searchBtn = findViewById(R.id.jsearchBtn);
+
+            regionSelected = findViewById(R.id.jregionSelected);
+            roleSelected = findViewById(R.id.jroleSelected);
+            skillSelected = findViewById(R.id.jskillSelected);
+            categorySelected = findViewById(R.id.jcategorySelected);
+
+            selectedView = findViewById(R.id.jselectedView);
+
+            resultView = findViewById(R.id.resultView);
+
+            if (kind.equals("team")) {
+                TeamSearchTask ttask = new TeamSearchTask(this);
+                ttask.execute(new Criteria(1, 10), null, null, null, null, null);
+            } else if (kind.equals("member")) {
+                MemberSearchTask mtask = new MemberSearchTask(this);
+                mtask.execute(new Criteria(1, 10), null, null, null, null, null);
+            }
+        }
 
         //다이얼로그에 나올 선택 목록 리스트 초기화
         InitTask initTask = new InitTask();
         initTask.execute();
 
-        back = findViewById(R.id.jbackToSearchbtn);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,11 +117,8 @@ public class SearchActivity extends Activity {
             }
         });
 
-        keyword = findViewById(R.id.jkeyword);
-        searchBtn = findViewById(R.id.jsearchBtn);
 
-        Intent intent = getIntent();
-        final String kind = intent.getStringExtra("kind");
+
 
 
         //검색 버튼 클릭 시
@@ -124,23 +166,8 @@ public class SearchActivity extends Activity {
             }
         });
 
-        regionSelected = findViewById(R.id.jregionSelected);
-        roleSelected = findViewById(R.id.jroleSelected);
-        skillSelected = findViewById(R.id.jskillSelected);
-        categorySelected = findViewById(R.id.jcategorySelected);
 
-        selectedView = findViewById(R.id.jselectedView);
 
-        resultView = findViewById(R.id.jresultView);
-
-        //팀 검색인지 회원 검색인지 체크
-        if (kind.equals("team")) {
-            TeamSearchTask ttask = new TeamSearchTask(this);
-            ttask.execute(new Criteria(1, 10), null, null, null, null, null);
-        } else if (kind.equals("member")) {
-            MemberSearchTask mtask = new MemberSearchTask(this);
-            mtask.execute(new Criteria(1, 10), null, null, null, null, null);
-        }
 
 
     }
@@ -257,7 +284,7 @@ public class SearchActivity extends Activity {
 
 
             //분야
-            case R.id.jcategorySelectBtn:
+            case R.id.categorySelectBtn:
                 AlertDialog.Builder categoryDialog = new AlertDialog.Builder(SearchActivity.this,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 categoryDialog.setTitle("분야를 선택하세요.");
@@ -276,7 +303,7 @@ public class SearchActivity extends Activity {
 
                         for (int j = 0; j < categoryChecked.length; j++) {
                             if (categoryChecked[j]) {
-                                sb.append(categoryList[j] + ", "); //체크된 지역
+                                sb.append(categoryList[j] + ", "); //체크된 분야
                             }
                         }
                         categorySelected.setText(sb);

@@ -35,5 +35,12 @@ intent.putExtra("kind","team");
                 startActivity(intent);
             }
         });
+        psearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("kind","portfolio");
+                startActivity(intent);
+            }
+        });
     }
 }
