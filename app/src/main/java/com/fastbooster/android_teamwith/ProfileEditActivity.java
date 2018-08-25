@@ -11,9 +11,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -272,11 +270,12 @@ public class ProfileEditActivity extends Activity {
         //자기소개
         LinearLayout introLayout = findViewById(R.id.memberIntroLayout);
 
+        //자기소개 버튼
         introLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileEditActivity.this, MemberIntroActivity.class);
-
+                intent.putExtra("memberIntro",memberIntro);
                 startActivityForResult(intent, MEMBER_INTRO);
             }
 
@@ -329,11 +328,13 @@ public class ProfileEditActivity extends Activity {
         @Override
         protected void onPostExecute(MemberVO memberData) {
             loading.dismiss();
-            LayoutInflater layoutInflater = LayoutInflater.from(context);
+            /*LayoutInflater layoutInflater = LayoutInflater.from(context);
             View memberIntroView = layoutInflater.inflate(R.layout.activity_member_intro, null);
             EditText introEt = memberIntroView.findViewById(R.id.jmemberInrtroEt);
             Log.v("intro",memberData.getMemberIntro());
             introEt.setText(memberData.getMemberIntro());
+            */
+            memberIntro = memberData.getMemberIntro();
             if (context instanceof ProfileEditActivity) {
                 ProfileEditActivity view = (ProfileEditActivity) context;
 

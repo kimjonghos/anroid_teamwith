@@ -4,8 +4,6 @@ package com.fastbooster.android_teamwith.model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Date;
-
 
 
 public class MemberVO {

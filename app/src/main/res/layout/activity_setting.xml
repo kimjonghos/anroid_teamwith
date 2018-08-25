@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/ytv_back"
+            android:id="@+id/jsettingBack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -24,27 +24,26 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/ytv_page_title"
+            android:id="@+id/textView29"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal|center"
+            android:gravity="center"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="나의 활동"
+            android:text="환경설정"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/textView31"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="24sp" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/jcsBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="15dp"
@@ -57,7 +56,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/jverBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="15dp"
@@ -70,7 +69,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/jServiceBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="50dp"
@@ -83,7 +82,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/logoutBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="15dp"
