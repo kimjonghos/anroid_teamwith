@@ -78,14 +78,14 @@ public class SearchActivity extends Activity {
         Intent intent = getIntent();
         final String kind = intent.getStringExtra("kind");
 
+
+        //검색 버튼 클릭 시
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String key = keyword.getText().toString();
 
-                Log.v(TAG, "team search Activity.. excute 전");
-
-                //사용자가 선택한 조건들
+                //사용자가 선택한 조건 값 저장하기
                 List<String> regionSelectedList = new ArrayList<>();
                 for (int i = 0; i < regionChecked.length; i++) {
                     if (regionChecked[i]) {
@@ -110,6 +110,8 @@ public class SearchActivity extends Activity {
                         categorySelectedList.add(categoryKeyList[i]);
                     }
                 }
+
+                //팀 검색인지 회원 검색인지 체크
                 if (kind.equals("team")) {
                     TeamSearchTask ttask = new TeamSearchTask(SearchActivity.this);
                     ttask.execute(new Criteria(1, 10), regionSelectedList,
@@ -131,6 +133,7 @@ public class SearchActivity extends Activity {
 
         resultView = findViewById(R.id.jresultView);
 
+        //팀 검색인지 회원 검색인지 체크
         if (kind.equals("team")) {
             TeamSearchTask ttask = new TeamSearchTask(this);
             ttask.execute(new Criteria(1, 10), null, null, null, null, null);
@@ -143,6 +146,7 @@ public class SearchActivity extends Activity {
     }
 
 
+    //조건 선택 다이얼로그
     public void selectDialog(View v) {
         switch (v.getId()) {
 
