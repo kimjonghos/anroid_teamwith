@@ -19,7 +19,7 @@ import java.util.List;
 
 public class TeamSearchApi {
     static final String TAG = "team data...";
-    public static String URL_STR = "http://192.168.30.64:8089/api/teamSearch";
+    public static String URL_STR = "http://192.168.30.16:8089/api/teamSearch";
 
     public static String makeQuery(Criteria cri, List<String> region,
                                    List<String> project, List<String> role, List<String> skill,

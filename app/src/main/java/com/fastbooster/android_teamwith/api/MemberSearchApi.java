@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MemberSearchApi {
     static final String TAG = "member data...";
-    public static String URL_STR = "http://192.168.30.64:8089/api/member";
+    public static String URL_STR = "http://192.168.30.16:8089/api/member";
 
     public static String makeQuery(Criteria cri, List<String> region,
                                    List<String> project, List<String> role, List<String> skill,
@@ -58,6 +58,7 @@ public class MemberSearchApi {
 
     }
 
+
     public static List<MemberSearchVO> getMember(Context context, Criteria cri, List<String> region,
                                                  List<String> project, List<String> role, List<String> skill,
                                                  String keyword) {
@@ -69,6 +70,62 @@ public class MemberSearchApi {
 
         try {
             URL url = new URL(URL_STR + query);
+            Log.v(TAG, url.toString());
+
+            StringBuilder sb = new StringBuilder();
+
+            conn = (HttpURLConnection) url.openConnection();
+//connection.
+            conn.setRequestMethod("GET");
+            conn.setDoInput(true);
+            conn.setConnectTimeout(1000);
+            int responseCode = conn.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+            } else {
+                Log.d("Teamwith app error", "URL=" + URL_STR);
+                return null;
+            }
+            //json
+
+            JSONArray array = new JSONArray(sb.toString());
+
+            //return
+            List<MemberSearchVO> result = new ArrayList<>();
+
+            Log.v("len", "" + array.length());
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject obj = array.getJSONObject(i);
+                result.add(new MemberSearchVO(obj));
+            }
+            return result;
+
+        } catch (Exception e) {
+            Log.d("Teamwith app error", e.getMessage());
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+        }
+
+    }
+    public static List<MemberSearchVO> getBestMember(Context context, Criteria cri, List<String> region,
+                                                 List<String> project, List<String> role, List<String> skill,
+                                                 String keyword) {
+        //  ApplicationShare app = (ApplicationShare) context.getApplicationContext();
+        //  app.regionList.get("region-1");
+
+        String query = makeQuery(cri, region, project, role, skill, keyword);
+        HttpURLConnection conn = null;
+
+        try {
+            URL url = new URL(URL_STR +"/bestMember"+query);
             Log.v(TAG, url.toString());
 
             StringBuilder sb = new StringBuilder();
