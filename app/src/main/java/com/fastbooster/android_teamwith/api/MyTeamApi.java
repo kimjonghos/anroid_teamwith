@@ -10,11 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MyTeamApi {
-<<<<<<< HEAD
-    public static JSONObject getMyTeam() throws Exception{
-        JSONObject json=null;
-        URL url = new URL("http://192.168.30.64:8089/api/team/myTeam");
-=======
+
     public static JSONObject getMyTeam(Criteria cri) throws Exception {
         JSONObject json = null;
         URL url = new URL("http://192.168.30.64:8089/api/team/myTeam?page=" + cri.getPage() + "&perPageNum=" + cri.getPerPageNum());
@@ -42,7 +38,6 @@ public class MyTeamApi {
     public static JSONObject getMyHistory(Criteria cri) throws Exception {
         JSONObject json = null;
         URL url = new URL("http://192.168.30.64:8089/api/team/myHistory?page=" + cri.getPage() + "&perPageNum=" + cri.getPerPageNum());
->>>>>>> 384e6aea2eb049013547b966cc05c7a384a008c0
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setReadTimeout(10000);
