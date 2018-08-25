@@ -1,14 +1,10 @@
 package com.fastbooster.android_teamwith.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
@@ -16,25 +12,22 @@ import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
 import com.fastbooster.android_teamwith.viewholder.TeamLayoutViewHolder;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
-public class TeamAdapter extends BaseAdapter {
+public class ApplicationAdapter extends BaseAdapter {
     static final String TAG = "member data...";
 
     Context context;
     List<TeamSimpleVO> data;
     LayoutInflater layoutInflater;
 
-    public TeamAdapter(Context context, List<TeamSimpleVO> data) {
+    public ApplicationAdapter(Context context, List<TeamSimpleVO> data) {
         this.context = context;
         this.data = data;
         this.layoutInflater = LayoutInflater.from(context);
 
 
     }
-
 
     @Override
     public int getCount() {

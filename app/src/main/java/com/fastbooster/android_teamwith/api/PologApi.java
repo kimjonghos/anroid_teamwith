@@ -2,16 +2,14 @@ package com.fastbooster.android_teamwith.api;
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 public class PologApi {
 
-    public static final String URL_STR = "http://192.168.30.64:8089/api/polog/";
+    public static final String URL_STR = "http://192.168.30.16:8089/api/polog/";
 
     public static JSONObject getPologInfo(String memberId) throws Exception {
+
+        return ApiUtil.getJsonObject(URL_STR + memberId);
+/*
         JSONObject json = null;
         HttpURLConnection conn = null;
 
@@ -48,6 +46,6 @@ public class PologApi {
 
         }
 
-        return null;
+        return null;*/
     }
 }

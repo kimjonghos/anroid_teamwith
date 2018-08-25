@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.fastbooster.android_teamwith.task.HomeTask;
+
 public class HomeActivity extends Activity {
 
     @Override
@@ -14,6 +16,8 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        HomeTask home=new HomeTask(HomeActivity.this);
+        home.execute();
         ImageButton btnSearch = findViewById(R.id.y_btn_search);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override

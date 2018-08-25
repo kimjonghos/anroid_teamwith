@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.MyHistoryActivity;
 import com.fastbooster.android_teamwith.R;
+import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.api.MyTeamApi;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.util.Criteria;
@@ -131,13 +132,15 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
 
     @Override
     protected JSONObject doInBackground(Void... voids) {
-        JSONObject json = null;
         try {
-            json = MyTeamApi.getMyHistory(new Criteria(1, 2));
+            Criteria cri = new Criteria();
+            return ApiUtil.getMyJsonObject(context,
+                    "http://192.168.30.64:8089/api/team/myHistory?page=" + cri.getPage()
+                            + "&perPageNum=" + cri.getPerPageNum());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return json;
+        return null;
 
     }
 }

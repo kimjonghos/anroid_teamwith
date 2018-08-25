@@ -4,24 +4,22 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.GridView;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 
 import com.fastbooster.android_teamwith.ProfileEditActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.SearchActivity;
-import com.fastbooster.android_teamwith.adapter.MemberAdapter;
-import com.fastbooster.android_teamwith.api.MemberSearchApi;
-import com.fastbooster.android_teamwith.api.MyProfileApi;
-import com.fastbooster.android_teamwith.model.MemberSearchVO;
+import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.MemberVO;
-import com.fastbooster.android_teamwith.util.Criteria;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 
-import java.util.List;
+import org.json.JSONObject;
 
 public class MyProfileTask extends AsyncTask<Void, Void, MemberVO> {
-
-    static final String TAG="member data...";
+    private static final String URL_STR = "/member/getEditInfo";
+    static final String TAG = "member data...";
     private final Context context;
     private ProgressDialog loading;
 
@@ -42,23 +40,15 @@ public class MyProfileTask extends AsyncTask<Void, Void, MemberVO> {
     @Override
     protected MemberVO doInBackground(Void... condition) {
         try {
-            return MyProfileApi.getMember(context);
+            JSONObject jo = ApiUtil.getJsonObject(URL_STR);
+            return new MemberVO(jo);
+
         } catch (Exception e) {
             e.printStackTrace();
-            Log.v(TAG,"멤버 서치 태스크 43라인 api getMem 오류");
+            Log.v(TAG, "멤버 서치 태스크 43라인 api getMem 오류");
             return null;
         }
     }
 
-    @Override
-    protected void onPostExecute(MemberVO memberData) {
-        loading.dismiss();
-
-        if (context instanceof SearchActivity) {
-            ProfileEditActivity view = (ProfileEditActivity) context;
-           // TextView result = view.findViewById(R.id.);
-        }
-
-    }
 
 }

@@ -43,7 +43,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/filled_button"
-                android:text="합류하기"
+                android:text="합류"
                 android:textColor="#ffffff" />
 
             <Button
@@ -53,7 +53,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/button"
                 android:fontFamily="@font/font_nanum_squre"
-                android:text="취소하기" />
+                android:text="탈락" />
         </LinearLayout>
 
         <LinearLayout
