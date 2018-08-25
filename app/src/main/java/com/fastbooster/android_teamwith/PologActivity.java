@@ -1,35 +1,33 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.DrawableRes;
-import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.fastbooster.android_teamwith.api.PologApi;
 import com.fastbooster.android_teamwith.task.PologTask;
-import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
-import com.fastbooster.android_teamwith.task.PortfolioSearchTask;
+
 //멤버아이디 받아서 fragment로 전달,폴로그로 전달
 public class PologActivity extends Activity {
-    FrameLayout frame;
-    LayoutInflater inflater;
-    View profileView;
+    private FrameLayout frame;
+    private LayoutInflater inflater;
+    private View profileView;
+    private String memberId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_polog);
+        Intent intent=getIntent();
+        memberId=intent.getStringExtra("memberId");
+
         final Button kbtnProfile =(Button)findViewById(R.id.k_btn_Profile);
         final Button kbtnPortfolio =(Button)findViewById(R.id.k_btn_Portfolio);
         frame=(FrameLayout)findViewById(R.id.k_fl_portfolioList);
@@ -80,9 +78,12 @@ public class PologActivity extends Activity {
                 break;
             case 1:
                 //포트폴리오 레이아웃줄것
+                Bundle bundle=new Bundle(1);
+                bundle.putString("memberId","kim");
                 FragmentManager fm=getFragmentManager();
 
                 PortfolioFragment pf=new PortfolioFragment();
+                pf.setArguments(bundle);
              FragmentTransaction tr=fm.beginTransaction();
              tr.add(R.id.k_fl_portfolioList,pf);
 

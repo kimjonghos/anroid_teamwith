@@ -1,12 +1,15 @@
 package com.fastbooster.android_teamwith.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.fastbooster.android_teamwith.PortfolioActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.PortfolioSimpleVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
@@ -44,7 +47,7 @@ public class PologPortfoliListAdapter extends BaseAdapter {
         PortfolioViewHolder viewHolder;
         View itemLayout=view;
 
-
+        final int ii=i;
         if(itemLayout!=null){
             viewHolder=(PortfolioViewHolder)view.getTag();
         }else{
@@ -55,7 +58,16 @@ public class PologPortfoliListAdapter extends BaseAdapter {
             viewHolder.portfolioPic=view.findViewById(R.id.k_iv_info_portfolioPic);
             viewHolder.portfolioTitle=view.findViewById(R.id.k_tv_info_portfolioTitle);
             viewHolder.projectCategoryId=view.findViewById(R.id.k_tv_info_projectCategory);
+            viewHolder.portfolioLayout=view.findViewById(R.id.k_ll_portfolio);
+            viewHolder.portfolioLayout.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
 
+                    Intent intent=new Intent(context, PortfolioActivity.class);
+                    intent.putExtra("portfolioId",data.get(ii).getPortfolioId());
+                    context.startActivity(intent);
+                }
+            });
             view.setTag(viewHolder);
         }
         viewHolder.portfolioMemberId.setText(data.get(i).getMemberId());

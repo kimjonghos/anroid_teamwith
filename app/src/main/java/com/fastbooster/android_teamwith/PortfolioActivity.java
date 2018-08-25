@@ -1,6 +1,7 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -18,7 +19,9 @@ public class PortfolioActivity extends Activity {
 //        setContentView(R.layout.portfoliotestlayout);
         PortfolioDetailTask pd=new PortfolioDetailTask(PortfolioActivity.this);
         TextView te=(TextView)findViewById(R.id.te);
-        pd.execute("68");
+        Intent intent=getIntent();
+        String portfolioId=intent.getStringExtra("portfolioId");
+        pd.execute(portfolioId);
 
     }
 }
