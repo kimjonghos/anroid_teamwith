@@ -1,16 +1,17 @@
 package com.fastbooster.android_teamwith.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.model.TeamSimpleVO;
+import com.fastbooster.android_teamwith.model.MyApplicationVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
-import com.fastbooster.android_teamwith.viewholder.TeamLayoutViewHolder;
+import com.fastbooster.android_teamwith.viewholder.ApplicationViewHolder;
 
 import java.util.List;
 
@@ -18,14 +19,14 @@ public class ApplicationAdapter extends BaseAdapter {
     static final String TAG = "member data...";
 
     Context context;
-    List<TeamSimpleVO> data;
+    List<MyApplicationVO> data;
     LayoutInflater layoutInflater;
 
-    public ApplicationAdapter(Context context, List<TeamSimpleVO> data) {
+    public ApplicationAdapter(Context context, List<MyApplicationVO> data) {
         this.context = context;
         this.data = data;
+        Log.v("myApplication adapter size", data.size() + "");
         this.layoutInflater = LayoutInflater.from(context);
-
 
     }
 
@@ -46,33 +47,47 @@ public class ApplicationAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        TeamLayoutViewHolder vh;
+        ApplicationViewHolder vh;
 
         if (view != null) {
-            vh = (TeamLayoutViewHolder) view.getTag();
+            vh = (ApplicationViewHolder) view.getTag();
         } else {
-            view = layoutInflater.inflate(R.layout.team_info_layout, null);
+            view = layoutInflater.inflate(R.layout.application_layout, null);
 
-            vh = new TeamLayoutViewHolder();
-            vh.hkTeamLayoutProjectName = view.findViewById(R.id.hkTeamLayoutProjectName);
-            vh.hktvTeamLayoutTeamName = view.findViewById(R.id.hktvTeamLayoutTeamName);
-            vh.hktvTeamLayoutProejctCategory = view.findViewById(R.id.hktvTeamLayoutProejctCategory);
-            vh.hkivTeamLayoutTeamPic = view.findViewById(R.id.hkivTeamLayoutTeamPic);
+            vh = new ApplicationViewHolder();
+            vh.teamPic = view.findViewById(R.id.teamPic);
+            vh.teamName = view.findViewById(R.id.teamName);
+            vh.recruitingRole = view.findViewById(R.id.recruitingRole);
+            vh.regDate = view.findViewById(R.id.regDate);
+            vh.status = view.findViewById(R.id.status);
 
             view.setTag(vh);
         }
+        Log.v("myApplication data adapter", data.get(i).toString());
+        vh.teamPic.setTag(data.get(i).getTeamPic());
+        vh.teamName.setText(data.get(i).getTeamName());
+        vh.recruitingRole.setText((String) ApplicationShare.roleList.
+                get(data.get(i).getRoleId()));
+        vh.regDate.setText(data.get(i).getApplicationDate());
 
-
-        vh.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
-        vh.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
-        vh.hktvTeamLayoutProejctCategory.setText((String) ApplicationShare.categoryList.
-                get(data.get(i).getProjectCategoryId()));
-        vh.hkivTeamLayoutTeamPic.setTag(data.get(i).getTeamPic());
+        switch (data.get(i).getApplicationStatus()) {
+            case "0":
+                vh.status.setText("지원 완료");
+                break;
+            case "1":
+                vh.status.setText("합류");
+                break;
+            case "2":
+                vh.status.setText("탈락");
+                break;
+            case "3":
+                vh.status.setText("취소");
+                break;
+        }
 
         ImageTask imgTask = new ImageTask(context);
-        imgTask.execute(vh.hkivTeamLayoutTeamPic);
+        imgTask.execute(vh.teamPic);
 
         return view;
     }
-
 }

@@ -21,6 +21,7 @@ public class HomeActivity extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(getApplicationContext(), SearchSelectActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
 
