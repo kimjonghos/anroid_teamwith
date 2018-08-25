@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 
 import com.fastbooster.android_teamwith.api.ApplyApi;
 
-
 import java.util.List;
 
 public class ApplyTask extends AsyncTask<Void,Void,Void> {
