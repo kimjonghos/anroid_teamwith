@@ -36,7 +36,8 @@ public class PologActivity extends Activity {
         profileView=inflater.inflate(R.layout.profile_layout,frame,false);
 
         PologTask pt=new PologTask(PologActivity.this,profileView);
-        pt.execute("kim");//멤버아이디 전달 받아서 넣기
+
+        pt.execute(memberId);//멤버아이디 전달 받아서 넣기
 
 
         kbtnProfile.setOnClickListener(new View.OnClickListener(){
@@ -94,5 +95,33 @@ public class PologActivity extends Activity {
 
         }
 
+    }
+    public void bottomOnClick(View v){
+        switch (v.getId()){
+            case R.id.main_btn_home:
+                Intent intent1=new Intent(this,HomeActivity.class);
+                startActivity(intent1);
+                finish();
+                break;
+            case R.id.main_btn_search:
+                Intent intent2=new Intent(this,SearchSelectActivity.class);
+                startActivity(intent2);
+                finish();
+                break;
+            case R.id.main_btn_history:
+                Intent intent3=new Intent(this,MyHistoryActivity.class);
+                startActivity(intent3);
+                finish();
+                break;
+            case R.id.main_btn_polog:
+                Intent intent4=new Intent(this,PologActivity.class);
+                //intent4에 멤버 아이디 줘서 넘길것
+                intent4.putExtra("memberId","kim");
+                startActivity(intent4);
+                finish();
+
+                break;
+
+        }
     }
 }
