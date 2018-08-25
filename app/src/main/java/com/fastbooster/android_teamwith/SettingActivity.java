@@ -1,6 +1,7 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -69,9 +70,8 @@ public class SettingActivity extends Activity {
         verBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(SettingActivity.this,
-                        android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
-                dialog.setMessage("현재 버전은 1.0.0 입니다.");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(SettingActivity.this, R.style.Theme_AppCompat_Light_Dialog_Alert);
+                dialog.setMessage("현재 버전은 1.0.1.2 입니다.");
                 dialog.show();
 
             }
@@ -81,7 +81,8 @@ public class SettingActivity extends Activity {
         serviceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), ServiceActivity.class);
+                startActivity(intent);
             }
         });
 
