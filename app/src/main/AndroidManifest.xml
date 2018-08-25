@@ -24,7 +24,13 @@
             android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity
             android:name=".HomeActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".TeamLeaderActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
@@ -32,11 +38,7 @@
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity

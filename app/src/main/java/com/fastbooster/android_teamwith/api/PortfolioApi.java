@@ -19,17 +19,15 @@ import java.util.List;
 
 public class PortfolioApi {
 
-<<<<<<< HEAD
-    public static final String URL_STR = "http://192.168.30.16:8089/api/portfolioSearch/";
-=======
-    public static final String URL_STR = "http://192.168.30.64:8089/api/portfolioSearch";
->>>>>>> dae2aa3345729cbb5ace364aef007bb5becc7e5a
+
+    public static final String URL_STR = "http://192.168.30.16:8089/api/portfolioSearch";
+
 
     public static JSONObject getPortfolioDetail(String portfolioId) throws Exception {
         JSONObject json = null;
         HttpURLConnection conn = null;
         portfolioId = portfolioId.split("-")[1];
-        URL url = new URL(URL_STR + portfolioId);
+        URL url = new URL(URL_STR + "/"+portfolioId);
         try {
             conn = (HttpURLConnection) url.openConnection();
 
