@@ -63,7 +63,6 @@ public class PologPortfoliListAdapter extends BaseAdapter {
             viewHolder.portfolioLayout.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-
                     Intent intent=new Intent(context, PortfolioActivity.class);
                     intent.putExtra("portfolioId",data.get(ii).getPortfolioId());
                     context.startActivity(intent);
