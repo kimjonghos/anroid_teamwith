@@ -11,6 +11,7 @@ import java.net.URL;
 
 public class MyTeamApi {
 
+
     public static JSONObject getMyTeam(Criteria cri) throws Exception {
         JSONObject json = null;
         URL url = new URL("http://192.168.30.64:8089/api/team/myTeam?page=" + cri.getPage() + "&perPageNum=" + cri.getPerPageNum());
@@ -38,6 +39,7 @@ public class MyTeamApi {
     public static JSONObject getMyHistory(Criteria cri) throws Exception {
         JSONObject json = null;
         URL url = new URL("http://192.168.30.64:8089/api/team/myHistory?page=" + cri.getPage() + "&perPageNum=" + cri.getPerPageNum());
+
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setReadTimeout(10000);
