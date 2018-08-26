@@ -21,7 +21,7 @@ import java.util.List;
 
 public class PologPortfoliListAdapter extends BaseAdapter {
     Context context;
-    List<PortfolioSimpleVO> data; //나중에 String 대신 model로
+    List<PortfolioSimpleVO> data;
     LayoutInflater inflater;
     public PologPortfoliListAdapter(Context context, List<PortfolioSimpleVO> data){
         this.context=context;
@@ -55,7 +55,7 @@ public class PologPortfoliListAdapter extends BaseAdapter {
             view=inflater.inflate(R.layout.portfolioinfo_layout,null);
 
             viewHolder=new PortfolioViewHolder();
-            viewHolder.portfolioMemberId=view.findViewById(R.id.k_tv_info_memberId);
+            viewHolder.portfolioMemberName=view.findViewById(R.id.k_tv_info_memberId);
             viewHolder.portfolioPic=view.findViewById(R.id.k_iv_info_portfolioPic);
             viewHolder.portfolioTitle=view.findViewById(R.id.k_tv_info_portfolioTitle);
             viewHolder.projectCategoryId=view.findViewById(R.id.k_tv_info_projectCategory);
@@ -70,7 +70,7 @@ public class PologPortfoliListAdapter extends BaseAdapter {
             });
             view.setTag(viewHolder);
         }
-        viewHolder.portfolioMemberId.setText(data.get(i).getMemberId());
+        viewHolder.portfolioMemberName.setText(data.get(i).getMemberName()+"님");
         viewHolder.portfolioPic.setTag(data.get(i).getPortfolioPic());
         viewHolder.portfolioTitle.setText(data.get(i).getPortfolioTitle());
         viewHolder.projectCategoryId.setText((String) ApplicationShare.categoryList.get(data.get(i).getProjectCategoryId()));
