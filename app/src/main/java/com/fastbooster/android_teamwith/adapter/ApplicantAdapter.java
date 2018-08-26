@@ -30,7 +30,7 @@ public class ApplicantAdapter extends BaseAdapter {
     private final List<InterviewQuestionDTO> interview;
     private List<RequireSkillVO> requireSkillList;
 
-    public TeamDetailRecruitAdapter(Context context, String teamId, List<RecruitVO> data, List<InterviewQuestionDTO> interview, List<RequireSkillVO> requireSkillList) {
+    public ApplicantAdapter(Context context, String teamId, List<RecruitVO> data, List<InterviewQuestionDTO> interview, List<RequireSkillVO> requireSkillList) {
         this.context = context;
         this.teamId = teamId;
         this.data = data;
