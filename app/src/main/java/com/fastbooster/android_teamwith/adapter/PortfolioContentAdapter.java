@@ -50,15 +50,18 @@ public class PortfolioContentAdapter extends BaseAdapter {
         LinearLayout ll=(LinearLayout)v.findViewById(R.id.k_ll);
         if(data.get(i).getPortfolioContentName().equals("image")){
             ImageView iv=new ImageView(context);
-            iv.setLayoutParams(new ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
+            iv.setLayoutParams(new ViewGroup.LayoutParams(500, 500));
             iv.setForegroundGravity(2);
-            LinearLayout.LayoutParams params=(LinearLayout.LayoutParams)iv.getLayoutParams();
+
+            iv.setScaleType(ImageView.ScaleType.FIT_XY);
             iv.setMaxWidth(1000);
             iv.setTag(data.get(i).getPortfolioContentValue());
             ImageTask imageViewTask= new ImageTask(context);
             imageViewTask.execute(iv);
             ll.addView(iv);
+
             TextView tv=new TextView(context);
+            tv.setPadding(0,40,0,0);
             tv.setText(data.get(i).getPortfolioContentIntro());
             tv.setTextSize(20);
             tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

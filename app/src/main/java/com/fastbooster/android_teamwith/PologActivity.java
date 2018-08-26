@@ -37,7 +37,7 @@ public class PologActivity extends Activity {
 
         PologTask pt=new PologTask(PologActivity.this,profileView);
 
-        pt.execute("kim");//멤버아이디 전달 받아서 넣기
+        pt.execute(memberId);//멤버아이디 전달 받아서 넣기
 
 
         kbtnProfile.setOnClickListener(new View.OnClickListener(){
@@ -80,7 +80,7 @@ public class PologActivity extends Activity {
             case 1:
                 //포트폴리오 레이아웃줄것
                 Bundle bundle=new Bundle(1);
-                bundle.putString("memberId","kim");
+                bundle.putString("memberId",memberId);
                 FragmentManager fm=getFragmentManager();
 
                 PortfolioFragment pf=new PortfolioFragment();
@@ -116,7 +116,7 @@ public class PologActivity extends Activity {
             case R.id.main_btn_polog:
                 Intent intent4=new Intent(this,PologActivity.class);
                 //intent4에 멤버 아이디 줘서 넘길것
-                intent4.putExtra("memberId","kim");
+                intent4.putExtra("memberId",memberId);
                 startActivity(intent4);
                 finish();
 

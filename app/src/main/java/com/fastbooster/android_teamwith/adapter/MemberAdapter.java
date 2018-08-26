@@ -71,12 +71,13 @@ public class MemberAdapter extends BaseAdapter {
             vh.memberName = view.findViewById(R.id.k_tv_memberName);
             vh.praiseCnt = view.findViewById(R.id.k_tv_praiseCnt);
             vh.memberPic = view.findViewById(R.id.k_iv_memberPic);
-
+            vh.memberRole=view.findViewById(R.id.k_tv_memberRole);
             view.setTag(vh);
 
             vh.memberName.setText(data.get(i).getMemberName());
-            vh.praiseCnt.setText(data.get(i).getTotalPraiseCnt());
+            vh.praiseCnt.setText("칭찬 "+data.get(i).getTotalPraiseCnt()+"회");
             vh.memberPic.setTag(data.get(i).getMemberPic());
+            vh.memberRole.setText((String)ApplicationShare.roleList.get(data.get(i).getRoleId()));
 
             ImageTask imgTask = new ImageTask(context);
             imgTask.execute(vh.memberPic);

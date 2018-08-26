@@ -43,6 +43,12 @@
                 android:text="칭찬횟수"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/k_tv_memberRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
         </LinearLayout>
 
         <LinearLayout
