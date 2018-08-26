@@ -65,6 +65,4 @@ public class InterviewAdapter extends BaseAdapter {
 
         return view;
     }
-
-
 }

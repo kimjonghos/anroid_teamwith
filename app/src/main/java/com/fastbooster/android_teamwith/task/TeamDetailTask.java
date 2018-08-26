@@ -13,6 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fastbooster.android_teamwith.ApplicantActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.TeamLeaderActivity;
@@ -106,15 +107,12 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
                 btnApplicant.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //지원자 보기 페이지로 이동한다.
                         Intent intent=((TeamLeaderActivity) context).getIntent();
-//                        intent.setClass(); //지원자 액티비티 세팅
-//                        context.startActivity(intent,); //지원자 보기 페이지로 이동
-
+                        intent.setClass(context, ApplicantActivity.class);
+                        context.startActivity(intent);
                     }
                 });
             }
-
             TextView tvTeamProjectName = view.findViewById(R.id.hktvProjectName);
             tvTeamProjectName.setText(teamInfo.getTeamProjectName());
             TextView tvTeamProjectCategory = view.findViewById(R.id.hktvProjectCategory);

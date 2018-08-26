@@ -47,7 +47,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/btnClose"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginLeft="160dp"

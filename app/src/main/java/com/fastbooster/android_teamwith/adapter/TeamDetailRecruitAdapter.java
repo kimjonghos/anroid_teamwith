@@ -95,7 +95,6 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
             public void onClick(View view) {
                 AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 final AlertDialog dialog=dialogB.create();
-                dialog.setTitle("지원하기");
                 final View dialogLayout = View.inflate(context, R.layout.apply_layout, null);
                 TextView hktvRecruitRole = (TextView) dialogLayout.findViewById(R.id.hktvRecruitRole);
                 TextView interviewQ1 = (TextView) dialogLayout.findViewById(R.id.tvInterviewQuestion1);
