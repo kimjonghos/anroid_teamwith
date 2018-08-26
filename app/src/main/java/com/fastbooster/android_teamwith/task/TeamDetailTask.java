@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,11 +27,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
+public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
     private final Context context;
+    private final String teamId;
 
-    public TeamDetailTask(Context context) {
+    public TeamDetailTask(Context context,String teamId) {
         this.context = context;
+        this.teamId=teamId;
     }
 
     @Override
@@ -99,7 +102,16 @@ public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
                 TextView tvTeamContest=view.findViewById(R.id.hktvTeamContest);
                 tvTeamContest.setText(teamInfo.getTeamContestName());
                 ListView recruitListView=view.findViewById(R.id.hkRecruitListView);
-                TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,recruitList,interviewList,requireSkillList);
+                ImageView ivTeamPic=view.findViewById(R.id.hkivTeamPic);
+                ivTeamPic.setTag(teamInfo.getTeamPic());
+                ImageView ivLeaderPic=view.findViewById(R.id.hkivLeaderPic);
+                ivLeaderPic.setTag(teamInfo.getMemberPic());
+                ImageTask teamPicImageTask=new ImageTask(context);
+                teamPicImageTask.execute(ivTeamPic);
+                ImageTask leaderPicImageTask=new ImageTask(context);
+                leaderPicImageTask.execute(ivLeaderPic);
+
+                TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,teamId,recruitList,interviewList,requireSkillList);
                 recruitListView.setAdapter(recruitAdapter);
                 setListViewHeightBasedOnChildren(recruitListView);
                 ListView faqListView=view.findViewById(R.id.hkFaqListView);
@@ -117,10 +129,10 @@ public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
         }
     }
     @Override
-    protected JSONObject doInBackground(String... teamId) {
+    protected JSONObject doInBackground(Void... voids) {
         JSONObject json=null;
         try {
-            json = TeamDetailApi.getTeamDetail(teamId[0]);
+            json = TeamDetailApi.getTeamDetail(teamId);
         }catch(Exception e){
             e.printStackTrace();
         }
