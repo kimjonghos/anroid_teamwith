@@ -19,6 +19,7 @@ import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.InterviewQuestionDTO;
 import com.fastbooster.android_teamwith.model.RecruitVO;
 import com.fastbooster.android_teamwith.model.RequireSkillVO;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ApplyTask;
 import com.fastbooster.android_teamwith.viewholder.RecruitViewHolder;
 
@@ -75,15 +76,15 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
         } else {
             viewHolder = (RecruitViewHolder) itemLayout.getTag();
         }
-        viewHolder.hktvRecruitRole.setText(data.get(i).getRoleId());
-        viewHolder.hktvRecruitPeopleNum.setText(data.get(i).getRecruitPeopleNum());
+        viewHolder.hktvRecruitRole.setText(ApplicationShare.roleList.get(data.get(i).getRoleId()).toString());
+        viewHolder.hktvRecruitPeopleNum.setText(data.get(i).getRecruitPeopleNum()+" 명");
         viewHolder.hktvRecruitExplain.setText(data.get(i).getRecruitExplain());
         viewHolder.hktvRecruitPreference.setText(data.get(i).getRecruitPreference());
         StringBuilder sb = new StringBuilder();
         if (requireSkillList != null && !requireSkillList.isEmpty())
             for (RequireSkillVO requireSkill : requireSkillList) {
                 if (requireSkill.getRecruitId().equals(data.get(i).getRecruitId())) {
-                    sb.append(requireSkill.getSkillId() + " ");
+                    sb.append(((String[])ApplicationShare.skillList.get(requireSkill.getSkillId()))[0] + " ");
                 }
             }
         viewHolder.hktvRecruitSkill.setText(sb.toString());
