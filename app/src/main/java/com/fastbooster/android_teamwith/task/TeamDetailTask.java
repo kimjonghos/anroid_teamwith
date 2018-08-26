@@ -165,7 +165,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             ivLeaderPic.setTag(teamInfo.getMemberPic());
             ImageTask teamPicImageTask = new ImageTask(context);
             teamPicImageTask.execute(ivTeamPic);
-            ImageTask leaderPicImageTask = new ImageTask(context);
+            MemberImageTask leaderPicImageTask = new MemberImageTask(context);
             leaderPicImageTask.execute(ivLeaderPic);
 
             TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList);
