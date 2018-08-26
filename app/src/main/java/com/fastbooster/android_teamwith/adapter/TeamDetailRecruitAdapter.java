@@ -86,7 +86,6 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                     sb.append(requireSkill.getSkillId() + " ");
                 }
             }
-        Log.d("@@@@@@@@@@@@@@@@", sb.toString());
         viewHolder.hktvRecruitSkill.setText(sb.toString());
         final String roleId = data.get(i).getRoleId();
 

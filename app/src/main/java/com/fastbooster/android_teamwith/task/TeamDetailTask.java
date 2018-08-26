@@ -119,9 +119,11 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
                     btnClose.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            //마감하기를 실행한다.
                             TeamCloseTask teamCloseTask = new TeamCloseTask(context);
                             teamCloseTask.execute(teamId);
+                            Intent intent=((TeamLeaderActivity) context).getIntent();
+                            ((TeamLeaderActivity) context).finish();
+                            ((TeamLeaderActivity) context).startActivity(intent);
                         }
                     });
                 }
