@@ -25,6 +25,7 @@ import com.fastbooster.android_teamwith.model.InterviewQuestionDTO;
 import com.fastbooster.android_teamwith.model.RecruitVO;
 import com.fastbooster.android_teamwith.model.RequireSkillVO;
 import com.fastbooster.android_teamwith.model.TeamDetailVO;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -141,17 +142,17 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             TextView tvTeamProjectName = view.findViewById(R.id.hktvProjectName);
             tvTeamProjectName.setText(teamInfo.getTeamProjectName());
             TextView tvTeamProjectCategory = view.findViewById(R.id.hktvProjectCategory);
-            tvTeamProjectCategory.setText(teamInfo.getProjectCategoryId());
+            tvTeamProjectCategory.setText(ApplicationShare.categoryList.get(teamInfo.getProjectCategoryId()).toString());
             TextView tvTeamName = view.findViewById(R.id.hktvTeamName);
             tvTeamName.setText(teamInfo.getTeamName());
             TextView tvRegion = view.findViewById(R.id.hktvRegion);
-            tvRegion.setText(teamInfo.getRegionId());
+            tvRegion.setText(ApplicationShare.regionList.get(teamInfo.getRegionId()).toString());
             TextView tvTeamEndDate = view.findViewById(R.id.hktvTeamEndDate);
-            tvTeamEndDate.setText("D" + dDay);
+            tvTeamEndDate.setText("D" + dDay);//dDay 모집 마감 지난거 처리할 것
             TextView tvLeaderName = view.findViewById(R.id.hktvLeaderName);
             tvLeaderName.setText(teamInfo.getMemberName());
             TextView tvLeaderRole = view.findViewById(R.id.hktvLeaderRole);
-            tvLeaderRole.setText(teamInfo.getRoleId());
+            tvLeaderRole.setText(ApplicationShare.roleList.get(teamInfo.getRoleId()).toString());
             TextView tvTeamSummary = view.findViewById(R.id.hktvTeamSummary);
             tvTeamSummary.setText(teamInfo.getTeamSummary());
             TextView tvTeamContent = view.findViewById(R.id.hktvTeamContent);
@@ -175,8 +176,6 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             TeamDetailFaqAdapter faqAdapter = new TeamDetailFaqAdapter(context, faqList);
             faqListView.setAdapter(faqAdapter);
             setListViewHeightBasedOnChildren(faqListView);
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
