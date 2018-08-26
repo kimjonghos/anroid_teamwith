@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:fontFamily="@font/font_nanum_squre"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="20dp"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
@@ -93,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:fontFamily="@font/font_nanum_squre"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="20dp"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
@@ -125,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:fontFamily="@font/font_nanum_squre"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="20dp"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
@@ -137,8 +137,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffffff"
-                android:paddingBottom="20dp">
+                android:background="#ffffff">
 
                 <GridView
                     android:id="@+id/k_gv_portfolio"
