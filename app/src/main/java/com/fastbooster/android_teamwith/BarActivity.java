@@ -43,7 +43,7 @@ public class BarActivity extends Activity {
                 finish();
                 break;
             case R.id.main_btn_polog:
-                Intent intent4 = new Intent(this, PologActivity.class);
+                Intent intent4 = new Intent(this, MyPologActivity.class);
 
                 intent4.putExtra("memberId", memberId);
                 startActivity(intent4);
