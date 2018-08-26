@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -101,6 +102,15 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
                 TextView tvTeamContest=view.findViewById(R.id.hktvTeamContest);
                 tvTeamContest.setText(teamInfo.getTeamContestName());
                 ListView recruitListView=view.findViewById(R.id.hkRecruitListView);
+                ImageView ivTeamPic=view.findViewById(R.id.hkivTeamPic);
+                ivTeamPic.setTag(teamInfo.getTeamPic());
+                ImageView ivLeaderPic=view.findViewById(R.id.hkivLeaderPic);
+                ivLeaderPic.setTag(teamInfo.getMemberPic());
+                ImageTask teamPicImageTask=new ImageTask(context);
+                teamPicImageTask.execute(ivTeamPic);
+                ImageTask leaderPicImageTask=new ImageTask(context);
+                leaderPicImageTask.execute(ivLeaderPic);
+
                 TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,teamId,recruitList,interviewList,requireSkillList);
                 recruitListView.setAdapter(recruitAdapter);
                 setListViewHeightBasedOnChildren(recruitListView);
