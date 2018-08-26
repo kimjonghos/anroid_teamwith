@@ -6,6 +6,7 @@ import android.widget.ListView;
 
 import com.fastbooster.android_teamwith.ApplicantActivity;
 import com.fastbooster.android_teamwith.R;
+import com.fastbooster.android_teamwith.adapter.ApplicantAdapter;
 import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.ApplicantVO;
 import com.fastbooster.android_teamwith.model.InterviewVO;
@@ -34,38 +35,39 @@ public class ApplicantTask extends AsyncTask<Void,Void,JSONObject> {
             JSONArray applicantList=json.getJSONArray("applicantList");
             JSONObject interviewMap=json.getJSONObject("interviewMap");
             List<ApplicantVO> applicantVOList=new ArrayList<ApplicantVO>();
-            List<InterviewVO> interviewVOList=new ArrayList<InterviewVO>();
+            List<List<InterviewVO>> interviewList=new ArrayList<List<InterviewVO>>();
+
             for(int i=0;i<applicantList.length();i++){
                 JSONObject applicant=applicantList.getJSONObject(i);
                 ApplicantVO applicantVO=new ApplicantVO(applicant);
                 applicantVOList.add(applicantVO);
-                JSONObject interview=interviewMap.getJSONObject(applicantVO.getApplicationId());
-                InterviewVO interviewVO=new InterviewVO(interview);
-                interviewVOList.add(interviewVO);
+                JSONArray interview=interviewMap.getJSONArray(applicantVO.getApplicationId());
+                List<InterviewVO> interviewVOList=new ArrayList<InterviewVO>();
+                for(int j=0;j<interview.length();j++){
+                    JSONObject interviewJSON=interview.getJSONObject(j);
+                    InterviewVO interviewVO=new InterviewVO(interviewJSON);
+                    interviewVOList.add(interviewVO);
+                }
+                interviewList.add(interviewVOList);
             }
             if(context instanceof ApplicantActivity){
                 ApplicantActivity view = (ApplicantActivity) context;
                 ListView listView=(ListView)view.findViewById(R.id.applicantListView);
-//                listView.setAdapter(Appli);
+                ApplicantAdapter adapter=new ApplicantAdapter(context,applicantVOList,interviewList);
+                listView.setAdapter(adapter);
             }
-
-
-
         }
         catch(Exception e){
             e.printStackTrace();
         }
-//        ListView listView =(ListView)findViewById(R.id.applicantListView);
-//
-//        listView.setAdapter(adapter);
     }
 
     @Override
     protected JSONObject doInBackground(Void... voids) {
-        String teamNum=teamId.substring(7);
+//        String teamNum=teamId.substring(7);
         JSONObject obj=null;
         try {
-            obj= ApiUtil.getMyJsonObject(context,"/teamInfo/applicant/"+teamNum);
+            obj= ApiUtil.getMyJsonObject(context,"/teamInfo/applicant/"+1);
         }
         catch(Exception e){
             e.printStackTrace();

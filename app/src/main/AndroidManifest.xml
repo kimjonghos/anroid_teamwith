@@ -18,15 +18,16 @@
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity android:name=".ProfileEditActivity" />
         <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".TeamLeaderActivity" />
-        <activity
-            android:name=".LoadingActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:name=".TeamLeaderActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MemberIntroActivity" />
@@ -46,11 +47,7 @@
         <activity android:name=".SettingActivity" />
         <activity android:name=".ServiceActivity" />
         <activity android:name=".ApplicantActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
