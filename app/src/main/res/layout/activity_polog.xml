@@ -22,7 +22,6 @@
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingStart="20dp"
-            android:text="&lt;"
             android:textAlignment="viewStart"
             android:textSize="25dp"
             android:textStyle="bold" />
