@@ -1,48 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
 
-    <TextView
-        android:id="@+id/k_tv_info_memberId"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="Q : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="30dp">
 
-    <TextView
-        android:id="@+id/hktvFaqQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:text="faq질문이 무엇인가요?"
-        app:layout_constraintStart_toEndOf="@+id/k_tv_info_memberId"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/k_tv_info_memberId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/round_box_blue"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="Q"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="12dp"
-        android:text="A : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvFaqQuestion" />
+        <TextView
+            android:id="@+id/hktvFaqQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="faq질문이 무엇인가요?"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/hktvFaqAnswer"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:text="faq답변입니다!"
-        app:layout_constraintStart_toEndOf="@+id/textView33"
-        app:layout_constraintTop_toBottomOf="@+id/hktvFaqQuestion" />
-</android.support.constraint.ConstraintLayout>
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="30dp">
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/round_box_red"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="A"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hktvFaqAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="faq답변입니다!"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

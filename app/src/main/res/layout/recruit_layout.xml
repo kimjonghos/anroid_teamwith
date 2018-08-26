@@ -1,123 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
 
-    <TextView
-        android:id="@+id/hktvRecruitRoleConst"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="모집 역할 : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/hktvRecruitRole"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/hktvRecruitRoleConst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="모집 역할 : "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hktvRecruitRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="개발자"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:text="개발자"
-        app:layout_constraintStart_toEndOf="@+id/hktvRecruitRoleConst"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/hktvRecruitPeopleNumConst"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/hktvRecruitPeopleNumConst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="모집 인원 : "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hktvRecruitPeopleNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="2 명"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="모집 인원 : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitRoleConst" />
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/hktvRecruitPeopleNum"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/hktvRecruitExplainConst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="역할 설명 : "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hktvRecruitExplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="우리에게 식량을 주실분이 필요합니다!"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:text="2 명"
-        app:layout_constraintStart_toEndOf="@+id/hktvRecruitPeopleNumConst"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitRole" />
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/hktvRecruitExplainConst"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/hktvRequireSkillConst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="요구 기술 : "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+
+        <TextView
+
+            android:id="@+id/hktvRequireSkill"
+            android:layout_width="242dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="c  c++  c#"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="역할 설명 : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitPeopleNumConst" />
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/hktvRecruitExplain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
-        android:text="우리에게 식량을 주실분이 필요합니다!"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitExplainConst" />
+        <TextView
+            android:id="@+id/hktvRecruitPreferenceConst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="우대 조건 : "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/hktvRequireSkillConst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="요구 기술 : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitPreference" />
-
-    <TextView
-
-        android:id="@+id/hktvRequireSkill"
-        android:layout_width="242dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
-        android:text="c  c++  c#"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRequireSkillConst" />
+        <TextView
+            android:id="@+id/hktvRecruitPreference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/font_nanum_squre"
+            android:text="ㅎㅎ"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/applyBtn"
-        android:layout_width="103dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:fontFamily="@font/font_nanum_squre"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
         android:text="지원하기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRequireSkill" />
-
-    <TextView
-        android:id="@+id/hktvRecruitPreferenceConst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="우대 조건 : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitExplain" />
-
-    <TextView
-        android:id="@+id/hktvRecruitPreference"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
-        android:text="ㅎㅎ"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hktvRecruitPreferenceConst" />
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
