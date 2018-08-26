@@ -3,6 +3,7 @@ package com.fastbooster.android_teamwith.task;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.fastbooster.android_teamwith.TeamLeaderActivity;
 import com.fastbooster.android_teamwith.api.ApiUtil;
@@ -28,7 +29,7 @@ public class TeamCloseTask extends AsyncTask<String,Void,JSONObject> {
 
     @Override
     protected JSONObject doInBackground(String... teamId) {
-        String teamNum=teamId[0].substring(7);
+        String teamNum=teamId[0].substring(5);
         JSONObject obj=null;
         try {
             obj=ApiUtil.getMyJsonObject(context,"/team/close/"+teamNum);

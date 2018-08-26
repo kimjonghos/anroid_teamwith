@@ -3,14 +3,10 @@ package com.fastbooster.android_teamwith.task;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.fastbooster.android_teamwith.MyTeamActivity;
 import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.TeamActivity;
-import com.fastbooster.android_teamwith.TeamLeaderActivity;
 import com.fastbooster.android_teamwith.adapter.TeamGridViewAdapter;
 import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
@@ -35,18 +31,10 @@ public class MyTeamTask extends AsyncTask<Void, Void, List<TeamSimpleVO>> {
         if (context instanceof MyTeamActivity) {
             MyTeamActivity myTeamActivity = (MyTeamActivity) context;
             GridView myTeamGridView = (GridView) myTeamActivity.findViewById(R.id.myTeamGridView);
-
+            Intent intent=myTeamActivity.getIntent();
+            intent.putExtra("ownership","myTeam");
             TeamGridViewAdapter adapter = new TeamGridViewAdapter(context, data);
             myTeamGridView.setAdapter(adapter);
-            myTeamGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent=new Intent();
-                    intent.setClass(context,TeamLeaderActivity.class);
-                    intent.putExtra("teamId",teamInfo.get(i).getTeamId());
-                    context.startActivity(intent);
-                }
-            });
         }
 
 

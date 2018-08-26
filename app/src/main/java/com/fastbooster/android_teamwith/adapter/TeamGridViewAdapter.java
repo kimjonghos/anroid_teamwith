@@ -1,5 +1,6 @@
 package com.fastbooster.android_teamwith.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.fastbooster.android_teamwith.PortfolioActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.TeamActivity;
+import com.fastbooster.android_teamwith.TeamLeaderActivity;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
 import com.fastbooster.android_teamwith.task.ImageTask;
 import com.fastbooster.android_teamwith.viewholder.TeamLayoutViewHolder;
@@ -60,7 +62,14 @@ public class TeamGridViewAdapter extends BaseAdapter {
             viewHolder.hkTeamInfoLayOut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(context, TeamActivity.class);
+                    Intent intent=((Activity)context).getIntent();
+                    String ownership=intent.getStringExtra("ownership");
+                    if(ownership.equals("myTeam")){
+                        intent.setClass(context, TeamLeaderActivity.class);
+                    }
+                    else{
+                        intent=new Intent(context, TeamActivity.class);
+                    }
                     intent.putExtra("teamId",data.get(ii).getTeamId());
                     context.startActivity(intent);
                 }
