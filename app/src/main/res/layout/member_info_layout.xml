@@ -1,57 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:theme="@android:style/Theme.Light.NoTitleBar">
+    android:id="@+id/memberInfoLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/k_iv_memberPic"
+
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/member" />
+
+    <TextView
+        android:id="@+id/k_tv_memberName"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="황규진"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/k_tv_memberRole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="역할"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/k_tv_praiseCnt"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="칭찬횟수"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/jmemberPic1"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                app:srcCompat="@drawable/member" />
-
-            <TextView
-                android:id="@+id/jmemberName1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="황규진"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/jmemberRole1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="20dp"
-                android:text="개발자"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

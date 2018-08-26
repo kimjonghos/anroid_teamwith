@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.InterviewVO;
@@ -101,39 +102,30 @@ public class ApplicationAdapter extends BaseAdapter {
         vh.cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context,
-                        android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+                if (vh.status.getText().toString().equals("취소")) {
+                    Toast.makeText(context, "이미 취소 상태입니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(context,
+                            android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
 
-                dialog.setTitle("지원 취소");
-                dialog.setMessage("정말 [ " + applicationList.get(fi).getTeamName() + " ] 지원을 취소하시겠습니까?");
-                dialog.setPositiveButton("예", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        ApplicationCancelTask act = new ApplicationCancelTask(context,vh.status);
-                        act.execute(applicationList.get(fi).getApplicationId());
-                        /* JSONObject jo = ApiUtil.getMyJsonObject(context, "/cancel/"
-                                + applicationList.get(fi).getApplicationId());
-                        try {
-                            if (jo.getString("result").equals("true")) {
-                                vh.status.setText("취소");
-                            }
-                        } catch (Exception e) {
-                            Toast.makeText(context, "서버에 오류가 발생하였습니다. 다시 시도해주세요."
-                                    , Toast.LENGTH_SHORT).show();
-                            e.printStackTrace();
+                    dialog.setTitle("지원 취소");
+                    dialog.setMessage("정말 [ " + applicationList.get(fi).getTeamName() + " ] 지원을 취소하시겠습니까?");
+                    dialog.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ApplicationCancelTask act = new ApplicationCancelTask(context, vh.status);
+                            act.execute(applicationList.get(fi).getApplicationId());
+                        }
+                    });
+                    dialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
 
-                        }*/
-                    }
-                });
-                dialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-
-                dialog.show();
-
+                    dialog.show();
+                }
             }
         });
 

@@ -27,7 +27,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class ProfileEditActivity extends Activity {
+public class ProfileEditActivity extends BarActivity {
     public static final int MEMBER_INTRO = 1;
     String[] roleKeyList; //역할의 키 값 목록
     String[] regionKeyList; //지역의 키값 목록
