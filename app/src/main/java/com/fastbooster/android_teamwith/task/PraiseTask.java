@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 
@@ -83,6 +82,13 @@ public class PraiseTask extends AsyncTask<String, Void, List<String>> {
             String k = (String) s;
             praiseList[i] = (String) ApplicationShare.praiseList.get(k);
             praiseKeyList[i++] = k;
+        }
+        for (i = 0; i < data.size(); i++) {
+            for (int j = 0; j < praiseKeyList.length; j++) {
+                if (data.get(i).equals(praiseKeyList[j])) {
+                    praiseChecked[j] = true;
+                }
+            }
         }
 
         dialog = new AlertDialog.Builder(context,
