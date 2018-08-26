@@ -24,6 +24,7 @@
         </activity>
 
         <activity android:name=".TeamLeaderActivity" />
+
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>

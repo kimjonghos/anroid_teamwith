@@ -23,6 +23,7 @@ public class TeamActivity extends Activity {
         Intent intent=getIntent();
         String teamId=intent.getStringExtra("teamId");
         TeamDetailTask task = new TeamDetailTask(this,teamId);
+
         task.execute();
     }
     public void bottomOnClick(View v){
