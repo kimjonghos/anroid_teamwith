@@ -93,7 +93,8 @@ public class PologActivity extends BarActivity {
             public void onClick(View view) {
                 List<String> checkedPraiseId = null;
                 AlertDialog.Builder dialog = null;
-                PraiseCheckTask ptask = new PraiseCheckTask(PologActivity.this, dialog,targetId);
+                PraiseCheckTask ptask = new PraiseCheckTask(PologActivity.this, dialog,
+                        targetId, PologTask.prTv);
                 ptask.execute();
 
             }
@@ -131,7 +132,7 @@ public class PologActivity extends BarActivity {
 
                 tr.commit();
 
-                Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
                 break;
 
         }

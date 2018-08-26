@@ -50,13 +50,13 @@ public class PraiseTask extends AsyncTask<List<String>, Void, Boolean> {
     protected void onPostExecute(Boolean data) {
         super.onPostExecute(data);
         if (data == true) {
-            //mTableListView=(FrameLayout)findViewById(R.id.k_fl_portfolioList);
+            //   FrameLayout fl = ((PologActivity) context).findViewById(R.id.k_fl_portfolioList);
 
             // ViewGroup parent = inflater.inflate(R.layout.activity_polog, null);
             View profile = inflater.inflate(R.layout.profile_layout, null);
-          /*  TextView[] pr = null;
+           /* TextView[] prTv = null;
             for (int i = 1; i < 6; i++) {
-                pr = new TextView[]{
+                prTv = new TextView[]{
                         profile.findViewById(R.id.k_polog_praise1)
                         , profile.findViewById(R.id.k_polog_praise2)
                         , profile.findViewById(R.id.k_polog_praise3)
@@ -69,26 +69,27 @@ public class PraiseTask extends AsyncTask<List<String>, Void, Boolean> {
             //이전에는 있었는데 지금은 없음-> 횟수 감소
 
 
-            for (int i = 1; i < 6; i++) {
+            for (int j = 0; j < nowList.size(); j++) {
+                if (!prevList.contains(nowList.get(j))) { //이전에는 없엇고 지금은 잇음-> 횟수 추가
+                    int id = Integer.parseInt(nowList.get(j).substring(7, 8));
+                    String prStr = prTv[id-1].getText().toString();
+                    String[] strings = prStr.split("회");
+                    int cnt = Integer.parseInt(strings[0]);
 
-
-                for (int j = 0; j < nowList.size(); j++) {
-                    if (!prevList.contains(nowList.get(j))) { //이전에는 없엇고 지금은 잇음-> 횟수 추가
-                        int id = Integer.parseInt(nowList.get(j).substring(7, 8));
-                        String prStr = prTv[id].getText().toString();
-                        prStr = prStr.substring(0, prStr.length() - 1);
-                        int cnt = Integer.parseInt(prStr);
-                        prTv[id].setText(cnt + 1 + "회");
-                    }
-                    if (!nowList.contains(prevList.get(j))) {//전에는 있었고 지금은 없음-> 횟수 감소
-                        int id = Integer.parseInt(prevList.get(j).substring(7, 8));
-                        String prStr = prTv[id].getText().toString();
-                        prStr = prStr.substring(0, prStr.length() - 1);
-                        int cnt = Integer.parseInt(prStr);
-                        prTv[id].setText(cnt - 1 + "회");
-                    }
+                    prTv[id-1].setText(cnt + 1 + "회");
                 }
             }
+            //for (int i = 1; i < prevList.size(); i++) {
+            for (int j = 0; j < prevList.size(); j++) {
+                if (!nowList.contains(prevList.get(j))) {//전에는 있었고 지금은 없음-> 횟수 감소
+                    int id = Integer.parseInt(prevList.get(j).substring(7, 8));
+                    String prStr = prTv[id-1].getText().toString();
+                    String[] strings = prStr.split("회");
+                    int cnt = Integer.parseInt(strings[0]);
+                    prTv[id-1].setText(cnt - 1 + "회");
+                }
+            }
+            // }
 
         }
 

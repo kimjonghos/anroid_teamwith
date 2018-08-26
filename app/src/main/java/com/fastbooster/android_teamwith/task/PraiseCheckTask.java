@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.api.ApiUtil;
@@ -21,11 +22,13 @@ public class PraiseCheckTask extends AsyncTask<Void, Void, List<String>> {
     private final Context context;
     AlertDialog.Builder dialog;
     String target;
+    TextView[] prTv;
 
-    public PraiseCheckTask(Context context, AlertDialog.Builder dialog, String target) {
+    public PraiseCheckTask(Context context, AlertDialog.Builder dialog, String target, TextView[] prTv) {
         this.context = context;
         this.dialog = dialog;
         this.target = target;
+        this.prTv = prTv;
     }
 
     @Override
@@ -117,7 +120,7 @@ public class PraiseCheckTask extends AsyncTask<Void, Void, List<String>> {
                     }
                 }
 
-                PraiseTask pt = new PraiseTask(context,null);
+                PraiseTask pt = new PraiseTask(context, prTv);
                 List<String> targetList = new ArrayList<>();
                 targetList.add(target);
                 pt.execute(targetList, praiseSelectedList, prevList);
