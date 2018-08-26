@@ -1,6 +1,5 @@
 package com.fastbooster.android_teamwith;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fastbooster.android_teamwith.api.MyProfileApi;
+import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.MemberVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
@@ -275,7 +274,7 @@ public class ProfileEditActivity extends BarActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileEditActivity.this, MemberIntroActivity.class);
-                intent.putExtra("memberIntro",memberIntro);
+                intent.putExtra("memberIntro", memberIntro);
                 startActivityForResult(intent, MEMBER_INTRO);
             }
 
@@ -317,7 +316,7 @@ public class ProfileEditActivity extends BarActivity {
         @Override
         protected MemberVO doInBackground(Void... condition) {
             try {
-                return MyProfileApi.getMember(context);
+                return new MemberVO(ApiUtil.getMyJsonObject(context, "/member/getEditInfo"));
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.v(TAG, "멤버 서치 태스크 43라인 api getMem 오류");
