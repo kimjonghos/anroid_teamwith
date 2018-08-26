@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.PologTask;
@@ -71,7 +70,7 @@ public class MyPologActivity extends BarActivity {
         PologTask pt = new PologTask(MyPologActivity.this, profileView);
         pt.execute(memberId);//멤버아이디 전달 받아서 넣기
 
-
+/*
         TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +78,7 @@ public class MyPologActivity extends BarActivity {
                 finish();
             }
         });
-
+*/
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

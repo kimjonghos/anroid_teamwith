@@ -60,14 +60,7 @@ public class ProfileEditActivity extends BarActivity {
         roleSelected = findViewById(R.id.memberRoleTv);
         regionSelected = findViewById(R.id.memberRegionTv);
         profileEdit = findViewById(R.id.jprofileEditBtn);
-        TextView back = findViewById(R.id.backTv);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
+       
         MyProfileTask mptask = new MyProfileTask(ProfileEditActivity.this);
 
         mptask.execute();

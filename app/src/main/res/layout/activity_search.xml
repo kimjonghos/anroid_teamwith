@@ -21,6 +21,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/font_bmjua"
             android:gravity="center_vertical"
+            android:onClick="back"
             android:paddingLeft="20dp"
             android:text="&lt;"
             android:textColor="@color/colorPrimaryDark"

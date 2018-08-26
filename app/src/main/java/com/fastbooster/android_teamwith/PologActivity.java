@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.PologTask;
@@ -59,7 +58,7 @@ public class PologActivity extends BarActivity {
         PologTask pt = new PologTask(PologActivity.this, profileView);
         pt.execute(targetId);//멤버아이디 전달 받아서 넣기
 
-
+/*
         TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +66,7 @@ public class PologActivity extends BarActivity {
                 finish();
             }
         });
-
+*/
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
