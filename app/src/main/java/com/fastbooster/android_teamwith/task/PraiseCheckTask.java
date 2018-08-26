@@ -64,7 +64,7 @@ public class PraiseCheckTask extends AsyncTask<Void, Void, List<String>> {
     @Override
     protected void onPostExecute(List<String> data) {
         super.onPostExecute(data);
-
+        final List<String> prevList = data;
         if (data == null) {
             Toast.makeText(context, "같은 팀원만 칭찬할 수 있습니다.",
                     Toast.LENGTH_SHORT).show();
@@ -117,10 +117,10 @@ public class PraiseCheckTask extends AsyncTask<Void, Void, List<String>> {
                     }
                 }
 
-                PraiseTask pt = new PraiseTask(context);
+                PraiseTask pt = new PraiseTask(context,null);
                 List<String> targetList = new ArrayList<>();
                 targetList.add(target);
-                pt.execute(targetList, praiseSelectedList);
+                pt.execute(targetList, praiseSelectedList, prevList);
 
             }
         });

@@ -1,10 +1,6 @@
 package com.fastbooster.android_teamwith.task;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +10,6 @@ import android.widget.TextView;
 import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.api.PologApi;
-import com.fastbooster.android_teamwith.api.PortfolioApi;
 import com.fastbooster.android_teamwith.model.MemberPraiseCntVO;
 import com.fastbooster.android_teamwith.model.MemberProjectCategoryVO;
 import com.fastbooster.android_teamwith.model.MemberSkillVO;
@@ -24,12 +19,9 @@ import com.fastbooster.android_teamwith.model.PraiseVO;
 import com.fastbooster.android_teamwith.model.TendencyVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,14 +106,17 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
                     }
 
                 }
-                String[] skillName = memberSkill.getSkillName();
-
-                pologSkill.setText("");
-                for (int i = 0; i < skillName.length; i++) {
-                    if (i == 0) {
-                        pologSkill.append(skillName[i]);
-                    } else {
-                        pologSkill.append("\n" + skillName[i]);
+                if (memberSkill != null) {
+                    String[] skillName = memberSkill.getSkillName();
+                    if (skillName != null) {
+                        pologSkill.setText("");
+                        for (int i = 0; i < skillName.length; i++) {
+                            if (i == 0) {
+                                pologSkill.append(skillName[i]);
+                            } else {
+                                pologSkill.append("\n" + skillName[i]);
+                            }
+                        }
                     }
                 }
                 String[] praiseCnt = praise.getPraiseCnt();
@@ -131,6 +126,7 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
                     tvPraise[i].setText(praiseCnt[i] + "회");
                 }
                 tendency1.setProgress(Integer.parseInt(tendency.getTendency1()));
+                tendency1.willNotDraw();
                 tendency2.setProgress(Integer.parseInt(tendency.getTendency2()));
                 tendency3.setProgress(Integer.parseInt(tendency.getTendency3()));
                 tendency4.setProgress(Integer.parseInt(tendency.getTendency4()));
