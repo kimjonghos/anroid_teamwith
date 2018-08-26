@@ -129,7 +129,6 @@ public class ApplicationAdapter extends BaseAdapter {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
 
-                dialog.setTitle("지원 내용");
                 final View contentView = View.inflate(context, R.layout.application_content_layout, null);
                 TextView freeWriting = contentView.findViewById(R.id.freeWriting);
                 freeWriting.setText(applicationList.get(fi).getApplicationFreewriting());
@@ -139,14 +138,6 @@ public class ApplicationAdapter extends BaseAdapter {
                 listView.setAdapter(new InterviewAdapter(context, itvList));
 
                 dialog.setView(contentView);
-
-
-                dialog.setPositiveButton("닫기", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-
                 dialog.show();
 
             }
