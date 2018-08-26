@@ -13,7 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ApiUtil {
-    private static final String URL_STR = "http://192.168.30.16:8089/api";
+    private static final String URL_STR = "http://192.168.30.64:8089/api";
 
     public static JSONObject getJsonObject(String urlStr) {
         try {
@@ -54,6 +54,7 @@ public class ApiUtil {
     private static String getData(Context context, String urlStr) throws Exception {
         HttpURLConnection conn = null;
         URL url = new URL(URL_STR + urlStr);
+        Log.v("request URL", URL_STR + urlStr);
         StringBuilder sb = new StringBuilder();
 
         conn = (HttpURLConnection) url.openConnection();
