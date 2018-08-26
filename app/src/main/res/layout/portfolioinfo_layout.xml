@@ -25,7 +25,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/font_nanum_squre"
         android:gravity="center"
-        android:minLines="1"
+        android:maxLines="1"
         android:text="게시판 프로젝트"
         android:textColor="@color/colorAccent"
         android:textSize="16sp" />
@@ -39,7 +39,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/font_nanum_squre"
         android:gravity="center"
-        android:minLines="1"
+        android:maxLines="1"
         android:text="라이프 스타일"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp" />
@@ -53,7 +53,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/font_nanum_squre"
         android:gravity="center"
-        android:minLines="1"
+        android:maxLines="1"
         android:text="조란"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark" />
