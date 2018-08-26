@@ -1,6 +1,5 @@
 package com.fastbooster.android_teamwith;
 
-import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -16,9 +15,6 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.PologTask;
-import com.fastbooster.android_teamwith.task.PraiseCheckTask;
-
-import java.util.List;
 
 public class MyPologActivity extends BarActivity {
     String[] praiseKeyList;
@@ -30,10 +26,12 @@ public class MyPologActivity extends BarActivity {
     private FrameLayout frame;
     private LayoutInflater inflater;
     private View profileView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_polog);
+
         ImageButton settingBtn = findViewById(R.id.settingBtn);
         Button editBtn = findViewById(R.id.profileEditBtn);
 
@@ -98,8 +96,10 @@ public class MyPologActivity extends BarActivity {
                 changeView(1);
             }
         });
+        changeView(0);
 
     }
+
     private void changeView(int index) {
 
 

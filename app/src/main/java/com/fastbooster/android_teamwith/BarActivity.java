@@ -7,12 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.fastbooster.android_teamwith.HomeActivity;
-import com.fastbooster.android_teamwith.MyHistoryActivity;
-import com.fastbooster.android_teamwith.PologActivity;
-import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.SearchSelectActivity;
-
 public class BarActivity extends Activity {
 
     public String memberId;

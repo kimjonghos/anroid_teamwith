@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.PologTask;
@@ -38,9 +37,7 @@ public class PologActivity extends BarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_polog);
-
         targetId = getIntent().getStringExtra("memberId");
-
         praiseList = new String[ApplicationShare.praiseList.size()];
         praiseKeyList = new String[ApplicationShare.praiseList.size()];
         praiseChecked = new boolean[praiseList.length];
@@ -99,6 +96,7 @@ public class PologActivity extends BarActivity {
 
             }
         });
+        changeView(0);
     }
 
     private void changeView(int index) {
@@ -132,7 +130,7 @@ public class PologActivity extends BarActivity {
 
                 tr.commit();
 
-               // Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
                 break;
 
         }
