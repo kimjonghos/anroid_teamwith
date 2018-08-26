@@ -55,7 +55,7 @@ public class ApplicationShare extends Application {
 
     static class FileReadThread extends Thread {
         static final String TAG = "file data...";
-        private static final String URL_STR = "http://192.168.30.64:8089/api/file";
+        private static final String URL_STR = "http://192.168.30.16:8089/api/file";
 
         public void run() {
             try {

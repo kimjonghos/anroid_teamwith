@@ -40,7 +40,14 @@
         <activity
             android:name=".MemberIntroActivity"/>
         <activity
-            android:name=".PologActivity"></activity>
+            android:name=".PologActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".PortfolioSearchActivity"/>
         <activity
@@ -58,7 +65,9 @@
         <activity
             android:name=".ApplicationActivity"/>
         <activity
-            android:name=".PortfolioActivity" />
+            android:name=".PortfolioActivity" >
+
+        </activity>
         <activity
             android:name=".JoinedTeamActivity" />
         <activity
