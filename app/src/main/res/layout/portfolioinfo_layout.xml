@@ -1,54 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/k_ll_portfolio"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="269dp">
+    <ImageView
+        android:id="@+id/k_iv_info_portfolioPic"
+        android:layout_width="140dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:src="@drawable/portfolio" />
 
-        <LinearLayout
+    <TextView
+        android:id="@+id/k_tv_info_portfolioTitle"
 
-            android:id="@+id/k_ll_portfolio"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:orientation="vertical">
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:gravity="center"
+        android:minLines="1"
+        android:text="게시판 프로젝트"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/k_iv_info_portfolioPic"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:src="@drawable/portfolio" />
+    <TextView
+        android:id="@+id/k_tv_info_projectCategory"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:gravity="center"
+        android:minLines="1"
+        android:text="라이프 스타일"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/k_tv_info_portfolioTitle"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="게시판 프로젝트" />
-
-            <TextView
-                android:id="@+id/k_tv_info_projectCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="라이프 스타일"
-                android:textColor="@android:color/darker_gray" />
-
-            <TextView
-                android:id="@+id/k_tv_info_memberId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:text="조란"
-                android:textAlignment="center"
-                android:textColor="@android:color/darker_gray" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/k_tv_info_memberId"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:gravity="center"
+        android:minLines="1"
+        android:text="조란"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
 
 </LinearLayout>
