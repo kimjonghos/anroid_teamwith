@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.task.LogoutTask;
 
-public class SettingActivity extends Activity {
+public class SettingActivity extends BarActivity {
 
     TextView back;
 

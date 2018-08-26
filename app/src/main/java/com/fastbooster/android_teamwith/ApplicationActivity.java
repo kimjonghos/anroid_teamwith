@@ -1,13 +1,15 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.task.MyApplicationTask;
 
-public class ApplicationActivity extends Activity {
+public class ApplicationActivity extends BarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +24,10 @@ public class ApplicationActivity extends Activity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void bottomOnClick(View v) {
+        super.bottomOnClick(v);
     }
 }

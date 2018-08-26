@@ -59,39 +59,44 @@
         android:paddingTop="15dp">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/main_btn_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_home_black_18dp" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/main_btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:contentDescription="TODO"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_search_black_18dp" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/main_btn_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_assignment_black_18dp" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/main_btn_polog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_perm_identity_black_18dp" />
     </LinearLayout>
 

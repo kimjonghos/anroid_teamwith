@@ -110,7 +110,7 @@ public class MemberAdapter extends BaseAdapter {
         ImageTask imgTask = new ImageTask(context);
         imgTask.execute(vh.memberPic);
 
-        vh.memberName.setText(data.get(i).getMemberName());
+        vh.memberName.setText(data.get(i).getMemberName()+"님");
 
 
         return view;

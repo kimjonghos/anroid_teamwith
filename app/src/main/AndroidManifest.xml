@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/teamwithTheme">
 
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".TeamActivity"
 

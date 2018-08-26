@@ -17,18 +17,15 @@ import android.widget.Toast;
 import com.fastbooster.android_teamwith.task.PologTask;
 
 //멤버아이디 받아서 fragment로 전달,폴로그로 전달
-public class PologActivity extends Activity {
+public class PologActivity extends BarActivity {
     private FrameLayout frame;
     private LayoutInflater inflater;
     private View profileView;
-    private String memberId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_polog);
-        Intent intent = getIntent();
-        memberId = intent.getStringExtra("memberId");
 
         final Button kbtnProfile = (Button) findViewById(R.id.k_btn_Profile);
         final Button kbtnPortfolio = (Button) findViewById(R.id.k_btn_Portfolio);
@@ -104,32 +101,4 @@ public class PologActivity extends Activity {
 
     }
 
-    public void bottomOnClick(View v) {
-        switch (v.getId()) {
-            case R.id.main_btn_home:
-                Intent intent1 = new Intent(this, HomeActivity.class);
-                startActivity(intent1);
-                finish();
-                break;
-            case R.id.main_btn_search:
-                Intent intent2 = new Intent(this, SearchSelectActivity.class);
-                startActivity(intent2);
-                finish();
-                break;
-            case R.id.main_btn_history:
-                Intent intent3 = new Intent(this, MyHistoryActivity.class);
-                startActivity(intent3);
-                finish();
-                break;
-            case R.id.main_btn_polog:
-                Intent intent4 = new Intent(this, PologActivity.class);
-                //intent4에 멤버 아이디 줘서 넘길것
-                intent4.putExtra("memberId", memberId);
-                startActivity(intent4);
-                finish();
-
-                break;
-
-        }
-    }
 }
