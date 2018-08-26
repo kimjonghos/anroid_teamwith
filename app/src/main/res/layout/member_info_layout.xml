@@ -26,7 +26,6 @@
         android:fontFamily="@font/font_nanum_squre"
         android:gravity="center"
         android:maxLines="1"
-        android:minLines="1"
         android:text="황규진"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp" />
@@ -40,7 +39,7 @@
         android:ellipsize="end"
         android:fontFamily="@font/font_nanum_squre"
         android:gravity="center"
-        android:minLines="1"
+        android:maxLines="1"
         android:text="역할"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp" />
@@ -55,7 +54,6 @@
         android:fontFamily="@font/font_nanum_squre"
         android:gravity="center"
         android:maxLines="1"
-        android:minLines="1"
         android:text="칭찬횟수"
         android:textColor="@color/colorAccent"
         android:textSize="16sp" />
