@@ -95,7 +95,6 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
             public void onClick(View view) {
                 AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 final AlertDialog dialog=dialogB.create();
-                dialog.setTitle("지원하기");
                 final View dialogLayout = View.inflate(context, R.layout.apply_layout, null);
                 TextView hktvRecruitRole = (TextView) dialogLayout.findViewById(R.id.hktvRecruitRole);
                 TextView interviewQ1 = (TextView) dialogLayout.findViewById(R.id.tvInterviewQuestion1);
@@ -104,7 +103,6 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                 EditText interviewA1 = (EditText) dialogLayout.findViewById(R.id.etInterviewAnswer1);
                 EditText interviewA2 = (EditText) dialogLayout.findViewById(R.id.etInterviewAnswer2);
                 EditText interviewA3 = (EditText) dialogLayout.findViewById(R.id.etInterviewAnswer3);
-                TextView interviewTitle = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle);
                 TextView interviewTitle1 = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle1);
                 TextView interviewTitle2 = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle2);
                 TextView interviewTitle3 = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle3);
@@ -113,7 +111,6 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                 final TextView[] textViews = new TextView[]{interviewQ1, interviewQ2, interviewQ3};
 
                 if (interview == null || interview.isEmpty()) {
-                    interviewTitle.setVisibility(View.GONE);
                     for (int i = 0; i < interview.size(); i++) {
                         interviewTitleAry[i].setVisibility(View.GONE);
                         interviewAnswers[i].setVisibility(View.GONE);
