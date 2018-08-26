@@ -1,13 +1,15 @@
 package com.fastbooster.android_teamwith.task;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 
-import com.fastbooster.android_teamwith.api.ApplyApi;
+import com.fastbooster.android_teamwith.TeamLeaderActivity;
+import com.fastbooster.android_teamwith.api.ApiUtil;
 
-import java.util.List;
+import org.json.JSONObject;
 
-public class TeamCloseTask extends AsyncTask<String,Void,Void> {
+public class TeamCloseTask extends AsyncTask<String,Void,JSONObject> {
     private final Context context;
 
     public TeamCloseTask(Context context){
@@ -15,18 +17,25 @@ public class TeamCloseTask extends AsyncTask<String,Void,Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(JSONObject json) {
+        if(context instanceof TeamLeaderActivity){
+            TeamLeaderActivity view = (TeamLeaderActivity) context;
+            Intent intent=view.getIntent();
+            intent.setClass(context,TeamLeaderActivity.class);
+            view.startActivity(intent);
+        }
     }
 
     @Override
-    protected Void doInBackground(String... teamId) {
+    protected JSONObject doInBackground(String... teamId) {
+        String teamNum=teamId[0].substring(7);
+        JSONObject obj=null;
         try {
-//            Boolean result= ApplyApi.applyTeam(teamId, interviewAnswer, interviewQuestionId, applicationFreewriting, roleId);
+            obj=ApiUtil.getMyJsonObject(context,"/team/close/"+teamNum);
         }
         catch(Exception e){
             e.printStackTrace();
         }
-        return null;
+        return obj;
     }
 }
