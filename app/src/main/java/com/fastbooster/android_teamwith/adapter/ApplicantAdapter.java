@@ -29,8 +29,7 @@ public class ApplicantAdapter extends BaseAdapter {
     private List<ApplicantVO> data;
     private List<List<InterviewVO>> interviewList;
     private LayoutInflater layoutInflater;
-
-
+  
     public ApplicantAdapter(Context context, List<ApplicantVO> data, List<List<InterviewVO>> interviewList) {
         this.context = context;
         this.data = data;
@@ -118,6 +117,7 @@ public class ApplicantAdapter extends BaseAdapter {
         viewHolder.btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
                 final AlertDialog dialog = dialogB.create();
                 dialog.setTitle("지원 내역 보기");

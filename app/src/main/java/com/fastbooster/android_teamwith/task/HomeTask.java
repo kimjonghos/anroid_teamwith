@@ -68,12 +68,6 @@ public class HomeTask extends AsyncTask<String, Void, Map<String, Object>> {
                 portfolio.add(new PortfolioSimpleVO(array3.getJSONObject(i)));
             }
             param.put("portfolio", portfolio);
-//            List<TeamSimpleVO> team= TeamSearchApi.getTeam(context,cri,null,null,null,null,null);
-//            param.put("team",team);
-//            List<MemberSearchVO> member= MemberSearchApi.getBestMember(context,cri,null,null,null,null,null);
-//            param.put("member",member);
-//            List<PortfolioSimpleVO> portfolio= PortfolioApi.getPortfolioList(cri,null,null);
-//            param.put("portfolio",portfolio);
 
 
         } catch (Exception e) {

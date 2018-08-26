@@ -8,5 +8,11 @@
         android:id="@+id/k_lv_polport"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2" />
+        android:columnWidth="140dp"
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:stretchMode="spacingWidth"
+        android:scrollbars="none"/>
 </FrameLayout>
