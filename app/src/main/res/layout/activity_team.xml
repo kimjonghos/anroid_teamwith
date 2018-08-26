@@ -113,108 +113,130 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/hkivTeamPic"
-                    android:layout_width="400dp"
-                    android:layout_height="250dp"
-                    android:layout_weight="1"
+                    android:layout_width="140dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/team12" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="10dp">
 
                     <TextView
                         android:id="@+id/hktvProjectName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:maxLines="1"
                         android:text="팀 프로젝트 명"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/hktvProjectCategory"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:text="팀 분야"
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/hktvTeamName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:maxLines="1"
                         android:text="팀 명"
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/hktvProjectCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:maxLines="1"
+                        android:text="팀 분야"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/hktvRegion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:maxLines="1"
                         android:text="지역"
-                        android:textSize="18sp" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/hktvTeamEndDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:text="모집 마감 : D-7" />
+                        android:ellipsize="end"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:maxLines="1"
+                        android:text="모집 마감 : D-7"
+                        android:textColor="@color/colorAccent" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/hktvLeaderName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="80dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/font_nanum_squre"
+                        android:gravity="center"
                         android:text="임경준"
-                        android:textSize="25sp" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/hktvLeaderRole"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="80dp"
-                        android:layout_marginTop="10dp"
+                        android:background="@drawable/round_box"
+                        android:fontFamily="@font/font_nanum_squre"
                         android:text="개발자"
+                        android:textColor="#ffffff"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/hkivLeaderPic"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:background="@drawable/round_image"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
                     android:src="@drawable/img7" />
 
             </LinearLayout>
