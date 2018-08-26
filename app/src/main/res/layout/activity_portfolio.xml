@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.01"
             android:background="@android:color/transparent"
+            android:onClick="back"
             android:text="   &lt;"
             android:textAlignment="viewStart"
             android:textSize="25dp"

@@ -19,13 +19,13 @@ public class JoinedTeamActivity extends BarActivity {
 
         JoinedTeamTask joinedTeamTask=new JoinedTeamTask(this);
         joinedTeamTask.execute();
-        TextView back = findViewById(R.id.backTv);
+        /*TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
     public void bottomOnClick(View v){
         switch (v.getId()){
