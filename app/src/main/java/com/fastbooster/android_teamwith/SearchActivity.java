@@ -25,7 +25,7 @@ import com.fastbooster.android_teamwith.util.Criteria;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends BarActivity {
     static final String TAG = "member data...";
     ApplicationShare as;
 
@@ -68,19 +68,6 @@ public class SearchActivity extends Activity {
 
         if(kind.equals("portfolio")){
             setContentView(R.layout.activity_portfolio_search);
-            //LayoutInflater layoutInflater = LayoutInflater.from(getApplicationContext());
-            //View pfSearchView = layoutInflater.inflate(R.layout.activity_portfolio_search, null);
-
-           /* back = pfSearchView.findViewById(R.id.jbackToSearch);
-            keyword = pfSearchView.findViewById(R.id.jKeyword);
-            searchBtn = pfSearchView.findViewById(R.id.jpSearchBtn);
-
-            categorySelected = pfSearchView.findViewById(R.id.categorySelected);
-
-            selectedView = pfSearchView.findViewById(R.id.jselectedView);
-
-            resultView = pfSearchView.findViewById(R.id.resultView);
-            */
             back = findViewById(R.id.jbackToSearch);
             keyword = findViewById(R.id.jKeyword);
             searchBtn = findViewById(R.id.jpSearchBtn);
@@ -122,7 +109,7 @@ public class SearchActivity extends Activity {
         InitTask initTask = new InitTask();
         initTask.execute();
 
-
+/*
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,7 +117,7 @@ public class SearchActivity extends Activity {
                 finish();
             }
         });
-
+*/
 
 
 

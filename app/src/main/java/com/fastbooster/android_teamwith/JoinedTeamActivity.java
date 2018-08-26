@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.task.JoinedTeamTask;
 
-public class JoinedTeamActivity extends Activity {
+public class JoinedTeamActivity extends BarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +19,13 @@ public class JoinedTeamActivity extends Activity {
 
         JoinedTeamTask joinedTeamTask=new JoinedTeamTask(this);
         joinedTeamTask.execute();
-        TextView back = findViewById(R.id.backTv);
+        /*TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
     public void bottomOnClick(View v){
         switch (v.getId()){

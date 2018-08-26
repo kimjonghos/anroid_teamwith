@@ -1,6 +1,5 @@
 package com.fastbooster.android_teamwith;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.fastbooster.android_teamwith.api.MyProfileApi;
+import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.MemberVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
@@ -27,7 +26,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class ProfileEditActivity extends Activity {
+public class ProfileEditActivity extends BarActivity {
     public static final int MEMBER_INTRO = 1;
     String[] roleKeyList; //역할의 키 값 목록
     String[] regionKeyList; //지역의 키값 목록
@@ -56,12 +55,11 @@ public class ProfileEditActivity extends Activity {
 
         setContentView(R.layout.activity_profile_edit);
         memberPic = findViewById(R.id.jmemberPic);
-        memberName1 = findViewById(R.id.jmemberName);
         memberName2 = findViewById(R.id.jmemberNameTop);
         roleSelected = findViewById(R.id.memberRoleTv);
         regionSelected = findViewById(R.id.memberRegionTv);
         profileEdit = findViewById(R.id.jprofileEditBtn);
-
+       
         MyProfileTask mptask = new MyProfileTask(ProfileEditActivity.this);
 
         mptask.execute();
@@ -275,7 +273,7 @@ public class ProfileEditActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileEditActivity.this, MemberIntroActivity.class);
-                intent.putExtra("memberIntro",memberIntro);
+                intent.putExtra("memberIntro", memberIntro);
                 startActivityForResult(intent, MEMBER_INTRO);
             }
 
@@ -317,7 +315,7 @@ public class ProfileEditActivity extends Activity {
         @Override
         protected MemberVO doInBackground(Void... condition) {
             try {
-                return MyProfileApi.getMember(context);
+                return new MemberVO(ApiUtil.getMyJsonObject(context, "/member/getEditInfo"));
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.v(TAG, "멤버 서치 태스크 43라인 api getMem 오류");
@@ -343,7 +341,6 @@ public class ProfileEditActivity extends Activity {
                 memberPic.setTag(memberData.getMemberPic());
                 imgTask.execute(memberPic);
 
-                memberName1.setText(memberData.getMemberName());
                 memberName2.setText(memberData.getMemberName());
 
                 roleSelected.setText((String) ApplicationShare.roleList.get(memberData.getRoleId()) + "  >");

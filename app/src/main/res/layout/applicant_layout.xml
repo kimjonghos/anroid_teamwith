@@ -3,77 +3,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:padding="15dp">
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="250dp"
-        android:layout_height="160dp"
-        android:layout_weight="1"
+        android:id="@+id/ivMemberPic"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/member" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_weight="1"
+        android:layout_height="140dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView60"
+                android:id="@+id/tvMemberName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="9"
+                android:layout_weight="6"
                 android:fontFamily="@font/font_nanum_squre"
+                android:gravity="left"
                 android:text="이름"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/btnOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/filled_button"
+                android:fontFamily="@font/font_nanum_squre"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
                 android:text="합류"
                 android:textColor="#ffffff" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/btnNO"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/button"
                 android:fontFamily="@font/font_nanum_squre"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
                 android:text="탈락" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView61"
+                android:id="@+id/tvRoleId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_nanum_squre"
                 android:text="지원 분야"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorAccent"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView62"
+                android:id="@+id/tvApplicationDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -85,23 +97,25 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView58"
+            android:id="@+id/tvApplicationStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/font_nanum_squre"
             android:gravity="center"
             android:text="지원 상태" />
 
         <Button
-            android:id="@+id/button8"
-            android:layout_width="match_parent"
+            android:id="@+id/btnShow"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/filled_button"
+            android:background="@drawable/button"
             android:fontFamily="@font/font_nanum_squre"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
             android:text="지원 내용 보기"
-            android:textColor="#ffffff" />
+            android:textColor="@color/colorAccent" />
     </LinearLayout>
 </LinearLayout>

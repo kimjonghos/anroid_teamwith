@@ -10,6 +10,7 @@ import android.widget.GridView;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.SearchActivity;
 import com.fastbooster.android_teamwith.adapter.TeamAdapter;
+import com.fastbooster.android_teamwith.adapter.TeamGridViewAdapter;
 import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
 import com.fastbooster.android_teamwith.util.Criteria;
@@ -69,7 +70,7 @@ public class TeamSearchTask extends AsyncTask<Object, Void, List<TeamSimpleVO>> 
     protected void onPostExecute(List<TeamSimpleVO> teamData) {
         loading.dismiss();
 
-        TeamAdapter adapter = new TeamAdapter(context, teamData);
+        TeamGridViewAdapter adapter = new TeamGridViewAdapter(context, teamData);
         if (context instanceof SearchActivity) {
             SearchActivity view = (SearchActivity) context;
             GridView result = view.findViewById(R.id.resultView);

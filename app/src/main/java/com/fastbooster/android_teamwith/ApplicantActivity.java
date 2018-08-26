@@ -1,22 +1,25 @@
 package com.fastbooster.android_teamwith;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
-import com.fastbooster.android_teamwith.task.TeamDetailTask;
+import com.fastbooster.android_teamwith.task.ApplicantTask;
 
-public class TeamActivity extends BarActivity {
+public class ApplicantActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_team);
+        setContentView(R.layout.activity_applicant);
         Intent intent=getIntent();
         String teamId=intent.getStringExtra("teamId");
-        TeamDetailTask task = new TeamDetailTask(this,teamId);
-
+        ApplicantTask task=new ApplicantTask(this,teamId);
         task.execute();
+
     }
     public void bottomOnClick(View v){
         switch (v.getId()){

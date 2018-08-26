@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.fastbooster.android_teamwith.task.TeamDetailTask;
 
-public class TeamLeaderActivity extends Activity {
+public class TeamLeaderActivity extends BarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,7 +10,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="750dp">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +30,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_bmjua"
+                    android:onClick="back"
                     android:paddingLeft="20dp"
+                    android:text="&lt;"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="24sp" />
 
                 <TextView
@@ -36,10 +42,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_bmjua"
                     android:gravity="center_vertical|center_horizontal|center"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:text="나의 활동"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="24sp" />
 
                 <TextView
@@ -64,10 +72,10 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="40dp"
-                    android:paddingRight="40dp"
-                    android:paddingTop="10dp">
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingTop="20dp">
 
                     <TextView
                         android:id="@+id/ytv_title_my_team"
@@ -75,9 +83,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
                         android:background="#ffffff"
-                        android:fontFamily="@font/font_nanum_squre"
+                        android:fontFamily="@font/font_bmjua"
                         android:text="등록 팀"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorAccent"
                         android:textSize="20sp" />
 
                     <Button
@@ -96,7 +104,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -116,8 +126,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -127,8 +139,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
@@ -138,8 +152,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -164,8 +180,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -176,8 +194,10 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
@@ -188,8 +208,10 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -213,10 +235,10 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="40dp"
-                    android:paddingRight="40dp"
-                    android:paddingTop="10dp">
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingTop="20dp">
 
                     <TextView
                         android:id="@+id/textView57"
@@ -224,9 +246,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
                         android:background="#ffffff"
-                        android:fontFamily="@font/font_nanum_squre"
+                        android:fontFamily="@font/font_bmjua"
                         android:text="합류 팀"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorAccent"
                         android:textSize="20sp" />
 
                     <Button
@@ -245,7 +267,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -266,8 +290,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -278,8 +304,10 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
@@ -290,8 +318,10 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -316,8 +346,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -328,8 +360,10 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorAccent"
                             android:textSize="16sp" />
 
@@ -340,8 +374,10 @@
                             android:layout_marginBottom="5dp"
                             android:layout_marginLeft="0dp"
                             android:layout_weight="1"
+                            android:ellipsize="end"
                             android:fontFamily="@font/font_nanum_squre"
                             android:gravity="center"
+                            android:maxLines="1"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="16sp" />
 
@@ -366,10 +402,10 @@
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="40dp"
-                    android:paddingRight="40dp"
-                    android:paddingTop="10dp">
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingTop="20dp">
 
                     <TextView
                         android:id="@+id/textView57"
@@ -377,9 +413,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="9"
                         android:background="#ffffff"
-                        android:fontFamily="@font/font_nanum_squre"
+                        android:fontFamily="@font/font_bmjua"
                         android:text="지원 내역"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorAccent"
                         android:textSize="20sp" />
 
                     <Button
@@ -410,8 +446,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:ellipsize="end"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
+                        android:minLines="1"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp" />
 
@@ -420,8 +458,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:ellipsize="end"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
+                        android:minLines="1"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp" />
 
@@ -430,8 +470,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:ellipsize="end"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
+                        android:minLines="1"
                         android:textColor="@color/colorAccent" />
                 </LinearLayout>
 
@@ -451,8 +493,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:ellipsize="end"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
+                        android:minLines="1"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp" />
 
@@ -461,8 +505,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:ellipsize="end"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
+                        android:minLines="1"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp" />
 
@@ -471,8 +517,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:ellipsize="end"
                         android:fontFamily="@font/font_nanum_squre"
                         android:gravity="center"
+                        android:minLines="1"
                         android:textColor="@color/colorAccent" />
                 </LinearLayout>
 
@@ -483,9 +531,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="650dp"
+        android:layout_weight="9"
         android:background="@drawable/border"
-        android:gravity="bottom"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageButton

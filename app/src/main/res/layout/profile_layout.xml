@@ -6,11 +6,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical">
 
 
@@ -18,6 +20,7 @@
                 android:id="@+id/textView41"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
@@ -30,24 +33,33 @@
                 android:id="@+id/k_polog_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/font_nanum_squre"
+                android:gravity="center_vertical"
                 android:text="email-dfsf"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/k_polog_Intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/font_nanum_squre"
+                android:gravity="center_vertical"
                 android:text="intor 안녕"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/asdasd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
@@ -60,15 +72,19 @@
                 android:id="@+id/k_polog_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:lineSpacingExtra="12sp"
                 android:text="빅데이터\n보안"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textView52"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
@@ -81,22 +97,20 @@
                 android:id="@+id/k_polog_skill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/font_nanum_squre"
+                android:lineSpacingExtra="12sp"
                 android:text="java"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView58"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
@@ -105,55 +119,166 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/k_polog_praise1"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:text="TextView"
-                android:textSize="16sp" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/k_polog_praise2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:text="TextView"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="전문성"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/k_polog_praise3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:text="TextView"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/k_polog_praise1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_box"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="3회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/k_polog_praise4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:text="TextView"
-                android:textSize="16sp" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/k_polog_praise5"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:text="TextView"
-                android:textSize="16sp" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="적극성"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/k_polog_praise2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_box"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="3회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="일정 준수"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/k_polog_praise3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_box"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="5회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="의사소통"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/k_polog_praise4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_box"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="2회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="친화력"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/k_polog_praise5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_box"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
+                    android:text="2회"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView66"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_bmjua"
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
@@ -165,22 +290,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp">
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView64"
-                    android:layout_width="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="업무중심"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
                 <SeekBar
                     android:id="@+id/k_polog_tendency1"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="10"
@@ -188,32 +319,40 @@
 
                 <TextView
                     android:id="@+id/textView65"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="관계중심"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp">
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/확실성"
-                    android:layout_width="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="확실성"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
                 <SeekBar
                     android:id="@+id/k_polog_tendency2"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="10"
@@ -221,10 +360,13 @@
 
                 <TextView
                     android:id="@+id/textView68"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="모험추구"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -232,22 +374,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp">
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView69"
-                    android:layout_width="5dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="주도적"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
                 <SeekBar
                     android:id="@+id/k_polog_tendency3"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="10"
@@ -255,32 +402,40 @@
 
                 <TextView
                     android:id="@+id/textView70"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="수동적"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp">
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView64"
-                    android:layout_width="5dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="수직적"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
                 <SeekBar
                     android:id="@+id/k_polog_tendency4"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="10"
@@ -288,32 +443,40 @@
 
                 <TextView
                     android:id="@+id/textView65"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="수평적"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp">
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView64"
-                    android:layout_width="15dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="독립적"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
 
                 <SeekBar
                     android:id="@+id/k_polog_tendency5"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="10"
@@ -321,10 +484,13 @@
 
                 <TextView
                     android:id="@+id/textView65"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_nanum_squre"
+                    android:gravity="center"
                     android:text="상호의존적"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>

@@ -1,15 +1,19 @@
 package com.fastbooster.android_teamwith.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
+import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.task.MemberImageTask;
 import com.fastbooster.android_teamwith.viewholder.MemberViewHolder;
 
 import java.util.List;
@@ -57,12 +61,13 @@ public class MemberAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         MemberViewHolder vh;
-
+        final int fi = i;
         if (view != null) {
             vh = (MemberViewHolder) view.getTag();
         } else {
             view = layoutInflater.inflate(R.layout.member_info_layout, null);
             vh = new MemberViewHolder();
+            vh.memberInfoLayout = view.findViewById(R.id.memberInfoLayout);
             vh.memberPic = view.findViewById(R.id.k_iv_memberPic);
             vh.memberName = view.findViewById(R.id.k_tv_memberName);
             vh.memberRole = view.findViewById(R.id.k_tv_memberRole);
@@ -72,7 +77,7 @@ public class MemberAdapter extends BaseAdapter {
         if (flag != 0) {
 
             vh.memberRole.setText((String) ApplicationShare.roleList.get(data.get(i).getRoleId()));
-            vh.praiseCnt.setText("칭찬 "+data.get(i).getTotalPraiseCnt()+"회");
+            vh.praiseCnt.setText("칭찬 " + data.get(i).getTotalPraiseCnt() + "회");
         } else {
             //일반 회원 정보
             vh.memberRole.setTextColor(context.getColor(R.color.colorAccent));
@@ -93,11 +98,19 @@ public class MemberAdapter extends BaseAdapter {
 
 
         }
+        vh.memberInfoLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PologActivity.class);
+                intent.putExtra("memberId", data.get(fi).getMemberId());
+                context.startActivity(intent);
+            }
+        });
         vh.memberPic.setTag(data.get(i).getMemberPic());
-        ImageTask imgTask = new ImageTask(context);
+        MemberImageTask imgTask = new MemberImageTask(context);
         imgTask.execute(vh.memberPic);
 
-        vh.memberName.setText(data.get(i).getMemberName());
+        vh.memberName.setText(data.get(i).getMemberName()+"님");
 
 
         return view;
