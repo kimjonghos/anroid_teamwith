@@ -18,6 +18,7 @@
             android:layout_width="13dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingStart="20dp"
@@ -30,6 +31,8 @@
             android:id="@+id/k_polog_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="조란"
             android:textAlignment="center"
@@ -197,6 +200,54 @@
 
     </FrameLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="9"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/main_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_home_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_search_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_assignment_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_polog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_perm_identity_black_18dp" />
+    </LinearLayout>
 
 
 
