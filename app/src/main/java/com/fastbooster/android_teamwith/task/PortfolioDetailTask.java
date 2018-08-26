@@ -63,16 +63,19 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected JSONObject doInBackground(String... strings) {
-        try {
-            Log.e("PortfolioDetailTask - onProgressUpdate call...", strings[0]);
-            JSONObject o = PortfolioApi.getPortfolioDetail(strings[0]);
-            JSONObject ps = o.getJSONObject("portfolio");
+
+        try{
+            Log.e("PortfolioDetailTask - onProgressUpdate call...",strings[0]);
+            JSONObject o=PortfolioApi.getPortfolioDetail(strings[0]);
+            JSONObject ps=o.getJSONObject("portfolio");
 
             return ps;
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
         return null;
     }
-
 }
+
+
+

@@ -1,5 +1,8 @@
 package com.fastbooster.android_teamwith.model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.sql.Date;
 
 public class PortfolioSimpleVO {
@@ -28,7 +31,21 @@ public class PortfolioSimpleVO {
 		this.portfolioIntro = portfolioIntro;
 		this.portfolioUpdateDate=portfolioUpdateDate;
 	}
-	
+	public PortfolioSimpleVO(JSONObject j) throws JSONException {
+		super();
+		this.portfolioId = j.getString("portfolioId");
+		this.portfolioPic = j.getString("portfolioPic");
+		this.memberId = j.getString("memberId");
+		this.memberName = j.getString("memberName");
+		this.portfolioTitle = j.getString("portfolioTitle");
+		this.portfolioBest = j.getString("portfolioBest");
+		this.projectCategoryId = j.getString("projectCategoryId");
+		this.portfolioIntro = j.getString("portfolioIntro");
+		if(j.getString("portfolioUpdateDate")!=null){
+			this.portfolioUpdateDate=Date.valueOf(j.getString("portfolioUpdateDate"));
+		}
+
+	}
 	public Date getPortfolioUpdateDate() {
 		return portfolioUpdateDate;
 	}

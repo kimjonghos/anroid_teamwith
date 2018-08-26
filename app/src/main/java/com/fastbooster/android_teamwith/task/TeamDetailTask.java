@@ -26,11 +26,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
+public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
     private final Context context;
+    private final String teamId;
 
-    public TeamDetailTask(Context context) {
+    public TeamDetailTask(Context context,String teamId) {
         this.context = context;
+        this.teamId=teamId;
     }
 
     @Override
@@ -99,7 +101,7 @@ public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
                 TextView tvTeamContest=view.findViewById(R.id.hktvTeamContest);
                 tvTeamContest.setText(teamInfo.getTeamContestName());
                 ListView recruitListView=view.findViewById(R.id.hkRecruitListView);
-                TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,recruitList,interviewList,requireSkillList);
+                TeamDetailRecruitAdapter recruitAdapter=new TeamDetailRecruitAdapter(context,teamId,recruitList,interviewList,requireSkillList);
                 recruitListView.setAdapter(recruitAdapter);
                 setListViewHeightBasedOnChildren(recruitListView);
                 ListView faqListView=view.findViewById(R.id.hkFaqListView);
@@ -117,10 +119,10 @@ public class TeamDetailTask extends AsyncTask<String, Void, JSONObject> {
         }
     }
     @Override
-    protected JSONObject doInBackground(String... teamId) {
+    protected JSONObject doInBackground(Void... voids) {
         JSONObject json=null;
         try {
-            json = TeamDetailApi.getTeamDetail(teamId[0]);
+            json = TeamDetailApi.getTeamDetail(teamId);
         }catch(Exception e){
             e.printStackTrace();
         }

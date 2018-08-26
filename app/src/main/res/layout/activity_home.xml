@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
+                android:background="?android:attr/colorButtonNormal"
                 android:text="최근 등록 팀"
                 android:textSize="20dp" />
 
@@ -42,155 +43,18 @@
                 android:layout_height="wrap_content"
                 android:text="Button" />
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/team11" />
-
-                    <TextView
-                        android:id="@+id/htvTeanName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="프로젝트 명" />
-
-                    <TextView
-                        android:id="@+id/htvTeamEndDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="팀명" />
-
-                    <TextView
-                        android:id="@+id/htvRegion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="프로젝트 분야" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="160dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/team5" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:id="@+id/hktvRecruitRoleConst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="팀명" />
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="프로젝트 분야" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="20dp">
 
-                <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView59"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/team11" />
-
-                    <TextView
-                        android:id="@+id/textView51"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="프로젝트 명" />
-
-                    <TextView
-                        android:id="@+id/textView56"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="팀명" />
-
-                    <TextView
-                        android:id="@+id/textView50"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="프로젝트 분야" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="160dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/team5" />
-
-                    <TextView
-                        android:id="@+id/htvCTeamSummary"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:id="@+id/htvTeamContent"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="팀명" />
-
-                    <TextView
-                        android:id="@+id/textView25"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="프로젝트 분야" />
-
-                </LinearLayout>
-            </LinearLayout>
+                <GridView
+                    android:id="@+id/k_gv_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="2" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/textView11"
@@ -198,148 +62,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
+                android:background="?android:attr/colorButtonNormal"
                 android:text="우수 회원"
                 android:textSize="20dp" />
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:layout_height="500dp">
 
-                <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView59"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/img7" />
-
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="임경준님"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:id="@+id/htvTeamSummary"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="13회 칭찬"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="160dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/img7" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="임경준님"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="13회 칭찬"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/img7" />
-
-                    <TextView
-                        android:id="@+id/htvTeanName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="임경준님"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:id="@+id/htvTeamEndDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="13회 칭찬"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="160dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/img7" />
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="임경준님"
-                        android:textAlignment="center" />
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="13회 칭찬"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/holo_red_dark" />
-
-                </LinearLayout>
-            </LinearLayout>
+                <GridView
+                    android:id="@+id/k_gv_member"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="2" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/htvTeamContest"
@@ -347,174 +83,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
+                android:background="?android:attr/colorButtonNormal"
                 android:text="최근 포트폴리오"
                 android:textSize="20dp" />
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/portfolio" />
-
-                    <TextView
-                        android:id="@+id/htvTeanName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="게시판 프로젝트" />
-
-                    <TextView
-                        android:id="@+id/htvTeamEndDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="라이프 스타일"
-                        android:textColor="@android:color/darker_gray" />
-
-                    <TextView
-                        android:id="@+id/hktvRecruitPeopleNumConst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="조란"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="160dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/portfolio" />
-
-                    <TextView
-                        android:id="@+id/hktvRecruitExplainConst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="게시판 프로젝트" />
-
-                    <TextView
-                        android:id="@+id/hktvRecruitExplain"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="라이프 스타일"
-                        android:textColor="@android:color/darker_gray" />
-
-                    <TextView
-                        android:id="@+id/hktvRequireSkillConst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="조란"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginBottom="80dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="20dp">
 
-                <LinearLayout
-                    android:layout_width="160dp"
+                <GridView
+                    android:id="@+id/k_gv_portfolio"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView59"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/portfolio" />
-
-                    <TextView
-
-                        android:id="@+id/hktvRequireSkill"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="게시판 프로젝트" />
-
-                    <TextView
-                        android:id="@+id/textView30"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="라이프 스타일"
-                        android:textColor="@android:color/darker_gray" />
-
-                    <TextView
-                        android:id="@+id/k_tv_info_memberId"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="조란"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="160dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    app:layout_constraintHorizontal_weight="1">
-
-                    <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="match_parent"
-                        android:layout_height="190dp"
-                        android:src="@drawable/portfolio" />
-
-                    <TextView
-                        android:id="@+id/hktvFaqQuestion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="게시판 프로젝트" />
-
-                    <TextView
-                        android:id="@+id/textView33"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="라이프 스타일"
-                        android:textColor="@android:color/darker_gray" />
-
-                    <TextView
-                        android:id="@+id/textView34"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="조란"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@android:color/darker_gray" />
-
-                </LinearLayout>
-            </LinearLayout>
+                    android:numColumns="2" />
+            </FrameLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -528,39 +113,43 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/y_btn_home"
+            android:id="@+id/main_btn_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_home_black_18dp" />
 
         <ImageButton
-            android:id="@+id/y_btn_search"
+            android:id="@+id/main_btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_search_black_18dp" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/main_btn_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_assignment_black_18dp" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/main_btn_polog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_perm_identity_black_18dp" />
     </LinearLayout>
 

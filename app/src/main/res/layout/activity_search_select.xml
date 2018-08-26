@@ -7,37 +7,103 @@
     android:orientation="vertical"
     tools:context=".SearchSelectActivity">
 
-    <Button
-        android:id="@+id/ktSearchBtn"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content">
 
-        android:background="@drawable/teamsearch"
-        android:text="팀 검색"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/y_btn_application"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/ktSearchBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="60dp"
+
+                    android:background="@drawable/teamsearch"
+                    android:text="팀 검색"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/y_btn_application"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/membersearch"
+                    android:text="회원 검색"
+                    android:textColor="@color/sky"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/kpSearchBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/portfoliosearch"
+
+                    android:text="포트폴리오 검색"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/membersearch"
-        android:text="회원 검색"
-        android:textColor="@color/sky"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/border"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/kpSearchBtn"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/portfoliosearch"
+        <ImageButton
+            android:id="@+id/main_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_home_black_18dp" />
 
-        android:text="포트폴리오 검색"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/main_btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_search_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_assignment_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_polog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_perm_identity_black_18dp" />
+    </LinearLayout>
 
 </LinearLayout>
