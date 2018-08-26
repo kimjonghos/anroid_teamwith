@@ -32,14 +32,14 @@ public class SettingActivity extends BarActivity {
         logout = findViewById(R.id.logoutBtn);
 
         //뒤로가기 버튼
-        back.setOnClickListener(new View.OnClickListener() {
+    /*    back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SettingActivity.this, MyPologActivity.class);
                 startActivity(intent);
             }
         });
-
+*/
         //고객센터
         csBtn.setOnClickListener(new View.OnClickListener() {
             @Override

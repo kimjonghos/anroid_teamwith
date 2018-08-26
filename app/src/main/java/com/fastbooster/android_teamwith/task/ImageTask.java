@@ -21,7 +21,7 @@ public class ImageTask extends AsyncTask<ImageView, Void, Bitmap> {
     @Override
     protected Bitmap doInBackground(ImageView... imageViews) {
         image = imageViews[0];
-        if (image.getTag() == null) {
+        if (image.getTag() == null || ((String) image.getTag()).equals("null")) {
             return null;
         }
         String urlStr = "http://192.168.30.64:8089" + (String) image.getTag();

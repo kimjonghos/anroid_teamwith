@@ -17,13 +17,13 @@ public class ApplicationActivity extends BarActivity {
         setContentView(R.layout.activity_application);
         MyApplicationTask maTask = new MyApplicationTask(ApplicationActivity.this);
         maTask.execute();
-        TextView back = findViewById(R.id.backTv);
+        /*TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
 
     @Override

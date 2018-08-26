@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.PologTask;
@@ -38,9 +36,7 @@ public class PologActivity extends BarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_polog);
-
         targetId = getIntent().getStringExtra("memberId");
-
         praiseList = new String[ApplicationShare.praiseList.size()];
         praiseKeyList = new String[ApplicationShare.praiseList.size()];
         praiseChecked = new boolean[praiseList.length];
@@ -62,7 +58,7 @@ public class PologActivity extends BarActivity {
         PologTask pt = new PologTask(PologActivity.this, profileView);
         pt.execute(targetId);//멤버아이디 전달 받아서 넣기
 
-
+/*
         TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +66,7 @@ public class PologActivity extends BarActivity {
                 finish();
             }
         });
-
+*/
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +95,7 @@ public class PologActivity extends BarActivity {
 
             }
         });
+        changeView(0);
     }
 
     private void changeView(int index) {
@@ -132,7 +129,7 @@ public class PologActivity extends BarActivity {
 
                 tr.commit();
 
-               // Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
                 break;
 
         }

@@ -20,13 +20,13 @@ public class MyTeamActivity extends BarActivity {
         setContentView(R.layout.activity_my_team);
         MyTeamTask task = new MyTeamTask(this);
         task.execute();
-        TextView back = findViewById(R.id.backTv);
+        /*TextView back = findViewById(R.id.backTv);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
     }
     public void bottomOnClick(View v){
         switch (v.getId()){

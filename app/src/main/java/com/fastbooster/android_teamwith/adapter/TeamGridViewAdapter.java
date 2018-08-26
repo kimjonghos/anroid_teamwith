@@ -66,7 +66,6 @@ public class TeamGridViewAdapter extends BaseAdapter {
                 public void onClick(View view) {
 
                     Intent intent=((Activity)context).getIntent();
-                    String ownership=intent.getStringExtra("ownership");
                     SharedPreferences sp = context.getSharedPreferences("memberPref",Context.MODE_PRIVATE);
                     String memberId=sp.getString("memberId",null);
                     if(memberId!=null){
@@ -90,6 +89,7 @@ public class TeamGridViewAdapter extends BaseAdapter {
 
 
         }
+
         viewHolder.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
         viewHolder.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
         viewHolder.hktvTeamLayoutProejctCategory.setText(data.get(i).getProjectCategoryId());

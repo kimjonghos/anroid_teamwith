@@ -6,22 +6,23 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-
-import com.fastbooster.android_teamwith.HomeActivity;
-import com.fastbooster.android_teamwith.MyHistoryActivity;
-import com.fastbooster.android_teamwith.PologActivity;
-import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.SearchSelectActivity;
+import android.widget.TextView;
 
 public class BarActivity extends Activity {
 
     public String memberId;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences sp = getSharedPreferences("memberPref", MODE_PRIVATE);
         memberId = sp.getString("memberId", "");
+
+    }
+
+    public void back(View v) {
+        finish();
     }
 
     public void bottomOnClick(View v) {

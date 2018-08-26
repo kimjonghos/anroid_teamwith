@@ -109,7 +109,7 @@ public class SearchActivity extends BarActivity {
         InitTask initTask = new InitTask();
         initTask.execute();
 
-
+/*
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +117,7 @@ public class SearchActivity extends BarActivity {
                 finish();
             }
         });
-
+*/
 
 
 
