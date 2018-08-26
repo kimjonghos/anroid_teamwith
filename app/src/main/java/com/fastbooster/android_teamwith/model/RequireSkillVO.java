@@ -1,5 +1,6 @@
 package com.fastbooster.android_teamwith.model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class RequireSkillVO {
@@ -10,7 +11,8 @@ public class RequireSkillVO {
 	}
 	public RequireSkillVO(JSONObject json)throws Exception{
 		recruitId=json.getString("recruitId");
-		skillId=json.getString("skillIds");
+		JSONArray skills=json.getJSONArray("skillIds");
+		skillId=skills.get(0).toString();
 	}
 
 	public RequireSkillVO(String recruitId, String skillId) {
