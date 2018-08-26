@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@null"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
@@ -13,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@null">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
 
             android:layout_height="match_parent"
-            android:layout_marginBottom="156dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/border"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -49,14 +48,11 @@
                     android:layout_weight="3"
                     android:src="@drawable/logo_text" />
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
+                <TextView
+                    android:id="@+id/textView7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:alpha="0.54"
-                    android:background="#ffffff"
-                    android:src="@drawable/outline_settings_black_18dp" />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
@@ -64,68 +60,76 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:fontFamily="@font/font_nanum_squre"
+                android:paddingBottom="20dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="20dp"
                 android:text="최근 등록 팀"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="#ffffff">
 
                 <GridView
                     android:id="@+id/k_gv_team"
                     android:layout_width="match_parent"
-                    android:layout_height="600dp"
-                    android:layout_gravity="center_vertical|center_horizontal|center"
+                    android:layout_height="570dp"
+                    android:columnWidth="140dp"
                     android:gravity="center"
-                    android:numColumns="auto_fit" />
+                    android:numColumns="auto_fit"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:stretchMode="spacingWidth" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:fontFamily="@font/font_nanum_squre"
+                android:paddingBottom="20dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="20dp"
                 android:text="우수 회원"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="#ffffff">
 
                 <GridView
                     android:id="@+id/k_gv_member"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="2" />
+                    android:layout_height="500dp"
+                    android:columnWidth="140dp"
+                    android:gravity="center"
+                    android:numColumns="auto_fit"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:stretchMode="spacingWidth" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/htvTeamContest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
                 android:background="#ffffff"
                 android:fontFamily="@font/font_nanum_squre"
+                android:paddingBottom="20dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="20dp"
                 android:text="최근 포트폴리오"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp" />
@@ -133,13 +137,19 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:background="#ffffff"
+                android:paddingBottom="20dp">
 
                 <GridView
                     android:id="@+id/k_gv_portfolio"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:numColumns="2" />
+                    android:layout_height="590dp"
+                    android:columnWidth="140dp"
+                    android:gravity="center"
+                    android:numColumns="auto_fit"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:stretchMode="spacingWidth" />
             </FrameLayout>
 
         </LinearLayout>

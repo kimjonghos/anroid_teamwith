@@ -234,7 +234,7 @@
             <GridView
                 android:id="@+id/k_portfolioContent"
                 android:layout_width="match_parent"
-                android:layout_height="500dp" />
+                android:layout_height="1500dp" />
 
         </LinearLayout>
     </ScrollView>

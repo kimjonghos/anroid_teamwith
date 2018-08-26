@@ -21,7 +21,6 @@
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingStart="20dp"
-            android:text="&lt;"
             android:textAlignment="viewStart"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -30,6 +29,8 @@
             android:id="@+id/textView72"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="조란"
             android:textAlignment="center"

@@ -19,9 +19,9 @@ public class PortfolioActivity extends Activity {
 //        setContentView(R.layout.portfoliotestlayout);
         PortfolioDetailTask pd=new PortfolioDetailTask(PortfolioActivity.this);
         TextView te=(TextView)findViewById(R.id.te);
-//        Intent intent=getIntent();
-//        String portfolioId=intent.getStringExtra("portfolioId");
-        pd.execute("portfolio-102");
+        Intent intent=getIntent();
+        String portfolioId=intent.getStringExtra("portfolioId");
+        pd.execute(portfolioId);
 
     }
 }

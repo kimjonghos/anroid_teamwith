@@ -7,7 +7,7 @@ import android.widget.TextView;
 public class PortfolioViewHolder {
     public TextView portfolioTitle;
     public TextView projectCategoryId;
-    public TextView portfolioMemberId;
+    public TextView portfolioMemberName;
     public ImageView portfolioPic;
     public LinearLayout portfolioLayout;
 }
