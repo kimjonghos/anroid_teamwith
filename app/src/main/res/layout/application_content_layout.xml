@@ -8,6 +8,7 @@
     <TextView
         android:id="@+id/textView63"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:fontFamily="@font/font_nanum_squre"
         android:text="간단 면접"
@@ -47,5 +48,6 @@
         android:text="닫기"
         android:textColor="@color/colorAccent"
         android:textSize="14sp" />
+
 
 </LinearLayout>

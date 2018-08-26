@@ -83,7 +83,7 @@ public class ApplicationAdapter extends BaseAdapter {
         vh.teamName.setText(applicationList.get(i).getTeamName());
         vh.recruitingRole.setText((String) ApplicationShare.roleList.
                 get(applicationList.get(i).getRoleId()));
-        vh.regDate.setText(applicationList.get(i).getApplicationDate().substring(0,10));
+        vh.regDate.setText(applicationList.get(i).getApplicationDate().substring(0, 10));
 
         vh.status.setText((String) ApplicationShare.applicationStatus.get
                 (applicationList.get(i).getApplicationStatus()));
@@ -128,7 +128,6 @@ public class ApplicationAdapter extends BaseAdapter {
             public void onClick(View view) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context,
                         android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
-
                 final View contentView = View.inflate(context, R.layout.application_content_layout, null);
                 TextView freeWriting = contentView.findViewById(R.id.freeWriting);
                 freeWriting.setText(applicationList.get(fi).getApplicationFreewriting());

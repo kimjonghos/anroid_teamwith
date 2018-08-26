@@ -28,6 +28,7 @@ import java.util.List;
 public class PologTask extends AsyncTask<String, Void, JSONObject> {
     private final Context context;
     private final View profileView;
+    public static TextView[] prTv;
 
     public PologTask(Context context, View profileView) {
         super();
@@ -88,6 +89,9 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
                 TextView pologPraise3 = profileView.findViewById(R.id.k_polog_praise3);
                 TextView pologPraise4 = profileView.findViewById(R.id.k_polog_praise4);
                 TextView pologPraise5 = profileView.findViewById(R.id.k_polog_praise5);
+                prTv = new TextView[]{
+                        pologPraise1, pologPraise2, pologPraise3, pologPraise4, pologPraise5
+                };
                 SeekBar tendency1 = profileView.findViewById(R.id.k_polog_tendency1);
                 SeekBar tendency2 = profileView.findViewById(R.id.k_polog_tendency2);
                 SeekBar tendency3 = profileView.findViewById(R.id.k_polog_tendency3);

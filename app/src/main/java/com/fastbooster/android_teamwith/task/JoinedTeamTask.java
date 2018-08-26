@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JoinedTeamTask extends AsyncTask<Void, Void, JSONObject> {
-    private static final String URL_STR = "http://192.168.30.64:8089/api/teamInfo/joinedTeam";
+    private static final String URL_STR = "/teamInfo/joinedTeam";
     private final Context context;
 
     public JoinedTeamTask(Context context) {
@@ -53,7 +53,7 @@ public class JoinedTeamTask extends AsyncTask<Void, Void, JSONObject> {
     @Override
     protected JSONObject doInBackground(Void... voids) {
         try {
-            return ApiUtil.getJsonObject(URL_STR);
+            return ApiUtil.getMyJsonObject(context, URL_STR);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
