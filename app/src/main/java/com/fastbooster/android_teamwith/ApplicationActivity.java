@@ -14,5 +14,4 @@ public class ApplicationActivity extends Activity {
         MyApplicationTask maTask = new MyApplicationTask(ApplicationActivity.this);
         maTask.execute();
     }
-
 }

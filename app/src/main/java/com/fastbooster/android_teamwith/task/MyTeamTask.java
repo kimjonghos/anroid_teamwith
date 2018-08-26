@@ -10,6 +10,7 @@ import android.widget.GridView;
 import com.fastbooster.android_teamwith.MyTeamActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.TeamActivity;
+import com.fastbooster.android_teamwith.TeamLeaderActivity;
 import com.fastbooster.android_teamwith.adapter.TeamGridViewAdapter;
 import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
@@ -30,7 +31,7 @@ public class MyTeamTask extends AsyncTask<Void, Void, List<TeamSimpleVO>> {
 
     @Override
     protected void onPostExecute(List<TeamSimpleVO> data) {
-
+        final List<TeamSimpleVO> teamInfo=data;
         if (context instanceof MyTeamActivity) {
             MyTeamActivity myTeamActivity = (MyTeamActivity) context;
             GridView myTeamGridView = (GridView) myTeamActivity.findViewById(R.id.myTeamGridView);
@@ -40,9 +41,10 @@ public class MyTeamTask extends AsyncTask<Void, Void, List<TeamSimpleVO>> {
             myTeamGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent=new Intent();
 
-                    intent.setClass(context,TeamActivity.class);
+                    Intent intent=new Intent();
+                    intent.setClass(context,TeamLeaderActivity.class);
+                    intent.putExtra("teamId",teamInfo.get(i).getTeamId());
                     context.startActivity(intent);
                 }
             });

@@ -2,17 +2,11 @@ package com.fastbooster.android_teamwith;
 
 
 import android.app.Activity;
-
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
 
 import com.fastbooster.android_teamwith.task.MyTeamTask;
-
-import java.util.zip.Inflater;
 
 
 public class MyTeamActivity extends Activity {
