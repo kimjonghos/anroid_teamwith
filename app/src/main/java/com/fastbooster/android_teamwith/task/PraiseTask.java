@@ -10,40 +10,51 @@ import android.widget.TextView;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.api.ApiUtil;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.util.List;
 
-public class PraiseTask extends AsyncTask<List<String>, Void, List<String>> {
+public class PraiseTask extends AsyncTask<List<String>, Void, Boolean> {
 
     private final Context context;
     LayoutInflater inflater;
 
-    public PraiseTask(Context context) {
+    TextView[] prTv;
+
+    List<String> nowList;
+    List<String> prevList;
+
+    public PraiseTask(Context context, TextView[] prTv) {
         this.context = context;
         inflater = LayoutInflater.from(context);
+        this.prTv = prTv;
     }
 
     @Override
-    protected List<String> doInBackground(List<String>... praise) {
+    protected Boolean doInBackground(List<String>... praise) {
         Uri.Builder params = new Uri.Builder();
         params.appendQueryParameter("target", praise[0].get(0));
         for (String p : praise[1]) {
             params.appendQueryParameter("praise", p);
         }
-        JSONObject jo = ApiUtil.getMyJsonObject(context, "/praise/update" + params.toString());
-        if (jo != null) {
-            return praise[1];
+        nowList = praise[1];
+        prevList = praise[2];
+        JSONArray array = ApiUtil.getMyJsonArray(context, "/praise/update" + params.toString());
+        if (array != null) {
+            return true;
         }
-        return null;
+        return false;
     }
 
     @Override
-    protected void onPostExecute(List<String> data) {
+    protected void onPostExecute(Boolean data) {
         super.onPostExecute(data);
-        if (data != null) {
+        if (data == true) {
+            //mTableListView=(FrameLayout)findViewById(R.id.k_fl_portfolioList);
+
+            // ViewGroup parent = inflater.inflate(R.layout.activity_polog, null);
             View profile = inflater.inflate(R.layout.profile_layout, null);
-            TextView[] pr = null;
+          /*  TextView[] pr = null;
             for (int i = 1; i < 6; i++) {
                 pr = new TextView[]{
                         profile.findViewById(R.id.k_polog_praise1)
@@ -52,13 +63,30 @@ public class PraiseTask extends AsyncTask<List<String>, Void, List<String>> {
                         , profile.findViewById(R.id.k_polog_praise4)
                         , profile.findViewById(R.id.k_polog_praise5)
                 };
-            }
+            }*/
+            //이전이나 지금도 없거나 잇음->횟수변화 없음
+
+            //이전에는 있었는데 지금은 없음-> 횟수 감소
+
+
             for (int i = 1; i < 6; i++) {
-                if (data.contains("praise-" + i)) {
-                    String prStr = pr[i - 1].getText().toString();
-                    prStr = prStr.substring(0, prStr.length() - 1);
-                    int cnt = Integer.parseInt(prStr) + 1;
-                    pr[i].setText(cnt + "회");
+
+
+                for (int j = 0; j < nowList.size(); j++) {
+                    if (!prevList.contains(nowList.get(j))) { //이전에는 없엇고 지금은 잇음-> 횟수 추가
+                        int id = Integer.parseInt(nowList.get(j).substring(7, 8));
+                        String prStr = prTv[id].getText().toString();
+                        prStr = prStr.substring(0, prStr.length() - 1);
+                        int cnt = Integer.parseInt(prStr);
+                        prTv[id].setText(cnt + 1 + "회");
+                    }
+                    if (!nowList.contains(prevList.get(j))) {//전에는 있었고 지금은 없음-> 횟수 감소
+                        int id = Integer.parseInt(prevList.get(j).substring(7, 8));
+                        String prStr = prTv[id].getText().toString();
+                        prStr = prStr.substring(0, prStr.length() - 1);
+                        int cnt = Integer.parseInt(prStr);
+                        prTv[id].setText(cnt - 1 + "회");
+                    }
                 }
             }
 

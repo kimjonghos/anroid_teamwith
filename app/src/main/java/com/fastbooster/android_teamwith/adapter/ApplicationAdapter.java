@@ -83,23 +83,15 @@ public class ApplicationAdapter extends BaseAdapter {
         vh.teamName.setText(applicationList.get(i).getTeamName());
         vh.recruitingRole.setText((String) ApplicationShare.roleList.
                 get(applicationList.get(i).getRoleId()));
-        vh.regDate.setText(applicationList.get(i).getApplicationDate());
+        vh.regDate.setText(applicationList.get(i).getApplicationDate().substring(0,10));
 
-        switch (applicationList.get(i).getApplicationStatus()) {
-            case "0":
-                vh.status.setText("지원 완료");
-                break;
-            case "1":
-                vh.status.setText("합류");
-                break;
-            case "2":
-                vh.status.setText("탈락");
-                break;
-            case "3":
-                vh.status.setText("취소");
-                break;
-        }
-        vh.cancelBtn.setOnClickListener(new View.OnClickListener() {
+        vh.status.setText((String) ApplicationShare.applicationStatus.get
+                (applicationList.get(i).getApplicationStatus()));
+
+
+        vh.cancelBtn.setOnClickListener(new View.OnClickListener()
+
+        {
             @Override
             public void onClick(View view) {
                 if (vh.status.getText().toString().equals("취소")) {
@@ -129,7 +121,9 @@ public class ApplicationAdapter extends BaseAdapter {
             }
         });
 
-        vh.interviewBtn.setOnClickListener(new View.OnClickListener() {
+        vh.interviewBtn.setOnClickListener(new View.OnClickListener()
+
+        {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context,
