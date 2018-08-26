@@ -41,7 +41,6 @@ public class MyTeamTask extends AsyncTask<Void, Void, List<TeamSimpleVO>> {
             myTeamGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                     Intent intent=new Intent();
                     intent.setClass(context,TeamLeaderActivity.class);
                     intent.putExtra("teamId",teamInfo.get(i).getTeamId());
@@ -58,7 +57,7 @@ public class MyTeamTask extends AsyncTask<Void, Void, List<TeamSimpleVO>> {
         JSONObject json = null;
         try {
             Criteria cri = new Criteria(1, 100);
-            json = ApiUtil.getJsonObject("/team/myTeam?page=" + cri.getPage() + "&perPageNum="
+            json = ApiUtil.getMyJsonObject(context, "/team/myTeam?page=" + cri.getPage() + "&perPageNum="
                     + cri.getPerPageNum());
             List<TeamSimpleVO> result = new ArrayList<TeamSimpleVO>();
 

@@ -5,42 +5,61 @@
     android:id="@+id/hkTeamInfoLayOut"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:layout_gravity="center">
 
     <ImageView
         android:id="@+id/hkivTeamLayoutTeamPic"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="140dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="10dp"
         android:layout_weight="1"
+        android:background="@drawable/border_radius"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/team10" />
 
 
     <TextView
         android:id="@+id/hkTeamLayoutProjectName"
-        android:layout_width="match_parent"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:maxLines="1"
         android:text="프로젝트 명"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/hktvTeamLayoutTeamName"
-        android:layout_width="match_parent"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
 
+        android:layout_marginBottom="10dp"
         android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:maxLines="1"
         android:text="팀이름"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/hktvTeamLayoutProejctCategory"
-        android:layout_width="match_parent"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
 
+        android:layout_marginBottom="10dp"
         android:layout_weight="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_nanum_squre"
+        android:maxLines="1"
         android:text="분야"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
 </LinearLayout>
 

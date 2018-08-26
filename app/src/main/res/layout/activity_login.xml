@@ -89,7 +89,9 @@
                 android:layout_marginLeft="50dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/font_bmjua"
-                android:text="  자동 로그인" />
+                android:text="  자동 로그인"
+                android:textColor="#ffffff"
+                android:buttonTint="#ffffff"/>
 
             <Button
                 android:id="@+id/yb_find_account"
@@ -166,11 +168,5 @@
             android:textColor="#ffffff"
             android:textSize="16sp" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 
 </LinearLayout>

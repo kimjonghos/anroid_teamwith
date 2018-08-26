@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/backTv"
-            android:layout_width="15dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="20dp"
@@ -25,7 +25,7 @@
             android:textSize="24dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingBottom="10dp"
@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
@@ -51,13 +51,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/border"
-        android:gravity="bottom"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/main_btn_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
@@ -66,8 +66,8 @@
 
         <ImageButton
             android:id="@+id/main_btn_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
@@ -76,8 +76,8 @@
 
         <ImageButton
             android:id="@+id/main_btn_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
@@ -86,8 +86,8 @@
 
         <ImageButton
             android:id="@+id/main_btn_polog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
