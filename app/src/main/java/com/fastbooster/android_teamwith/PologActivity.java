@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +15,8 @@ import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.PologTask;
-import com.fastbooster.android_teamwith.task.PraiseTask;
+import com.fastbooster.android_teamwith.task.PraiseCheckTask;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //멤버아이디 받아서 fragment로 전달,폴로그로 전달
@@ -95,8 +93,8 @@ public class PologActivity extends BarActivity {
             public void onClick(View view) {
                 List<String> checkedPraiseId = null;
                 AlertDialog.Builder dialog = null;
-                PraiseTask ptask = new PraiseTask(PologActivity.this, dialog);
-                ptask.execute(targetId);
+                PraiseCheckTask ptask = new PraiseCheckTask(PologActivity.this, dialog,targetId);
+                ptask.execute();
 
             }
         });
