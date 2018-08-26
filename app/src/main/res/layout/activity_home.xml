@@ -137,12 +137,13 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffffff">
+                android:background="#ffffff"
+                android:paddingBottom="20dp">
 
                 <GridView
                     android:id="@+id/k_gv_portfolio"
                     android:layout_width="match_parent"
-                    android:layout_height="570dp"
+                    android:layout_height="590dp"
                     android:columnWidth="140dp"
                     android:gravity="center"
                     android:numColumns="auto_fit"
