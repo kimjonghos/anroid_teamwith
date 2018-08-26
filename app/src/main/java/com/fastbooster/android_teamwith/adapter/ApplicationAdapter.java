@@ -126,14 +126,12 @@ public class ApplicationAdapter extends BaseAdapter {
         {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context,
-                        android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                 final View contentView = View.inflate(context, R.layout.application_content_layout, null);
                 TextView freeWriting = contentView.findViewById(R.id.freeWriting);
                 freeWriting.setText(applicationList.get(fi).getApplicationFreewriting());
                 ListView listView = contentView.findViewById(R.id.interviewListView);
                 List<InterviewVO> itvList = interviewMap.get(applicationList.get(fi).getApplicationId());
-                Log.v("interview", itvList.size() + "");
                 listView.setAdapter(new InterviewAdapter(context, itvList));
 
                 dialog.setView(contentView);
