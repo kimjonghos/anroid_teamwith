@@ -13,6 +13,7 @@ import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.task.MemberImageTask;
 import com.fastbooster.android_teamwith.viewholder.MemberViewHolder;
 
 import java.util.List;
@@ -107,7 +108,7 @@ public class MemberAdapter extends BaseAdapter {
             }
         });
         vh.memberPic.setTag(data.get(i).getMemberPic());
-        ImageTask imgTask = new ImageTask(context);
+        MemberImageTask imgTask = new MemberImageTask(context);
         imgTask.execute(vh.memberPic);
 
         vh.memberName.setText(data.get(i).getMemberName()+"님");
