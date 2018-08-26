@@ -1,11 +1,9 @@
 package com.fastbooster.android_teamwith;
 
 import android.app.Activity;
-import android.content.Context;
-import android.database.DataSetObserver;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.fastbooster.android_teamwith.task.MyApplicationTask;
 
 public class ApplicationActivity extends Activity {
 
@@ -13,6 +11,8 @@ public class ApplicationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
+        MyApplicationTask maTask = new MyApplicationTask(ApplicationActivity.this);
+        maTask.execute();
     }
 
 }

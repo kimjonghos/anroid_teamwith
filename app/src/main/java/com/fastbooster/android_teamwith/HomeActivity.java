@@ -28,6 +28,7 @@ public class HomeActivity extends Activity {
 //            }
 //        });
 
+
         Button btnLogout = findViewById(R.id.btn_test_logout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

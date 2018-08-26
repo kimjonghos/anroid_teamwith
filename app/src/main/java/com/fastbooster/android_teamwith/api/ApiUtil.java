@@ -55,11 +55,14 @@ public class ApiUtil {
         HttpURLConnection conn = null;
         URL url = new URL(URL_STR + urlStr);
         StringBuilder sb = new StringBuilder();
+
+        conn = (HttpURLConnection) url.openConnection();
+
         if (context != null) {
             SharedPreferences sp = context.getSharedPreferences("memberPref", Context.MODE_PRIVATE);
             conn.setRequestProperty("Cookie", sp.getString("sessionId", ""));
         }
-        conn = (HttpURLConnection) url.openConnection();
+
         conn.setRequestMethod("GET");
         conn.setDoInput(true);
         conn.setConnectTimeout(1000);

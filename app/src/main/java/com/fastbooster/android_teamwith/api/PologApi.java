@@ -4,7 +4,9 @@ import org.json.JSONObject;
 
 public class PologApi {
 
+
     public static final String URL_STR = "/polog";
+
 
     public static JSONObject getPologInfo(String memberId) throws Exception {
 
