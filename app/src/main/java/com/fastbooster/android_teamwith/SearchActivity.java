@@ -25,7 +25,7 @@ import com.fastbooster.android_teamwith.util.Criteria;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends BarActivity {
     static final String TAG = "member data...";
     ApplicationShare as;
 

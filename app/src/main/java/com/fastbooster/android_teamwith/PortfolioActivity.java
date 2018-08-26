@@ -10,7 +10,7 @@ import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
 
 import org.json.JSONObject;
 
-public class PortfolioActivity extends Activity {
+public class PortfolioActivity extends BarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
