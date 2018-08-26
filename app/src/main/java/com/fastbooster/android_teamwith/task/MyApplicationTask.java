@@ -15,9 +15,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-public class MyApplicationTask extends AsyncTask<Void, Void, List<MyApplicationVO>> {
+public class MyApplicationTask extends AsyncTask<Void, Void, Object[]> {
     private static final String URL_STR = "/member";
     static final String TAG = "member data...";
     private final Context context;
@@ -27,30 +30,41 @@ public class MyApplicationTask extends AsyncTask<Void, Void, List<MyApplicationV
     }
 
     @Override
-    protected List<MyApplicationVO> doInBackground(Void... voids) {
+    protected Object[] doInBackground(Void... voids) {
 
         JSONObject jo = ApiUtil.getMyJsonObject(context, "/application/myApplication");
         try {
-            JSONObject jInterview = jo.getJSONObject("interviewMap");
-            for (int i = 0; i < jInterview.length(); i++) {
-                new InterviewVO();
-                //고치기
+            JSONObject jInterviews = jo.getJSONObject("interviewMap");
+            Iterator<String> keys = jInterviews.keys();
+            Map<String, List<InterviewVO>> interviewMap = new HashMap<>();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                JSONArray interviews = jInterviews.getJSONArray(key);
+                List<InterviewVO> list = new ArrayList<>();
+                for (int i = 0; i < interviews.length(); i++) {
+                    list.add(new InterviewVO(interviews.getJSONObject(i)));
+                }
+                interviewMap.put(key, list);
             }
-            List<MyApplicationVO> result = new ArrayList<>();
+            List<MyApplicationVO> applicationlist = new ArrayList<>();
 
             JSONArray jarray = jo.getJSONArray("myApplicationList");
             for (int i = 0; i < jarray.length(); i++) {
-                result.add(new MyApplicationVO(jarray.getJSONObject(i)));
+                applicationlist.add(new MyApplicationVO(jarray.getJSONObject(i)));
             }
-            return result;
-        } catch (Exception e) {
+            return new Object[]{applicationlist, interviewMap};
+        } catch (
+                Exception e)
+
+        {
             e.printStackTrace();
             return null;
         }
+
     }
 
     @Override
-    protected void onPostExecute(List<MyApplicationVO> data) {
+    protected void onPostExecute(Object[] data) {
 
         ApplicationAdapter adapter = new ApplicationAdapter(context, data);
         if (context instanceof ApplicationActivity) {
