@@ -16,7 +16,6 @@ public class ImageTask extends AsyncTask<ImageView, Void, Bitmap> {
 
     public ImageTask(Context context) {
         this.context = context;
-
     }
 
     @Override

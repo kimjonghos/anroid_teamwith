@@ -14,6 +14,7 @@ import com.fastbooster.android_teamwith.PortfolioActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.model.TeamSimpleVO;
+import com.fastbooster.android_teamwith.task.ImageTask;
 import com.fastbooster.android_teamwith.viewholder.TeamLayoutViewHolder;
 
 import java.util.List;
@@ -76,7 +77,9 @@ public class TeamGridViewAdapter extends BaseAdapter {
         viewHolder.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
         viewHolder.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
         viewHolder.hktvTeamLayoutProejctCategory.setText(data.get(i).getProjectCategoryId());
-        //viewHolder.hkivTeamLayoutTeamPic.setText(data.get(i).getRecruitPreference()); 이미지 태스크
+        viewHolder.hkivTeamLayoutTeamPic.setTag(data.get(i).getTeamPic());
+        ImageTask imageTask=new ImageTask(context);
+        imageTask.execute(viewHolder.hkivTeamLayoutTeamPic);
 
         return itemLayout;
     }
