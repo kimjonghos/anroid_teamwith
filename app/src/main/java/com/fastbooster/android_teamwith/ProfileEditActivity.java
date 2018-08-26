@@ -55,7 +55,6 @@ public class ProfileEditActivity extends BarActivity {
 
         setContentView(R.layout.activity_profile_edit);
         memberPic = findViewById(R.id.jmemberPic);
-        memberName1 = findViewById(R.id.jmemberName);
         memberName2 = findViewById(R.id.jmemberNameTop);
         roleSelected = findViewById(R.id.memberRoleTv);
         regionSelected = findViewById(R.id.memberRegionTv);
@@ -342,7 +341,6 @@ public class ProfileEditActivity extends BarActivity {
                 memberPic.setTag(memberData.getMemberPic());
                 imgTask.execute(memberPic);
 
-                memberName1.setText(memberData.getMemberName());
                 memberName2.setText(memberData.getMemberName());
 
                 roleSelected.setText((String) ApplicationShare.roleList.get(memberData.getRoleId()) + "  >");
