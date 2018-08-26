@@ -27,7 +27,8 @@
             android:text="&lt;"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="back"/>
 
         <TextView
             android:id="@+id/k_polog_title"
