@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.fastbooster.android_teamwith.MyPologActivity;
 import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.api.PologApi;
@@ -62,8 +63,8 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
             PraiseVO praise = new PraiseVO(jsonObject.getJSONArray("praise"));
             MemberSkillVO memberSkill = new MemberSkillVO(jsonObject.getJSONObject("skills"));
             TendencyVO tendency = new TendencyVO(jsonObject.getJSONObject("tendency"));
-            if (context instanceof PologActivity) {
-                PologActivity view = (PologActivity) context;
+            if (context instanceof MyPologActivity) {
+                MyPologActivity view = (MyPologActivity) context;
                 TextView pologTitle = (TextView) view.findViewById(R.id.k_polog_title);
                 TextView pologMemberName = (TextView) view.findViewById(R.id.k_polog_memberName);
                 TextView pologRole = (TextView) view.findViewById(R.id.k_polog_role);

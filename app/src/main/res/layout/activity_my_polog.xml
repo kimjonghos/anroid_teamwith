@@ -44,7 +44,7 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/settingBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -73,7 +73,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/profileEditBtn"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"
