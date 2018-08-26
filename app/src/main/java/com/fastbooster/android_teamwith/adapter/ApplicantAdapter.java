@@ -117,23 +117,20 @@ public class ApplicantAdapter extends BaseAdapter {
         viewHolder.btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
-                final AlertDialog dialog = dialogB.create();
-                dialog.setTitle("지원 내역 보기");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
                 final View dialogLayout = View.inflate(context, R.layout.application_content_layout, null);
                 TextView freeWriting = dialogLayout.findViewById(R.id.freeWriting);
                 freeWriting.setText(data.get(ii).getApplicationFreewriting());
                 ListView interviewListView = dialogLayout.findViewById(R.id.interviewListView);
                 InterviewAdapter adapter = new InterviewAdapter(context, interviewList.get(ii));
                 interviewListView.setAdapter(adapter);
-                Button btnClose = dialogLayout.findViewById(R.id.btnClose);
-                btnClose.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
+//                Button btnClose = dialogLayout.findViewById(R.id.btnClose);
+//                btnClose.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        dialog.
+//                    }
+//                });
                 dialog.setView(dialogLayout);
                 dialog.show();
             }
@@ -146,7 +143,6 @@ public class ApplicantAdapter extends BaseAdapter {
     public void btnClick(final int i, final String status) {
         AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
         final AlertDialog dialog = dialogB.create();
-        dialog.setTitle("결정");
         final View dialogLayout = View.inflate(context, R.layout.decide_layout, null);
         TextView tvNO = dialogLayout.findViewById(R.id.tvNO);
         TextView tvOK=dialogLayout.findViewById(R.id.tvOK);
