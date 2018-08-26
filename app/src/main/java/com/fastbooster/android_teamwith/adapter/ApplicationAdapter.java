@@ -137,14 +137,6 @@ public class ApplicationAdapter extends BaseAdapter {
                 listView.setAdapter(new InterviewAdapter(context, itvList));
 
                 dialog.setView(contentView);
-
-
-                dialog.setPositiveButton("닫기", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-
                 dialog.show();
 
             }

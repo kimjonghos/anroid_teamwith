@@ -2,60 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView63"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="15dp">
 
-        <TextView
-            android:id="@+id/textView63"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="@font/font_nanum_squre"
-            android:text="간단 면접"
-            android:textColor="@color/colorAccent"
-            android:textSize="16sp" />
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_nanum_squre"
+        android:text="간단 면접"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
 
-        <ListView
-            android:id="@+id/interviewListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp" />
+    <ListView
+        android:id="@+id/interviewListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textView64"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="@font/font_nanum_squre"
-            android:text="하고 싶은 말"
-            android:textColor="@color/colorAccent"
-            android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/freeWriting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:text="열심히 하겠습니다. 같이 재밌게 하고 싶어요! 꼭 합류 시켜 주세요 ㅎㅎ열심히 하겠습니다. 같이 재밌게 하고 싶어요! ㅎㅎ"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="14sp" />
+    </ListView>
 
-        <Button
-            android:id="@+id/btnClose"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginRight="160dp"
-            android:background="@drawable/button"
-            android:text="닫기"
-            android:textColor="@color/colorAccent"
-            android:textSize="14sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView64"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_nanum_squre"
+        android:text="하고 싶은 말"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/freeWriting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="열심히 하겠습니다. 같이 재밌게 하고 싶어요! 꼭 합류 시켜 주세요 ㅎㅎ열심히 하겠습니다. 같이 재밌게 하고 싶어요! ㅎㅎ"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="닫기"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
 
 </LinearLayout>
