@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.fastbooster.android_teamwith.api.ApiUtil;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -43,8 +45,6 @@ public class ApplicationShare extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //  FileReadThread fileReadThread = new FileReadThread();
-        //  fileReadThread.start();
     }
 
     @Override
@@ -55,34 +55,11 @@ public class ApplicationShare extends Application {
 
     static class FileReadThread extends Thread {
         static final String TAG = "file data...";
-        private static final String URL_STR = "http://192.168.30.16:8089/api/file";
 
         public void run() {
             try {
 
-                URL url = new URL(URL_STR);
-                Log.v(TAG, url.toString());
-                HttpURLConnection conn = null;
-                StringBuilder sb = new StringBuilder();
-
-                conn = (HttpURLConnection) url.openConnection();
-//connection.
-                conn.setRequestMethod("GET");
-                conn.setDoInput(true);
-                conn.setConnectTimeout(1000);
-                int responseCode = conn.getResponseCode();
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line);
-                    }
-                } else {
-                    Log.d("Teamwith app error", "URL=" + URL_STR);
-                }
-                //json
-
-                JSONObject object = new JSONObject(sb.toString());
+                JSONObject object = ApiUtil.getJsonObject("/file");
                 //return WeatherForecast
 
                 toMap(object, "roleList", roleList);

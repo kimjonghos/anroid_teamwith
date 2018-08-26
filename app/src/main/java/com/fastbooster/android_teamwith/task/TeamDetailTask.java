@@ -18,7 +18,7 @@ import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.TeamLeaderActivity;
 import com.fastbooster.android_teamwith.adapter.TeamDetailFaqAdapter;
 import com.fastbooster.android_teamwith.adapter.TeamDetailRecruitAdapter;
-import com.fastbooster.android_teamwith.api.TeamDetailApi;
+import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.FaqVO;
 import com.fastbooster.android_teamwith.model.InterviewQuestionDTO;
 import com.fastbooster.android_teamwith.model.RecruitVO;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
+public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
     private final Context context;
     private final String teamId;
 
@@ -41,8 +41,11 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
     }
 
     @Override
-    protected void onPostExecute(JSONObject jsonObject) {
+    protected Object[] doInBackground(Void... voids) {
+        JSONObject jsonObject = null;
         try {
+            jsonObject = ApiUtil.getJsonObject("/teamSearch/" + teamId.substring(7));
+
             //팀 정보 파싱
             TeamDetailVO teamInfo = new TeamDetailVO(jsonObject.getJSONObject("teamInfo"));
             //지원 가능 여부 파싱
@@ -82,16 +85,35 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
                 RequireSkillVO requireSkill = new RequireSkillVO(requireSkillInfo.getJSONObject(i));
                 requireSkillList.add(requireSkill);
             }
-            Activity view=null;
+            return new Object[]{teamInfo, canApply, dDay, recruitList, interviewList, faqList,
+                    requireSkillList};
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    @Override
+    protected void onPostExecute(Object[] data) {
+        try {
+            TeamDetailVO teamInfo = (TeamDetailVO) data[0];
+            String canApply = (String) data[1];
+            int dDay = (int) data[2];
+            List<RecruitVO> recruitList = (List<RecruitVO>) data[3];
+            List<InterviewQuestionDTO> interviewList = (List<InterviewQuestionDTO>) data[4];
+            List<FaqVO> faqList = (List<FaqVO>) data[5];
+            List<RequireSkillVO> requireSkillList = (List<RequireSkillVO>) data[6];
+
+            Activity view = null;
             if (context instanceof TeamActivity) {
                 view = (TeamActivity) context;
-            }
-            else if(context instanceof  TeamLeaderActivity){
-                view=(TeamLeaderActivity)context;
-                Button btnClose=(Button)view.findViewById(R.id.btnClose);
-                if(dDay<0||!teamInfo.getTeamStatus().equals("0")){
+            } else if (context instanceof TeamLeaderActivity) {
+                view = (TeamLeaderActivity) context;
+                Button btnClose = (Button) view.findViewById(R.id.btnClose);
+                if (dDay < 0 || !teamInfo.getTeamStatus().equals("0")) {
                     btnClose.setVisibility(View.GONE);
-                }else{
+                } else {
                     btnClose.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -102,12 +124,12 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
                     });
                 }
 
-                Button btnApplicant=(Button)view.findViewById(R.id.btnApplicant);
+                Button btnApplicant = (Button) view.findViewById(R.id.btnApplicant);
                 btnApplicant.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //지원자 보기 페이지로 이동한다.
-                        Intent intent=((TeamLeaderActivity) context).getIntent();
+                        Intent intent = ((TeamLeaderActivity) context).getIntent();
 //                        intent.setClass(); //지원자 액티비티 세팅
 //                        context.startActivity(intent,); //지원자 보기 페이지로 이동
 
@@ -159,16 +181,6 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
         }
     }
 
-    @Override
-    protected JSONObject doInBackground(Void... voids) {
-        JSONObject json = null;
-        try {
-            json = TeamDetailApi.getTeamDetail(teamId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return json;
-    }
 
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
