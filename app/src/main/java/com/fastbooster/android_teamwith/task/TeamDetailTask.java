@@ -44,7 +44,8 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
     protected Object[] doInBackground(Void... voids) {
         JSONObject jsonObject = null;
         try {
-            jsonObject = ApiUtil.getJsonObject("/teamSearch/" + teamId.substring(7));
+            Log.v("team", "/teamSearch/" + teamId.substring(5));
+            jsonObject = ApiUtil.getJsonObject("/teamSearch/" + teamId.substring(5));
 
             //팀 정보 파싱
             TeamDetailVO teamInfo = new TeamDetailVO(jsonObject.getJSONObject("teamInfo"));
