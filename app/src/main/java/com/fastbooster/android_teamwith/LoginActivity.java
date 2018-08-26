@@ -29,16 +29,6 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         init();
 
-        Button btn = findViewById(R.id.button3);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(context, ApplicationActivity.class);
-                startActivity(in);
-                overridePendingTransition(0, 0);
-            }
-        });
-
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +74,5 @@ public class LoginActivity extends Activity {
         btnRegister = this.findViewById(R.id.yb_login);
         btnEnter = this.findViewById(R.id.yb_enter);
     }
-
-
 }
 

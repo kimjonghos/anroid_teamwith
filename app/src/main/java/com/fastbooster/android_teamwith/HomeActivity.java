@@ -28,16 +28,6 @@ public class HomeActivity extends Activity {
 //            }
 //        });
 
-
-        Button btnLogout = findViewById(R.id.btn_test_logout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(getApplicationContext(), SettingActivity.class);
-                startActivity(intent);
-            }
-        });
     }
     public void bottomOnClick(View v){
         switch (v.getId()){

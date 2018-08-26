@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
@@ -20,55 +21,93 @@
 
             android:layout_height="match_parent"
             android:layout_marginBottom="156dp"
-            android:layout_marginTop="50dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/htvLeaderName">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="3"
+                    android:src="@drawable/logo_text" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.54"
+                    android:background="#ffffff"
+                    android:src="@drawable/outline_settings_black_18dp" />
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="?android:attr/colorButtonNormal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/font_nanum_squre"
                 android:text="최근 등록 팀"
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/btn_test_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="20dp">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
 
                 <GridView
                     android:id="@+id/k_gv_team"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="2" />
+                    android:layout_height="600dp"
+                    android:layout_gravity="center_vertical|center_horizontal|center"
+                    android:gravity="center"
+                    android:numColumns="auto_fit" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/textView11"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="?android:attr/colorButtonNormal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/font_nanum_squre"
                 android:text="우수 회원"
-                android:textSize="20dp" />
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp">
 
                 <GridView
                     android:id="@+id/k_gv_member"
@@ -81,18 +120,20 @@
                 android:id="@+id/htvTeamContest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="?android:attr/colorButtonNormal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/font_nanum_squre"
                 android:text="최근 포트폴리오"
-                android:textSize="20dp" />
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_marginBottom="80dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="20dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
                 <GridView
                     android:id="@+id/k_gv_portfolio"
