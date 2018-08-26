@@ -12,16 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/teamwithTheme">
-
         <activity
             android:name=".TeamActivity"
 
             android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
         <activity android:name=".ProfileEditActivity" />
         <activity android:name=".HomeActivity"></activity>
-
         <activity android:name=".TeamLeaderActivity" />
-
         <activity
             android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
@@ -36,24 +33,25 @@
         <activity android:name=".PologActivity">
 
         </activity>
-
-
         <activity android:name=".MyPologActivity" />
         <activity android:name=".MyHistoryActivity" />
         <activity android:name=".SearchSelectActivity" />
         <activity
             android:name=".MyTeamActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".ApplicationActivity" />
-
         <activity android:name=".PortfolioActivity"></activity>
-        <activity android:name=".JoinedTeamActivity"></activity>
-
+      <activity android:name=".JoinedTeamActivity"></activity>
         <activity android:name=".SettingActivity" />
         <activity android:name=".ServiceActivity" />
+        <activity android:name=".ApplicantActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

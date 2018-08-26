@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ApplicantActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/backTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:text="&lt;"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="지원자 보기"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/applicantListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/main_btn_home"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_home_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_search_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_history"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_assignment_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/main_btn_polog"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:onClick="bottomOnClick"
+            android:src="@drawable/outline_perm_identity_black_18dp" />
+    </LinearLayout>
+
+</LinearLayout>

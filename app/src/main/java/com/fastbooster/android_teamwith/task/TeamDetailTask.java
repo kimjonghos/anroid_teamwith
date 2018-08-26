@@ -107,6 +107,9 @@ public class TeamDetailTask extends AsyncTask<Void, Void, JSONObject> {
                     @Override
                     public void onClick(View view) {
                         //지원자 보기 페이지로 이동한다.
+                        Intent intent=((TeamLeaderActivity) context).getIntent();
+//                        intent.setClass(); //지원자 액티비티 세팅
+//                        context.startActivity(intent,); //지원자 보기 페이지로 이동
 
                     }
                 });
