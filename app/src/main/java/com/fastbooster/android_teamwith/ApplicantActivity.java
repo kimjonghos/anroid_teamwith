@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import com.fastbooster.android_teamwith.task.ApplicantTask;
 
-public class ApplicantActivity extends Activity {
+public class ApplicantActivity extends BarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
