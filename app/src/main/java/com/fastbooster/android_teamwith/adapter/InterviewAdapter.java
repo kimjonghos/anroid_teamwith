@@ -58,11 +58,14 @@ public class InterviewAdapter extends BaseAdapter {
             vh.question = view.findViewById(R.id.question);
             vh.answer = view.findViewById(R.id.answer);
             vh.interviewLayout = view.findViewById(R.id.interviewLayout);
+            vh.answerLogo=view.findViewById(R.id.answerLogo);
 
             view.setTag(vh);
         }
         if (data.get(i).getInterviewQuestionContent().equals("면접 내용이 없습니다.")) {
-            vh.interviewLayout.setVisibility(View.GONE);
+            vh.question.setText(data.get(i).getInterviewQuestionContent());
+            vh.answerLogo.setVisibility(View.GONE);
+            vh.answer.setVisibility(View.GONE);
         } else {
             vh.question.setText(data.get(i).getInterviewQuestionContent());
             vh.answer.setText(data.get(i).getInterviewAnswerContent());
