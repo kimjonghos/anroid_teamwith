@@ -2,10 +2,12 @@ package com.fastbooster.android_teamwith.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
@@ -72,6 +74,7 @@ public class MemberAdapter extends BaseAdapter {
             vh.memberName = view.findViewById(R.id.k_tv_memberName);
             vh.memberRole = view.findViewById(R.id.k_tv_memberRole);
             vh.praiseCnt = view.findViewById(R.id.k_tv_praiseCnt);
+            view.setTag(vh);
         }
 
         if (flag != 0) {
