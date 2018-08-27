@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -126,17 +127,24 @@ public class ApplicationAdapter extends BaseAdapter {
         {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+                AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+                final AlertDialog dialog=dialogB.create();
                 final View contentView = View.inflate(context, R.layout.application_content_layout, null);
                 TextView freeWriting = contentView.findViewById(R.id.freeWriting);
                 freeWriting.setText(applicationList.get(fi).getApplicationFreewriting());
                 ListView listView = contentView.findViewById(R.id.interviewListView);
                 List<InterviewVO> itvList = interviewMap.get(applicationList.get(fi).getApplicationId());
                 listView.setAdapter(new InterviewAdapter(context, itvList));
+                Button btnClose=contentView.findViewById(R.id.btnClose);
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
 
                 dialog.setView(contentView);
                 dialog.show();
-
             }
         });
 
