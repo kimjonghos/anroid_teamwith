@@ -18,7 +18,6 @@ public class BarActivity extends Activity {
         super.onCreate(savedInstanceState);
         SharedPreferences sp = getSharedPreferences("memberPref", MODE_PRIVATE);
         memberId = sp.getString("memberId", "");
-
     }
 
     public void back(View v) {
