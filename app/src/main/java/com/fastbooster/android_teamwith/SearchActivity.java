@@ -1,20 +1,16 @@
 package com.fastbooster.android_teamwith;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.MemberSearchTask;
@@ -66,7 +62,7 @@ public class SearchActivity extends BarActivity {
         Intent intent = getIntent();
         final String kind = intent.getStringExtra("kind");
 
-        if(kind.equals("portfolio")){
+        if (kind.equals("portfolio")) {
             setContentView(R.layout.activity_portfolio_search);
             back = findViewById(R.id.jbackToSearch);
             keyword = findViewById(R.id.jKeyword);
@@ -80,7 +76,7 @@ public class SearchActivity extends BarActivity {
             PortfolioSearchTask ptask = new PortfolioSearchTask(this);
             ptask.execute(new Criteria(1, 10), null, null);
 
-        }else{
+        } else {
             setContentView(R.layout.activity_search);
 
             back = findViewById(R.id.jbackToSearchbtn);
@@ -118,8 +114,6 @@ public class SearchActivity extends BarActivity {
             }
         });
 */
-
-
 
 
         //검색 버튼 클릭 시
@@ -163,15 +157,12 @@ public class SearchActivity extends BarActivity {
                     MemberSearchTask mtask = new MemberSearchTask(SearchActivity.this);
                     mtask.execute(new Criteria(1, 10), regionSelectedList,
                             categorySelectedList, roleSelectedList, skillSelectedList, key);
-                } else if(kind.equals("portfolio")){
+                } else if (kind.equals("portfolio")) {
                     PortfolioSearchTask ptask = new PortfolioSearchTask(SearchActivity.this);
                     ptask.execute(new Criteria(1, 10), categorySelectedList, key);
                 }
             }
         });
-
-
-
 
 
     }
@@ -373,7 +364,7 @@ public class SearchActivity extends BarActivity {
             i = 0;
             for (Object s : ApplicationShare.skillList.keySet()) {
                 String k = (String) s;
-                skillList[i] = (String) ApplicationShare.skillList.get(k);
+                skillList[i] = ((String[]) ApplicationShare.skillList.get(k))[0];
                 skillKeyList[i++] = k;
             }
         }

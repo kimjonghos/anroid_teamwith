@@ -1,18 +1,13 @@
 package com.fastbooster.android_teamwith.share;
 
 import android.app.Application;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.fastbooster.android_teamwith.api.ApiUtil;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -25,17 +20,17 @@ import java.util.Map.Entry;
 
 //모든 액티비티가 다 공유할 수 있게됨.
 public class ApplicationShare extends Application {
-    public static Map<String, Object> praiseList = new HashMap<>();
-    public static Map<String, Object> categoryList = new HashMap<>();
-    public static Map<String, Object> regionList = new HashMap<>();
-    public static Map<String, Object> roleList = new HashMap<>();
-    public static Map<String, Object> developerSkillList = new HashMap<>();
-    public static Map<String, Object> plannerSkillList = new HashMap<>();
-    public static Map<String, Object> designerSkillList = new HashMap<>();
-    public static Map<String, Object> etcSkillList = new HashMap<>();
-    public static Map<String, Object> skillList = new HashMap<>();
-    public static Map<String, Object> tendencyList = new HashMap<>();
-    public static Map<String, Object> applicationStatus = new HashMap<>();
+    public static Map<String, String> praiseList = new HashMap<>();
+    public static Map<String, String> categoryList = new HashMap<>();
+    public static Map<String, String> regionList = new HashMap<>();
+    public static Map<String, String> roleList = new HashMap<>();
+    public static Map<String, String> developerSkillList = new HashMap<>();
+    public static Map<String, String> plannerSkillList = new HashMap<>();
+    public static Map<String, String> designerSkillList = new HashMap<>();
+    public static Map<String, String> etcSkillList = new HashMap<>();
+    public static Map<String, String[]> skillList = new HashMap<>();
+    public static Map<String, String> tendencyList = new HashMap<>();
+    public static Map<String, String> applicationStatus = new HashMap<>();
 
     static {
         FileReadThread fileReadThread = new FileReadThread();
@@ -70,7 +65,7 @@ public class ApplicationShare extends Application {
                 toMap(object, "plannerSkillList", plannerSkillList);
                 toMap(object, "designerSkillList", designerSkillList);
                 toMap(object, "etcSkillList", etcSkillList);
-                toMap(object, "skillList", skillList);
+                toMapArray(object, "skillList", skillList);
                 toMap(object, "tendencyList", tendencyList);
 
                 roleList = sortByComparator(roleList);
@@ -81,7 +76,7 @@ public class ApplicationShare extends Application {
                 plannerSkillList = sortByComparator(plannerSkillList);
                 designerSkillList = sortByComparator(designerSkillList);
                 etcSkillList = sortByComparator(etcSkillList);
-                skillList = sortByComparator(skillList);
+                skillList = sortByComparatorArray(skillList);
                 tendencyList = sortByComparator(tendencyList);
 
                 applicationStatus.put("0", "지원 완료");
@@ -91,13 +86,13 @@ public class ApplicationShare extends Application {
 
 
             } catch (Exception e) {
-                Log.d("Weather app error", e.getMessage());
+                Log.d("Teamwith app file error", e.getMessage());
                 e.printStackTrace();
             }
 
         }
 
-        public void toMap(JSONObject object, String listName, Map<String, Object> target) {
+        public void toMap(JSONObject object, String listName, Map<String, String> target) {
             try {
                 JSONObject list = object.getJSONObject(listName);
                 Iterator<String> pKey = list.keys();
@@ -110,12 +105,30 @@ public class ApplicationShare extends Application {
             }
         }
 
-        private Map<String, Object> sortByComparator(Map<String, Object> unsortMap) {
-            List<Entry<String, Object>> list = new LinkedList<Entry<String, Object>>(unsortMap.entrySet());
+        public void toMapArray(JSONObject object, String listName, Map<String, String[]> target) {
+            try {
+                JSONObject list = object.getJSONObject(listName);
+                Iterator<String> pKey = list.keys();
+                while (pKey.hasNext()) {
+                    String key = pKey.next();
+                    String[] val = new String[2];
+                    JSONArray ja = new JSONArray(list.getString(key));
+                    val[0] = (String) ja.get(0);
+                    val[1] = (String) ja.get(1);
 
-            Collections.sort(list, new Comparator<Entry<String, Object>>() {
+                    target.put(key, val);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        private Map<String, String> sortByComparator(Map<String, String> unsortMap) {
+            List<Entry<String, String>> list = new LinkedList<Entry<String, String>>(unsortMap.entrySet());
+
+            Collections.sort(list, new Comparator<Entry<String, String>>() {
                 @Override
-                public int compare(Entry<String, Object> o1, Entry<String, Object> o2) {
+                public int compare(Entry<String, String> o1, Entry<String, String> o2) {
                     Integer v1 = Integer.parseInt(o1.getKey().split("-")[1]);
                     Integer v2 = Integer.parseInt(o2.getKey().split("-")[1]);
 
@@ -123,8 +136,28 @@ public class ApplicationShare extends Application {
                 }
             });
 
-            Map<String, Object> sortedMap = new LinkedHashMap<String, Object>();
-            for (Entry<String, Object> entry : list) {
+            Map<String, String> sortedMap = new LinkedHashMap<String, String>();
+            for (Entry<String, String> entry : list) {
+                sortedMap.put(entry.getKey(), entry.getValue());
+            }
+
+            return sortedMap;
+        }
+        private Map<String, String[]> sortByComparatorArray(Map<String, String[]> unsortMap) {
+            List<Entry<String, String[]>> list = new LinkedList<Entry<String, String[]>>(unsortMap.entrySet());
+
+            Collections.sort(list, new Comparator<Entry<String, String[]>>() {
+                @Override
+                public int compare(Entry<String, String[]> o1, Entry<String, String[]> o2) {
+                    Integer v1 = Integer.parseInt(o1.getKey().split("-")[1]);
+                    Integer v2 = Integer.parseInt(o2.getKey().split("-")[1]);
+
+                    return v1.compareTo(v2);
+                }
+            });
+
+            Map<String, String[]> sortedMap = new LinkedHashMap<String, String[]>();
+            for (Entry<String, String[]> entry : list) {
                 sortedMap.put(entry.getKey(), entry.getValue());
             }
 
