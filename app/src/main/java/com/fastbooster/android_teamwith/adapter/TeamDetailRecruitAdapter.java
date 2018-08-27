@@ -69,32 +69,58 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
             viewHolder.hktvRecruitRole = (TextView) itemLayout.findViewById(R.id.hktvRecruitRole);
             viewHolder.hktvRecruitPeopleNum = (TextView) itemLayout.findViewById(R.id.hktvRecruitPeopleNum);
             viewHolder.hktvRecruitExplain = (TextView) itemLayout.findViewById(R.id.hktvRecruitExplain);
+            viewHolder.hktvRecruitExplainConst = itemLayout.findViewById(R.id.hktvRecruitExplainConst);
             viewHolder.hktvRecruitPreference = (TextView) itemLayout.findViewById(R.id.hktvRecruitPreference);
+            viewHolder.hktvRecruitpreferenceConst = itemLayout.findViewById(R.id.hktvRecruitPreferenceConst);
             viewHolder.hktvRecruitSkill = (TextView) itemLayout.findViewById(R.id.hktvRequireSkill);
+            viewHolder.hktvRequireSkillConst = itemLayout.findViewById(R.id.hktvRequireSkillConst);
+            viewHolder.recruitExplainRow = itemLayout.findViewById(R.id.recruitExplainRow);
+            viewHolder.recruitPreferenceRow = itemLayout.findViewById(R.id.recruitPreferenceRow);
+            viewHolder.requireSkillRow = itemLayout.findViewById(R.id.requireSkillRow);
             viewHolder.applyBtn = (Button) itemLayout.findViewById(R.id.applyBtn);
             itemLayout.setTag(viewHolder);
         } else {
             viewHolder = (RecruitViewHolder) itemLayout.getTag();
         }
+
         viewHolder.hktvRecruitRole.setText(ApplicationShare.roleList.get(data.get(i).getRoleId()).toString());
-        viewHolder.hktvRecruitPeopleNum.setText(data.get(i).getRecruitPeopleNum()+" 명");
-        viewHolder.hktvRecruitExplain.setText(data.get(i).getRecruitExplain());
-        viewHolder.hktvRecruitPreference.setText(data.get(i).getRecruitPreference());
+        viewHolder.hktvRecruitPeopleNum.setText(data.get(i).getRecruitPeopleNum() + " 명");
+        if (data.get(i).getRecruitExplain() == null || data.get(i).getRecruitExplain().equals("null")) {
+            viewHolder.hktvRecruitExplainConst.setVisibility(View.GONE);
+            viewHolder.hktvRecruitExplain.setVisibility(View.GONE);
+            viewHolder.recruitExplainRow.setVisibility(View.GONE);
+        } else {
+            viewHolder.hktvRecruitExplain.setText(data.get(i).getRecruitExplain());
+        }
+        if (data.get(i).getRecruitPreference() == null || data.get(i).getRecruitPreference().equals("null")) {
+            viewHolder.hktvRecruitpreferenceConst.setVisibility(View.GONE);
+            viewHolder.hktvRecruitPreference.setVisibility(View.GONE);
+            viewHolder.recruitPreferenceRow.setVisibility(View.GONE);
+        } else {
+            viewHolder.hktvRecruitPreference.setText(data.get(i).getRecruitPreference());
+        }
         StringBuilder sb = new StringBuilder();
-        if (requireSkillList != null && !requireSkillList.isEmpty())
-            for (RequireSkillVO requireSkill : requireSkillList) {
-                if (requireSkill.getRecruitId().equals(data.get(i).getRecruitId())) {
-                    sb.append(((String[])ApplicationShare.skillList.get(requireSkill.getSkillId()))[0] + " ");
-                }
+
+        for (RequireSkillVO requireSkill : requireSkillList) {
+            if (requireSkill.getRecruitId().equals(data.get(i).getRecruitId())) {
+                sb.append((ApplicationShare.skillList.get(requireSkill.getSkillId()))[0] + " ");
             }
-        viewHolder.hktvRecruitSkill.setText(sb.toString());
+        }
+
+        if (sb.toString().isEmpty() || sb == null || sb.toString().equals("null")) {
+            viewHolder.hktvRecruitSkill.setVisibility(View.GONE);
+            viewHolder.hktvRequireSkillConst.setVisibility(View.GONE);
+            viewHolder.requireSkillRow.setVisibility(View.GONE);
+        } else {
+            viewHolder.hktvRecruitSkill.setText(sb.toString());
+        }
         final String roleId = data.get(i).getRoleId();
 
         viewHolder.applyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
-                final AlertDialog dialog=dialogB.create();
+                final AlertDialog dialog = dialogB.create();
                 final View dialogLayout = View.inflate(context, R.layout.apply_layout, null);
                 TextView hktvRecruitRole = (TextView) dialogLayout.findViewById(R.id.hktvRecruitRole);
                 TextView interviewQ1 = (TextView) dialogLayout.findViewById(R.id.tvInterviewQuestion1);
@@ -128,17 +154,16 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                 }
 
 
-
                 Button hkBtnApply = (Button) dialogLayout.findViewById(R.id.hkBtnApply);
-                Button hkBtnApplyCancel=(Button) dialogLayout.findViewById(R.id.hkBtnApplyCancle);
-                hktvRecruitRole.setText(roleId);
+                Button hkBtnApplyCancel = (Button) dialogLayout.findViewById(R.id.hkBtnApplyCancle);
+                hktvRecruitRole.setText(ApplicationShare.roleList.get(roleId));
                 hkBtnApply.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //지원 정보를 가져와라
-                        List<String> interviewQuestionId=new ArrayList<String>();
-                        List<String> interviewAnswer=new ArrayList<String>();
-                        for(int i=0;i<interview.size();i++){
+                        List<String> interviewQuestionId = new ArrayList<String>();
+                        List<String> interviewAnswer = new ArrayList<String>();
+                        for (int i = 0; i < interview.size(); i++) {
                             interviewQuestionId.add(interview.get(i).getInterviewQuestionId());
                             interviewAnswer.add(interviewAnswers[i].getText().toString());
                         }
@@ -150,7 +175,7 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                         applyTask.execute();
 
                         //그리고 어딘가로 가라!
-                        Toast.makeText(context,"지원이 완료되었습니다.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "지원이 완료되었습니다.", Toast.LENGTH_LONG).show();
                         dialog.dismiss();
 
                     }
