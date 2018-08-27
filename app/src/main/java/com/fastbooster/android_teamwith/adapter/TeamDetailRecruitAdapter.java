@@ -32,9 +32,10 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
     private final List<InterviewQuestionDTO> interview;
     private List<RequireSkillVO> requireSkillList;
     private final String teamStatus;
+    private final String canApply;
     private final int dDay;
 
-    public TeamDetailRecruitAdapter(Context context, String teamId, List<RecruitVO> data, List<InterviewQuestionDTO> interview, List<RequireSkillVO> requireSkillList, int dDay, String teamStatus) {
+    public TeamDetailRecruitAdapter(Context context, String teamId, List<RecruitVO> data, List<InterviewQuestionDTO> interview, List<RequireSkillVO> requireSkillList, int dDay, String teamStatus,String canApply) {
         this.context = context;
         this.teamId = teamId;
         this.data = data;
@@ -42,6 +43,7 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
         this.requireSkillList = requireSkillList;
         this.dDay = dDay;
         this.teamStatus = teamStatus;
+        this.canApply=canApply;
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -120,7 +122,7 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
         if (context instanceof TeamLeaderActivity) {
             viewHolder.applyBtn.setVisibility(View.GONE);
         } else if (context instanceof TeamActivity) {
-            if (dDay < 0 || teamStatus.equals("1")) {
+            if (dDay > 0 || teamStatus.equals("1")||canApply.equals("false")) {
                 viewHolder.applyBtn.setVisibility(View.GONE);
             } else {
                 viewHolder.applyBtn.setOnClickListener(new View.OnClickListener() {
@@ -129,16 +131,16 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                         AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                         final AlertDialog dialog = dialogB.create();
                         final View dialogLayout = View.inflate(context, R.layout.apply_layout, null);
-                        TextView hktvRecruitRole = (TextView) dialogLayout.findViewById(R.id.hktvRecruitRole);
-                        TextView interviewQ1 = (TextView) dialogLayout.findViewById(R.id.tvInterviewQuestion1);
-                        TextView interviewQ2 = (TextView) dialogLayout.findViewById(R.id.tvInterviewQuestion2);
-                        TextView interviewQ3 = (TextView) dialogLayout.findViewById(R.id.tvInterviewQuestion3);
-                        EditText interviewA1 = (EditText) dialogLayout.findViewById(R.id.etInterviewAnswer1);
-                        EditText interviewA2 = (EditText) dialogLayout.findViewById(R.id.etInterviewAnswer2);
-                        EditText interviewA3 = (EditText) dialogLayout.findViewById(R.id.etInterviewAnswer3);
-                        TextView interviewTitle1 = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle1);
-                        TextView interviewTitle2 = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle2);
-                        TextView interviewTitle3 = (TextView) dialogLayout.findViewById(R.id.tvInterviewTitle3);
+                        TextView hktvRecruitRole =  dialogLayout.findViewById(R.id.hktvRecruitRole);
+                        TextView interviewQ1 =  dialogLayout.findViewById(R.id.tvInterviewQuestion1);
+                        TextView interviewQ2 =  dialogLayout.findViewById(R.id.tvInterviewQuestion2);
+                        TextView interviewQ3 =  dialogLayout.findViewById(R.id.tvInterviewQuestion3);
+                        EditText interviewA1 =  dialogLayout.findViewById(R.id.etInterviewAnswer1);
+                        EditText interviewA2 =  dialogLayout.findViewById(R.id.etInterviewAnswer2);
+                        EditText interviewA3 =  dialogLayout.findViewById(R.id.etInterviewAnswer3);
+                        TextView interviewTitle1 =  dialogLayout.findViewById(R.id.tvInterviewTitle1);
+                        TextView interviewTitle2 =  dialogLayout.findViewById(R.id.tvInterviewTitle2);
+                        TextView interviewTitle3 =  dialogLayout.findViewById(R.id.tvInterviewTitle3);
                         final TextView[] interviewTitleAry = new TextView[]{interviewTitle1, interviewTitle2, interviewTitle3};
                         final EditText[] interviewAnswers = new EditText[]{interviewA1, interviewA2, interviewA3};
                         final TextView[] textViews = new TextView[]{interviewQ1, interviewQ2, interviewQ3};
@@ -159,8 +161,8 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                                 textViews[i].setVisibility(View.GONE);
                             }
                         }
-                        Button hkBtnApply = (Button) dialogLayout.findViewById(R.id.hkBtnApply);
-                        Button hkBtnApplyCancel = (Button) dialogLayout.findViewById(R.id.hkBtnApplyCancle);
+                        Button hkBtnApply =  dialogLayout.findViewById(R.id.hkBtnApply);
+                        Button hkBtnApplyCancel =  dialogLayout.findViewById(R.id.hkBtnApplyCancle);
                         hktvRecruitRole.setText(ApplicationShare.roleList.get(roleId));
                         hkBtnApply.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -172,7 +174,7 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
                                     interviewQuestionId.add(interview.get(i).getInterviewQuestionId());
                                     interviewAnswer.add(interviewAnswers[i].getText().toString());
                                 }
-                                TextView tvFreewriting = (TextView) dialogLayout.findViewById(R.id.hketFreewriting);
+                                TextView tvFreewriting =  dialogLayout.findViewById(R.id.hketFreewriting);
                                 String freewrting = tvFreewriting.getText().toString();
 
                                 //지원을 해라

@@ -178,7 +178,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             MemberImageTask leaderPicImageTask = new MemberImageTask(context);
             leaderPicImageTask.execute(ivLeaderPic);
 
-            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList, dDay, teamInfo.getTeamStatus());
+            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList, dDay, teamInfo.getTeamStatus(),data[1].toString());
             recruitListView.setAdapter(recruitAdapter);
             setListViewHeightBasedOnChildren(recruitListView);
             ListView faqListView = view.findViewById(R.id.hkFaqListView);
