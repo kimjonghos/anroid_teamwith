@@ -57,7 +57,7 @@ public class MemberSkillVO {
         }
         String[] skillName = new String[skill.length];
         for (int i = 0; i < skill.length; i++) {
-            skillName[i] = (String) ApplicationShare.skillList.get(skill[i]);
+            skillName[i] =((String[]) ApplicationShare.skillList.get(i))[0];
         }
         return skillName;
     }

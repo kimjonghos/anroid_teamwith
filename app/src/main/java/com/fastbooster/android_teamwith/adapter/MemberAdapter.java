@@ -2,6 +2,7 @@ package com.fastbooster.android_teamwith.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,8 @@ import android.widget.BaseAdapter;
 
 import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
-import com.fastbooster.android_teamwith.TeamActivity;
 import com.fastbooster.android_teamwith.model.MemberSearchVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
-import com.fastbooster.android_teamwith.task.ImageTask;
 import com.fastbooster.android_teamwith.task.MemberImageTask;
 import com.fastbooster.android_teamwith.viewholder.MemberViewHolder;
 
@@ -72,10 +71,14 @@ public class MemberAdapter extends BaseAdapter {
             vh.memberName = view.findViewById(R.id.k_tv_memberName);
             vh.memberRole = view.findViewById(R.id.k_tv_memberRole);
             vh.praiseCnt = view.findViewById(R.id.k_tv_praiseCnt);
+            view.setTag(vh);
         }
 
         if (flag != 0) {
-            vh.memberRole.setText((String) ApplicationShare.roleList.get(data.get(i).getRoleId()));
+            Log.v("role", data.get(i).getRoleId());
+            if (data.get(i).getRoleId() != null) {
+                vh.memberRole.setText((String) ApplicationShare.roleList.get(data.get(i).getRoleId()));
+            }
             vh.praiseCnt.setText("칭찬 " + data.get(i).getTotalPraiseCnt() + "회");
         } else {
             //일반 회원 정보
@@ -109,7 +112,7 @@ public class MemberAdapter extends BaseAdapter {
         MemberImageTask imgTask = new MemberImageTask(context);
         imgTask.execute(vh.memberPic);
 
-        vh.memberName.setText(data.get(i).getMemberName()+"님");
+        vh.memberName.setText(data.get(i).getMemberName() + "님");
 
 
         return view;
