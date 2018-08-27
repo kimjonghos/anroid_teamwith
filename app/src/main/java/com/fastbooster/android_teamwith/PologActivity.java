@@ -50,23 +50,17 @@ public class PologActivity extends BarActivity {
         final Button kbtnProfile = (Button) findViewById(R.id.k_btn_Profile);
         final Button kbtnPortfolio = (Button) findViewById(R.id.k_btn_Portfolio);
         Button praiseBtn = findViewById(R.id.praiseBtn);
+
         frame = (FrameLayout) findViewById(R.id.k_fl_portfolioList);
         inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         profileView = inflater.inflate(R.layout.profile_layout, frame, false);
+        frame.addView(profileView);
+
+
 
         PologTask pt = new PologTask(PologActivity.this, profileView);
-        pt.execute(targetId);//멤버아이디 전달 받아서 넣기
+        pt.execute("kim");//멤버아이디 전달 받아서 넣기
 
-/*
-        TextView back = findViewById(R.id.backTv);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-*/
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,10 +98,10 @@ public class PologActivity extends BarActivity {
         if (frame.getChildCount() > 0) {
             frame.removeViewAt(0);
         }
-//        View view=null;
+
         switch (index) {
             case 0:
-//                view=inflater.inflate(R.layout.profile_layout,frame,false);
+
                 if (profileView != null) {
                     frame.addView(profileView);
                 } else {
@@ -129,7 +123,6 @@ public class PologActivity extends BarActivity {
 
                 tr.commit();
 
-                // Toast.makeText(getApplicationContext(), "프래그먼트", Toast.LENGTH_SHORT).show();
                 break;
 
         }
