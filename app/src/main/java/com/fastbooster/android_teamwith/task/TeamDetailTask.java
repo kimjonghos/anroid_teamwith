@@ -151,7 +151,9 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             if(dDay<0||teamInfo.getTeamStatus().equals("1")){
                 tvTeamEndDate.setText("모집 마감");
             }
-            else {
+            else if(dDay==0){
+                tvTeamEndDate.setText("D-day");
+            }else{
                 tvTeamEndDate.setText("D-" + dDay);//dDay 모집 마감 지난거 처리할 것
             }
             TextView tvLeaderName = view.findViewById(R.id.hktvLeaderName);
@@ -179,7 +181,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             MemberImageTask leaderPicImageTask = new MemberImageTask(context);
             leaderPicImageTask.execute(ivLeaderPic);
 
-            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList);
+            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList,dDay,teamInfo.getTeamStatus());
             recruitListView.setAdapter(recruitAdapter);
             setListViewHeightBasedOnChildren(recruitListView);
             ListView faqListView = view.findViewById(R.id.hkFaqListView);
