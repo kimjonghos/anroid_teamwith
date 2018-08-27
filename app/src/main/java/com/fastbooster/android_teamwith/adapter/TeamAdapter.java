@@ -31,10 +31,7 @@ public class TeamAdapter extends BaseAdapter {
         this.context = context;
         this.data = data;
         this.layoutInflater = LayoutInflater.from(context);
-
-
     }
-
 
     @Override
     public int getCount() {

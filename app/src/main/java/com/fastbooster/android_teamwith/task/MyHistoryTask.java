@@ -124,7 +124,6 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                             try {
                                 teamId = myTeam1.getString("teamId");
                                 teamLeader=myTeam1.getString("memberId");
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -158,8 +157,10 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                 joinedTeamLayout1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = ((Activity) context).getIntent();
+//                        Intent intent = ((Activity) context).getIntent();
+                        Intent intent=new Intent();
                         String teamId = null;
+
                         String teamLeader=null;
                         SharedPreferences sp = context.getSharedPreferences("memberPref", Context.MODE_PRIVATE);
                         String memberId = sp.getString("memberId", null);
@@ -174,10 +175,9 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                             intent.setClass(context, TeamLeaderActivity.class);
                         }
                         else{
-                            intent=new Intent(context, TeamActivity.class);
+                            intent.setClass(context, TeamActivity.class);
                         }
                         context.startActivity(intent);
-
                     }
                 });
             } else if (myJoinedTeam.length() >= 2) {
