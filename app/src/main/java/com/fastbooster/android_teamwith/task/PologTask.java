@@ -3,6 +3,7 @@ package com.fastbooster.android_teamwith.task;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -123,7 +124,7 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
             }
             if (memberSkill != null) {
                 String[] skillName = memberSkill.getSkillName();
-                if (skillName != null) {
+                if (skillName != null && !(skillName.length == 0)) {
                     pologSkill.setText("");
                     for (int i = 0; i < skillName.length; i++) {
                         if (i == 0) {
