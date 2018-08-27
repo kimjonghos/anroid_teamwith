@@ -1,7 +1,9 @@
 package com.fastbooster.android_teamwith.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.ApplicantVO;
 import com.fastbooster.android_teamwith.model.InterviewVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.DecideTask;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.task.MemberImageTask;
 import com.fastbooster.android_teamwith.viewholder.ApplicantViewHolder;
 
 import java.util.List;
@@ -96,8 +100,17 @@ public class ApplicantAdapter extends BaseAdapter {
         }
         viewHolder.tvApplicationStatus.setText(status);
         viewHolder.ivMemberPic.setTag(data.get(i).getMemberPic());
-        ImageTask imageTask = new ImageTask(context);
+        MemberImageTask imageTask = new MemberImageTask(context);
         imageTask.execute(viewHolder.ivMemberPic);
+        viewHolder.ivMemberPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=((Activity)context).getIntent();
+                intent.setClass(context, PologActivity.class);
+                intent.putExtra("memberId",data.get(ii).getMemberId());
+                context.startActivity(intent);
+            }
+        });
         if (!data.get(i).getApplicationStatus().equals(APPLYCOMPLETE)) {
             viewHolder.btnOK.setVisibility(View.GONE);
             viewHolder.btnNO.setVisibility(View.GONE);
