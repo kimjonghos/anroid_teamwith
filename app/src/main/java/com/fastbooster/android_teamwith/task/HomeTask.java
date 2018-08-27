@@ -86,17 +86,17 @@ public class HomeTask extends AsyncTask<String, Void, Map<String, Object>> {
         try {
             List<TeamSimpleVO> team = (List<TeamSimpleVO>) param.get("team");
             TeamGridViewAdapter teamAdapter = new TeamGridViewAdapter(context, team);
-            GridView gvTeam = (GridView) view.findViewById(R.id.k_gv_team);
+            GridView gvTeam = view.findViewById(R.id.k_gv_team);
             gvTeam.setAdapter(teamAdapter);
 
             List<MemberSearchVO> member = (List<MemberSearchVO>) param.get("member");
             MemberAdapter memberAdapter = new MemberAdapter(context, member, 1);
-            GridView gvMember = (GridView) view.findViewById(R.id.k_gv_member);
+            GridView gvMember = view.findViewById(R.id.k_gv_member);
             gvMember.setAdapter(memberAdapter);
 
             List<PortfolioSimpleVO> portfolio = (List<PortfolioSimpleVO>) param.get("portfolio");
             PologPortfoliListAdapter portfolioAdapter = new PologPortfoliListAdapter(context, portfolio);
-            GridView gvPortfolio = (GridView) view.findViewById(R.id.k_gv_portfolio);
+            GridView gvPortfolio = view.findViewById(R.id.k_gv_portfolio);
             gvPortfolio.setAdapter(portfolioAdapter);
         } catch (Exception e) {
             e.printStackTrace();

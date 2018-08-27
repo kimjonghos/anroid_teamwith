@@ -57,26 +57,26 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             String r = ps.getString("portfolioId");
             MemberVO member = new MemberVO(portfolioSimpleVOS.getJSONObject("member"));
             PortfolioActivity view = (PortfolioActivity) context;
-            TextView tvTitle = (TextView) view.findViewById(R.id.k_tv_title);
-            TextView tvTitle2 = (TextView) view.findViewById(R.id.k_tv_title2);
-            TextView tvCategory = (TextView) view.findViewById(R.id.k_tv_category);
-            TextView tvIntro = (TextView) view.findViewById(R.id.k_tv_intro);
-            TextView tvPeopleNum = (TextView) view.findViewById(R.id.k_tv_peopleNum);
-            TextView tvTeamName = (TextView) view.findViewById(R.id.k_tv_teamName);
-            TextView tvStartDate = (TextView) view.findViewById(R.id.k_tv_startDate);
-            TextView tvEndDate = (TextView) view.findViewById(R.id.k_tv_endDate);
-            TextView tvRole = (TextView) view.findViewById(R.id.k_tv_role);
-            TextView tvWork = (TextView) view.findViewById(R.id.k_tv_work);
-            ImageView ivPortfolioPic = (ImageView) view.findViewById(R.id.k_ivPortfolioPic);
+            TextView tvTitle = view.findViewById(R.id.k_tv_title);
+            TextView tvTitle2 = view.findViewById(R.id.k_tv_title2);
+            TextView tvCategory = view.findViewById(R.id.k_tv_category);
+            TextView tvIntro = view.findViewById(R.id.k_tv_intro);
+            TextView tvPeopleNum = view.findViewById(R.id.k_tv_peopleNum);
+            TextView tvTeamName = view.findViewById(R.id.k_tv_teamName);
+            TextView tvStartDate = view.findViewById(R.id.k_tv_startDate);
+            TextView tvEndDate = view.findViewById(R.id.k_tv_endDate);
+            TextView tvRole = view.findViewById(R.id.k_tv_role);
+            TextView tvWork = view.findViewById(R.id.k_tv_work);
+            ImageView ivPortfolioPic = view.findViewById(R.id.k_ivPortfolioPic);
             //멤버
-            TextView tvmemberName = (TextView) view.findViewById(R.id.k_member_name);
-            TextView tvmemberRole = (TextView) view.findViewById(R.id.k_member_role);
-            ImageView ivMemberPic = (ImageView) view.findViewById(R.id.k_member_pic);
+            TextView tvmemberName = view.findViewById(R.id.k_member_name);
+            TextView tvmemberRole = view.findViewById(R.id.k_member_role);
+            ImageView ivMemberPic = view.findViewById(R.id.k_member_pic);
 
 
             tvTitle.setText(ps.getString("portfolioTitle"));
             tvTitle2.setText(ps.getString("portfolioTitle"));
-            tvCategory.setText((String) ApplicationShare.categoryList.get(ps.getString("projectCategoryId")));
+            tvCategory.setText(ApplicationShare.categoryList.get(ps.getString("projectCategoryId")));
             tvIntro.setText(ps.getString("portfolioIntro"));
             tvPeopleNum.setText(ps.getString("portfolioPeopleNum"));
             tvTeamName.setText(ps.getString("portfolioTeamName"));
@@ -88,7 +88,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             ImageTask imgTask = new ImageTask(context);
             imgTask.execute(ivPortfolioPic);
 
-            LinearLayout portfolioContent = (LinearLayout) ((PortfolioActivity) context).findViewById(R.id.k_portfolio_content);
+            LinearLayout portfolioContent = ((PortfolioActivity) context).findViewById(R.id.k_portfolio_content);
 
             if (portfolioSimpleVOS.getJSONArray("portfolioContent") != null) {
                 JSONArray pary = portfolioSimpleVOS.getJSONArray("portfolioContent");
@@ -196,7 +196,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
 
 
             tvmemberName.setText(member.getMemberName());
-            tvmemberRole.setText((String) ApplicationShare.roleList.get(member.getRoleId()));
+            tvmemberRole.setText(ApplicationShare.roleList.get(member.getRoleId()));
             ivMemberPic.setTag(member.getMemberPic());
             MemberImageTask mit = new MemberImageTask(context);
             mit.execute(ivMemberPic);

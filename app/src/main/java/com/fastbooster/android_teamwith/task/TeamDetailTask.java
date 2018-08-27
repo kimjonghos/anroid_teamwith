@@ -83,7 +83,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             //요구기술 정보 파싱
             List<RequireSkillVO> requireSkillList = new ArrayList<RequireSkillVO>();
             JSONArray requireSkillInfo = jsonObject.getJSONArray("requireSkills");
-            String before = null;
+
             for (int i = 0; i < requireSkillInfo.length(); i++) {
                 RequireSkillVO requireSkill = new RequireSkillVO(requireSkillInfo.getJSONObject(i));
                 requireSkillList.add(requireSkill);
@@ -94,14 +94,12 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             e.printStackTrace();
             return null;
         }
-
     }
 
     @Override
     protected void onPostExecute(Object[] data) {
         try {
             TeamDetailVO teamInfo = (TeamDetailVO) data[0];
-            String canApply = (String) data[1];
             int dDay = (int) data[2];
             List<RecruitVO> recruitList = (List<RecruitVO>) data[3];
             List<InterviewQuestionDTO> interviewList = (List<InterviewQuestionDTO>) data[4];
@@ -113,8 +111,8 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
                 view = (TeamActivity) context;
             } else if (context instanceof TeamLeaderActivity) {
                 view = (TeamLeaderActivity) context;
-                Button btnClose = (Button) view.findViewById(R.id.btnClose);
-                if (dDay < 0 || !teamInfo.getTeamStatus().equals("0")) {
+                Button btnClose = view.findViewById(R.id.btnClose);
+                if (dDay >= 0 || !teamInfo.getTeamStatus().equals("0")) {
                     btnClose.setVisibility(View.GONE);
                 } else {
                     btnClose.setOnClickListener(new View.OnClickListener() {
@@ -124,12 +122,12 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
                             teamCloseTask.execute(teamId);
                             Intent intent = ((TeamLeaderActivity) context).getIntent();
                             ((TeamLeaderActivity) context).finish();
-                            ((TeamLeaderActivity) context).startActivity(intent);
+                            context.startActivity(intent);
                         }
                     });
                 }
 
-                Button btnApplicant = (Button) view.findViewById(R.id.btnApplicant);
+                Button btnApplicant = view.findViewById(R.id.btnApplicant);
                 btnApplicant.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -148,13 +146,12 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             TextView tvRegion = view.findViewById(R.id.hktvRegion);
             tvRegion.setText(ApplicationShare.regionList.get(teamInfo.getRegionId()).toString());
             TextView tvTeamEndDate = view.findViewById(R.id.hktvTeamEndDate);
-            if(dDay<0||teamInfo.getTeamStatus().equals("1")){
+            if (dDay > 0 || teamInfo.getTeamStatus().equals("1")) {
                 tvTeamEndDate.setText("모집 마감");
-            }
-            else if(dDay==0){
+            } else if (dDay == 0) {
                 tvTeamEndDate.setText("D-day");
-            }else{
-                tvTeamEndDate.setText("D-" + dDay);//dDay 모집 마감 지난거 처리할 것
+            } else {
+                tvTeamEndDate.setText("D" + dDay);//dDay 모집 마감 지난거 처리할 것
             }
             TextView tvLeaderName = view.findViewById(R.id.hktvLeaderName);
             tvLeaderName.setText(teamInfo.getMemberName());
@@ -181,7 +178,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             MemberImageTask leaderPicImageTask = new MemberImageTask(context);
             leaderPicImageTask.execute(ivLeaderPic);
 
-            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList,dDay,teamInfo.getTeamStatus());
+            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList, dDay, teamInfo.getTeamStatus());
             recruitListView.setAdapter(recruitAdapter);
             setListViewHeightBasedOnChildren(recruitListView);
             ListView faqListView = view.findViewById(R.id.hkFaqListView);
