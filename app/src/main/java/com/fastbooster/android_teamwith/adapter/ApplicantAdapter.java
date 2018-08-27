@@ -1,7 +1,9 @@
 package com.fastbooster.android_teamwith.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +12,14 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.fastbooster.android_teamwith.PologActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.model.ApplicantVO;
 import com.fastbooster.android_teamwith.model.InterviewVO;
+import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.DecideTask;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.task.MemberImageTask;
 import com.fastbooster.android_teamwith.viewholder.ApplicantViewHolder;
 
 import java.util.List;
@@ -73,7 +78,7 @@ public class ApplicantAdapter extends BaseAdapter {
             viewHolder = (ApplicantViewHolder) itemLayout.getTag();
         }
         viewHolder.tvMemberName.setText(data.get(i).getMemberName());
-        viewHolder.tvRoleId.setText(data.get(i).getRoleId());
+        viewHolder.tvRoleId.setText(ApplicationShare.roleList.get(data.get(i).getRoleId()));
         viewHolder.tvApplicationDate.setText(data.get(i).getApplicationDate().substring(0, 10));
         String status = null;
         switch (data.get(i).getApplicationStatus()) {
@@ -95,8 +100,17 @@ public class ApplicantAdapter extends BaseAdapter {
         }
         viewHolder.tvApplicationStatus.setText(status);
         viewHolder.ivMemberPic.setTag(data.get(i).getMemberPic());
-        ImageTask imageTask = new ImageTask(context);
+        MemberImageTask imageTask = new MemberImageTask(context);
         imageTask.execute(viewHolder.ivMemberPic);
+        viewHolder.ivMemberPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=((Activity)context).getIntent();
+                intent.setClass(context, PologActivity.class);
+                intent.putExtra("memberId",data.get(ii).getMemberId());
+                context.startActivity(intent);
+            }
+        });
         if (!data.get(i).getApplicationStatus().equals(APPLYCOMPLETE)) {
             viewHolder.btnOK.setVisibility(View.GONE);
             viewHolder.btnNO.setVisibility(View.GONE);
@@ -117,20 +131,21 @@ public class ApplicantAdapter extends BaseAdapter {
         viewHolder.btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog);
+                AlertDialog.Builder dialogB = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+                final AlertDialog dialog = dialogB.create();
                 final View dialogLayout = View.inflate(context, R.layout.application_content_layout, null);
                 TextView freeWriting = dialogLayout.findViewById(R.id.freeWriting);
                 freeWriting.setText(data.get(ii).getApplicationFreewriting());
                 ListView interviewListView = dialogLayout.findViewById(R.id.interviewListView);
                 InterviewAdapter adapter = new InterviewAdapter(context, interviewList.get(ii));
                 interviewListView.setAdapter(adapter);
-//                Button btnClose = dialogLayout.findViewById(R.id.btnClose);
-//                btnClose.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        dialog.
-//                    }
-//                });
+                Button btnClose=dialogLayout.findViewById(R.id.btnClose);
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
                 dialog.setView(dialogLayout);
                 dialog.show();
             }

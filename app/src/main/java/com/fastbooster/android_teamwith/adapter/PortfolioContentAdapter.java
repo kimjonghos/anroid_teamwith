@@ -34,7 +34,7 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class PortfolioContentAdapter extends BaseAdapter {
-    private static final String dURL="http://192.168.30.16:8089";
+    private static final String dURL="http://192.168.30.64:8089";
     private Context context;
     private List<PortfolioContentVO> data;
     private LayoutInflater inflater;
@@ -93,7 +93,7 @@ public class PortfolioContentAdapter extends BaseAdapter {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.setAction(android.content.Intent.ACTION_VIEW);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.setDataAndType(Uri.parse("http://192.168.30.16:8089"+path), "application/pdf");
+                    intent.setDataAndType(Uri.parse("http://192.168.30.64:8089"+path), "application/pdf");
                     context.startActivity(intent);
                 }
             });

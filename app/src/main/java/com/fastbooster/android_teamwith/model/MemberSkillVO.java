@@ -1,6 +1,8 @@
 package com.fastbooster.android_teamwith.model;
 
 
+import android.util.Log;
+
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 
 import org.json.JSONArray;
@@ -56,8 +58,14 @@ public class MemberSkillVO {
             return null;
         }
         String[] skillName = new String[skill.length];
+        Log.v("skillname len", skill.length + "");
         for (int i = 0; i < skill.length; i++) {
-            skillName[i] =((String[]) ApplicationShare.skillList.get(i))[0];
+
+            String[] skills = (String[]) ApplicationShare.skillList.get(skill[i]);
+            Log.v("skillname", skills[0]);
+            if (skills != null) {
+                skillName[i] = skills[0];
+            }
         }
         return skillName;
     }

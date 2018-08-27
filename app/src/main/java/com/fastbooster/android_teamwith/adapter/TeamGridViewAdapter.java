@@ -92,7 +92,7 @@ public class TeamGridViewAdapter extends BaseAdapter {
 
         viewHolder.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
         viewHolder.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
-        viewHolder.hktvTeamLayoutProejctCategory.setText(data.get(i).getProjectCategoryId());
+        viewHolder.hktvTeamLayoutProejctCategory.setText(ApplicationShare.categoryList.get(data.get(i).getProjectCategoryId()));
         viewHolder.hkivTeamLayoutTeamPic.setTag(data.get(i).getTeamPic());
         ImageTask imageTask=new ImageTask(context);
         imageTask.execute(viewHolder.hkivTeamLayoutTeamPic);
