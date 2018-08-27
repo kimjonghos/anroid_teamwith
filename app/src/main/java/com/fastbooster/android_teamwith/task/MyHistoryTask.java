@@ -51,7 +51,13 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
 
             MyHistoryActivity myHistoryActivity = (MyHistoryActivity) context;
 
-            switch (myTeamList.length()) {
+            int cnt = myTeamList.length();
+
+            if(cnt>=2){
+                cnt=2;
+            }
+
+            switch (cnt) {
                 case 0:
                     break;
                 case 2:
@@ -174,7 +180,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
 
                     }
                 });
-            } else if (myJoinedTeam.length() == 2) {
+            } else if (myJoinedTeam.length() >= 2) {
                 final JSONObject joinedTeam1 = myJoinedTeam.getJSONObject(0);
                 LinearLayout joinedTeamLayout1=myHistoryActivity.findViewById(R.id.jTeam1Layout);
                 TextView ytv_joined_project_name_1 = myHistoryActivity.findViewById(R.id.ytv_joined_team_project_name_1);
