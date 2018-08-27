@@ -56,13 +56,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingBottom="10dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
 
         <ImageView
             android:id="@+id/k_polog_pic"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/member" />
 
