@@ -85,7 +85,7 @@ public class PraiseCheckTask extends AsyncTask<Void, Void, List<String>> {
         int i = 0;
         for (Object s : ApplicationShare.praiseList.keySet()) {
             String k = (String) s;
-            praiseList[i] = (String) ApplicationShare.praiseList.get(k);
+            praiseList[i] = ApplicationShare.praiseList.get(k);
             praiseKeyList[i++] = k;
         }
         for (i = 0; i < data.size(); i++) {

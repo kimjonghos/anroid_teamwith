@@ -36,7 +36,7 @@ public class JoinedTeamTask extends AsyncTask<Void, Void, JSONObject> {
 
             if (context instanceof JoinedTeamActivity) {
                 JoinedTeamActivity joinedTeamActivity = (JoinedTeamActivity) context;
-                GridView joinedTeamGridView = (GridView) joinedTeamActivity.findViewById(R.id.hkJoinedTeamGridView);
+                GridView joinedTeamGridView = joinedTeamActivity.findViewById(R.id.hkJoinedTeamGridView);
 
                 TeamGridViewAdapter adapter = new TeamGridViewAdapter(context, data);
                 joinedTeamGridView.setAdapter(adapter);

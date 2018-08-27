@@ -30,7 +30,7 @@ public class MyTeamTask extends AsyncTask<Void, Void, List<TeamSimpleVO>> {
         final List<TeamSimpleVO> teamInfo=data;
         if (context instanceof MyTeamActivity) {
             MyTeamActivity myTeamActivity = (MyTeamActivity) context;
-            GridView myTeamGridView = (GridView) myTeamActivity.findViewById(R.id.myTeamGridView);
+            GridView myTeamGridView = myTeamActivity.findViewById(R.id.myTeamGridView);
             Intent intent=myTeamActivity.getIntent();
             TeamGridViewAdapter adapter = new TeamGridViewAdapter(context, data);
             myTeamGridView.setAdapter(adapter);
