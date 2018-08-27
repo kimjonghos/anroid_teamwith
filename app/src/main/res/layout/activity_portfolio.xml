@@ -477,6 +477,7 @@
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_home_black_18dp" />
 
         <ImageButton
@@ -486,6 +487,7 @@
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_search_black_18dp" />
 
         <ImageButton
@@ -495,6 +497,7 @@
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_assignment_black_18dp" />
 
         <ImageButton
@@ -504,6 +507,7 @@
             android:layout_weight="1"
             android:alpha="0.54"
             android:background="#ffffff"
+            android:onClick="bottomOnClick"
             android:src="@drawable/outline_perm_identity_black_18dp" />
     </LinearLayout>
 

@@ -74,4 +74,5 @@ public class PortfolioFragment extends Fragment {
 //        lv.setAdapter(ppl);
         super.onActivityCreated(savedInstanceState);
     }
+
 }
