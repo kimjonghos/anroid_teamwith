@@ -14,7 +14,7 @@ import java.net.URL;
 public class DecideApi {
     public static Boolean recruitDecide(String applicationId, String status) throws Exception {
         String key=applicationId.substring(12);
-        URL url = new URL("http://192.168.30.64:8089/api/application/change/"+key+"");
+        URL url = new URL("http://192.168.30.16:8089/api/application/change/"+key+"");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         JSONObject json=new JSONObject();
