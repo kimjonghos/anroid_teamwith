@@ -67,14 +67,14 @@ public class PologActivity extends BarActivity {
             @Override
             public void onClick(View view) {
                 kbtnProfile.setTextColor(Color.parseColor("red"));
-                kbtnPortfolio.setTextColor(Color.parseColor("black"));
+                kbtnPortfolio.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimaryDark));
                 changeView(0);
             }
         });
         kbtnPortfolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                kbtnProfile.setTextColor(Color.parseColor("black"));
+                kbtnProfile.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimaryDark));
                 kbtnPortfolio.setTextColor(Color.parseColor("red"));
                 changeView(1);
             }
@@ -116,7 +116,7 @@ public class PologActivity extends BarActivity {
             case 1:
                 //포트폴리오 레이아웃줄것
                 Bundle bundle = new Bundle(1);
-                bundle.putString("memberId", memberId);
+                bundle.putString("memberId", targetId);
                 FragmentManager fm = getFragmentManager();
 
                 PortfolioFragment pf = new PortfolioFragment();

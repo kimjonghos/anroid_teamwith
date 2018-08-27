@@ -25,4 +25,5 @@ public class PortfolioActivity extends BarActivity {
     public void bottomOnClick(View v) {
         super.bottomOnClick(v);
     }
+
 }
