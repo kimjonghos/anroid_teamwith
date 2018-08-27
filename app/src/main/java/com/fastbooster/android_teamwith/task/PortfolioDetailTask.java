@@ -58,6 +58,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             MemberVO member = new MemberVO(portfolioSimpleVOS.getJSONObject("member"));
             PortfolioActivity view = (PortfolioActivity) context;
             TextView tvTitle = (TextView) view.findViewById(R.id.k_tv_title);
+            TextView tvTitle2 = (TextView) view.findViewById(R.id.k_tv_title2);
             TextView tvCategory = (TextView) view.findViewById(R.id.k_tv_category);
             TextView tvIntro = (TextView) view.findViewById(R.id.k_tv_intro);
             TextView tvPeopleNum = (TextView) view.findViewById(R.id.k_tv_peopleNum);
@@ -74,6 +75,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
 
 
             tvTitle.setText(ps.getString("portfolioTitle"));
+            tvTitle2.setText(ps.getString("portfolioTitle"));
             tvCategory.setText((String) ApplicationShare.categoryList.get(ps.getString("projectCategoryId")));
             tvIntro.setText(ps.getString("portfolioIntro"));
             tvPeopleNum.setText(ps.getString("portfolioPeopleNum"));
@@ -85,7 +87,9 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             ivPortfolioPic.setTag(ps.get("portfolioPic"));
             ImageTask imgTask = new ImageTask(context);
             imgTask.execute(ivPortfolioPic);
+
             LinearLayout portfolioContent = (LinearLayout) ((PortfolioActivity) context).findViewById(R.id.k_portfolio_content);
+
             if (portfolioSimpleVOS.getJSONArray("portfolioContent") != null) {
                 JSONArray pary = portfolioSimpleVOS.getJSONArray("portfolioContent");
                 for (int i = 0; i < pary.length(); i++) {
@@ -140,7 +144,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
                             }
                         });
                         btn.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.button));
-                        btn.setPadding(30,10,30,10);
+                        btn.setPadding(50,30,50,30);
                         portfolioContent.addView(btn);
 
                         // 텍스트
@@ -219,5 +223,3 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
         return null;
     }
 }
-
-

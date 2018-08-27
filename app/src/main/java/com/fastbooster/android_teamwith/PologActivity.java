@@ -59,20 +59,22 @@ public class PologActivity extends BarActivity {
 
 
         PologTask pt = new PologTask(PologActivity.this, profileView);
+
         pt.execute(targetId);//멤버아이디 전달 받아서 넣기
+
 
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 kbtnProfile.setTextColor(Color.parseColor("red"));
-                kbtnPortfolio.setTextColor(Color.parseColor("black"));
+                kbtnPortfolio.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimaryDark));
                 changeView(0);
             }
         });
         kbtnPortfolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                kbtnProfile.setTextColor(Color.parseColor("black"));
+                kbtnProfile.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimaryDark));
                 kbtnPortfolio.setTextColor(Color.parseColor("red"));
                 changeView(1);
             }
@@ -90,6 +92,7 @@ public class PologActivity extends BarActivity {
             }
         });
         changeView(0);
+        kbtnProfile.setTextColor(Color.parseColor("red"));
     }
 
     private void changeView(int index) {
@@ -113,7 +116,7 @@ public class PologActivity extends BarActivity {
             case 1:
                 //포트폴리오 레이아웃줄것
                 Bundle bundle = new Bundle(1);
-                bundle.putString("memberId", memberId);
+                bundle.putString("memberId", targetId);
                 FragmentManager fm = getFragmentManager();
 
                 PortfolioFragment pf = new PortfolioFragment();

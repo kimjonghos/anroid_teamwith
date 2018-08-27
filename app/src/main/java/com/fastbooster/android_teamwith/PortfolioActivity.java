@@ -1,14 +1,11 @@
 package com.fastbooster.android_teamwith;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.fastbooster.android_teamwith.task.PortfolioDetailTask;
-
-import org.json.JSONObject;
 
 public class PortfolioActivity extends BarActivity {
 
@@ -22,6 +19,11 @@ public class PortfolioActivity extends BarActivity {
         Intent intent=getIntent();
         String portfolioId=intent.getStringExtra("portfolioId");
         pd.execute(portfolioId);
-
     }
+
+    @Override
+    public void bottomOnClick(View v) {
+        super.bottomOnClick(v);
+    }
+
 }

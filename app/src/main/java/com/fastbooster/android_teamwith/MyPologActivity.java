@@ -75,20 +75,20 @@ public class MyPologActivity extends BarActivity {
             @Override
             public void onClick(View view) {
                 kbtnProfile.setTextColor(Color.parseColor("red"));
-                kbtnPortfolio.setTextColor(Color.parseColor("black"));
+                kbtnPortfolio.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimaryDark));
                 changeView(0);
             }
         });
         kbtnPortfolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                kbtnProfile.setTextColor(Color.parseColor("black"));
+                kbtnProfile.setTextColor(getApplicationContext().getResources().getColor(R.color.colorPrimaryDark));
                 kbtnPortfolio.setTextColor(Color.parseColor("red"));
                 changeView(1);
             }
         });
         changeView(0);
-
+        kbtnProfile.setTextColor(Color.parseColor("red"));
     }
 
     private void changeView(int index) {
