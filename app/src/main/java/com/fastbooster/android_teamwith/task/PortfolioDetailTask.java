@@ -12,6 +12,7 @@ import com.fastbooster.android_teamwith.PortfolioActivity;
 import com.fastbooster.android_teamwith.R;
 import com.fastbooster.android_teamwith.adapter.PortfolioContentAdapter;
 import com.fastbooster.android_teamwith.api.PortfolioApi;
+import com.fastbooster.android_teamwith.model.MemberVO;
 import com.fastbooster.android_teamwith.model.PortfolioContentVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 
@@ -43,7 +44,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
         try {
             JSONObject ps = portfolioSimpleVOS.getJSONObject("portfolio");
             String r = ps.getString("portfolioId");
-
+            MemberVO member=new MemberVO(portfolioSimpleVOS.getJSONObject("member"));
             PortfolioActivity view = (PortfolioActivity) context;
             TextView tvTitle = (TextView) view.findViewById(R.id.k_tv_title);
             TextView tvCategory = (TextView) view.findViewById(R.id.k_tv_category);
@@ -55,6 +56,12 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             TextView tvRole = (TextView) view.findViewById(R.id.k_tv_role);
             TextView tvWork = (TextView) view.findViewById(R.id.k_tv_work);
             ImageView ivPortfolioPic = (ImageView) view.findViewById(R.id.k_ivPortfolioPic);
+            //멤버
+            TextView tvmemberName=(TextView)view.findViewById(R.id.k_member_name);
+            TextView tvmemberRole=(TextView)view.findViewById(R.id.k_member_role);
+            ImageView ivMemberPic = (ImageView) view.findViewById(R.id.k_member_pic);
+
+
             tvTitle.setText(ps.getString("portfolioTitle"));
             tvCategory.setText((String) ApplicationShare.categoryList.get(ps.getString("projectCategoryId")));
             tvIntro.setText(ps.getString("portfolioIntro"));
@@ -78,7 +85,16 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
                 GridView g = (GridView) view.findViewById(R.id.k_portfolioContent);
                 g.setAdapter(pca);
             }
-//            task(view,portfolioContenList);
+
+            PortfolioContentAdapter pca = new PortfolioContentAdapter(context, portfolioContenList);
+            GridView g = (GridView) view.findViewById(R.id.k_portfolioContent);
+            g.setAdapter(pca);
+
+            tvmemberName.setText(member.getMemberName());
+            tvmemberRole.setText((String)ApplicationShare.roleList.get(member.getRoleId()));
+            MemberImageTask mit=new MemberImageTask(context);
+            mit.execute(ivMemberPic);
+
 
 
         } catch (Exception e) {
