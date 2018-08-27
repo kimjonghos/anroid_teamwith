@@ -58,6 +58,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             MemberVO member = new MemberVO(portfolioSimpleVOS.getJSONObject("member"));
             PortfolioActivity view = (PortfolioActivity) context;
             TextView tvTitle = (TextView) view.findViewById(R.id.k_tv_title);
+            TextView tvTitle2 = (TextView) view.findViewById(R.id.k_tv_title2);
             TextView tvCategory = (TextView) view.findViewById(R.id.k_tv_category);
             TextView tvIntro = (TextView) view.findViewById(R.id.k_tv_intro);
             TextView tvPeopleNum = (TextView) view.findViewById(R.id.k_tv_peopleNum);
@@ -74,6 +75,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
 
 
             tvTitle.setText(ps.getString("portfolioTitle"));
+            tvTitle2.setText(ps.getString("portfolioTitle"));
             tvCategory.setText((String) ApplicationShare.categoryList.get(ps.getString("projectCategoryId")));
             tvIntro.setText(ps.getString("portfolioIntro"));
             tvPeopleNum.setText(ps.getString("portfolioPeopleNum"));
