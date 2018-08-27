@@ -90,7 +90,7 @@ public class ProfileEditActivity extends BarActivity {
 
                 class ProfileEditThread extends Thread {
                     static final String TAG = "file data...";
-                    private String URL_STR = "http://192.168.30.16:8089/api/member/editInfo/";
+                    private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo/";
                     Uri.Builder params = new Uri.Builder();
 
                     SharedPreferences sp = getSharedPreferences("memberPref", MODE_PRIVATE);

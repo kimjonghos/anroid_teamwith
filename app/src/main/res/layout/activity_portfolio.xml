@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
                     android:layout_weight="1"
-                    android:background="@drawable/border_radius"
+                    android:background="@drawable/round_box_red"
                     android:fontFamily="@font/font_nanum_squre"
                     android:padding="15dp"
                     android:text="모바일 메신저 프로젝트에 대한 포트폴리오 입니다"
@@ -154,6 +154,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#ffffff"
                 android:orientation="vertical">
 
                 <TextView
@@ -169,10 +171,9 @@
 
                 <TextView
                     android:id="@+id/k_tv_category"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/round_box_blue"
                     android:fontFamily="@font/font_nanum_squre"
                     android:text="커뮤니티&amp;소셜&amp;미디어"
                     android:textColor="@color/colorPrimaryDark"
