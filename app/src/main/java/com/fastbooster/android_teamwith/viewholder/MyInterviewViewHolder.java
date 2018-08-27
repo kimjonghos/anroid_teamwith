@@ -7,4 +7,5 @@ public class MyInterviewViewHolder {
     public TextView question;
     public TextView answer;
     public LinearLayout interviewLayout;
+    public TextView answerLogo;
 }
