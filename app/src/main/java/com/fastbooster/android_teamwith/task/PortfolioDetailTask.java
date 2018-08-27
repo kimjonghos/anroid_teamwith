@@ -42,7 +42,6 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
 
         try {
             JSONObject ps = portfolioSimpleVOS.getJSONObject("portfolio");
-            JSONArray pary = portfolioSimpleVOS.getJSONArray("portfolioContent");
             String r = ps.getString("portfolioId");
 
             PortfolioActivity view = (PortfolioActivity) context;
@@ -68,15 +67,17 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             ivPortfolioPic.setTag(ps.get("portfolioPic"));
             ImageTask imgTask = new ImageTask(context);
             imgTask.execute(ivPortfolioPic);
-            List<PortfolioContentVO> portfolioContenList = new ArrayList<>();
-            for (int i = 0; i < pary.length(); i++) {
-                JSONObject j = pary.getJSONObject(i);
-                portfolioContenList.add(new PortfolioContentVO(j));
-
+            if (portfolioSimpleVOS.getJSONArray("portfolioContent") != null) {
+                JSONArray pary = portfolioSimpleVOS.getJSONArray("portfolioContent");
+                List<PortfolioContentVO> portfolioContenList = new ArrayList<>();
+                for (int i = 0; i < pary.length(); i++) {
+                    JSONObject j = pary.getJSONObject(i);
+                    portfolioContenList.add(new PortfolioContentVO(j));
+                }
+                PortfolioContentAdapter pca = new PortfolioContentAdapter(context, portfolioContenList);
+                GridView g = (GridView) view.findViewById(R.id.k_portfolioContent);
+                g.setAdapter(pca);
             }
-            PortfolioContentAdapter pca = new PortfolioContentAdapter(context, portfolioContenList);
-            GridView g = (GridView) view.findViewById(R.id.k_portfolioContent);
-            g.setAdapter(pca);
 //            task(view,portfolioContenList);
 
 

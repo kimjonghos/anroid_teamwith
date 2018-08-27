@@ -16,7 +16,7 @@ public class ApplyApi {
     public static Boolean applyTeam(String teamId, List<String> interviewAnswer, List<String> interviewQuestionId, String freewriting,String roleId) throws Exception {
 //        String key=teamId.substring(7);
         String key="1";
-        URL url = new URL("http://192.168.30.64:8089/api/application/apply/"+key);
+        URL url = new URL("http://192.168.30.16:8089/api/application/apply/"+key);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         for(String a : interviewAnswer){
             Log.d("@@@@@@@@@@@@@@@",a);
