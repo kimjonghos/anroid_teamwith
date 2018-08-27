@@ -92,6 +92,7 @@ public class PologActivity extends BarActivity {
             }
         });
         changeView(0);
+        kbtnProfile.setTextColor(Color.parseColor("red"));
     }
 
     private void changeView(int index) {
