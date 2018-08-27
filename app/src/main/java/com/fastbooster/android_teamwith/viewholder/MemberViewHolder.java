@@ -10,5 +10,4 @@ public class MemberViewHolder {
     public TextView memberRole;
     public ImageView memberPic;
     public TextView praiseCnt;
-
 }

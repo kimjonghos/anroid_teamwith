@@ -54,7 +54,7 @@ public class PologActivity extends BarActivity {
         frame = (FrameLayout) findViewById(R.id.k_fl_portfolioList);
         inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         profileView = inflater.inflate(R.layout.profile_layout, frame, false);
-        frame.addView(profileView);
+
 
 
 

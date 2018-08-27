@@ -22,8 +22,8 @@ public class InterviewAdapter extends BaseAdapter {
     public InterviewAdapter(Context context, List<InterviewVO> data) {
         this.context = context;
         this.data = data;
-        if(data.size()==0){
-           InterviewVO vo = new InterviewVO();
+        if (data.size() == 0) {
+            InterviewVO vo = new InterviewVO();
             vo.setInterviewQuestionContent("면접 내용이 없습니다.");
             data.add(vo);
         }
@@ -57,11 +57,17 @@ public class InterviewAdapter extends BaseAdapter {
             vh = new MyInterviewViewHolder();
             vh.question = view.findViewById(R.id.question);
             vh.answer = view.findViewById(R.id.answer);
+            vh.interviewLayout = view.findViewById(R.id.interviewLayout);
 
             view.setTag(vh);
         }
-        vh.question.setText(data.get(i).getInterviewQuestionContent());
-        vh.answer.setText(data.get(i).getInterviewAnswerContent());
+        if (data.get(i).getInterviewQuestionContent().equals("면접 내용이 없습니다.")) {
+            vh.interviewLayout.setVisibility(View.GONE);
+        } else {
+            vh.question.setText(data.get(i).getInterviewQuestionContent());
+            vh.answer.setText(data.get(i).getInterviewAnswerContent());
+        }
+
 
         return view;
     }

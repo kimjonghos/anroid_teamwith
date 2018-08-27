@@ -64,10 +64,10 @@ public class ApplicantTask extends AsyncTask<Void,Void,JSONObject> {
 
     @Override
     protected JSONObject doInBackground(Void... voids) {
-//        String teamNum=teamId.substring(7);
+        String teamNum=teamId.substring(5);
         JSONObject obj=null;
         try {
-            obj= ApiUtil.getMyJsonObject(context,"/teamInfo/applicant/"+1);
+            obj= ApiUtil.getMyJsonObject(context,"/teamInfo/applicant/"+teamNum);
         }
         catch(Exception e){
             e.printStackTrace();

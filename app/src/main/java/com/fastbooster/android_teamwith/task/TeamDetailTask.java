@@ -122,7 +122,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
                         public void onClick(View view) {
                             TeamCloseTask teamCloseTask = new TeamCloseTask(context);
                             teamCloseTask.execute(teamId);
-                            Intent intent=((TeamLeaderActivity) context).getIntent();
+                            Intent intent = ((TeamLeaderActivity) context).getIntent();
                             ((TeamLeaderActivity) context).finish();
                             ((TeamLeaderActivity) context).startActivity(intent);
                         }
@@ -133,7 +133,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
                 btnApplicant.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=((TeamLeaderActivity) context).getIntent();
+                        Intent intent = ((TeamLeaderActivity) context).getIntent();
                         intent.setClass(context, ApplicantActivity.class);
                         context.startActivity(intent);
                     }
@@ -148,7 +148,14 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             TextView tvRegion = view.findViewById(R.id.hktvRegion);
             tvRegion.setText(ApplicationShare.regionList.get(teamInfo.getRegionId()).toString());
             TextView tvTeamEndDate = view.findViewById(R.id.hktvTeamEndDate);
-            tvTeamEndDate.setText("D" + dDay);//dDay 모집 마감 지난거 처리할 것
+            if(dDay<0||teamInfo.getTeamStatus().equals("1")){
+                tvTeamEndDate.setText("모집 마감");
+            }
+            else if(dDay==0){
+                tvTeamEndDate.setText("D-day");
+            }else{
+                tvTeamEndDate.setText("D-" + dDay);//dDay 모집 마감 지난거 처리할 것
+            }
             TextView tvLeaderName = view.findViewById(R.id.hktvLeaderName);
             tvLeaderName.setText(teamInfo.getMemberName());
             TextView tvLeaderRole = view.findViewById(R.id.hktvLeaderRole);
@@ -157,8 +164,13 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             tvTeamSummary.setText(teamInfo.getTeamSummary());
             TextView tvTeamContent = view.findViewById(R.id.hktvTeamContent);
             tvTeamContent.setText(teamInfo.getTeamContent());
-            TextView tvTeamContest = view.findViewById(R.id.hktvTeamContest);
-            tvTeamContest.setText(teamInfo.getTeamContestName());
+            if (teamInfo.getTeamContestName() == null || teamInfo.getTeamContestName().equals("null")) {
+                view.findViewById(R.id.contestLayout).setVisibility(View.GONE);
+            } else {
+                TextView tvTeamContest = view.findViewById(R.id.hktvTeamContest);
+                tvTeamContest.setText(teamInfo.getTeamContestName());
+            }
+
             ListView recruitListView = view.findViewById(R.id.hkRecruitListView);
             ImageView ivTeamPic = view.findViewById(R.id.hkivTeamPic);
             ivTeamPic.setTag(teamInfo.getTeamPic());
@@ -169,7 +181,7 @@ public class TeamDetailTask extends AsyncTask<Void, Void, Object[]> {
             MemberImageTask leaderPicImageTask = new MemberImageTask(context);
             leaderPicImageTask.execute(ivLeaderPic);
 
-            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList);
+            TeamDetailRecruitAdapter recruitAdapter = new TeamDetailRecruitAdapter(context, teamId, recruitList, interviewList, requireSkillList,dDay,teamInfo.getTeamStatus());
             recruitListView.setAdapter(recruitAdapter);
             setListViewHeightBasedOnChildren(recruitListView);
             ListView faqListView = view.findViewById(R.id.hkFaqListView);

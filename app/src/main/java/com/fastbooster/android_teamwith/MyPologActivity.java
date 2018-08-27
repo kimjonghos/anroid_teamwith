@@ -70,15 +70,7 @@ public class MyPologActivity extends BarActivity {
         PologTask pt = new PologTask(MyPologActivity.this, profileView);
         pt.execute(memberId);//멤버아이디 전달 받아서 넣기
 
-/*
-        TextView back = findViewById(R.id.backTv);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-*/
+
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
