@@ -32,7 +32,7 @@ public class LogoutTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         SharedPreferences sp = context.getSharedPreferences("memberPref", Context.MODE_PRIVATE);
-        String urlStr = "http://192.168.30.64:8089/api/logout";
+        String urlStr = "http://192.168.30.16:8089/api/logout";
         try {
             URL url = new URL(urlStr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
