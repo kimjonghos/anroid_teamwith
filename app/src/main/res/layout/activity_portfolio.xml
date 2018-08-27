@@ -12,43 +12,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.01"
+            android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/font_bmjua"
             android:onClick="back"
             android:text="   &lt;"
             android:textAlignment="viewStart"
-            android:textSize="25dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/k_tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="3"
+            android:fontFamily="@font/font_bmjua"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:text="연결 고리"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="25dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/ytv_page_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" " />
+            android:text=" "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,25 +69,13 @@
                 android:id="@+id/k_ivPortfolioPic"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:layout_marginTop="30dp"
-                android:paddingBottom="50dp"
-                android:paddingTop="0dp"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/portfoliodetail" />
-
-            <TextView
-                android:id="@+id/textView73"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/black"
-                android:text=" "
-                android:textSize="0.1dp" />
 
             <TextView
                 android:id="@+id/textView68"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="40dp"
                 android:text="카테고리"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -86,8 +84,6 @@
                 android:id="@+id/k_tv_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="커뮤니티&amp;소셜&amp;미디어"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -96,8 +92,6 @@
                 android:id="@+id/textView59"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:text="소개"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -106,8 +100,6 @@
                 android:id="@+id/k_tv_intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="모바일 메신저 프로젝트에 대한 포트폴리오 입니다"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -116,8 +108,6 @@
                 android:id="@+id/textView39"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:text="팀이름"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -126,8 +116,6 @@
                 android:id="@+id/k_tv_teamName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="Fast Booster"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -136,8 +124,6 @@
                 android:id="@+id/textView61"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:text="참여인원"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -146,8 +132,6 @@
                 android:id="@+id/k_tv_peopleNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="4 명"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -156,8 +140,6 @@
                 android:id="@+id/textView70"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:text="개발기간"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -166,8 +148,6 @@
                 android:id="@+id/k_tv_startDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="시작 2018-03-21"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -176,8 +156,6 @@
                 android:id="@+id/k_tv_endDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="종료 2018-09-01"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -186,8 +164,6 @@
                 android:id="@+id/textView66"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:text="역할"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -196,8 +172,6 @@
                 android:id="@+id/k_tv_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="메시지 모듈 담당"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
@@ -206,8 +180,6 @@
                 android:id="@+id/textView63"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:text="업무 내용"
                 android:textColor="@android:color/black"
                 android:textSize="25dp" />
@@ -216,21 +188,9 @@
                 android:id="@+id/k_tv_work"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:text="회원간 메시지 전송에 있어서 이미지, 동영상,Zip 파일 전송 구현"
                 android:textColor="@android:color/black"
                 android:textSize="22dp" />
-
-            <TextView
-                android:id="@+id/textView74"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
-                android:layout_marginTop="30dp"
-                android:background="@android:color/black"
-                android:text=" "
-                android:textSize="0.1dp" />
 
             <GridView
                 android:id="@+id/k_portfolioContent"
@@ -239,5 +199,51 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_home_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_search_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_assignment_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:alpha="0.54"
+            android:background="#ffffff"
+            android:src="@drawable/outline_perm_identity_black_18dp" />
+    </LinearLayout>
 
 </LinearLayout>
