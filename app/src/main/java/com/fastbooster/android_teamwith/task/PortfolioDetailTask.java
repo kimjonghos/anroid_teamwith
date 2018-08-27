@@ -74,9 +74,9 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
             ivPortfolioPic.setTag(ps.get("portfolioPic"));
             ImageTask imgTask = new ImageTask(context);
             imgTask.execute(ivPortfolioPic);
+            List<PortfolioContentVO> portfolioContenList = new ArrayList<>();
             if (portfolioSimpleVOS.getJSONArray("portfolioContent") != null) {
                 JSONArray pary = portfolioSimpleVOS.getJSONArray("portfolioContent");
-                List<PortfolioContentVO> portfolioContenList = new ArrayList<>();
                 for (int i = 0; i < pary.length(); i++) {
                     JSONObject j = pary.getJSONObject(i);
                     portfolioContenList.add(new PortfolioContentVO(j));
