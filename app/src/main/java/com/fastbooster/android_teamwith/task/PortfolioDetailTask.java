@@ -140,7 +140,7 @@ public class PortfolioDetailTask extends AsyncTask<String, Void, JSONObject> {
                             }
                         });
                         btn.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.button));
-                        btn.setPadding(30,10,30,10);
+                        btn.setPadding(50,30,50,30);
                         portfolioContent.addView(btn);
 
                         // 텍스트
