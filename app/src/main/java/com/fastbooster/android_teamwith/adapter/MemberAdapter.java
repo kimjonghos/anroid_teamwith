@@ -76,7 +76,6 @@ public class MemberAdapter extends BaseAdapter {
         }
 
         if (flag != 0) {
-
             vh.memberRole.setText((String) ApplicationShare.roleList.get(data.get(i).getRoleId()));
             vh.praiseCnt.setText("칭찬 " + data.get(i).getTotalPraiseCnt() + "회");
         } else {
