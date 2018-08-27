@@ -59,7 +59,7 @@ public class PologActivity extends BarActivity {
 
 
         PologTask pt = new PologTask(PologActivity.this, profileView);
-        pt.execute("kim");//멤버아이디 전달 받아서 넣기
+        pt.execute(targetId);//멤버아이디 전달 받아서 넣기
 
         kbtnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
