@@ -16,7 +16,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,6 +37,7 @@ import java.net.URL;
 public class ProfileEditActivity extends BarActivity {
     public static final int MEMBER_INTRO = 1;
     private final int GALLERY_CODE = 1112;
+    String savedPath;//사진 파일 저장 경로
 
     String[] roleKeyList; //역할의 키 값 목록
     String[] regionKeyList; //지역의 키값 목록
@@ -70,16 +70,16 @@ public class ProfileEditActivity extends BarActivity {
         roleSelected = findViewById(R.id.memberRoleTv);
         regionSelected = findViewById(R.id.memberRegionTv);
         profileEdit = findViewById(R.id.jprofileEditBtn);
-       
+
         MyProfileTask mptask = new MyProfileTask(ProfileEditActivity.this);
 
         mptask.execute();
 
-        memberPic.setOnTouchListener(new View.OnTouchListener() {
+        memberPic.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
+                Log.v("camera touch", "touched");
                 selectGallery();
-                return false;
             }
         });
 
@@ -108,20 +108,21 @@ public class ProfileEditActivity extends BarActivity {
 
                 class ProfileEditThread extends Thread {
                     static final String TAG = "file data...";
-                    private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo/";
+                    private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo";
                     Uri.Builder params = new Uri.Builder();
 
                     SharedPreferences sp = getSharedPreferences("memberPref", MODE_PRIVATE);
 
                     public void run() {
                         try {
+                            params.appendQueryParameter("memberPic", savedPath);
                             params.appendQueryParameter("roleId", roleSelectedKey);
                             params.appendQueryParameter("regionId1", regionSelectedKey[0]);
                             params.appendQueryParameter("regionId2", regionSelectedKey[1]);
                             params.appendQueryParameter("memberIntro", memberIntro);
 
                             //shared preference에서 내 아이디 빼서 요청 주소 뒤에 붙임
-                            URL url = new URL(URL_STR + sp.getString("memberId", "jo") + params.toString());
+                            URL url = new URL(URL_STR + params.toString());
 
 
                             Log.v(TAG, url.toString());
@@ -348,7 +349,7 @@ public class ProfileEditActivity extends BarActivity {
                         super.run();
                         try {
                             String sessionId = getSharedPreferences("memberPref", MODE_PRIVATE).getString("sessionId", "");
-                            ApiUtil.sendImage(sessionId, bitmap);
+                            savedPath = ApiUtil.sendImage(sessionId, bitmap);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -425,6 +426,7 @@ public class ProfileEditActivity extends BarActivity {
         }
         return resizeBitmap;
     }
+
     public class MyProfileTask extends AsyncTask<Void, Void, MemberVO> {
 
         static final String TAG = "member data...";
@@ -502,6 +504,12 @@ public class ProfileEditActivity extends BarActivity {
 
     }
 
+    @Override
+    public void back(View v) {
+        super.back(v);
+        Intent in = new Intent(this, MyPologActivity.class);
+        startActivity(in);
+    }
 }
 
 

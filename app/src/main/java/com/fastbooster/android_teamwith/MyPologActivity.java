@@ -46,6 +46,7 @@ public class MyPologActivity extends BarActivity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(MyPologActivity.this, ProfileEditActivity.class);
+                finish();
                 startActivity(in);
             }
         });
