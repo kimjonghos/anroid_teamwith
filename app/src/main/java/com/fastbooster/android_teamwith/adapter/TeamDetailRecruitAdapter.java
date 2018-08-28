@@ -70,18 +70,18 @@ public class TeamDetailRecruitAdapter extends BaseAdapter {
         if (itemLayout == null) {
             itemLayout = layoutInflater.inflate(R.layout.recruit_layout, null);
             viewHolder = new RecruitViewHolder();
-            viewHolder.hktvRecruitRole = (TextView) itemLayout.findViewById(R.id.hktvRecruitRole);
-            viewHolder.hktvRecruitPeopleNum = (TextView) itemLayout.findViewById(R.id.hktvRecruitPeopleNum);
-            viewHolder.hktvRecruitExplain = (TextView) itemLayout.findViewById(R.id.hktvRecruitExplain);
+            viewHolder.hktvRecruitRole =  itemLayout.findViewById(R.id.hktvRecruitRole);
+            viewHolder.hktvRecruitPeopleNum =  itemLayout.findViewById(R.id.hktvRecruitPeopleNum);
+            viewHolder.hktvRecruitExplain =  itemLayout.findViewById(R.id.hktvRecruitExplain);
             viewHolder.hktvRecruitExplainConst = itemLayout.findViewById(R.id.hktvRecruitExplainConst);
-            viewHolder.hktvRecruitPreference = (TextView) itemLayout.findViewById(R.id.hktvRecruitPreference);
+            viewHolder.hktvRecruitPreference =  itemLayout.findViewById(R.id.hktvRecruitPreference);
             viewHolder.hktvRecruitpreferenceConst = itemLayout.findViewById(R.id.hktvRecruitPreferenceConst);
-            viewHolder.hktvRecruitSkill = (TextView) itemLayout.findViewById(R.id.hktvRequireSkill);
+            viewHolder.hktvRecruitSkill =  itemLayout.findViewById(R.id.hktvRequireSkill);
             viewHolder.hktvRequireSkillConst = itemLayout.findViewById(R.id.hktvRequireSkillConst);
             viewHolder.recruitExplainRow = itemLayout.findViewById(R.id.recruitExplainRow);
             viewHolder.recruitPreferenceRow = itemLayout.findViewById(R.id.recruitPreferenceRow);
             viewHolder.requireSkillRow = itemLayout.findViewById(R.id.requireSkillRow);
-            viewHolder.applyBtn = (Button) itemLayout.findViewById(R.id.applyBtn);
+            viewHolder.applyBtn =  itemLayout.findViewById(R.id.applyBtn);
             itemLayout.setTag(viewHolder);
         } else {
             viewHolder = (RecruitViewHolder) itemLayout.getTag();
