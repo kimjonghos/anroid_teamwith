@@ -53,10 +53,17 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
         android:scaleType="centerCrop"
         android:src="@drawable/member" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="top|center"
+        android:text="프로필 사진 변경" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
