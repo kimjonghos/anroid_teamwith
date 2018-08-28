@@ -26,6 +26,7 @@ import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.MemberVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.task.MemberImageTask;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -472,7 +473,7 @@ public class ProfileEditActivity extends BarActivity {
                 ProfileEditActivity view = (ProfileEditActivity) context;
 
                 //화면에 보여줄 정보
-                ImageTask imgTask = new ImageTask(context);
+                MemberImageTask imgTask = new MemberImageTask(context);
                 memberPic.setTag(memberData.getMemberPic());
                 imgTask.execute(memberPic);
 
