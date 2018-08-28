@@ -56,11 +56,11 @@ public class TeamGridViewAdapter extends BaseAdapter {
         if(itemLayout==null){
             itemLayout=layoutInflater.inflate(R.layout.team_info_layout,null);
             viewHolder=new TeamLayoutViewHolder();
-            viewHolder.hkTeamLayoutProjectName=(TextView)itemLayout.findViewById(R.id.hkTeamLayoutProjectName);
-            viewHolder.hktvTeamLayoutTeamName=(TextView)itemLayout.findViewById(R.id.hktvTeamLayoutTeamName);
-            viewHolder.hktvTeamLayoutProejctCategory=(TextView)itemLayout.findViewById(R.id.hktvTeamLayoutProejctCategory);
-            viewHolder.hkivTeamLayoutTeamPic=(ImageView) itemLayout.findViewById(R.id.hkivTeamLayoutTeamPic);
-            viewHolder.hkTeamInfoLayOut=(LinearLayout) itemLayout.findViewById(R.id.hkTeamInfoLayOut);
+            viewHolder.hkTeamLayoutProjectName=itemLayout.findViewById(R.id.hkTeamLayoutProjectName);
+            viewHolder.hktvTeamLayoutTeamName=itemLayout.findViewById(R.id.hktvTeamLayoutTeamName);
+            viewHolder.hktvTeamLayoutProejctCategory=itemLayout.findViewById(R.id.hktvTeamLayoutProejctCategory);
+            viewHolder.hkivTeamLayoutTeamPic= itemLayout.findViewById(R.id.hkivTeamLayoutTeamPic);
+            viewHolder.hkTeamInfoLayOut= itemLayout.findViewById(R.id.hkTeamInfoLayOut);
             viewHolder.hkTeamInfoLayOut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -80,16 +80,11 @@ public class TeamGridViewAdapter extends BaseAdapter {
                     context.startActivity(intent);
                 }
             });
-
             itemLayout.setTag(viewHolder);
         }
         else{
             viewHolder=(TeamLayoutViewHolder)itemLayout.getTag();
-
-
-
         }
-
         viewHolder.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
         viewHolder.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
         viewHolder.hktvTeamLayoutProejctCategory.setText(ApplicationShare.categoryList.get(data.get(i).getProjectCategoryId()));

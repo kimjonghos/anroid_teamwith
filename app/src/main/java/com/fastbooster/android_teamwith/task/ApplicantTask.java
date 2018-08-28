@@ -52,7 +52,7 @@ public class ApplicantTask extends AsyncTask<Void,Void,JSONObject> {
             }
             if(context instanceof ApplicantActivity){
                 ApplicantActivity view = (ApplicantActivity) context;
-                ListView listView=(ListView)view.findViewById(R.id.applicantListView);
+                ListView listView=view.findViewById(R.id.applicantListView);
                 ApplicantAdapter adapter=new ApplicantAdapter(context,applicantVOList,interviewList);
                 listView.setAdapter(adapter);
             }
