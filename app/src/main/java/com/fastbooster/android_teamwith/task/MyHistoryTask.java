@@ -51,7 +51,13 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
 
             MyHistoryActivity myHistoryActivity = (MyHistoryActivity) context;
 
-            switch (myTeamList.length()) {
+            int cnt = myTeamList.length();
+
+            if(cnt>=2){
+                cnt=2;
+            }
+
+            switch (cnt) {
                 case 0:
                     break;
                 case 2:
@@ -89,7 +95,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                             else{
                                 intent=new Intent(context, TeamActivity.class);
                             }
-                            ((Activity)context).startActivity(intent);
+                            context.startActivity(intent);
 
                         }
                     });
@@ -106,7 +112,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                     imageTask1.execute(yiv_my_team_pic_1);
                     ytv_my_project_name_1.setText(myTeam1.getString("teamProjectName").toString());
                     ytv_my_team_name_1.setText(myTeam1.getString("teamName").toString());
-                    ytv_my_team_project_1.setText((String) ApplicationShare.categoryList.get(myTeam1.getString("projectCategoryId").toString()));
+                    ytv_my_team_project_1.setText(ApplicationShare.categoryList.get(myTeam1.getString("projectCategoryId").toString()));
                     myTeamLayout1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -118,7 +124,6 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                             try {
                                 teamId = myTeam1.getString("teamId");
                                 teamLeader=myTeam1.getString("memberId");
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -129,7 +134,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                             else{
                                 intent=new Intent(context, TeamActivity.class);
                             }
-                            ((Activity)context).startActivity(intent);
+                            context.startActivity(intent);
 
                         }
                     });
@@ -148,12 +153,14 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                 imageTask3.execute(yiv_joined_team_pic_1);
                 ytv_joined_project_name_1.setText(joinedTeam1.getString("teamProjectName").toString());
                 ytv_joined_team_name_1.setText(joinedTeam1.getString("teamName").toString());
-                ytv_joined_team_project_1.setText((String) ApplicationShare.categoryList.get(joinedTeam1.getString("projectCategoryId").toString()));
+                ytv_joined_team_project_1.setText(ApplicationShare.categoryList.get(joinedTeam1.getString("projectCategoryId").toString()));
                 joinedTeamLayout1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = ((Activity) context).getIntent();
+//                        Intent intent = ((Activity) context).getIntent();
+                        Intent intent=new Intent();
                         String teamId = null;
+
                         String teamLeader=null;
                         SharedPreferences sp = context.getSharedPreferences("memberPref", Context.MODE_PRIVATE);
                         String memberId = sp.getString("memberId", null);
@@ -168,13 +175,12 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                             intent.setClass(context, TeamLeaderActivity.class);
                         }
                         else{
-                            intent=new Intent(context, TeamActivity.class);
+                            intent.setClass(context, TeamActivity.class);
                         }
-                        ((Activity)context).startActivity(intent);
-
+                        context.startActivity(intent);
                     }
                 });
-            } else if (myJoinedTeam.length() == 2) {
+            } else if (myJoinedTeam.length() >= 2) {
                 final JSONObject joinedTeam1 = myJoinedTeam.getJSONObject(0);
                 LinearLayout joinedTeamLayout1=myHistoryActivity.findViewById(R.id.jTeam1Layout);
                 TextView ytv_joined_project_name_1 = myHistoryActivity.findViewById(R.id.ytv_joined_team_project_name_1);
@@ -186,7 +192,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                 imageTask3.execute(yiv_joined_team_pic_1);
                 ytv_joined_project_name_1.setText(joinedTeam1.getString("teamProjectName").toString());
                 ytv_joined_team_name_1.setText(joinedTeam1.getString("teamName").toString());
-                ytv_joined_team_project_1.setText((String) ApplicationShare.categoryList.get(joinedTeam1.getString("projectCategoryId").toString()));
+                ytv_joined_team_project_1.setText(ApplicationShare.categoryList.get(joinedTeam1.getString("projectCategoryId").toString()));
                 joinedTeamLayout1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -208,7 +214,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                         else{
                             intent=new Intent(context, TeamActivity.class);
                         }
-                        ((Activity)context).startActivity(intent);
+                        context.startActivity(intent);
 
                     }
                 });
@@ -224,7 +230,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                 imageTask4.execute(yiv_joined_team_pic_2);
                 ytv_joined_project_name_2.setText(joinedTeam2.getString("teamProjectName").toString());
                 ytv_joined_team_name_2.setText(joinedTeam2.getString("teamName").toString());
-                ytv_joined_team_project_2.setText((String) ApplicationShare.categoryList.get(joinedTeam2.getString("projectCategoryId").toString()));
+                ytv_joined_team_project_2.setText(ApplicationShare.categoryList.get(joinedTeam2.getString("projectCategoryId").toString()));
                 joinedTeamLayout2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -246,7 +252,7 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                         else{
                             intent=new Intent(context, TeamActivity.class);
                         }
-                        ((Activity)context).startActivity(intent);
+                        context.startActivity(intent);
                     }
                 });
             }
@@ -257,24 +263,24 @@ public class MyHistoryTask extends AsyncTask<Void, Void, JSONObject> {
                 TextView ytv_my_application_role_1 = myHistoryActivity.findViewById(R.id.ytv_my_application_role_1);
                 TextView ytv_my_application_status_1 = myHistoryActivity.findViewById(R.id.ytv_my_application_status_1);
                 ytv_my_application_team_name_1.setText(myApplication1.getString("teamName").toString());
-                ytv_my_application_role_1.setText((String) ApplicationShare.roleList.get(myApplication1.getString("roleId").toString()));
-                ytv_my_application_status_1.setText((String) ApplicationShare.applicationStatus.get(myApplication1.getString("applicationStatus").toString()));
+                ytv_my_application_role_1.setText(ApplicationShare.roleList.get(myApplication1.getString("roleId").toString()));
+                ytv_my_application_status_1.setText(ApplicationShare.applicationStatus.get(myApplication1.getString("applicationStatus").toString()));
             } else if (myApplicationList.length() == 2) {
                 JSONObject myApplication1 = myApplicationList.getJSONObject(0);
                 TextView ytv_my_application_team_name_1 = myHistoryActivity.findViewById(R.id.ytv_my_application_team_name_1);
                 TextView ytv_my_application_role_1 = myHistoryActivity.findViewById(R.id.ytv_my_application_role_1);
                 TextView ytv_my_application_status_1 = myHistoryActivity.findViewById(R.id.ytv_my_application_status_1);
                 ytv_my_application_team_name_1.setText(myApplication1.getString("teamName").toString());
-                ytv_my_application_role_1.setText((String) ApplicationShare.roleList.get(myApplication1.getString("roleId").toString()));
-                ytv_my_application_status_1.setText((String) ApplicationShare.applicationStatus.get(myApplication1.getString("applicationStatus").toString()));
+                ytv_my_application_role_1.setText(ApplicationShare.roleList.get(myApplication1.getString("roleId").toString()));
+                ytv_my_application_status_1.setText(ApplicationShare.applicationStatus.get(myApplication1.getString("applicationStatus").toString()));
 
                 JSONObject myApplication2 = myApplicationList.getJSONObject(1);
                 TextView ytv_my_application_team_name_2 = myHistoryActivity.findViewById(R.id.ytv_my_application_team_name_2);
                 TextView ytv_my_application_role_2 = myHistoryActivity.findViewById(R.id.ytv_my_application_role_2);
                 TextView ytv_my_application_status_2 = myHistoryActivity.findViewById(R.id.ytv_my_application_status_2);
                 ytv_my_application_team_name_2.setText(myApplication2.getString("teamName").toString());
-                ytv_my_application_role_2.setText((String) ApplicationShare.roleList.get(myApplication2.getString("roleId").toString()));
-                ytv_my_application_status_2.setText((String) ApplicationShare.applicationStatus.get(myApplication2.getString("applicationStatus").toString()));
+                ytv_my_application_role_2.setText(ApplicationShare.roleList.get(myApplication2.getString("roleId").toString()));
+                ytv_my_application_status_2.setText(ApplicationShare.applicationStatus.get(myApplication2.getString("applicationStatus").toString()));
             }
 
         } catch (Exception e) {

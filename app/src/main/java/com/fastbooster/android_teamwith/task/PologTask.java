@@ -3,7 +3,6 @@ package com.fastbooster.android_teamwith.task;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,7 +39,6 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
         this.context = context;
         this.profileView = profileView;
         inflater = LayoutInflater.from(context);
-
     }
 
     @Override
@@ -76,24 +74,26 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
                 view = (PologActivity) context;
             }
 
-            TextView pologTitle = (TextView) view.findViewById(R.id.k_polog_title);
-            TextView pologMemberName = (TextView) view.findViewById(R.id.k_polog_memberName);
-            TextView pologRole = (TextView) view.findViewById(R.id.k_polog_role);
-            TextView pologRegion1 = (TextView) view.findViewById(R.id.k_polog_region1);
-            TextView pologRegion2 = (TextView) view.findViewById(R.id.k_polog_region2);
-            ImageView memberPic = (ImageView) view.findViewById(R.id.k_polog_pic);
+            TextView pologTitle = view.findViewById(R.id.k_polog_title);
+            TextView pologMemberName = view.findViewById(R.id.k_polog_memberName);
+            TextView pologRole = view.findViewById(R.id.k_polog_role);
+            TextView pologRegion1 = view.findViewById(R.id.k_polog_region1);
+            TextView pologRegion2 = view.findViewById(R.id.k_polog_region2);
+            ImageView memberPic = view.findViewById(R.id.k_polog_pic);
             pologTitle.setText(polog.getPologTitle());
             pologMemberName.setText(member.getMemberName());
 
-            pologRole.setText((String) ApplicationShare.roleList.get(member.getRoleId()));
-            pologRegion1.setText((String) ApplicationShare.regionList.get(member.getRegionId1()));
-            pologRegion2.setText((String) ApplicationShare.regionList.get(member.getRegionId2()));
+            pologRole.setText(ApplicationShare.roleList.get(member.getRoleId()));
+            pologRegion1.setText(ApplicationShare.regionList.get(member.getRegionId1()));
+            pologRegion2.setText(ApplicationShare.regionList.get(member.getRegionId2()));
             memberPic.setTag(member.getMemberPic());
             MemberImageTask imgTask = new MemberImageTask(context);
             imgTask.execute(memberPic);
 
             TextView pologEmail = profileView.findViewById(R.id.k_polog_email);
             TextView pologIntro = profileView.findViewById(R.id.k_polog_Intro);
+            TextView memberPhone = profileView.findViewById(R.id.memberPhone);
+            TextView memberBirth = profileView.findViewById(R.id.memberBirth);
             TextView pologCategory = profileView.findViewById(R.id.k_polog_category);
             TextView pologSkill = profileView.findViewById(R.id.k_polog_skill);
             TextView pologPraise1 = profileView.findViewById(R.id.k_polog_praise1);
@@ -111,6 +111,8 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
             SeekBar tendency5 = profileView.findViewById(R.id.k_polog_tendency5);
             pologEmail.setText("Email " + member.getMemberEmail());
             pologIntro.setText("Intro " + member.getMemberIntro());
+            memberPhone.setText("Phone " + member.getMemberPhone());
+            memberBirth.setText("Birth " + member.getMemberBirth());
 
             String[] categoryId = category.getProjectCategoryId();
             pologCategory.setText("");

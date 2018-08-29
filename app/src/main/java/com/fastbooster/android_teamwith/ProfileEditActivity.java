@@ -6,9 +6,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,14 +26,20 @@ import com.fastbooster.android_teamwith.api.ApiUtil;
 import com.fastbooster.android_teamwith.model.MemberVO;
 import com.fastbooster.android_teamwith.share.ApplicationShare;
 import com.fastbooster.android_teamwith.task.ImageTask;
+import com.fastbooster.android_teamwith.task.MemberImageTask;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ProfileEditActivity extends BarActivity {
     public static final int MEMBER_INTRO = 1;
+    private final int GALLERY_CODE = 1112;
+    String savedPath;//사진 파일 저장 경로
+
     String[] roleKeyList; //역할의 키 값 목록
     String[] regionKeyList; //지역의 키값 목록
 
@@ -59,11 +71,18 @@ public class ProfileEditActivity extends BarActivity {
         roleSelected = findViewById(R.id.memberRoleTv);
         regionSelected = findViewById(R.id.memberRegionTv);
         profileEdit = findViewById(R.id.jprofileEditBtn);
-       
+
         MyProfileTask mptask = new MyProfileTask(ProfileEditActivity.this);
 
         mptask.execute();
 
+        memberPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("camera touch", "touched");
+                selectGallery();
+            }
+        });
 
         //저장하기 버튼 눌렀을 때
         profileEdit.setOnClickListener(new View.OnClickListener() {
@@ -90,20 +109,21 @@ public class ProfileEditActivity extends BarActivity {
 
                 class ProfileEditThread extends Thread {
                     static final String TAG = "file data...";
-                    private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo/";
+                    private String URL_STR = "http://192.168.30.64:8089/api/member/editInfo";
                     Uri.Builder params = new Uri.Builder();
 
                     SharedPreferences sp = getSharedPreferences("memberPref", MODE_PRIVATE);
 
                     public void run() {
                         try {
+                            params.appendQueryParameter("memberPic", savedPath);
                             params.appendQueryParameter("roleId", roleSelectedKey);
                             params.appendQueryParameter("regionId1", regionSelectedKey[0]);
                             params.appendQueryParameter("regionId2", regionSelectedKey[1]);
                             params.appendQueryParameter("memberIntro", memberIntro);
 
                             //shared preference에서 내 아이디 빼서 요청 주소 뒤에 붙임
-                            URL url = new URL(URL_STR + sp.getString("memberId", "jo") + params.toString());
+                            URL url = new URL(URL_STR + params.toString());
 
 
                             Log.v(TAG, url.toString());
@@ -282,14 +302,130 @@ public class ProfileEditActivity extends BarActivity {
 
     }
 
+    private void selectGallery() {
+
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setData(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        startActivityForResult(intent, GALLERY_CODE);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MEMBER_INTRO) {
-            if (resultCode == RESULT_OK) {
-                memberIntro = data.getStringExtra("memberIntro");
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+
+            switch (requestCode) {
+
+                case GALLERY_CODE:
+                    sendPicture(data.getData()); //갤러리에서 가져오기
+                    break;
+                case MEMBER_INTRO:
+                    memberIntro = data.getStringExtra("memberIntro");
+                    break;
+                default:
+                    Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
+                    break;
             }
+
+        }
+    }
+
+
+    private void sendPicture(Uri imgUri) {
+
+        final String imagePath = getRealPathFromURI(imgUri); // path 경로
+        ExifInterface exif = null;
+        try {
+            exif = new ExifInterface(imagePath);
+            int exifOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            int exifDegree = exifOrientationToDegrees(exifOrientation);
+            final Bitmap bitmap = resize(this, imgUri, 500);//이미지 리사이즈 후 경로를 통해 비트맵으로 전환
+
+            memberPic.setImageBitmap(rotate(bitmap, exifDegree));//이미지 뷰에 비트맵 넣기
+            try {
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        try {
+                            String sessionId = getSharedPreferences("memberPref", MODE_PRIVATE).getString("sessionId", "");
+                            savedPath = ApiUtil.sendImage(sessionId, bitmap);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+    }
+
+    private int exifOrientationToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+            return 180;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270;
+        }
+        return 0;
+    }
+
+    private Bitmap rotate(Bitmap src, float degree) {
+
+// Matrix 객체 생성
+        Matrix matrix = new Matrix();
+// 회전 각도 셋팅
+        matrix.postRotate(degree);
+// 이미지와 Matrix 를 셋팅해서 Bitmap 객체 생성
+        return Bitmap.createBitmap(src, 0, 0, src.getWidth(),
+                src.getHeight(), matrix, true);
+    }
+
+    private String getRealPathFromURI(Uri contentUri) {
+        int column_index = 0;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        }
+
+        return cursor.getString(column_index);
+    }
+
+    private Bitmap resize(Context context, Uri uri, int resize) {
+        Bitmap resizeBitmap = null;
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        try {
+            BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri), null, options); // 1번
+
+            int width = options.outWidth;
+            int height = options.outHeight;
+            int samplesize = 1;
+
+            while (true) {//2번
+                if (width / 2 < resize || height / 2 < resize)
+                    break;
+                width /= 2;
+                height /= 2;
+                samplesize *= 2;
+            }
+
+            options.inSampleSize = samplesize;
+            Bitmap bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri), null, options); //3번
+            resizeBitmap = bitmap;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resizeBitmap;
     }
 
     public class MyProfileTask extends AsyncTask<Void, Void, MemberVO> {
@@ -337,7 +473,7 @@ public class ProfileEditActivity extends BarActivity {
                 ProfileEditActivity view = (ProfileEditActivity) context;
 
                 //화면에 보여줄 정보
-                ImageTask imgTask = new ImageTask(context);
+                MemberImageTask imgTask = new MemberImageTask(context);
                 memberPic.setTag(memberData.getMemberPic());
                 imgTask.execute(memberPic);
 
@@ -369,6 +505,12 @@ public class ProfileEditActivity extends BarActivity {
 
     }
 
+    @Override
+    public void back(View v) {
+        super.back(v);
+        Intent in = new Intent(this, MyPologActivity.class);
+        startActivity(in);
+    }
 }
 
 

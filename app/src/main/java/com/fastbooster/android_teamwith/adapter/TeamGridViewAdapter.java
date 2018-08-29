@@ -57,6 +57,7 @@ public class TeamGridViewAdapter extends BaseAdapter {
         if(itemLayout==null){
             itemLayout=layoutInflater.inflate(R.layout.team_info_layout,null);
             viewHolder=new TeamLayoutViewHolder();
+
             viewHolder.hkTeamLayoutProjectName=(TextView)itemLayout.findViewById(R.id.hkTeamLayoutProjectName);
             viewHolder.hktvTeamLayoutTeamName=(TextView)itemLayout.findViewById(R.id.hktvTeamLayoutTeamName);
             viewHolder.hktvTeamLayoutProejctCategory=(TextView)itemLayout.findViewById(R.id.hktvTeamLayoutProejctCategory);
@@ -70,11 +71,7 @@ public class TeamGridViewAdapter extends BaseAdapter {
         }
         else{
             viewHolder=(TeamLayoutViewHolder)itemLayout.getTag();
-
-
-
         }
-
         viewHolder.hkTeamLayoutProjectName.setText(data.get(i).getTeamProjectName());
         viewHolder.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
         viewHolder.hktvTeamLayoutProejctCategory.setText(ApplicationShare.categoryList.get(data.get(i).getProjectCategoryId()));
