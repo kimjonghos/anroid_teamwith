@@ -1,5 +1,7 @@
 package com.fastbooster.android_teamwith.api;
 
+import android.content.Context;
+
 import org.json.JSONObject;
 
 public class PologApi {
@@ -8,9 +10,9 @@ public class PologApi {
     public static final String URL_STR = "/polog";
 
 
-    public static JSONObject getPologInfo(String memberId) throws Exception {
+    public static JSONObject getPologInfo(Context context, String memberId) throws Exception {
 
-        return ApiUtil.getJsonObject(URL_STR +"/" +memberId);
+        return ApiUtil.getMyJsonObject(context, URL_STR +"/" +memberId);
 /*
         JSONObject json = null;
         HttpURLConnection conn = null;
