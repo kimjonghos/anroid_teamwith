@@ -53,6 +53,7 @@ public class TeamGridViewAdapter extends BaseAdapter {
         View itemLayout=view;
         TeamLayoutViewHolder viewHolder=null;
         final int ii=i;
+
         if(itemLayout==null){
             itemLayout=layoutInflater.inflate(R.layout.team_info_layout,null);
             viewHolder=new TeamLayoutViewHolder();
@@ -61,25 +62,9 @@ public class TeamGridViewAdapter extends BaseAdapter {
             viewHolder.hktvTeamLayoutProejctCategory=(TextView)itemLayout.findViewById(R.id.hktvTeamLayoutProejctCategory);
             viewHolder.hkivTeamLayoutTeamPic=(ImageView) itemLayout.findViewById(R.id.hkivTeamLayoutTeamPic);
             viewHolder.hkTeamInfoLayOut=(LinearLayout) itemLayout.findViewById(R.id.hkTeamInfoLayOut);
-            viewHolder.hkTeamInfoLayOut.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            final String  dataMemberId=data.get(i).getMemberId();
+            final String  dataTeamId=data.get(i).getTeamId();
 
-                    Intent intent=((Activity)context).getIntent();
-                    SharedPreferences sp = context.getSharedPreferences("memberPref",Context.MODE_PRIVATE);
-                    String memberId=sp.getString("memberId",null);
-                    if(memberId!=null){
-                        if(data.get(ii).getMemberId().equals(memberId)){
-                            intent.setClass(context, TeamLeaderActivity.class);
-                        }
-                        else{
-                            intent=new Intent(context, TeamActivity.class);
-                        }
-                    }
-                    intent.putExtra("teamId",data.get(ii).getTeamId());
-                    context.startActivity(intent);
-                }
-            });
 
             itemLayout.setTag(viewHolder);
         }
@@ -94,6 +79,26 @@ public class TeamGridViewAdapter extends BaseAdapter {
         viewHolder.hktvTeamLayoutTeamName.setText(data.get(i).getTeamName());
         viewHolder.hktvTeamLayoutProejctCategory.setText(ApplicationShare.categoryList.get(data.get(i).getProjectCategoryId()));
         viewHolder.hkivTeamLayoutTeamPic.setTag(data.get(i).getTeamPic());
+        viewHolder.hkTeamInfoLayOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                    Intent intent=((Activity)context).getIntent();
+                Intent intent=new Intent();
+                SharedPreferences sp = context.getSharedPreferences("memberPref",Context.MODE_PRIVATE);
+                String memberId=sp.getString("memberId",null);
+                if(memberId!=null){
+                    if(data.get(ii).getMemberId().equals(memberId)){
+                        intent=new Intent(context, TeamLeaderActivity.class);
+                    }
+                    else{
+                        intent=new Intent(context, TeamActivity.class);
+                    }
+                }
+                intent.putExtra("teamId",data.get(ii).getTeamId());
+                context.startActivity(intent);
+            }
+        });
         ImageTask imageTask=new ImageTask(context);
         imageTask.execute(viewHolder.hkivTeamLayoutTeamPic);
 
