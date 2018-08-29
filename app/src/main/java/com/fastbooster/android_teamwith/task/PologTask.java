@@ -3,7 +3,6 @@ package com.fastbooster.android_teamwith.task;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -93,6 +92,8 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
 
             TextView pologEmail = profileView.findViewById(R.id.k_polog_email);
             TextView pologIntro = profileView.findViewById(R.id.k_polog_Intro);
+            TextView memberPhone = profileView.findViewById(R.id.memberPhone);
+            TextView memberBirth = profileView.findViewById(R.id.memberBirth);
             TextView pologCategory = profileView.findViewById(R.id.k_polog_category);
             TextView pologSkill = profileView.findViewById(R.id.k_polog_skill);
             TextView pologPraise1 = profileView.findViewById(R.id.k_polog_praise1);
@@ -110,6 +111,8 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
             SeekBar tendency5 = profileView.findViewById(R.id.k_polog_tendency5);
             pologEmail.setText("Email " + member.getMemberEmail());
             pologIntro.setText("Intro " + member.getMemberIntro());
+            memberPhone.setText("Phone " + member.getMemberPhone());
+            memberBirth.setText("Birth " + member.getMemberBirth());
 
             String[] categoryId = category.getProjectCategoryId();
             pologCategory.setText("");
