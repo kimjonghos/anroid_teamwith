@@ -46,7 +46,7 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
         JSONObject o = null;
         try {
 
-            o = PologApi.getPologInfo(strings[0]);
+            o = PologApi.getPologInfo(context, strings[0]);
             return o;
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,9 +138,11 @@ public class PologTask extends AsyncTask<String, Void, JSONObject> {
                 }
             }
             String[] praiseCnt = praise.getPraiseCnt();
+
             String[] praiseName = praise.getPraiseName();
             TextView[] tvPraise = {pologPraise1, pologPraise2, pologPraise3, pologPraise4, pologPraise5};
-            for (int i = 0; i < praiseCnt.length; i++) {
+            for (int i = 0; i < 5; i++) {
+                // Log.e("praise",praiseCnt[i]);
                 tvPraise[i].setText(praiseCnt[i] + "회");
             }
             tendency1.setProgress(Integer.parseInt(tendency.getTendency1()));
