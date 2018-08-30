@@ -17,7 +17,7 @@ import java.util.List;
 public class ApplyApi {
     public static Boolean applyTeam(String sessionId, String teamId, List<String> interviewAnswer, List<String> interviewQuestionId, String freewriting, String roleId) throws Exception {
         String key = teamId.substring(5);
-        URL url = new URL("http://192.168.30.64:8089/api/application/apply/" + key);
+        URL url = new URL("http://192.168.30.27:8089/api/application/apply/" + key);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestProperty("Cookie", sessionId);
