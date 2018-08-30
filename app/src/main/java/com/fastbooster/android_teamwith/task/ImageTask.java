@@ -24,7 +24,7 @@ public class ImageTask extends AsyncTask<ImageView, Void, Bitmap> {
         if (image.getTag() == null || ((String) image.getTag()).equals("null")) {
             return null;
         }
-        String urlStr = "http://192.168.30.64:8089" + (String) image.getTag();
+        String urlStr = "http://192.168.30.27:8089" + (String) image.getTag();
         try {
             URL url = new URL(urlStr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

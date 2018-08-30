@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.UUID;
 
 public class ApiUtil {
-    private static final String URL_STR = "http://192.168.30.64:8089/api";
+    private static final String URL_STR = "http://192.168.30.27:8089/api";
 
     public static JSONObject getJsonObject(String urlStr) {
         try {
